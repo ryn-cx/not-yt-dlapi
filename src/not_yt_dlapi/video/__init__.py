@@ -52,12 +52,7 @@ class VideoMixin(YTDLAPIProtocol):
         )
         request = method(part=part, id=video_id)
 
-        self.logger.info(
-            "Requesting %s.%s with params: %s",
-            resource,
-            method,
-            {"part": part, "id": video_id},
-        )
+        self.logger.info("Downloading Video: %s ", video_id)
 
         return request.execute()
 
