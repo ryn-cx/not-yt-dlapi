@@ -1,11 +1,10 @@
 import logging
 from typing import Any
 
-from gapi import CustomField, GapiCustomizations
+from gapi import CustomField, CustomSerializer, GapiCustomizations
 
 from not_yt_dlapi.protocol import YTDLAPIProtocol
-
-from .models import Video
+from not_yt_dlapi.video.models import Video
 
 
 class VideoNotFoundError(Exception):
@@ -22,6 +21,15 @@ class VideoMixin(YTDLAPIProtocol):
                 class_name="ContentDetails",
                 field_name="dimension",
                 new_field="dimension: str",
+            ),
+        ],
+        custom_serializers=[
+            CustomSerializer(
+                class_name="ContentDetails",
+                field_name="duration",
+                serializer_code="""if value == timedelta(days=0):
+    return "P0D"
+return value""",
             ),
         ],
     )
