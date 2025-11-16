@@ -182,23 +182,7 @@ class RecordingDetails(BaseModel):
     recording_date: AwareDatetime | None = Field(None, alias="recordingDate")
 
 
-class Ru(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
 class En(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class ZhTw(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
@@ -214,7 +198,103 @@ class Ja(BaseModel):
     description: str
 
 
+class Ru(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class ZhTw(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class NlNl(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str | None = None
+    description: str
+
+
 class Pl(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class It(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str | None = None
+    description: str
+
+
+class EsUs(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class FrFr(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Hi(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class EnGb(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Ko(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Id(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str | None = None
+    description: str
+
+
+class DeDe(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class PtBr(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
@@ -238,14 +318,6 @@ class Ml(BaseModel):
     description: str
 
 
-class Hi(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
 class Uk(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
@@ -254,47 +326,7 @@ class Uk(BaseModel):
     description: str
 
 
-class Id(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str | None = None
-    description: str
-
-
 class Bn(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class It(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    description: str
-    title: str | None = None
-
-
-class PtBr(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class FrFr(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class EnGb(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
@@ -311,30 +343,6 @@ class Iw(BaseModel):
 
 
 class Ta(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class NlNl(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    description: str
-    title: str | None = None
-
-
-class DeDe(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class EsUs(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
@@ -390,7 +398,159 @@ class Te(BaseModel):
     description: str
 
 
-class Ko(BaseModel):
+class Fil(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class FrCa(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class EsEs(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class FrBe(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class EnIn(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class EsMx(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Es(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class ZhHk(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Pt(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class PtPt(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class DeCh(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class EnIe(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Es419(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class ZhHans(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class FrCh(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Ga(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class EnAu(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class EnUs(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Th(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Vi(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
@@ -422,118 +582,6 @@ class EnCa(BaseModel):
     description: str
 
 
-class FrCa(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class Pt(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class DeCh(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class EsEs(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class PtPt(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class EnIe(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class EnAu(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class EsMx(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class Es419(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class Th(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class Vi(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class EnUs(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class ZhHk(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class Es(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
 class ZhCn(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
@@ -542,7 +590,31 @@ class ZhCn(BaseModel):
     description: str
 
 
-class ZhHans(BaseModel):
+class Da(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Nl(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Sv(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class No(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
@@ -566,103 +638,67 @@ class ZhHant(BaseModel):
     description: str
 
 
-class Da(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class No(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class Fil(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class Sv(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
-class Nl(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str
-    description: str
-
-
 class Localizations(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    ru: Ru | None = None
     en: En | None = None
-    zh_tw: ZhTw | None = Field(None, alias="zh-TW")
     ja: Ja | None = None
+    ru: Ru | None = None
+    zh_tw: ZhTw | None = Field(None, alias="zh-TW")
+    nl_nl: NlNl | None = Field(None, alias="nl-NL")
     pl: Pl | None = None
+    it: It | None = None
+    es_us: EsUs | None = Field(None, alias="es-US")
+    fr_fr: FrFr | None = Field(None, alias="fr-FR")
+    hi: Hi | None = None
+    en_gb: EnGb | None = Field(None, alias="en-GB")
+    ko: Ko | None = None
+    id: Id | None = None
+    de_de: DeDe | None = Field(None, alias="de-DE")
+    pt_br: PtBr | None = Field(None, alias="pt-BR")
     pa: Pa | None = None
     ml: Ml | None = None
-    hi: Hi | None = None
     uk: Uk | None = None
-    id: Id | None = None
     bn: Bn | None = None
-    it: It | None = None
-    pt_br: PtBr | None = Field(None, alias="pt-BR")
-    fr_fr: FrFr | None = Field(None, alias="fr-FR")
-    en_gb: EnGb | None = Field(None, alias="en-GB")
     iw: Iw | None = None
     ta: Ta | None = None
-    nl_nl: NlNl | None = Field(None, alias="nl-NL")
-    de_de: DeDe | None = Field(None, alias="de-DE")
-    es_us: EsUs | None = Field(None, alias="es-US")
     fr: Fr | None = None
     de: De | None = None
     el: El | None = None
     zh: Zh | None = None
     ar: Ar | None = None
     te: Te | None = None
-    ko: Ko | None = None
+    fil: Fil | None = None
+    fr_ca: FrCa | None = Field(None, alias="fr-CA")
+    es_es: EsEs | None = Field(None, alias="es-ES")
+    fr_be: FrBe | None = Field(None, alias="fr-BE")
+    en_in: EnIn | None = Field(None, alias="en-IN")
+    es_mx: EsMx | None = Field(None, alias="es-MX")
+    es: Es | None = None
+    zh_hk: ZhHk | None = Field(None, alias="zh-HK")
+    pt: Pt | None = None
+    pt_pt: PtPt | None = Field(None, alias="pt-PT")
+    de_ch: DeCh | None = Field(None, alias="de-CH")
+    en_ie: EnIe | None = Field(None, alias="en-IE")
+    es_419: Es419 | None = Field(None, alias="es-419")
+    zh_hans: ZhHans | None = Field(None, alias="zh-Hans")
+    fr_ch: FrCh | None = Field(None, alias="fr-CH")
+    ga: Ga | None = None
+    en_au: EnAu | None = Field(None, alias="en-AU")
+    en_us: EnUs | None = Field(None, alias="en-US")
+    th: Th | None = None
+    vi: Vi | None = None
     tr: Tr | None = None
     hu: Hu | None = None
     en_ca: EnCa | None = Field(None, alias="en-CA")
-    fr_ca: FrCa | None = Field(None, alias="fr-CA")
-    pt: Pt | None = None
-    de_ch: DeCh | None = Field(None, alias="de-CH")
-    es_es: EsEs | None = Field(None, alias="es-ES")
-    pt_pt: PtPt | None = Field(None, alias="pt-PT")
-    en_ie: EnIe | None = Field(None, alias="en-IE")
-    en_au: EnAu | None = Field(None, alias="en-AU")
-    es_mx: EsMx | None = Field(None, alias="es-MX")
-    es_419: Es419 | None = Field(None, alias="es-419")
-    th: Th | None = None
-    vi: Vi | None = None
-    en_us: EnUs | None = Field(None, alias="en-US")
-    zh_hk: ZhHk | None = Field(None, alias="zh-HK")
-    es: Es | None = None
     zh_cn: ZhCn | None = Field(None, alias="zh-CN")
-    zh_hans: ZhHans | None = Field(None, alias="zh-Hans")
+    da: Da | None = None
+    nl: Nl | None = None
+    sv: Sv | None = None
+    no: No | None = None
     fi: Fi | None = None
     zh_hant: ZhHant | None = Field(None, alias="zh-Hant")
-    da: Da | None = None
-    no: No | None = None
-    fil: Fil | None = None
-    sv: Sv | None = None
-    nl: Nl | None = None
 
 
 class PaidProductPlacementDetails(BaseModel):
@@ -676,13 +712,13 @@ class LiveStreamingDetails(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    active_live_chat_id: str | None = Field(None, alias="activeLiveChatId")
     actual_start_time: AwareDatetime | None = Field(None, alias="actualStartTime")
     actual_end_time: AwareDatetime | None = Field(None, alias="actualEndTime")
     scheduled_start_time: AwareDatetime | None = Field(
         None,
         alias="scheduledStartTime",
     )
+    active_live_chat_id: str | None = Field(None, alias="activeLiveChatId")
 
 
 class Item(BaseModel):

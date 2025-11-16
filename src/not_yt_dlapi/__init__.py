@@ -43,10 +43,6 @@ class NotYTDLAPI(VideoMixin):
             # Dump expected and actual to _temp folder for inspection
             temp_dir = FILES_PATH / "_temp"
             temp_dir.mkdir(exist_ok=True)
-            original_json = temp_dir / "original.json"
-            parsed_json = temp_dir / "parsed.json"
-            original_json.write_text(json.dumps(data, indent=2))
-            parsed_json.write_text(json.dumps(self.dump_response(parsed), indent=2))
             msg = "Parsed response does not match original response."
             raise ValueError(msg)
 
