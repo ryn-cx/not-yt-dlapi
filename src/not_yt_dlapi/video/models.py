@@ -82,7 +82,7 @@ class Snippet(BaseModel):
     description: str
     thumbnails: Thumbnails
     channel_title: str = Field(..., alias="channelTitle")
-    tags: list[str]
+    tags: list[str] | None = None
     category_id: str = Field(..., alias="categoryId")
     live_broadcast_content: str = Field(..., alias="liveBroadcastContent")
     default_language: str = Field(..., alias="defaultLanguage")
@@ -97,6 +97,13 @@ class ContentRating(BaseModel):
     yt_rating: str | None = Field(None, alias="ytRating")
 
 
+class RegionRestriction(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    blocked: list[str]
+
+
 class ContentDetails(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
@@ -108,6 +115,10 @@ class ContentDetails(BaseModel):
     licensed_content: bool = Field(..., alias="licensedContent")
     content_rating: ContentRating = Field(..., alias="contentRating")
     projection: str
+    region_restriction: RegionRestriction | None = Field(
+        None,
+        alias="regionRestriction",
+    )
 
 
 class Status(BaseModel):
@@ -126,8 +137,8 @@ class Statistics(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    view_count: str = Field(..., alias="viewCount")
-    like_count: str = Field(..., alias="likeCount")
+    view_count: str | None = Field(None, alias="viewCount")
+    like_count: str | None = Field(None, alias="likeCount")
     favorite_count: str = Field(..., alias="favoriteCount")
     comment_count: str = Field(..., alias="commentCount")
 
@@ -164,7 +175,23 @@ class RecordingDetails(BaseModel):
     recording_date: AwareDatetime | None = Field(None, alias="recordingDate")
 
 
+class Ru(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
 class En(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class ZhTw(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
@@ -180,7 +207,143 @@ class Ja(BaseModel):
     description: str
 
 
-class Ru(BaseModel):
+class Ko(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class EsUs(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class It(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str | None = None
+    description: str
+
+
+class NlNl(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str | None = None
+    description: str
+
+
+class EnGb(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Id(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str | None = None
+    description: str
+
+
+class FrFr(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class DeDe(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Pl(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Pa(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Ml(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Hi(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Uk(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Bn(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class PtBr(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Iw(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    description: str
+    title: str | None = None
+
+
+class Ta(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Fr(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
@@ -196,14 +359,177 @@ class De(BaseModel):
     description: str
 
 
+class El(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Zh(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Ar(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Te(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Tr(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Hu(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Pt(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class EnUs(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Fil(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Da(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Nl(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Sv(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Es(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class No(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Th(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
+class Es419(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str
+    description: str
+
+
 class Localizations(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    en: En
-    ja: Ja | None = None
     ru: Ru | None = None
+    en: En | None = None
+    zh_tw: ZhTw | None = Field(None, alias="zh-TW")
+    ja: Ja | None = None
+    ko: Ko | None = None
+    es_us: EsUs | None = Field(None, alias="es-US")
+    it: It | None = None
+    nl_nl: NlNl | None = Field(None, alias="nl-NL")
+    en_gb: EnGb | None = Field(None, alias="en-GB")
+    id: Id | None = None
+    fr_fr: FrFr | None = Field(None, alias="fr-FR")
+    de_de: DeDe | None = Field(None, alias="de-DE")
+    pl: Pl | None = None
+    pa: Pa | None = None
+    ml: Ml | None = None
+    hi: Hi | None = None
+    uk: Uk | None = None
+    bn: Bn | None = None
+    pt_br: PtBr | None = Field(None, alias="pt-BR")
+    iw: Iw | None = None
+    ta: Ta | None = None
+    fr: Fr | None = None
     de: De | None = None
+    el: El | None = None
+    zh: Zh | None = None
+    ar: Ar | None = None
+    te: Te | None = None
+    tr: Tr | None = None
+    hu: Hu | None = None
+    pt: Pt | None = None
+    en_us: EnUs | None = Field(None, alias="en-US")
+    fil: Fil | None = None
+    da: Da | None = None
+    nl: Nl | None = None
+    sv: Sv | None = None
+    es: Es | None = None
+    no: No | None = None
+    th: Th | None = None
+    es_419: Es419 | None = Field(None, alias="es-419")
 
 
 class PaidProductPlacementDetails(BaseModel):
@@ -211,6 +537,18 @@ class PaidProductPlacementDetails(BaseModel):
         extra="forbid",
     )
     has_paid_product_placement: bool = Field(..., alias="hasPaidProductPlacement")
+
+
+class LiveStreamingDetails(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    actual_start_time: AwareDatetime = Field(..., alias="actualStartTime")
+    actual_end_time: AwareDatetime = Field(..., alias="actualEndTime")
+    scheduled_start_time: AwareDatetime | None = Field(
+        None,
+        alias="scheduledStartTime",
+    )
 
 
 class Item(BaseModel):
@@ -231,6 +569,10 @@ class Item(BaseModel):
     paid_product_placement_details: PaidProductPlacementDetails = Field(
         ...,
         alias="paidProductPlacementDetails",
+    )
+    live_streaming_details: LiveStreamingDetails | None = Field(
+        None,
+        alias="liveStreamingDetails",
     )
 
 
