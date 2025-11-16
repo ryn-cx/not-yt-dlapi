@@ -1,13 +1,14 @@
 [project]
-name = "yt-dlapi"
+name = "not-yt-dlapi"
 version = "0.1.0"
-description = "Unofficial YouTube API based on yt-dlp"
+description = "Not yt-dlp"
 readme = "README.md"
 authors = [
     { name = "ryn-cx", email = "84663588+ryn-cx@users.noreply.github.com" },
 ]
 requires-python = ">=3.13"
 dependencies = [
+ "gapi",
  "google-api-python-client>=2.0.0",
  "google-auth-httplib2>=0.2.0",
  "google-auth-oauthlib>=1.0.0",
