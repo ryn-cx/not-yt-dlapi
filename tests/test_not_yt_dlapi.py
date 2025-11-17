@@ -24,8 +24,15 @@ class TestParsing:
         """Get all JSON test files for a given endpoint."""
         dir_path = FILES_PATH / endpoint
         if not dir_path.exists():
-            pytest.skip(f"{dir_path} not found")
-        return dir_path.glob("*.json")
+            pytest.fail(f"{dir_path} not found")
+
+        files = dir_path.glob("*.json")
+
+        # Make sure at least 1 file is found
+        if not any(files):
+            pytest.fail(f"No test files found in {dir_path}")
+
+        return files
 
     def test_parse_video(self) -> None:
         for json_file in self.get_test_files("video"):
