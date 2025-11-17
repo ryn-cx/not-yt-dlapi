@@ -5,10 +5,9 @@ from not_yt_dlapi.video import VideoMixin
 
 if __name__ == "__main__":
     for input_folder in FILES_PATH.iterdir():
-        if input_folder.name == ".git":
+        if input_folder.name in {".git", "_temp"} or input_folder.is_file():
             continue
-        if input_folder.name == "_temp":
-            continue
+
         name = input_folder.name
         schema_path = NOT_YT_DLAPI_PATH / f"{name}/schema.json"
         model_path = NOT_YT_DLAPI_PATH / f"{name}/models.py"
