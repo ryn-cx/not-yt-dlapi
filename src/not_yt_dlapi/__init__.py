@@ -40,9 +40,14 @@ class NotYTDLAPI(VideoMixin):
             raise ValueError(msg) from e
 
         if self.dump_response(parsed) != data:
-            # Dump expected and actual to _temp folder for inspection
-            temp_dir = FILES_PATH / "_temp"
-            temp_dir.mkdir(exist_ok=True)
+            save_file(name, data)
+            temp_path = FILES_PATH / "_temp"
+            named_temp_path = temp_path / name
+            named_temp_path.mkdir(parents=True, exist_ok=True)
+            original_path = named_temp_path / "original.json"
+            parsed_path = named_temp_path / "parsed.json"
+            original_path.write_text(json.dumps(data, indent=2))
+            parsed_path.write_text(json.dumps(self.dump_response(parsed), indent=2))
             msg = "Parsed response does not match original response."
             raise ValueError(msg)
 
