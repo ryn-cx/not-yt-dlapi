@@ -8,7 +8,7 @@ default_logger = logging.getLogger(__name__)
 
 
 class YTDLAPIProtocol(Protocol):
-    def _parse_response[T: BaseModel](
+    def parse_response[T: BaseModel](
         self,
         response_model: type[T],
         data: dict[str, Any],

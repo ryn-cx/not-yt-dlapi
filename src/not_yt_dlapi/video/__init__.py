@@ -71,7 +71,7 @@ return value""",
         update: bool = False,
     ) -> models.Video:
         if update:
-            return self._parse_response(
+            return self.parse_response(
                 models.Video,
                 data,
                 "video",
