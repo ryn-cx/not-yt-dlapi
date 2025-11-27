@@ -4,7 +4,7 @@ from typing import Any
 from gapi import CustomField, CustomSerializer, GapiCustomizations
 
 from not_yt_dlapi.protocol import YTDLAPIProtocol
-from not_yt_dlapi.video.models import Video
+from not_yt_dlapi.video import models
 
 
 class VideoNotFoundError(Exception):
@@ -64,13 +64,23 @@ return value""",
 
         return request.execute()
 
-    def parse_video(self, data: dict[str, Any], *, update: bool = False) -> Video:
+    def parse_video(
+        self,
+        data: dict[str, Any],
+        *,
+        update: bool = False,
+    ) -> models.Video:
         if update:
-            return self._parse_response(Video, data, "video", self.GAPI_CUSTOMIZATIONS)
+            return self._parse_response(
+                models.Video,
+                data,
+                "video",
+                self.GAPI_CUSTOMIZATIONS,
+            )
 
-        return Video.model_validate(data)
+        return models.Video.model_validate(data)
 
-    def get_video(self, video_id: str) -> Video:
+    def get_video(self, video_id: str) -> models.Video:
         """Get video information from YouTube.
 
         Args:

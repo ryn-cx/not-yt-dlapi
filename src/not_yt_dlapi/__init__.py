@@ -1,19 +1,25 @@
 import json
 import logging
-from typing import Any
+import uuid
+from typing import Any, override
 
-from gapi import GapiCustomizations
+from gapi import (
+    AbstractGapiClient,
+    GapiCustomizations,
+    apply_customizations,
+    update_json_schema_and_pydantic_model,
+)
 from googleapiclient.discovery import build
-from pydantic import BaseModel, ValidationError
+
+from not_yt_dlapi.constants import NOT_YT_DLAPI_PATH
 
 from .constants import FILES_PATH
-from .update_files import save_file, update_model
 from .video import VideoMixin
 
 default_logger = logging.getLogger(__name__)
 
 
-class NotYTDLAPI(VideoMixin):
+class NotYTDLAPI(AbstractGapiClient, VideoMixin):
     def __init__(
         self,
         api_key: str,
@@ -24,35 +30,24 @@ class NotYTDLAPI(VideoMixin):
         self.logger = logger
         self.youtube = build("youtube", "v3", developerKey=api_key)
 
-    def _parse_response[T: BaseModel](
+    @override
+    def save_file(self, name: str, data: dict[str, Any], model_type: str) -> None:
+        """Add a new test file for a given endpoint."""
+        random_file_name = f"{uuid.uuid4()}.json"
+        input_path = FILES_PATH / name / random_file_name
+        input_path.parent.mkdir(parents=True, exist_ok=True)
+        input_path.write_text(json.dumps(data, indent=2))
+
+    @override
+    def update_model(
         self,
-        response_model: type[T],
-        data: dict[str, Any],
         name: str,
+        model_type: str,
         customizations: GapiCustomizations | None = None,
-    ) -> T:
-        try:
-            parsed = response_model.model_validate(data)
-        except ValidationError as e:
-            save_file(name, data)
-            update_model(name, customizations)
-            msg = "Parsing error, model updated, try again."
-            raise ValueError(msg) from e
-
-        if self.dump_response(parsed) != data:
-            save_file(name, data)
-            temp_path = FILES_PATH / "_temp"
-            named_temp_path = temp_path / name
-            named_temp_path.mkdir(parents=True, exist_ok=True)
-            original_path = named_temp_path / "original.json"
-            parsed_path = named_temp_path / "parsed.json"
-            original_path.write_text(json.dumps(data, indent=2))
-            parsed_path.write_text(json.dumps(self.dump_response(parsed), indent=2))
-            msg = "Parsed response does not match original response."
-            raise ValueError(msg)
-
-        return parsed
-
-    def dump_response(self, data: BaseModel) -> dict[str, Any]:
-        """Dump an API response to a JSON serializable object."""
-        return data.model_dump(mode="json", by_alias=True, exclude_unset=True)
+    ) -> None:
+        """Update a specific response model based on input data."""
+        schema_path = NOT_YT_DLAPI_PATH / f"{name}/schema.json"
+        model_path = NOT_YT_DLAPI_PATH / f"{name}/models.py"
+        files_path = FILES_PATH / name
+        update_json_schema_and_pydantic_model(files_path, schema_path, model_path, name)
+        apply_customizations(model_path, customizations)
