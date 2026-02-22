@@ -1,0 +1,37 @@
+[project]
+name = "not-yt-dlapi"
+version = "0.1.0"
+description = "Companion for yt-dlapi."
+readme = "README.md"
+requires-python = ">=3.14"
+authors = [
+  { name = "ryn-cx", email = "262888154+ryn-cx@users.noreply.github.com" }
+]
+dependencies = [
+  "good-ass-pydantic-integrator",
+  "google-api-python-client>=2.190.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.18,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.ruff.lint]
+select = ["ALL"]  # Enable all linters.
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]  # Asserts should be allowed in tests.
+
+[tool.uv.sources]
+good-ass-pydantic-integrator = { git = "https://github.com/ryn-cx/good-ass-pydantic-integrator" }
+
+[dependency-groups]
+dev = [
+    "prek>=0.3.3",
+    "pylint>=4.0.5",
+    "pytest>=9.0.2",
+    "ruff>=0.15.2",
+]
