@@ -42,7 +42,6 @@ class Video(BaseEndpoint[VideoModel]):
                 serializer_code="if value == timedelta(days=0):\n"
                 '    return "P0D"\n'
                 "return value",
-                input_type="timedelta",
                 output_type="timedelta",
             ),
         ]
