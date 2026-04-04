@@ -88,9 +88,9 @@ class TestGet:
             """Test getting a channel."""
             client.channel.get(channel_id="UC4QobU6STFB0P71PMvOGN5A")
 
-        def test_get_channel_by_username(self) -> None:
-            """Test getting a channel by username."""
-            client.channel.get(username="Google")
+        def test_get_channel_by_handle(self) -> None:
+            """Test getting a channel by handle."""
+            client.channel.get(handle="@Google")
 
     class TestInvalid:
         """Tests getting data with invalid inputs."""

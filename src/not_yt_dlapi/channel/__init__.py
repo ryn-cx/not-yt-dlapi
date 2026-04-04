@@ -35,35 +35,35 @@ class Channels(BaseEndpoint[ChannelModel]):
         self,
         *,
         channel_id: str | None = None,
-        username: str | None = None,
+        handle: str | None = None,
     ) -> dict[str, Any]:
-        """Downloads channel data by channel ID or YouTube username.
+        """Downloads channel data by channel ID or YouTube handle.
 
         Args:
             channel_id: The ID of the channel to download.
-            username: The YouTube username to download.
+            handle: The YouTube handle to download.
 
         Returns:
             The raw JSON response as a dict, suitable for passing to ``parse()``.
         """
-        if (channel_id is None) == (username is None):
-            msg = "Exactly one of channel_id or username must be provided."
+        if (channel_id is None) == (handle is None):
+            msg = "Exactly one of channel_id or handle must be provided."
             raise ValueError(msg)
 
         params: dict[str, str] = {"part": PART, "key": self._client.api_key}
         if channel_id is not None:
             params["id"] = channel_id
             logger.info("Downloading Channel: %s", channel_id)
-        elif username is not None:
-            params["forUsername"] = username
-            logger.info("Downloading Channel by username: %s", username)
+        elif handle is not None:
+            params["forHandle"] = handle
+            logger.info("Downloading Channel by handle: %s", handle)
 
         output = self._client.get_around.get(
             f"{BASE_URL}/channels",
             params=params,
         ).json()
         output["not_yt_dlapi"] = {
-            "channel_id": channel_id or username,
+            "channel_id": channel_id or handle,
             "part": PART,
             "timestamp": generate_timestamp(),
         }
@@ -73,20 +73,20 @@ class Channels(BaseEndpoint[ChannelModel]):
         self,
         *,
         channel_id: str | None = None,
-        username: str | None = None,
+        handle: str | None = None,
     ) -> ChannelModel:
-        """Downloads and parses channel data by channel ID or YouTube username.
+        """Downloads and parses channel data by channel ID or YouTube handle.
 
         Args:
             channel_id: The ID of the channel to get.
-            username: The YouTube username to get.
+            handle: The YouTube handle to get.
 
         Returns:
             A ChannelModel containing the parsed data.
         """
-        response = self.download(channel_id=channel_id, username=username)
+        response = self.download(channel_id=channel_id, handle=handle)
         if not response.get("items"):
-            identifier = channel_id or username
+            identifier = channel_id or handle
             msg = f"Channel '{identifier}' not found."
             raise ChannelNotFoundError(msg)
 
