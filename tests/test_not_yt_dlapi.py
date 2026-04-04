@@ -24,27 +24,27 @@ class TestParse:
 
     def test_parse_video(self) -> None:
         """Test parsing video files."""
-        for json_file in client.video.json_files():
+        for json_file in client.videos.json_files():
             file_content = json.loads(json_file.read_text())
-            client.video.parse(file_content)
+            client.videos.parse(file_content)
 
     def test_parse_playlist(self) -> None:
         """Test parsing playlist files."""
-        for json_file in client.playlist.json_files():
+        for json_file in client.playlists.json_files():
             file_content = json.loads(json_file.read_text())
-            client.playlist.parse(file_content)
+            client.playlists.parse(file_content)
 
     def test_parse_playlist_item(self) -> None:
         """Test parsing playlist item files."""
-        for json_file in client.playlist_item.json_files():
+        for json_file in client.playlist_items.json_files():
             file_content = json.loads(json_file.read_text())
-            client.playlist_item.parse(file_content)
+            client.playlist_items.parse(file_content)
 
     def test_parse_channel(self) -> None:
         """Test parsing channel files."""
-        for json_file in client.channel.json_files():
+        for json_file in client.channels.json_files():
             file_content = json.loads(json_file.read_text())
-            client.channel.parse(file_content)
+            client.channels.parse(file_content)
 
 
 @pytest.mark.skipif(not API_KEY, reason="YOUTUBE_API_KEY environment variable not set")
@@ -56,41 +56,41 @@ class TestGet:
 
         def test_get_video(self) -> None:
             """Test getting a video."""
-            client.video.get("jNQXAC9IVRw")
+            client.videos.get("jNQXAC9IVRw")
 
         def test_get_age_restricted_video(self) -> None:
             """Test getting an age-restricted video."""
-            client.video.get("l1ITP7m6R0Q")
+            client.videos.get("l1ITP7m6R0Q")
 
         def test_get_playlist(self) -> None:
             """Test getting playlists for a channel."""
-            client.playlist.get("UC4QobU6STFB0P71PMvOGN5A")
+            client.playlists.get("UC4QobU6STFB0P71PMvOGN5A")
 
         def test_get_all_playlists(self) -> None:
             """Test getting all playlists for a channel with pagination."""
-            client.playlist.get_all("UC4QobU6STFB0P71PMvOGN5A")
+            client.playlists.get_all("UC4QobU6STFB0P71PMvOGN5A")
 
         def test_get_playlist_item(self) -> None:
             """Test getting items from a playlist."""
-            client.playlist_item.get("UU4QobU6STFB0P71PMvOGN5A")
+            client.playlist_items.get("UU4QobU6STFB0P71PMvOGN5A")
 
         def test_get_all_playlist_items(self) -> None:
             """Test getting all items from a playlist with pagination."""
-            client.playlist_item.get_all("UU4QobU6STFB0P71PMvOGN5A")
+            client.playlist_items.get_all("UU4QobU6STFB0P71PMvOGN5A")
 
         def test_get_multiple_videos(self) -> None:
             """Test getting multiple videos at once."""
-            results = client.video.get_multiple(["jNQXAC9IVRw", "S-8U4lSEq8A"])
+            results = client.videos.get_multiple(["jNQXAC9IVRw", "S-8U4lSEq8A"])
             expected = 2
             assert len(results) == expected
 
         def test_get_channel(self) -> None:
             """Test getting a channel."""
-            client.channel.get(channel_id="UC4QobU6STFB0P71PMvOGN5A")
+            client.channels.get(channel_id="UC4QobU6STFB0P71PMvOGN5A")
 
         def test_get_channel_by_handle(self) -> None:
             """Test getting a channel by handle."""
-            client.channel.get(handle="@Google")
+            client.channels.get(handle="@Google")
 
     class TestInvalid:
         """Tests getting data with invalid inputs."""
@@ -98,9 +98,9 @@ class TestGet:
         def test_get_invalid_video(self) -> None:
             """Test getting an invalid video."""
             with pytest.raises(VideoNotFoundError):
-                client.video.get("12345678901")
+                client.videos.get("12345678901")
 
         def test_get_invalid_channel(self) -> None:
             """Test getting an invalid channel."""
             with pytest.raises(ChannelNotFoundError):
-                client.channel.get(channel_id="UCinvalidchannelid123456")
+                client.channels.get(channel_id="UCinvalidchannelid123456")

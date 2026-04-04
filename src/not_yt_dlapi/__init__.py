@@ -25,7 +25,7 @@ class NotYTDLAPI:
             password=get_around_password,
         )
 
-        self.video = Videos(self)
-        self.playlist = Playlists(self)
-        self.playlist_item = PlaylistItems(self)
-        self.channel = Channels(self)
+        self.videos = Videos(self)
+        self.playlists = Playlists(self)
+        self.playlist_items = PlaylistItems(self)
+        self.channels = Channels(self)
