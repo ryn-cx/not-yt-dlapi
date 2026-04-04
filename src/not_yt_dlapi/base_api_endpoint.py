@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, override
+from datetime import datetime
+from typing import TYPE_CHECKING, Any, override
 
 from good_ass_pydantic_integrator import GAPIClient
 from pydantic import BaseModel
@@ -13,6 +14,46 @@ if TYPE_CHECKING:
     from pathlib import Path
 
     from not_yt_dlapi import NotYTDLAPI
+
+
+def fetch_all_pages(
+    client: NotYTDLAPI,
+    url: str,
+    params: dict[str, Any],
+) -> dict[str, Any]:
+    """Fetch all pages from a paginated YouTube API endpoint.
+
+    Args:
+        client: The NotYTDLAPI client instance.
+        url: The full API URL to request.
+        params: Query parameters for the request.
+
+    Returns:
+        A combined response dict with all items from every page.
+    """
+    params.setdefault("maxResults", 50)
+    combined: dict[str, Any] | None = None
+    all_items: list[dict[str, Any]] = []
+    while True:
+        response = client.get_around.get(url, params=params).json()
+        if combined is None:
+            combined = response
+        all_items.extend(response.get("items", []))
+        next_page_token = response.get("nextPageToken")
+        if not next_page_token:
+            break
+        params["pageToken"] = next_page_token
+
+    if combined is None:
+        msg = "No pages returned from API"
+        raise ValueError(msg)
+    combined["items"] = all_items
+    return combined
+
+
+def generate_timestamp() -> str:
+    """Generate an ISO 8601 timestamp for metadata."""
+    return datetime.now().astimezone().isoformat().replace("+00:00", "Z")
 
 
 class BaseExtractor[T: BaseModel](GAPIClient[T]):

@@ -7,3 +7,7 @@ class NotYTDLAPIError(Exception):
 
 class VideoNotFoundError(NotYTDLAPIError):
     """Exception raised when a video is not found."""
+
+
+class ChannelNotFoundError(NotYTDLAPIError):
+    """Exception raised when a channel is not found."""

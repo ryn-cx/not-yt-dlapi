@@ -74,7 +74,7 @@ class Snippet(BaseModel):
 
 class ContentRating(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    yt_rating: str = Field(..., alias="ytRating")
+    yt_rating: str | None = Field(None, alias="ytRating")
 
 
 class ContentDetails(BaseModel):

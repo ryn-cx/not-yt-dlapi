@@ -1,16 +1,31 @@
 """NotYTDLAPI is a companion for yt-dlapi."""
 
-from googleapiclient.discovery import build
+from get_around import GetAround
 
-from not_yt_dlapi.video import Video
+from not_yt_dlapi.channel import Channels
+from not_yt_dlapi.playlist import Playlists
+from not_yt_dlapi.playlist_item import PlaylistItems
+from not_yt_dlapi.video import Videos
 
 
 class NotYTDLAPI:
     """Interface for downloading and parsing data from the YouTube Data API."""
 
-    def __init__(self, api_key: str) -> None:
+    def __init__(
+        self,
+        api_key: str,
+        *,
+        get_around_server: str | None = None,
+        get_around_password: str | None = None,
+    ) -> None:
         """Initialize the NotYTDLAPI client."""
         self.api_key = api_key
-        self.youtube = build("youtube", "v3", developerKey=api_key)
+        self.get_around = GetAround(
+            server=get_around_server,
+            password=get_around_password,
+        )
 
-        self.video = Video(self)
+        self.video = Videos(self)
+        self.playlist = Playlists(self)
+        self.playlist_item = PlaylistItems(self)
+        self.channel = Channels(self)

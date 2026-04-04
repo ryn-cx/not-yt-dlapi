@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from copy import deepcopy
 from logging import NullHandler, getLogger
 from typing import Any, override
 
 from good_ass_pydantic_integrator import CustomSerializer, ReplacementType
 
-from not_yt_dlapi.base_api_endpoint import BaseEndpoint
+from not_yt_dlapi.base_api_endpoint import BaseEndpoint, generate_timestamp
+from not_yt_dlapi.constants import BASE_URL
 from not_yt_dlapi.exceptions import VideoNotFoundError
 from not_yt_dlapi.video.models import VideoModel
 
@@ -16,7 +17,7 @@ logger = getLogger(__name__)
 logger.addHandler(NullHandler())
 
 
-class Video(BaseEndpoint[VideoModel]):
+class Videos(BaseEndpoint[VideoModel]):
     """Provides methods to download, parse, and retrieve video data."""
 
     _response_model = VideoModel
@@ -55,8 +56,6 @@ class Video(BaseEndpoint[VideoModel]):
         Returns:
             The raw JSON response as a dict, suitable for passing to ``parse()``.
         """
-        resource = self._client.youtube.videos()
-        method = resource.list
         part = (
             "contentDetails,"
             "id,"
@@ -70,16 +69,17 @@ class Video(BaseEndpoint[VideoModel]):
             "status,"
             "topicDetails"
         )
-        request = method(part=part, id=video_id)
 
         logger.info("Downloading Video: %s ", video_id)
-        output = request.execute()
-        output["not_yt_dlapi"] = {}
-        output["not_yt_dlapi"]["video_id"] = video_id
-        output["not_yt_dlapi"]["part"] = part
-        timestamp = datetime.now().astimezone().isoformat().replace("+00:00", "Z")
-        output["not_yt_dlapi"]["timestamp"] = timestamp
-
+        output = self._client.get_around.get(
+            f"{BASE_URL}/videos",
+            params={"part": part, "id": video_id, "key": self._client.api_key},
+        ).json()
+        output["not_yt_dlapi"] = {
+            "video_id": video_id,
+            "part": part,
+            "timestamp": generate_timestamp(),
+        }
         return output
 
     def get(self, video_id: str) -> VideoModel:
@@ -99,3 +99,38 @@ class Video(BaseEndpoint[VideoModel]):
             raise VideoNotFoundError(msg)
 
         return self.parse(response)
+
+    def download_multiple(self, video_ids: list[str]) -> list[dict[str, Any]]:
+        """Downloads video data for multiple video IDs, split into individual responses.
+
+        Automatically batches into groups of 50 (the API maximum per request).
+
+        Args:
+            video_ids: The IDs of the videos to download.
+
+        Returns:
+            A list of raw JSON responses, one per video.
+        """
+        results: list[dict[str, Any]] = []
+        for i in range(0, len(video_ids), 50):
+            batch = video_ids[i : i + 50]
+            response = self.download(",".join(batch))
+            base = {k: v for k, v in response.items() if k != "items"}
+            for item in response["items"]:
+                single = deepcopy(base)
+                single["items"] = [item]
+                results.append(single)
+        return results
+
+    def get_multiple(self, video_ids: list[str]) -> list[VideoModel]:
+        """Downloads and parses video data for multiple video IDs.
+
+        Each video is returned as its own model with a single item.
+
+        Args:
+            video_ids: The IDs of the videos to get.
+
+        Returns:
+            A list of VideoModel instances, one per video.
+        """
+        return [self.parse(response) for response in self.download_multiple(video_ids)]
