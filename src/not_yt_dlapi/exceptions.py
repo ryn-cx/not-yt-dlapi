@@ -11,3 +11,11 @@ class VideoNotFoundError(NotYTDLAPIError):
 
 class ChannelNotFoundError(NotYTDLAPIError):
     """Exception raised when a channel is not found."""
+
+
+class PlaylistNotFoundError(NotYTDLAPIError):
+    """Exception raised when a playlist is not found."""
+
+
+class PlaylistItemsNotFoundError(NotYTDLAPIError):
+    """Exception raised when playlist items are not found."""

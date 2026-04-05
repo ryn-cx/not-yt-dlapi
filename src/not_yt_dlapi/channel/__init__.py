@@ -67,6 +67,10 @@ class Channels(BaseEndpoint[ChannelModel]):
             "part": PART,
             "timestamp": generate_timestamp(),
         }
+
+        if "error" in output:
+            raise ChannelNotFoundError(output["error"]["message"])
+
         return output
 
     def get(
@@ -84,10 +88,6 @@ class Channels(BaseEndpoint[ChannelModel]):
         Returns:
             A ChannelModel containing the parsed data.
         """
-        response = self.download(channel_id=channel_id, handle=handle)
-        if not response.get("items"):
-            identifier = channel_id or handle
-            msg = f"Channel '{identifier}' not found."
-            raise ChannelNotFoundError(msg)
-
-        return self.parse(response)
+        return self.parse(
+            self.download(channel_id=channel_id, handle=handle),
+        )

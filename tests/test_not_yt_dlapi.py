@@ -6,7 +6,12 @@ import os
 import pytest
 
 from not_yt_dlapi import NotYTDLAPI
-from not_yt_dlapi.exceptions import ChannelNotFoundError, VideoNotFoundError
+from not_yt_dlapi.exceptions import (
+    ChannelNotFoundError,
+    PlaylistItemsNotFoundError,
+    PlaylistNotFoundError,
+    VideoNotFoundError,
+)
 
 API_KEY = os.getenv("YOUTUBE_API_KEY", "")
 GET_AROUND_SERVER = os.getenv("GET_AROUND_SERVER")
@@ -104,3 +109,13 @@ class TestGet:
             """Test getting an invalid channel."""
             with pytest.raises(ChannelNotFoundError):
                 client.channels.get(channel_id="UCinvalidchannelid123456")
+
+        def test_get_invalid_playlists(self) -> None:
+            """Test getting an invalid channel."""
+            with pytest.raises(PlaylistNotFoundError):
+                client.playlists.get(channel_id="UCinvalidchannelid123456")
+
+        def test_get_invalid_playlist(self) -> None:
+            """Test getting an invalid playlist."""
+            with pytest.raises(PlaylistItemsNotFoundError):
+                client.playlist_items.get(playlist_id="PL0123456789ABCDEF")

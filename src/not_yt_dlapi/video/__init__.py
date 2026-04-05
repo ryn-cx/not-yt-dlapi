@@ -80,6 +80,10 @@ class Videos(BaseEndpoint[VideoModel]):
             "part": part,
             "timestamp": generate_timestamp(),
         }
+
+        if "error" in output:
+            raise VideoNotFoundError(output["error"]["message"])
+
         return output
 
     def get(self, video_id: str) -> VideoModel:
@@ -93,12 +97,7 @@ class Videos(BaseEndpoint[VideoModel]):
         Returns:
             A Video model containing the parsed data.
         """
-        response = self.download(video_id)
-        if not response["items"]:
-            msg = f"Video with ID '{video_id}' not found."
-            raise VideoNotFoundError(msg)
-
-        return self.parse(response)
+        return self.parse(self.download(video_id))
 
     def download_multiple(self, video_ids: list[str]) -> list[dict[str, Any]]:
         """Downloads video data for multiple video IDs, split into individual responses.

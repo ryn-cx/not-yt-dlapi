@@ -13,6 +13,7 @@ from not_yt_dlapi.base_api_endpoint import (
     generate_timestamp,
 )
 from not_yt_dlapi.constants import BASE_URL
+from not_yt_dlapi.exceptions import PlaylistNotFoundError
 from not_yt_dlapi.playlist.models import PlaylistModel
 
 logger = getLogger(__name__)
@@ -61,6 +62,10 @@ class Playlists(BaseEndpoint[PlaylistModel]):
             "part": PART,
             "timestamp": generate_timestamp(),
         }
+
+        if "error" in output:
+            raise PlaylistNotFoundError(output["error"]["message"])
+
         return output
 
     def download_all(self, channel_id: str) -> dict[str, Any]:
@@ -83,6 +88,10 @@ class Playlists(BaseEndpoint[PlaylistModel]):
             "part": PART,
             "timestamp": generate_timestamp(),
         }
+
+        if "error" in output:
+            raise PlaylistNotFoundError(output["error"]["message"])
+
         return output
 
     def get(self, channel_id: str) -> PlaylistModel:
@@ -94,8 +103,7 @@ class Playlists(BaseEndpoint[PlaylistModel]):
         Returns:
             A PlaylistModel containing the parsed data.
         """
-        response = self.download(channel_id)
-        return self.parse(response)
+        return self.parse(self.download(channel_id))
 
     def get_all(self, channel_id: str) -> PlaylistModel:
         """Downloads and parses all playlists for a channel.
@@ -106,5 +114,4 @@ class Playlists(BaseEndpoint[PlaylistModel]):
         Returns:
             A PlaylistModel containing all parsed playlists.
         """
-        response = self.download_all(channel_id)
-        return self.parse(response)
+        return self.parse(self.download_all(channel_id))
