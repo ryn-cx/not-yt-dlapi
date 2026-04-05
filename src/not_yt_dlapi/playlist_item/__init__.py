@@ -11,7 +11,11 @@ from not_yt_dlapi.base_api_endpoint import (
     generate_timestamp,
 )
 from not_yt_dlapi.constants import BASE_URL
-from not_yt_dlapi.exceptions import PlaylistItemsNotFoundError
+from not_yt_dlapi.exceptions import (
+    HTTP_NOT_FOUND,
+    NotYTDLAPIError,
+    PlaylistItemsNotFoundError,
+)
 from not_yt_dlapi.playlist_item.models import PlaylistItemModel
 
 logger = getLogger(__name__)
@@ -51,7 +55,10 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
         }
 
         if "error" in output:
-            raise PlaylistItemsNotFoundError(output["error"]["message"])
+            msg = output["error"]["message"]
+            if output["error"]["code"] == HTTP_NOT_FOUND:
+                raise PlaylistItemsNotFoundError(msg)
+            raise NotYTDLAPIError(msg)
 
         return output
 
@@ -77,7 +84,10 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
         }
 
         if "error" in output:
-            raise PlaylistItemsNotFoundError(output["error"]["message"])
+            msg = output["error"]["message"]
+            if output["error"]["code"] == HTTP_NOT_FOUND:
+                raise PlaylistItemsNotFoundError(msg)
+            raise NotYTDLAPIError(msg)
 
         return output
 

@@ -8,7 +8,11 @@ from typing import Any
 from not_yt_dlapi.base_api_endpoint import BaseEndpoint, generate_timestamp
 from not_yt_dlapi.channel.models import ChannelModel
 from not_yt_dlapi.constants import BASE_URL
-from not_yt_dlapi.exceptions import ChannelNotFoundError
+from not_yt_dlapi.exceptions import (
+    HTTP_NOT_FOUND,
+    ChannelNotFoundError,
+    NotYTDLAPIError,
+)
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
@@ -69,7 +73,10 @@ class Channels(BaseEndpoint[ChannelModel]):
         }
 
         if "error" in output:
-            raise ChannelNotFoundError(output["error"]["message"])
+            msg = output["error"]["message"]
+            if output["error"]["code"] == HTTP_NOT_FOUND:
+                raise ChannelNotFoundError(msg)
+            raise NotYTDLAPIError(msg)
 
         return output
 

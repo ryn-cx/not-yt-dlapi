@@ -10,7 +10,11 @@ from good_ass_pydantic_integrator import CustomSerializer, ReplacementType
 
 from not_yt_dlapi.base_api_endpoint import BaseEndpoint, generate_timestamp
 from not_yt_dlapi.constants import BASE_URL
-from not_yt_dlapi.exceptions import VideoNotFoundError
+from not_yt_dlapi.exceptions import (
+    HTTP_NOT_FOUND,
+    NotYTDLAPIError,
+    VideoNotFoundError,
+)
 from not_yt_dlapi.video.models import VideoModel
 
 logger = getLogger(__name__)
@@ -82,7 +86,10 @@ class Videos(BaseEndpoint[VideoModel]):
         }
 
         if "error" in output:
-            raise VideoNotFoundError(output["error"]["message"])
+            msg = output["error"]["message"]
+            if output["error"]["code"] == HTTP_NOT_FOUND:
+                raise VideoNotFoundError(msg)
+            raise NotYTDLAPIError(msg)
 
         return output
 
