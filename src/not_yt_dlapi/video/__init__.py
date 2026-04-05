@@ -90,6 +90,9 @@ class Videos(BaseEndpoint[VideoModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise VideoNotFoundError(msg)
             raise NotYTDLAPIError(msg)
+        if output.get("pageInfo", {}).get("totalResults") == 0:
+            msg = f"Video with ID '{video_id}' not found."
+            raise VideoNotFoundError(msg)
 
         return output
 

@@ -77,6 +77,10 @@ class Channels(BaseEndpoint[ChannelModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise ChannelNotFoundError(msg)
             raise NotYTDLAPIError(msg)
+        if output.get("pageInfo", {}).get("totalResults") == 0:
+            identifier = channel_id or handle
+            msg = f"Channel '{identifier}' not found."
+            raise ChannelNotFoundError(msg)
 
         return output
 

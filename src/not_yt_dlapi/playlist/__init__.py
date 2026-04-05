@@ -72,6 +72,9 @@ class Playlists(BaseEndpoint[PlaylistModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise PlaylistNotFoundError(msg)
             raise NotYTDLAPIError(msg)
+        if output.get("pageInfo", {}).get("totalResults") == 0:
+            msg = f"No playlists found for channel '{channel_id}'."
+            raise PlaylistNotFoundError(msg)
 
         return output
 
@@ -101,6 +104,9 @@ class Playlists(BaseEndpoint[PlaylistModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise PlaylistNotFoundError(msg)
             raise NotYTDLAPIError(msg)
+        if output.get("pageInfo", {}).get("totalResults") == 0:
+            msg = f"No playlists found for channel '{channel_id}'."
+            raise PlaylistNotFoundError(msg)
 
         return output
 

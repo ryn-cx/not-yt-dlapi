@@ -59,6 +59,9 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise PlaylistItemsNotFoundError(msg)
             raise NotYTDLAPIError(msg)
+        if output.get("pageInfo", {}).get("totalResults") == 0:
+            msg = f"No items found for playlist '{playlist_id}'."
+            raise PlaylistItemsNotFoundError(msg)
 
         return output
 
@@ -88,6 +91,9 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise PlaylistItemsNotFoundError(msg)
             raise NotYTDLAPIError(msg)
+        if output.get("pageInfo", {}).get("totalResults") == 0:
+            msg = f"No items found for playlist '{playlist_id}'."
+            raise PlaylistItemsNotFoundError(msg)
 
         return output
 
