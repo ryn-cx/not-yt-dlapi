@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 from logging import NullHandler, getLogger
-from typing import Any
+from typing import Any, override
+
+from good_ass_pydantic_integrator import CustomSerializer
 
 from not_yt_dlapi.base_api_endpoint import BaseEndpoint, generate_timestamp
 from not_yt_dlapi.channel.models import ChannelModel
@@ -34,6 +36,20 @@ class Channels(BaseEndpoint[ChannelModel]):
     """Provides methods to download, parse, and retrieve channel data."""
 
     _response_model = ChannelModel
+
+    @classmethod
+    @override
+    def _custom_serializers(cls) -> list[CustomSerializer]:
+        return [
+            CustomSerializer(
+                class_name="Snippet",
+                field_name="published_at",
+                serializer_code="return value.strftime("
+                '"%Y-%m-%dT%H:%M:%S.%f"'
+                ').rstrip("0").rstrip(".") + "Z"',
+                output_type="str",
+            ),
+        ]
 
     def download(
         self,
