@@ -1,9 +1,9 @@
-# ruff: noqa: COM812, D100, D101
+# ruff: noqa: COM812, D100, D101, D102
 from __future__ import annotations
 
 from typing import Any
 
-from pydantic import AwareDatetime, BaseModel, ConfigDict, Field
+from pydantic import AwareDatetime, BaseModel, ConfigDict, Field, field_serializer
 
 
 class PageInfo(BaseModel):
@@ -56,6 +56,10 @@ class Snippet(BaseModel):
     localized: Localized
     country: str | None = None
 
+    @field_serializer("published_at")
+    def serialize_published_at(self, value: AwareDatetime) -> str:
+        return value.strftime("%Y-%m-%dT%H:%M:%S.%f").rstrip("0").rstrip(".") + "Z"
+
 
 class RelatedPlaylists(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -87,18 +91,18 @@ class Status(BaseModel):
     privacy_status: str = Field(..., alias="privacyStatus")
     is_linked: bool = Field(..., alias="isLinked")
     long_uploads_status: str = Field(..., alias="longUploadsStatus")
-    made_for_kids: bool = Field(..., alias="madeForKids")
+    made_for_kids: bool | None = Field(None, alias="madeForKids")
 
 
 class Channel(BaseModel):
     model_config = ConfigDict(extra="forbid")
     title: str
     description: str | None = None
-    keywords: str
+    keywords: str | None = None
     tracking_analytics_account_id: str | None = Field(
         None, alias="trackingAnalyticsAccountId"
     )
-    unsubscribed_trailer: str = Field(..., alias="unsubscribedTrailer")
+    unsubscribed_trailer: str | None = Field(None, alias="unsubscribedTrailer")
     country: str | None = None
 
 
@@ -110,7 +114,7 @@ class Image(BaseModel):
 class BrandingSettings(BaseModel):
     model_config = ConfigDict(extra="forbid")
     channel: Channel
-    image: Image
+    image: Image | None = None
 
 
 class Item(BaseModel):
@@ -129,9 +133,11 @@ class Item(BaseModel):
 
 class NotYtDlapi(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    channel_id: str
+    channel_id: str | None
     part: str
     timestamp: AwareDatetime
+    handle: str | None = None
+    username: str | None = None
 
 
 class ChannelModel(BaseModel):
@@ -139,5 +145,5 @@ class ChannelModel(BaseModel):
     kind: str
     etag: str
     page_info: PageInfo = Field(..., alias="pageInfo")
-    items: list[Item]
+    items: list[Item] | None = None
     not_yt_dlapi: NotYtDlapi

@@ -56,6 +56,7 @@ class Channels(BaseEndpoint[ChannelModel]):
         *,
         channel_id: str | None = None,
         handle: str | None = None,
+        username: str | None = None,
     ) -> dict[str, Any]:
         """Downloads channel data by channel ID or YouTube handle.
 
@@ -66,8 +67,8 @@ class Channels(BaseEndpoint[ChannelModel]):
         Returns:
             The raw JSON response as a dict, suitable for passing to ``parse()``.
         """
-        if (channel_id is None) == (handle is None):
-            msg = "Exactly one of channel_id or handle must be provided."
+        if (channel_id is None) == (handle is None) == (username is None):
+            msg = "Exactly one of channel_id, handle, or username must be provided."
             raise ValueError(msg)
 
         params: dict[str, str] = {"part": PART, "key": self._client.api_key}
@@ -77,13 +78,18 @@ class Channels(BaseEndpoint[ChannelModel]):
         elif handle is not None:
             params["forHandle"] = handle
             logger.info("Downloading Channel by handle: %s", handle)
+        elif username is not None:
+            params["forUsername"] = username
+            logger.info("Downloading Channel by username: %s", username)
 
         output = self._client.get_around.get(
             f"{BASE_URL}/channels",
             params=params,
         ).json()
         output["not_yt_dlapi"] = {
-            "channel_id": channel_id or handle,
+            "channel_id": channel_id,
+            "handle": handle,
+            "username": username,
             "part": PART,
             "timestamp": generate_timestamp(),
         }
@@ -105,16 +111,18 @@ class Channels(BaseEndpoint[ChannelModel]):
         *,
         channel_id: str | None = None,
         handle: str | None = None,
+        username: str | None = None,
     ) -> ChannelModel:
         """Downloads and parses channel data by channel ID or YouTube handle.
 
         Args:
             channel_id: The ID of the channel to get.
             handle: The YouTube handle to get.
+            username: The username of the channel to get.
 
         Returns:
             A ChannelModel containing the parsed data.
         """
         return self.parse(
-            self.download(channel_id=channel_id, handle=handle),
+            self.download(channel_id=channel_id, handle=handle, username=username),
         )
