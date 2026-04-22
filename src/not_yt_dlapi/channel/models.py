@@ -133,7 +133,7 @@ class Item(BaseModel):
 
 class NotYtDlapi(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    channel_id: str | None
+    channel_id: str | None = None
     part: str
     timestamp: AwareDatetime
     handle: str | None = None

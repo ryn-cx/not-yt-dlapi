@@ -87,12 +87,16 @@ class Channels(BaseEndpoint[ChannelModel]):
             params=params,
         ).json()
         output["not_yt_dlapi"] = {
-            "channel_id": channel_id,
-            "handle": handle,
-            "username": username,
             "part": PART,
             "timestamp": generate_timestamp(),
         }
+
+        if channel_id:
+            output["not_yt_dlapi"]["channel_id"] = channel_id
+        if handle:
+            output["not_yt_dlapi"]["handle"] = handle
+        if username:
+            output["not_yt_dlapi"]["username"] = username
 
         if "error" in output:
             msg = output["error"]["message"]
