@@ -35,7 +35,7 @@ def fetch_all_pages(
     combined: dict[str, Any] | None = None
     all_items: list[dict[str, Any]] = []
     while True:
-        response = client.get_around.get(url, params=params).json()
+        response = client.authenticated_get(url, params=params).json()
         if combined is None:
             combined = response
         all_items.extend(response.get("items", []))

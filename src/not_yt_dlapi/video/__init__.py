@@ -75,9 +75,9 @@ class Videos(BaseEndpoint[VideoModel]):
         )
 
         logger.info("Downloading Video: %s ", video_id)
-        output = self._client.get_around.get(
+        output = self._client.authenticated_get(
             f"{BASE_URL}/videos",
-            params={"part": part, "id": video_id, "key": self._client.api_key},
+            params={"part": part, "id": video_id},
         ).json()
         output["not_yt_dlapi"] = {
             "video_id": video_id,

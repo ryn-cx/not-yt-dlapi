@@ -71,7 +71,7 @@ class Channels(BaseEndpoint[ChannelModel]):
             msg = "Exactly one of channel_id, handle, or username must be provided."
             raise ValueError(msg)
 
-        params: dict[str, str] = {"part": PART, "key": self._client.api_key}
+        params: dict[str, str] = {"part": PART}
         if channel_id is not None:
             params["id"] = channel_id
             logger.info("Downloading Channel: %s", channel_id)
@@ -82,7 +82,7 @@ class Channels(BaseEndpoint[ChannelModel]):
             params["forUsername"] = username
             logger.info("Downloading Channel by username: %s", username)
 
-        output = self._client.get_around.get(
+        output = self._client.authenticated_get(
             f"{BASE_URL}/channels",
             params=params,
         ).json()

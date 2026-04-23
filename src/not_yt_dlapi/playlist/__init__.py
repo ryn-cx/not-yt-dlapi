@@ -52,13 +52,12 @@ class Playlists(BaseEndpoint[PlaylistModel]):
             The raw JSON response as a dict, suitable for passing to ``parse()``.
         """
         logger.info("Downloading Playlists for Channel: %s", channel_id)
-        output = self._client.get_around.get(
+        output = self._client.authenticated_get(
             f"{BASE_URL}/playlists",
             params={
                 "part": PART,
                 "channelId": channel_id,
                 "maxResults": 50,
-                "key": self._client.api_key,
             },
         ).json()
         output["not_yt_dlapi"] = {
@@ -91,7 +90,7 @@ class Playlists(BaseEndpoint[PlaylistModel]):
         output = fetch_all_pages(
             self._client,
             f"{BASE_URL}/playlists",
-            {"part": PART, "channelId": channel_id, "key": self._client.api_key},
+            {"part": PART, "channelId": channel_id},
         )
         output["not_yt_dlapi"] = {
             "channel_id": channel_id,
