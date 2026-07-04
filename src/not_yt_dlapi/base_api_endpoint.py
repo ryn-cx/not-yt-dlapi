@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+from logging import NullHandler, getLogger
 from typing import TYPE_CHECKING, Any, override
 
 from good_ass_pydantic_integrator import GAPIClient
@@ -14,6 +15,9 @@ if TYPE_CHECKING:
     from pathlib import Path
 
     from not_yt_dlapi import NotYTDLAPI
+
+logger = getLogger(__name__)
+logger.addHandler(NullHandler())
 
 
 def fetch_all_pages(
@@ -34,7 +38,9 @@ def fetch_all_pages(
     params.setdefault("maxResults", 50)
     combined: dict[str, Any] | None = None
     all_items: list[dict[str, Any]] = []
+    page = 1
     while True:
+        logger.info("Downloading page %s: %s", page, params)
         response = client.authenticated_get(url, params=params).json()
         if combined is None:
             combined = response
@@ -43,6 +49,7 @@ def fetch_all_pages(
         if not next_page_token:
             break
         params["pageToken"] = next_page_token
+        page += 1
 
     if combined is None:
         msg = "No pages returned from API"
