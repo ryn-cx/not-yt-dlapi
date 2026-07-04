@@ -8,8 +8,9 @@ from get_around import GetAround
 from google.auth.transport.requests import Request
 
 from not_yt_dlapi.channel import Channels
-from not_yt_dlapi.playlist import Playlists
+from not_yt_dlapi.playlist import Playlist
 from not_yt_dlapi.playlist_item import PlaylistItems
+from not_yt_dlapi.playlists import Playlists
 from not_yt_dlapi.video import Videos
 
 if TYPE_CHECKING:
@@ -49,6 +50,7 @@ class NotYTDLAPI:
 
         self.videos = Videos(self)
         self.playlists = Playlists(self)
+        self.playlist = Playlist(self)
         self.playlist_items = PlaylistItems(self)
         self.channels = Channels(self)
 

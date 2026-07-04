@@ -33,11 +33,17 @@ class TestParse:
             file_content = json.loads(json_file.read_text())
             client.videos.parse(file_content)
 
-    def test_parse_playlist(self) -> None:
-        """Test parsing playlist files."""
+    def test_parse_playlists(self) -> None:
+        """Test parsing playlists files."""
         for json_file in client.playlists.json_files():
             file_content = json.loads(json_file.read_text())
             client.playlists.parse(file_content)
+
+    def test_parse_playlist(self) -> None:
+        """Test parsing single playlist files."""
+        for json_file in client.playlist.json_files():
+            file_content = json.loads(json_file.read_text())
+            client.playlist.parse(file_content)
 
     def test_parse_playlist_item(self) -> None:
         """Test parsing playlist item files."""
@@ -74,6 +80,17 @@ class TestGet:
         def test_get_youtube_playlists(self) -> None:
             """Test getting playlists for the YouTube channel."""
             client.playlists.get_all("UCBR8-60-B28hp2BmDPdntcQ")
+
+        def test_get_playlist_by_id(self) -> None:
+            """Test getting an auto-generated album playlist by its ID.
+
+            Auto-generated playlists (such as a Topic channel's albums) are not
+            returned when filtering by channel, but can be fetched by ID.
+            """
+            result = client.playlist.get(
+                "OLAK5uy_nt1Nw4wT6I7VlzNknxTiIz3hfED0ttO8Q",
+            )
+            assert len(result.items) == 1
 
         def test_get_all_playlists(self) -> None:
             """Test getting all playlists for a channel with pagination."""

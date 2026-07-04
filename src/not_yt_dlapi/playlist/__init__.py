@@ -9,7 +9,6 @@ from good_ass_pydantic_integrator import ReplacementType
 
 from not_yt_dlapi.base_api_endpoint import (
     BaseEndpoint,
-    fetch_all_pages,
     generate_timestamp,
 )
 from not_yt_dlapi.constants import BASE_URL
@@ -26,8 +25,8 @@ logger.addHandler(NullHandler())
 PART = "contentDetails,id,localizations,player,snippet,status"
 
 
-class Playlists(BaseEndpoint[PlaylistModel]):
-    """Provides methods to download, parse, and retrieve playlist data."""
+class Playlist(BaseEndpoint[PlaylistModel]):
+    """Provides methods to download, parse, and retrieve a single playlist."""
 
     _response_model = PlaylistModel
 
@@ -42,26 +41,32 @@ class Playlists(BaseEndpoint[PlaylistModel]):
             ),
         ]
 
-    def download(self, channel_id: str) -> dict[str, Any]:
-        """Downloads a single page of playlists for a channel.
+    def download(self, playlist_id: str) -> dict[str, Any]:
+        """Downloads playlist metadata by playlist ID.
+
+        Unlike ``Playlists.download`` (which filters by channel), this fetches
+        playlists by their own IDs. This is the only official way to retrieve
+        auto-generated playlists, such as a Topic channel's album playlists,
+        which are not returned when filtering by ``channelId``.
 
         Args:
-            channel_id: The ID of the channel.
+            playlist_id: A playlist ID, or a comma-separated list of playlist IDs
+                (up to 50).
 
         Returns:
             The raw JSON response as a dict, suitable for passing to ``parse()``.
         """
-        logger.info("Downloading Playlists for Channel: %s", channel_id)
+        logger.info("Downloading Playlist by ID: %s", playlist_id)
         output = self._client.authenticated_get(
             f"{BASE_URL}/playlists",
             params={
                 "part": PART,
-                "channelId": channel_id,
+                "id": playlist_id,
                 "maxResults": 50,
             },
         ).json()
         output["not_yt_dlapi"] = {
-            "channel_id": channel_id,
+            "playlist_id": playlist_id,
             "part": PART,
             "timestamp": generate_timestamp(),
         }
@@ -72,61 +77,19 @@ class Playlists(BaseEndpoint[PlaylistModel]):
                 raise PlaylistNotFoundError(msg)
             raise NotYTDLAPIError(msg)
         if output.get("pageInfo", {}).get("totalResults") == 0:
-            msg = f"No playlists found for channel '{channel_id}'."
+            msg = f"No playlists found with ID '{playlist_id}'."
             raise PlaylistNotFoundError(msg)
 
         return output
 
-    def download_all(self, channel_id: str) -> dict[str, Any]:
-        """Downloads all playlists for a channel with automatic pagination.
+    def get(self, playlist_id: str) -> PlaylistModel:
+        """Downloads and parses playlist metadata by playlist ID.
 
         Args:
-            channel_id: The ID of the channel.
-
-        Returns:
-            A combined response dict with all playlists from every page.
-        """
-        logger.info("Downloading all Playlists for Channel: %s", channel_id)
-        output = fetch_all_pages(
-            self._client,
-            f"{BASE_URL}/playlists",
-            {"part": PART, "channelId": channel_id},
-        )
-        output["not_yt_dlapi"] = {
-            "channel_id": channel_id,
-            "part": PART,
-            "timestamp": generate_timestamp(),
-        }
-
-        if "error" in output:
-            msg = output["error"]["message"]
-            if output["error"]["code"] == HTTP_NOT_FOUND:
-                raise PlaylistNotFoundError(msg)
-            raise NotYTDLAPIError(msg)
-        if output.get("pageInfo", {}).get("totalResults") == 0:
-            msg = f"No playlists found for channel '{channel_id}'."
-            raise PlaylistNotFoundError(msg)
-
-        return output
-
-    def get(self, channel_id: str) -> PlaylistModel:
-        """Downloads and parses a single page of playlists for a channel.
-
-        Args:
-            channel_id: The ID of the channel.
+            playlist_id: A playlist ID, or a comma-separated list of playlist IDs
+                (up to 50).
 
         Returns:
             A PlaylistModel containing the parsed data.
         """
-        return self.parse(self.download(channel_id))
-
-    def get_all(self, channel_id: str) -> PlaylistModel:
-        """Downloads and parses all playlists for a channel.
-
-        Args:
-            channel_id: The ID of the channel.
-
-        Returns:
-            A PlaylistModel containing all parsed playlists.
-        """
-        return self.parse(self.download_all(channel_id))
+        return self.parse(self.download(playlist_id))
