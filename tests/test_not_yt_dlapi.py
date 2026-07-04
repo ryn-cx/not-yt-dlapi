@@ -71,6 +71,10 @@ class TestGet:
             """Test getting playlists for a channel."""
             client.playlists.get("UC4QobU6STFB0P71PMvOGN5A")
 
+        def test_get_youtube_playlists(self) -> None:
+            """Test getting playlists for the YouTube channel."""
+            client.playlists.get_all("UCBR8-60-B28hp2BmDPdntcQ")
+
         def test_get_all_playlists(self) -> None:
             """Test getting all playlists for a channel with pagination."""
             client.playlists.get_all("UC4QobU6STFB0P71PMvOGN5A")

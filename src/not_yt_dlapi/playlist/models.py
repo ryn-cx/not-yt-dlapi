@@ -75,6 +75,7 @@ class Snippet(BaseModel):
 class Status(BaseModel):
     model_config = ConfigDict(extra="forbid")
     privacy_status: str = Field(..., alias="privacyStatus")
+    podcast_status: str | None = Field(None, alias="podcastStatus")
 
 
 class ContentDetails(BaseModel):
