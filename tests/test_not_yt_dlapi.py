@@ -36,12 +36,12 @@ class TestGet:
     def test_get_video(self) -> None:
         """Test getting a video."""
         model = client.videos.get("jNQXAC9IVRw")
-        client.videos.save_new_json_file(client.videos.dump(model))
+        client.videos.save_new_json_file(client.videos.original_input(model))
 
     def test_get_video_age_restricted(self) -> None:
         """Test getting an age-restricted video."""
         model = client.videos.get("l1ITP7m6R0Q")
-        client.videos.save_new_json_file(client.videos.dump(model))
+        client.videos.save_new_json_file(client.videos.original_input(model))
 
     def test_get_video_multiple(self) -> None:
         """Test getting multiple videos at once."""
@@ -49,22 +49,22 @@ class TestGet:
         expected = 2
         assert len(models) == expected
         for model in models:
-            client.videos.save_new_json_file(client.videos.dump(model))
+            client.videos.save_new_json_file(client.videos.original_input(model))
 
     def test_get_playlists(self) -> None:
         """Test getting playlists for a channel."""
         model = client.playlists.get("UC4QobU6STFB0P71PMvOGN5A")
-        client.playlists.save_new_json_file(client.playlists.dump(model))
+        client.playlists.save_new_json_file(client.playlists.original_input(model))
 
     def test_get_playlists_all(self) -> None:
         """Test getting all playlists for a channel with pagination."""
         model = client.playlists.get_all("UC4QobU6STFB0P71PMvOGN5A")
-        client.playlists.save_new_json_file(client.playlists.dump(model))
+        client.playlists.save_new_json_file(client.playlists.original_input(model))
 
     def test_get_playlists_youtube(self) -> None:
         """Test getting all playlists for the YouTube channel."""
         model = client.playlists.get_all("UCBR8-60-B28hp2BmDPdntcQ")
-        client.playlists.save_new_json_file(client.playlists.dump(model))
+        client.playlists.save_new_json_file(client.playlists.original_input(model))
 
     def test_get_playlist(self) -> None:
         """Test getting an auto-generated album playlist by its ID.
@@ -75,32 +75,36 @@ class TestGet:
         model = client.playlist.get("OLAK5uy_nt1Nw4wT6I7VlzNknxTiIz3hfED0ttO8Q")
         expected = 1
         assert len(model.items) == expected
-        client.playlist.save_new_json_file(client.playlist.dump(model))
+        client.playlist.save_new_json_file(client.playlist.original_input(model))
 
     def test_get_playlist_item(self) -> None:
         """Test getting items from a playlist."""
         model = client.playlist_items.get("UU4QobU6STFB0P71PMvOGN5A")
-        client.playlist_items.save_new_json_file(client.playlist_items.dump(model))
+        client.playlist_items.save_new_json_file(
+            client.playlist_items.original_input(model)
+        )
 
     def test_get_playlist_item_all(self) -> None:
         """Test getting all items from a playlist with pagination."""
         model = client.playlist_items.get_all("UU4QobU6STFB0P71PMvOGN5A")
-        client.playlist_items.save_new_json_file(client.playlist_items.dump(model))
+        client.playlist_items.save_new_json_file(
+            client.playlist_items.original_input(model)
+        )
 
     def test_get_channel(self) -> None:
         """Test getting a channel."""
         model = client.channels.get(channel_id="UC4QobU6STFB0P71PMvOGN5A")
-        client.channels.save_new_json_file(client.channels.dump(model))
+        client.channels.save_new_json_file(client.channels.original_input(model))
 
     def test_get_channel_by_handle(self) -> None:
         """Test getting a channel by handle."""
         model = client.channels.get(handle="@Google")
-        client.channels.save_new_json_file(client.channels.dump(model))
+        client.channels.save_new_json_file(client.channels.original_input(model))
 
     def test_get_channel_by_username(self) -> None:
         """Test getting a channel by username."""
         model = client.channels.get(username="MrBeast")
-        client.channels.save_new_json_file(client.channels.dump(model))
+        client.channels.save_new_json_file(client.channels.original_input(model))
 
 
 @pytest.mark.skipif(not API_KEY, reason="YOUTUBE_API_KEY environment variable not set")
