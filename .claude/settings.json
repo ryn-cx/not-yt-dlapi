@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -v \"^d.*\\\\\\\\.mypy\")",
+      "Bash(.venv/Scripts/python.exe -m pytest tests/test_not_yt_dlapi.py::TestParse -q)"
+    ]
+  }
+}

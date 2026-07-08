@@ -1,3 +1,4 @@
+# TODO: Validate
 """Exceptions for the not_yt_dlapi library."""
 
 HTTP_NOT_FOUND = 404

@@ -1,47 +1,46 @@
-# ruff: noqa: COM812, D100, D101, D102
-from __future__ import annotations
-
+# ruff: noqa: D100, D101, D102, TC001, TC002, TC003
 from datetime import timedelta
 
-from pydantic import AwareDatetime, BaseModel, ConfigDict, Field, field_serializer
+from good_ass_pydantic_integrator import GAPIBaseModel
+from pydantic import AwareDatetime, ConfigDict, Field, field_serializer
 
 
-class Default(BaseModel):
+class Default(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     url: str
     width: int
     height: int
 
 
-class Medium(BaseModel):
+class Medium(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     url: str
     width: int
     height: int
 
 
-class High(BaseModel):
+class High(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     url: str
     width: int
     height: int
 
 
-class Standard(BaseModel):
+class Standard(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     url: str
     width: int
     height: int
 
 
-class Maxres(BaseModel):
+class Maxres(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     url: str
     width: int
     height: int
 
 
-class Thumbnails(BaseModel):
+class Thumbnails(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     default: Default
     medium: Medium
@@ -50,13 +49,13 @@ class Thumbnails(BaseModel):
     maxres: Maxres | None = None
 
 
-class Localized(BaseModel):
+class Localized(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     title: str
     description: str
 
 
-class Snippet(BaseModel):
+class Snippet(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     published_at: AwareDatetime = Field(..., alias="publishedAt")
     channel_id: str = Field(..., alias="channelId")
@@ -72,12 +71,12 @@ class Snippet(BaseModel):
     default_audio_language: str = Field(..., alias="defaultAudioLanguage")
 
 
-class ContentRating(BaseModel):
+class ContentRating(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     yt_rating: str | None = Field(None, alias="ytRating")
 
 
-class ContentDetails(BaseModel):
+class ContentDetails(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     duration: timedelta
     dimension: str
@@ -94,7 +93,7 @@ class ContentDetails(BaseModel):
         return value
 
 
-class Status(BaseModel):
+class Status(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     upload_status: str = Field(..., alias="uploadStatus")
     privacy_status: str = Field(..., alias="privacyStatus")
@@ -104,7 +103,7 @@ class Status(BaseModel):
     made_for_kids: bool = Field(..., alias="madeForKids")
 
 
-class Statistics(BaseModel):
+class Statistics(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     view_count: str = Field(..., alias="viewCount")
     like_count: str = Field(..., alias="likeCount")
@@ -112,50 +111,50 @@ class Statistics(BaseModel):
     comment_count: str = Field(..., alias="commentCount")
 
 
-class Player(BaseModel):
+class Player(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     embed_html: str = Field(..., alias="embedHtml")
 
 
-class Location(BaseModel):
+class Location(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     latitude: float
     longitude: float
     altitude: int
 
 
-class RecordingDetails(BaseModel):
+class RecordingDetails(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     location_description: str | None = Field(None, alias="locationDescription")
     location: Location | None = None
     recording_date: AwareDatetime | None = Field(None, alias="recordingDate")
 
 
-class De(BaseModel):
+class De(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     title: str
     description: str
 
 
-class En(BaseModel):
+class En(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     title: str
     description: str
 
 
-class Ru(BaseModel):
+class Ru(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     title: str
     description: str
 
 
-class Ja(BaseModel):
+class Ja(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     title: str
     description: str
 
 
-class Localizations(BaseModel):
+class Localizations(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     de: De | None = None
     en: En
@@ -163,17 +162,17 @@ class Localizations(BaseModel):
     ja: Ja | None = None
 
 
-class PaidProductPlacementDetails(BaseModel):
+class PaidProductPlacementDetails(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     has_paid_product_placement: bool = Field(..., alias="hasPaidProductPlacement")
 
 
-class TopicDetails(BaseModel):
+class TopicDetails(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     topic_categories: list[str] = Field(..., alias="topicCategories")
 
 
-class Item(BaseModel):
+class Item(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     kind: str
     etag: str
@@ -186,25 +185,26 @@ class Item(BaseModel):
     recording_details: RecordingDetails = Field(..., alias="recordingDetails")
     localizations: Localizations
     paid_product_placement_details: PaidProductPlacementDetails = Field(
-        ..., alias="paidProductPlacementDetails"
+        ...,
+        alias="paidProductPlacementDetails",
     )
     topic_details: TopicDetails | None = Field(None, alias="topicDetails")
 
 
-class PageInfo(BaseModel):
+class PageInfo(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     total_results: int = Field(..., alias="totalResults")
     results_per_page: int = Field(..., alias="resultsPerPage")
 
 
-class NotYtDlapi(BaseModel):
+class NotYtDlapi(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     video_id: str
     part: str
     timestamp: AwareDatetime
 
 
-class VideoModel(BaseModel):
+class VideoModel(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     kind: str
     etag: str

@@ -1,45 +1,44 @@
-# ruff: noqa: D100, D101
-from __future__ import annotations
+# ruff: noqa: D100, D101, D102, TC001, TC002, TC003
+from good_ass_pydantic_integrator import GAPIBaseModel
+from pydantic import AwareDatetime, ConfigDict, Field
 
-from pydantic import AwareDatetime, BaseModel, ConfigDict, Field
 
-
-class Default(BaseModel):
+class Default(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     url: str
     width: int
     height: int
 
 
-class Medium(BaseModel):
+class Medium(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     url: str
     width: int
     height: int
 
 
-class High(BaseModel):
+class High(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     url: str
     width: int
     height: int
 
 
-class Standard(BaseModel):
+class Standard(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     url: str
     width: int
     height: int
 
 
-class Maxres(BaseModel):
+class Maxres(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     url: str
     width: int
     height: int
 
 
-class Thumbnails(BaseModel):
+class Thumbnails(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     default: Default
     medium: Medium
@@ -48,13 +47,13 @@ class Thumbnails(BaseModel):
     maxres: Maxres | None = None
 
 
-class ResourceId(BaseModel):
+class ResourceId(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     kind: str
     video_id: str = Field(..., alias="videoId")
 
 
-class Snippet(BaseModel):
+class Snippet(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     published_at: AwareDatetime = Field(..., alias="publishedAt")
     channel_id: str = Field(..., alias="channelId")
@@ -69,18 +68,18 @@ class Snippet(BaseModel):
     video_owner_channel_id: str = Field(..., alias="videoOwnerChannelId")
 
 
-class ContentDetails(BaseModel):
+class ContentDetails(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     video_id: str = Field(..., alias="videoId")
     video_published_at: AwareDatetime = Field(..., alias="videoPublishedAt")
 
 
-class Status(BaseModel):
+class Status(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     privacy_status: str = Field(..., alias="privacyStatus")
 
 
-class Item(BaseModel):
+class Item(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     kind: str
     etag: str
@@ -90,20 +89,20 @@ class Item(BaseModel):
     status: Status
 
 
-class PageInfo(BaseModel):
+class PageInfo(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     total_results: int = Field(..., alias="totalResults")
     results_per_page: int = Field(..., alias="resultsPerPage")
 
 
-class NotYtDlapi(BaseModel):
+class NotYtDlapi(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     playlist_id: str
     part: str
     timestamp: AwareDatetime
 
 
-class PlaylistItemModel(BaseModel):
+class PlaylistItemModel(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     kind: str
     etag: str
