@@ -72,9 +72,6 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise PlaylistNotFoundError(msg)
             raise NotYTDLAPIError(msg)
-        if output.get("pageInfo", {}).get("totalResults") == 0:
-            msg = f"No playlists found for channel '{channel_id}'."
-            raise PlaylistNotFoundError(msg)
 
         return output
 
@@ -104,11 +101,13 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise PlaylistNotFoundError(msg)
             raise NotYTDLAPIError(msg)
-        if output.get("pageInfo", {}).get("totalResults") == 0:
-            msg = f"No playlists found for channel '{channel_id}'."
-            raise PlaylistNotFoundError(msg)
 
         return output
+
+    @staticmethod
+    @override
+    def has_content(response: dict[str, Any]) -> bool:
+        return bool(response.get("items"))
 
     def get(self, channel_id: str) -> PlaylistsModel:
         """Downloads and parses a single page of playlists for a channel.
@@ -118,8 +117,13 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
 
         Returns:
             A PlaylistsModel containing the parsed data.
+
+        Raises:
+            NoContentError: If the response has no meaningful content. The raw
+                response is available on the exception's `response` attribute.
         """
-        return self.parse(self.download(channel_id))
+        data = self.download(channel_id)
+        return self._parse_or_raise(data, has_content=self.has_content(data))
 
     def get_all(self, channel_id: str) -> PlaylistsModel:
         """Downloads and parses all playlists for a channel.
@@ -129,5 +133,10 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
 
         Returns:
             A PlaylistsModel containing all parsed playlists.
+
+        Raises:
+            NoContentError: If the response has no meaningful content. The raw
+                response is available on the exception's `response` attribute.
         """
-        return self.parse(self.download_all(channel_id))
+        data = self.download_all(channel_id)
+        return self._parse_or_raise(data, has_content=self.has_content(data))

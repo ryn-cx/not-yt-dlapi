@@ -91,11 +91,13 @@ class Videos(BaseEndpoint[VideoModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise VideoNotFoundError(msg)
             raise NotYTDLAPIError(msg)
-        if output.get("pageInfo", {}).get("totalResults") == 0:
-            msg = f"Video with ID '{video_id}' not found."
-            raise VideoNotFoundError(msg)
 
         return output
+
+    @staticmethod
+    @override
+    def has_content(response: dict[str, Any]) -> bool:
+        return bool(response.get("items"))
 
     def get(self, video_id: str) -> VideoModel:
         """Downloads and parses video data for a given video ID.
@@ -107,8 +109,13 @@ class Videos(BaseEndpoint[VideoModel]):
 
         Returns:
             A Video model containing the parsed data.
+
+        Raises:
+            NoContentError: If the response has no meaningful content. The raw
+                response is available on the exception's `response` attribute.
         """
-        return self.parse(self.download(video_id))
+        data = self.download(video_id)
+        return self._parse_or_raise(data, has_content=self.has_content(data))
 
     def download_multiple(self, video_ids: list[str]) -> list[dict[str, Any]]:
         """Downloads video data for multiple video IDs, split into individual responses.

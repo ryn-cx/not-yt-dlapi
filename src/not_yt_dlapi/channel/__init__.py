@@ -104,12 +104,13 @@ class Channels(BaseEndpoint[ChannelModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise ChannelNotFoundError(msg)
             raise NotYTDLAPIError(msg)
-        if output.get("pageInfo", {}).get("totalResults") == 0:
-            identifier = channel_id or handle
-            msg = f"Channel '{identifier}' not found."
-            raise ChannelNotFoundError(msg)
 
         return output
+
+    @staticmethod
+    @override
+    def has_content(response: dict[str, Any]) -> bool:
+        return bool(response.get("items"))
 
     def get(
         self,
@@ -127,7 +128,10 @@ class Channels(BaseEndpoint[ChannelModel]):
 
         Returns:
             A ChannelModel containing the parsed data.
+
+        Raises:
+            NoContentError: If the response has no meaningful content. The raw
+                response is available on the exception's `response` attribute.
         """
-        return self.parse(
-            self.download(channel_id=channel_id, handle=handle, username=username),
-        )
+        data = self.download(channel_id=channel_id, handle=handle, username=username)
+        return self._parse_or_raise(data, has_content=self.has_content(data))

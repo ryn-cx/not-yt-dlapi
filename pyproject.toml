@@ -1,3 +1,4 @@
+# TODO: Validate
 [project]
 name = "not-yt-dlapi"
 version = "0.1.0"
@@ -19,6 +20,16 @@ build-backend = "uv_build"
 
 [tool.ruff.lint]
 select = ["ALL"]  # Enable all linters.
+ignore = [
+  "D100",
+  "D101",
+  "D102",
+  "D103",
+  "D104",
+  "D105",
+  "D106",
+  "D107",
+]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"

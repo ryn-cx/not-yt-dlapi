@@ -77,11 +77,13 @@ class Playlist(BaseEndpoint[PlaylistModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise PlaylistNotFoundError(msg)
             raise NotYTDLAPIError(msg)
-        if output.get("pageInfo", {}).get("totalResults") == 0:
-            msg = f"No playlists found with ID '{playlist_id}'."
-            raise PlaylistNotFoundError(msg)
 
         return output
+
+    @staticmethod
+    @override
+    def has_content(response: dict[str, Any]) -> bool:
+        return bool(response.get("items"))
 
     def get(self, playlist_id: str) -> PlaylistModel:
         """Downloads and parses playlist metadata by playlist ID.
@@ -92,5 +94,10 @@ class Playlist(BaseEndpoint[PlaylistModel]):
 
         Returns:
             A PlaylistModel containing the parsed data.
+
+        Raises:
+            NoContentError: If the response has no meaningful content. The raw
+                response is available on the exception's `response` attribute.
         """
-        return self.parse(self.download(playlist_id))
+        data = self.download(playlist_id)
+        return self._parse_or_raise(data, has_content=self.has_content(data))

@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 from logging import NullHandler, getLogger
-from typing import Any
+from typing import Any, override
 
 from not_yt_dlapi.base_api_endpoint import (
     BaseEndpoint,
@@ -59,9 +59,6 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise PlaylistItemsNotFoundError(msg)
             raise NotYTDLAPIError(msg)
-        if output.get("pageInfo", {}).get("totalResults") == 0:
-            msg = f"No items found for playlist '{playlist_id}'."
-            raise PlaylistItemsNotFoundError(msg)
 
         return output
 
@@ -91,11 +88,13 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
             if output["error"]["code"] == HTTP_NOT_FOUND:
                 raise PlaylistItemsNotFoundError(msg)
             raise NotYTDLAPIError(msg)
-        if output.get("pageInfo", {}).get("totalResults") == 0:
-            msg = f"No items found for playlist '{playlist_id}'."
-            raise PlaylistItemsNotFoundError(msg)
 
         return output
+
+    @staticmethod
+    @override
+    def has_content(response: dict[str, Any]) -> bool:
+        return bool(response.get("items"))
 
     def get(self, playlist_id: str) -> PlaylistItemModel:
         """Downloads and parses a single page of items from a playlist.
@@ -105,8 +104,13 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
 
         Returns:
             A PlaylistItemModel containing the parsed data.
+
+        Raises:
+            NoContentError: If the response has no meaningful content. The raw
+                response is available on the exception's `response` attribute.
         """
-        return self.parse(self.download(playlist_id))
+        data = self.download(playlist_id)
+        return self._parse_or_raise(data, has_content=self.has_content(data))
 
     def get_all(self, playlist_id: str) -> PlaylistItemModel:
         """Downloads and parses all items from a playlist.
@@ -116,5 +120,10 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
 
         Returns:
             A PlaylistItemModel containing all parsed items.
+
+        Raises:
+            NoContentError: If the response has no meaningful content. The raw
+                response is available on the exception's `response` attribute.
         """
-        return self.parse(self.download_all(playlist_id))
+        data = self.download_all(playlist_id)
+        return self._parse_or_raise(data, has_content=self.has_content(data))

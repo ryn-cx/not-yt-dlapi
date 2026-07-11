@@ -27,8 +27,7 @@ class NotYTDLAPI:
         api_key: str | None = None,
         *,
         credentials: Credentials | None = None,
-        get_around_server: str | None = None,
-        get_around_password: str | None = None,
+        get_around_client: GetAround | None = None,
     ) -> None:
         """Initialize the NotYTDLAPI client.
 
@@ -44,10 +43,7 @@ class NotYTDLAPI:
 
         self.api_key = api_key
         self.credentials = credentials
-        self.get_around = GetAround(
-            server=get_around_server,
-            password=get_around_password,
-        )
+        self.get_around_client = get_around_client or GetAround()
 
         self.videos = Videos(self)
         self.playlists = Playlists(self)
@@ -74,4 +70,4 @@ class NotYTDLAPI:
             headers["Authorization"] = f"Bearer {self.credentials.token}"
         else:
             request_params["key"] = self.api_key
-        return self.get_around.get(url, params=request_params, headers=headers)
+        return self.get_around_client.get(url, params=request_params, headers=headers)
