@@ -1,8 +1,7 @@
-# TODO: Validate
 [project]
 name = "not-yt-dlapi"
 version = "0.1.0"
-description = "Companion for yt-dlapi."
+description = "YouTube API wrapper."
 readme = "README.md"
 requires-python = ">=3.14"
 authors = [
@@ -14,22 +13,19 @@ dependencies = [
   "google-api-python-client>=2.190.0",
 ]
 
+[dependency-groups]
+dev = [
+  "prek>=0.3.3",
+  "pytest>=9.0.2",
+  "ruff>=0.15.2",
+]
+
 [build-system]
 requires = ["uv_build>=0.9.18,<0.10.0"]
 build-backend = "uv_build"
 
 [tool.ruff.lint]
 select = ["ALL"]  # Enable all linters.
-ignore = [
-  "D100",
-  "D101",
-  "D102",
-  "D103",
-  "D104",
-  "D105",
-  "D106",
-  "D107",
-]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
@@ -40,11 +36,3 @@ convention = "google"
 [tool.uv.sources]
 good-ass-pydantic-integrator = { git = "https://github.com/ryn-cx/good-ass-pydantic-integrator" }
 get-around = { git = "https://github.com/ryn-cx/get-around" }
-
-[dependency-groups]
-dev = [
-    "prek>=0.3.3",
-    "pylint>=4.0.5",
-    "pytest>=9.0.2",
-    "ruff>=0.15.2",
-]
