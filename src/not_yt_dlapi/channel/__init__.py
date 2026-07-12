@@ -1,5 +1,5 @@
 # TODO: Validate
-"""Channel API endpoint."""
+"""Contains the Channels class."""
 
 from __future__ import annotations
 
@@ -34,7 +34,7 @@ PART = (
 
 
 class Channels(BaseEndpoint[ChannelModel]):
-    """Provides methods to download, parse, and retrieve channel data."""
+    """Manage the channels file."""
 
     _response_model = ChannelModel
 
@@ -59,15 +59,7 @@ class Channels(BaseEndpoint[ChannelModel]):
         handle: str | None = None,
         username: str | None = None,
     ) -> dict[str, Any]:
-        """Downloads channel data by channel ID or YouTube handle.
-
-        Args:
-            channel_id: The ID of the channel to download.
-            handle: The YouTube handle to download.
-
-        Returns:
-            The raw JSON response as a dict, suitable for passing to ``parse()``.
-        """
+        """Downloads the channels file."""
         if (channel_id is None) == (handle is None) == (username is None):
             msg = "Exactly one of channel_id, handle, or username must be provided."
             raise ValueError(msg)
@@ -75,13 +67,13 @@ class Channels(BaseEndpoint[ChannelModel]):
         params: dict[str, str] = {"part": PART}
         if channel_id is not None:
             params["id"] = channel_id
-            logger.info("Downloading Channel: %s", channel_id)
+            logger.info("Downloading: %s", f"{self.__class__.__name__} {channel_id}")
         elif handle is not None:
             params["forHandle"] = handle
-            logger.info("Downloading Channel by handle: %s", handle)
+            logger.info("Downloading: %s", f"{self.__class__.__name__} {handle}")
         elif username is not None:
             params["forUsername"] = username
-            logger.info("Downloading Channel by username: %s", username)
+            logger.info("Downloading: %s", f"{self.__class__.__name__} {username}")
 
         output = self._client.authenticated_get(
             f"{BASE_URL}/channels",
@@ -119,19 +111,14 @@ class Channels(BaseEndpoint[ChannelModel]):
         handle: str | None = None,
         username: str | None = None,
     ) -> ChannelModel:
-        """Downloads and parses channel data by channel ID or YouTube handle.
-
-        Args:
-            channel_id: The ID of the channel to get.
-            handle: The YouTube handle to get.
-            username: The username of the channel to get.
-
-        Returns:
-            A ChannelModel containing the parsed data.
+        """Downloads and parses the channels file.
 
         Raises:
             NoContentError: If the response has no meaningful content. The raw
                 response is available on the exception's `response` attribute.
         """
         data = self.download(channel_id=channel_id, handle=handle, username=username)
-        return self._parse_or_raise(data, has_content=self.has_content(data))
+        return self._parse_or_raise(
+            data,
+            f"{self.__class__.__name__} {channel_id or handle or username}",
+        )

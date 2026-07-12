@@ -1,5 +1,5 @@
 # TODO: Validate
-"""Playlists API endpoint."""
+"""Contains the Playlists class."""
 
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ PART = "contentDetails,id,localizations,player,snippet,status"
 
 
 class Playlists(BaseEndpoint[PlaylistsModel]):
-    """Provides methods to download, parse, and retrieve lists of playlists."""
+    """Manage the playlists file."""
 
     _response_model = PlaylistsModel
 
@@ -44,15 +44,8 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         ]
 
     def download(self, channel_id: str) -> dict[str, Any]:
-        """Downloads a single page of playlists for a channel.
-
-        Args:
-            channel_id: The ID of the channel.
-
-        Returns:
-            The raw JSON response as a dict, suitable for passing to ``parse()``.
-        """
-        logger.info("Downloading Playlists for Channel: %s", channel_id)
+        """Downloads the playlists file."""
+        logger.info("Downloading: %s", f"{self.__class__.__name__} {channel_id}")
         output = self._client.authenticated_get(
             f"{BASE_URL}/playlists",
             params={
@@ -84,7 +77,7 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         Returns:
             A combined response dict with all playlists from every page.
         """
-        logger.info("Downloading all Playlists for Channel: %s", channel_id)
+        logger.info("Downloading: %s", f"{self.__class__.__name__} {channel_id}")
         output = fetch_all_pages(
             self._client,
             f"{BASE_URL}/playlists",
@@ -110,20 +103,14 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         return bool(response.get("items"))
 
     def get(self, channel_id: str) -> PlaylistsModel:
-        """Downloads and parses a single page of playlists for a channel.
-
-        Args:
-            channel_id: The ID of the channel.
-
-        Returns:
-            A PlaylistsModel containing the parsed data.
+        """Downloads and parses the playlists file.
 
         Raises:
             NoContentError: If the response has no meaningful content. The raw
                 response is available on the exception's `response` attribute.
         """
         data = self.download(channel_id)
-        return self._parse_or_raise(data, has_content=self.has_content(data))
+        return self._parse_or_raise(data, f"{self.__class__.__name__} {channel_id}")
 
     def get_all(self, channel_id: str) -> PlaylistsModel:
         """Downloads and parses all playlists for a channel.
@@ -139,4 +126,4 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
                 response is available on the exception's `response` attribute.
         """
         data = self.download_all(channel_id)
-        return self._parse_or_raise(data, has_content=self.has_content(data))
+        return self._parse_or_raise(data, f"{self.__class__.__name__} {channel_id}")

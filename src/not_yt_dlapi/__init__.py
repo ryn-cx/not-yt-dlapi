@@ -1,8 +1,10 @@
 # TODO: Validate
-"""NotYTDLAPI is a companion for yt-dlapi."""
+"""Contains the NotYTDLAPI class."""
 
 from __future__ import annotations
 
+import time
+from logging import NullHandler, getLogger
 from typing import TYPE_CHECKING, Any
 
 from get_around import GetAround
@@ -18,9 +20,12 @@ if TYPE_CHECKING:
     import httpx
     from google.oauth2.credentials import Credentials
 
+logger = getLogger(__name__)
+logger.addHandler(NullHandler())
+
 
 class NotYTDLAPI:
-    """Interface for downloading and parsing data from the YouTube Data API."""
+    """YouTube Data API wrapper."""
 
     def __init__(
         self,
@@ -29,14 +34,7 @@ class NotYTDLAPI:
         credentials: Credentials | None = None,
         get_around_client: GetAround | None = None,
     ) -> None:
-        """Initialize the NotYTDLAPI client.
-
-        Provide either ``api_key`` for public data access or ``credentials`` for
-        OAuth-authenticated access. When ``credentials`` is supplied and the
-        access token has expired, it is refreshed automatically before each
-        request (the credentials object must have a refresh token, client id,
-        client secret, and token URI for refresh to succeed).
-        """
+        """Initialize the NotYTDLAPI client."""
         if api_key is None and credentials is None:
             msg = "Either api_key or credentials must be provided."
             raise ValueError(msg)
@@ -56,12 +54,7 @@ class NotYTDLAPI:
         url: str,
         params: dict[str, Any],
     ) -> httpx.Response:
-        """Perform a GET request authenticated with OAuth or an API key.
-
-        When OAuth ``credentials`` are configured, the access token is refreshed
-        if expired and passed as a Bearer token in the ``Authorization`` header.
-        Otherwise the ``api_key`` is injected as a ``key`` query parameter.
-        """
+        """Perform a GET request authenticated with OAuth or an API key."""
         request_params = dict(params)
         headers: dict[str, str] = {}
         if self.credentials is not None:
@@ -70,4 +63,16 @@ class NotYTDLAPI:
             headers["Authorization"] = f"Bearer {self.credentials.token}"
         else:
             request_params["key"] = self.api_key
-        return self.get_around_client.get(url, params=request_params, headers=headers)
+
+        # Log the caller-supplied params rather than request_params so the API key
+        # is never written to the logs.
+        operation = f"{url} params={params}"
+        logger.debug("Downloading: %s", operation)
+        start = time.monotonic()
+        response = self.get_around_client.get(
+            url,
+            params=request_params,
+            headers=headers,
+        )
+        logger.debug("Downloaded %s (%.4f s)", operation, time.monotonic() - start)
+        return response

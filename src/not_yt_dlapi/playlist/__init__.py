@@ -1,5 +1,5 @@
 # TODO: Validate
-"""Playlist API endpoint."""
+"""Contains the Playlist class."""
 
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ PART = "contentDetails,id,localizations,player,snippet,status"
 
 
 class Playlist(BaseEndpoint[PlaylistModel]):
-    """Provides methods to download, parse, and retrieve a single playlist."""
+    """Manage the playlist file."""
 
     _response_model = PlaylistModel
 
@@ -43,21 +43,8 @@ class Playlist(BaseEndpoint[PlaylistModel]):
         ]
 
     def download(self, playlist_id: str) -> dict[str, Any]:
-        """Downloads playlist metadata by playlist ID.
-
-        Unlike ``Playlists.download`` (which filters by channel), this fetches
-        playlists by their own IDs. This is the only official way to retrieve
-        auto-generated playlists, such as a Topic channel's album playlists,
-        which are not returned when filtering by ``channelId``.
-
-        Args:
-            playlist_id: A playlist ID, or a comma-separated list of playlist IDs
-                (up to 50).
-
-        Returns:
-            The raw JSON response as a dict, suitable for passing to ``parse()``.
-        """
-        logger.info("Downloading Playlist by ID: %s", playlist_id)
+        """Downloads the playlist file."""
+        logger.info("Downloading: %s", f"{self.__class__.__name__} {playlist_id}")
         output = self._client.authenticated_get(
             f"{BASE_URL}/playlists",
             params={
@@ -86,18 +73,11 @@ class Playlist(BaseEndpoint[PlaylistModel]):
         return bool(response.get("items"))
 
     def get(self, playlist_id: str) -> PlaylistModel:
-        """Downloads and parses playlist metadata by playlist ID.
-
-        Args:
-            playlist_id: A playlist ID, or a comma-separated list of playlist IDs
-                (up to 50).
-
-        Returns:
-            A PlaylistModel containing the parsed data.
+        """Downloads and parses the playlist file.
 
         Raises:
             NoContentError: If the response has no meaningful content. The raw
                 response is available on the exception's `response` attribute.
         """
         data = self.download(playlist_id)
-        return self._parse_or_raise(data, has_content=self.has_content(data))
+        return self._parse_or_raise(data, f"{self.__class__.__name__} {playlist_id}")

@@ -1,5 +1,5 @@
 # TODO: Validate
-"""Video API endpoint."""
+"""Contains the Videos class."""
 
 from __future__ import annotations
 
@@ -23,7 +23,7 @@ logger.addHandler(NullHandler())
 
 
 class Videos(BaseEndpoint[VideoModel]):
-    """Provides methods to download, parse, and retrieve video data."""
+    """Manage the videos file."""
 
     _response_model = VideoModel
 
@@ -53,14 +53,7 @@ class Videos(BaseEndpoint[VideoModel]):
         ]
 
     def download(self, video_id: str) -> dict[str, Any]:
-        """Downloads video data for a given video ID.
-
-        Args:
-            video_id: The ID of the video to download.
-
-        Returns:
-            The raw JSON response as a dict, suitable for passing to ``parse()``.
-        """
+        """Downloads the videos file."""
         part = (
             "contentDetails,"
             "id,"
@@ -75,7 +68,7 @@ class Videos(BaseEndpoint[VideoModel]):
             "topicDetails"
         )
 
-        logger.info("Downloading Video: %s ", video_id)
+        logger.info("Downloading: %s", f"{self.__class__.__name__} {video_id}")
         output = self._client.authenticated_get(
             f"{BASE_URL}/videos",
             params={"part": part, "id": video_id},
@@ -100,22 +93,14 @@ class Videos(BaseEndpoint[VideoModel]):
         return bool(response.get("items"))
 
     def get(self, video_id: str) -> VideoModel:
-        """Downloads and parses video data for a given video ID.
-
-        Convenience method that calls ``download()`` then ``parse()``.
-
-        Args:
-            video_id: The ID of the video to get.
-
-        Returns:
-            A Video model containing the parsed data.
+        """Downloads and parses the videos file.
 
         Raises:
             NoContentError: If the response has no meaningful content. The raw
                 response is available on the exception's `response` attribute.
         """
         data = self.download(video_id)
-        return self._parse_or_raise(data, has_content=self.has_content(data))
+        return self._parse_or_raise(data, f"{self.__class__.__name__} {video_id}")
 
     def download_multiple(self, video_ids: list[str]) -> list[dict[str, Any]]:
         """Downloads video data for multiple video IDs, split into individual responses.
