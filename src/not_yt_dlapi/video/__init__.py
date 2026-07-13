@@ -7,50 +7,23 @@ from copy import deepcopy
 from logging import NullHandler, getLogger
 from typing import Any, override
 
-from good_ass_pydantic_integrator import CustomSerializer, ReplacementType
-
-from not_yt_dlapi.base_api_endpoint import BaseEndpoint, generate_timestamp
+from not_yt_dlapi.base_api_endpoint import BaseEndpoint
 from not_yt_dlapi.constants import BASE_URL
 from not_yt_dlapi.exceptions import (
     HTTP_NOT_FOUND,
     NotYTDLAPIError,
     VideoNotFoundError,
 )
-from not_yt_dlapi.video.models import VideoModel
+from not_yt_dlapi.video.models import VideosModel
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
 
 
-class Videos(BaseEndpoint[VideoModel]):
+class Videos(BaseEndpoint[VideosModel]):
     """Manage the videos file."""
 
-    _response_model = VideoModel
-
-    @classmethod
-    @override
-    def _replacement_types(cls) -> list[ReplacementType]:
-        return [
-            ReplacementType(
-                class_name="ContentDetails",
-                field_name="dimension",
-                new_type="str",
-            ),
-        ]
-
-    @classmethod
-    @override
-    def _custom_serializers(cls) -> list[CustomSerializer]:
-        return [
-            CustomSerializer(
-                class_name="ContentDetails",
-                field_name="duration",
-                serializer_code="if value == timedelta(days=0):\n"
-                '    return "P0D"\n'
-                "return value",
-                output_type="timedelta",
-            ),
-        ]
+    _response_model = VideosModel
 
     def download(self, video_id: str) -> dict[str, Any]:
         """Downloads the videos file."""
@@ -73,12 +46,6 @@ class Videos(BaseEndpoint[VideoModel]):
             f"{BASE_URL}/videos",
             params={"part": part, "id": video_id},
         ).json()
-        output["not_yt_dlapi"] = {
-            "video_id": video_id,
-            "part": part,
-            "timestamp": generate_timestamp(),
-        }
-
         if "error" in output:
             msg = output["error"]["message"]
             if output["error"]["code"] == HTTP_NOT_FOUND:
@@ -92,7 +59,7 @@ class Videos(BaseEndpoint[VideoModel]):
     def has_content(response: dict[str, Any]) -> bool:
         return bool(response.get("items"))
 
-    def get(self, video_id: str) -> VideoModel:
+    def get(self, video_id: str) -> VideosModel:
         """Downloads and parses the videos file.
 
         Raises:
@@ -124,7 +91,7 @@ class Videos(BaseEndpoint[VideoModel]):
                 results.append(single)
         return results
 
-    def get_multiple(self, video_ids: list[str]) -> list[VideoModel]:
+    def get_multiple(self, video_ids: list[str]) -> list[VideosModel]:
         """Downloads and parses video data for multiple video IDs.
 
         Each video is returned as its own model with a single item.
@@ -133,6 +100,6 @@ class Videos(BaseEndpoint[VideoModel]):
             video_ids: The IDs of the videos to get.
 
         Returns:
-            A list of VideoModel instances, one per video.
+            A list of VideosModel instances, one per video.
         """
         return [self.parse(response) for response in self.download_multiple(video_ids)]

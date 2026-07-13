@@ -6,10 +6,8 @@ from __future__ import annotations
 from logging import NullHandler, getLogger
 from typing import Any, override
 
-from good_ass_pydantic_integrator import CustomSerializer
-
-from not_yt_dlapi.base_api_endpoint import BaseEndpoint, generate_timestamp
-from not_yt_dlapi.channel.models import ChannelModel
+from not_yt_dlapi.base_api_endpoint import BaseEndpoint
+from not_yt_dlapi.channel.models import ChannelsModel
 from not_yt_dlapi.constants import BASE_URL
 from not_yt_dlapi.exceptions import (
     HTTP_NOT_FOUND,
@@ -33,24 +31,10 @@ PART = (
 )
 
 
-class Channels(BaseEndpoint[ChannelModel]):
+class Channels(BaseEndpoint[ChannelsModel]):
     """Manage the channels file."""
 
-    _response_model = ChannelModel
-
-    @classmethod
-    @override
-    def _custom_serializers(cls) -> list[CustomSerializer]:
-        return [
-            CustomSerializer(
-                class_name="Snippet",
-                field_name="published_at",
-                serializer_code="return value.strftime("
-                '"%Y-%m-%dT%H:%M:%S.%f"'
-                ').rstrip("0").rstrip(".") + "Z"',
-                output_type="str",
-            ),
-        ]
+    _response_model = ChannelsModel
 
     def download(
         self,
@@ -79,17 +63,6 @@ class Channels(BaseEndpoint[ChannelModel]):
             f"{BASE_URL}/channels",
             params=params,
         ).json()
-        output["not_yt_dlapi"] = {
-            "part": PART,
-            "timestamp": generate_timestamp(),
-        }
-
-        if channel_id:
-            output["not_yt_dlapi"]["channel_id"] = channel_id
-        if handle:
-            output["not_yt_dlapi"]["handle"] = handle
-        if username:
-            output["not_yt_dlapi"]["username"] = username
 
         if "error" in output:
             msg = output["error"]["message"]
@@ -110,7 +83,7 @@ class Channels(BaseEndpoint[ChannelModel]):
         channel_id: str | None = None,
         handle: str | None = None,
         username: str | None = None,
-    ) -> ChannelModel:
+    ) -> ChannelsModel:
         """Downloads and parses the channels file.
 
         Raises:

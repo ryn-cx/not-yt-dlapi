@@ -1,9 +1,8 @@
-# TODO: Validate
 # ruff: noqa: D100, D101, D102, TC001, TC002, TC003
 from datetime import timedelta
 
 from good_ass_pydantic_integrator import GAPIBaseModel
-from pydantic import AwareDatetime, ConfigDict, Field, field_serializer
+from pydantic import AwareDatetime, ConfigDict, Field
 
 
 class Default(GAPIBaseModel):
@@ -86,12 +85,6 @@ class ContentDetails(GAPIBaseModel):
     licensed_content: bool = Field(..., alias="licensedContent")
     content_rating: ContentRating = Field(..., alias="contentRating")
     projection: str
-
-    @field_serializer("duration")
-    def serialize_duration(self, value: timedelta) -> timedelta:
-        if value == timedelta(days=0):
-            return "P0D"
-        return value
 
 
 class Status(GAPIBaseModel):
@@ -198,17 +191,9 @@ class PageInfo(GAPIBaseModel):
     results_per_page: int = Field(..., alias="resultsPerPage")
 
 
-class NotYtDlapi(GAPIBaseModel):
-    model_config = ConfigDict(extra="forbid")
-    video_id: str
-    part: str
-    timestamp: AwareDatetime
-
-
-class VideoModel(GAPIBaseModel):
+class VideosModel(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     kind: str
     etag: str
     items: list[Item]
     page_info: PageInfo = Field(..., alias="pageInfo")
-    not_yt_dlapi: NotYtDlapi

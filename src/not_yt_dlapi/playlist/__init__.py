@@ -6,12 +6,7 @@ from __future__ import annotations
 from logging import NullHandler, getLogger
 from typing import Any, override
 
-from good_ass_pydantic_integrator import ReplacementType
-
-from not_yt_dlapi.base_api_endpoint import (
-    BaseEndpoint,
-    generate_timestamp,
-)
+from not_yt_dlapi.base_api_endpoint import BaseEndpoint
 from not_yt_dlapi.constants import BASE_URL
 from not_yt_dlapi.exceptions import (
     HTTP_NOT_FOUND,
@@ -31,17 +26,6 @@ class Playlist(BaseEndpoint[PlaylistModel]):
 
     _response_model = PlaylistModel
 
-    @classmethod
-    @override
-    def _replacement_types(cls) -> list[ReplacementType]:
-        return [
-            ReplacementType(
-                class_name="Snippet",
-                field_name="published_at",
-                new_type="str",
-            ),
-        ]
-
     def download(self, playlist_id: str) -> dict[str, Any]:
         """Downloads the playlist file."""
         logger.info("Downloading: %s", f"{self.__class__.__name__} {playlist_id}")
@@ -53,11 +37,6 @@ class Playlist(BaseEndpoint[PlaylistModel]):
                 "maxResults": 50,
             },
         ).json()
-        output["not_yt_dlapi"] = {
-            "playlist_id": playlist_id,
-            "part": PART,
-            "timestamp": generate_timestamp(),
-        }
 
         if "error" in output:
             msg = output["error"]["message"]

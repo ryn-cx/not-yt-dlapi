@@ -1,4 +1,3 @@
-# TODO: Validate
 # ruff: noqa: D100, D101, D102, TC001, TC002, TC003
 from good_ass_pydantic_integrator import GAPIBaseModel
 from pydantic import AwareDatetime, ConfigDict, Field
@@ -96,18 +95,10 @@ class PageInfo(GAPIBaseModel):
     results_per_page: int = Field(..., alias="resultsPerPage")
 
 
-class NotYtDlapi(GAPIBaseModel):
-    model_config = ConfigDict(extra="forbid")
-    playlist_id: str
-    part: str
-    timestamp: AwareDatetime
-
-
-class PlaylistItemModel(GAPIBaseModel):
+class PlaylistItemsModel(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     kind: str
     etag: str
     next_page_token: str | None = Field(None, alias="nextPageToken")
     items: list[Item]
     page_info: PageInfo = Field(..., alias="pageInfo")
-    not_yt_dlapi: NotYtDlapi

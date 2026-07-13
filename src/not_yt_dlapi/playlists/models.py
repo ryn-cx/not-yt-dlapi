@@ -1,4 +1,3 @@
-# TODO: Validate
 # ruff: noqa: D100, D101, D102, TC001, TC002, TC003
 from good_ass_pydantic_integrator import GAPIBaseModel
 from pydantic import AwareDatetime, ConfigDict, Field
@@ -62,7 +61,7 @@ class Localized(GAPIBaseModel):
 
 class Snippet(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
-    published_at: str = Field(..., alias="publishedAt")
+    published_at: str | AwareDatetime = Field(..., alias="publishedAt")
     channel_id: str = Field(..., alias="channelId")
     title: str
     description: str
@@ -111,13 +110,6 @@ class Item(GAPIBaseModel):
     localizations: Localizations | None = None
 
 
-class NotYtDlapi(GAPIBaseModel):
-    model_config = ConfigDict(extra="forbid")
-    channel_id: str
-    part: str
-    timestamp: AwareDatetime
-
-
 class PlaylistsModel(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     kind: str
@@ -125,4 +117,3 @@ class PlaylistsModel(GAPIBaseModel):
     next_page_token: str | None = Field(None, alias="nextPageToken")
     page_info: PageInfo = Field(..., alias="pageInfo")
     items: list[Item]
-    not_yt_dlapi: NotYtDlapi

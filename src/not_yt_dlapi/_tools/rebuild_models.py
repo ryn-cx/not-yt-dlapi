@@ -1,4 +1,6 @@
 # TODO: Validate
+"""Rebuilds NotYtDlapi models."""
+
 import logging
 
 from good_ass_pydantic_integrator.utils import rebuild_models
@@ -6,7 +8,6 @@ from good_ass_pydantic_integrator.utils import rebuild_models
 import not_yt_dlapi
 
 logging.basicConfig(level=logging.INFO)
-
 
 if __name__ == "__main__":
     rebuild_models(not_yt_dlapi)

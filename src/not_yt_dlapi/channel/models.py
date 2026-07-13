@@ -1,9 +1,8 @@
-# TODO: Validate
 # ruff: noqa: D100, D101, D102, TC001, TC002, TC003
 from typing import Any
 
 from good_ass_pydantic_integrator import GAPIBaseModel
-from pydantic import AwareDatetime, ConfigDict, Field, field_serializer
+from pydantic import AwareDatetime, ConfigDict, Field
 
 
 class PageInfo(GAPIBaseModel):
@@ -54,10 +53,7 @@ class Snippet(GAPIBaseModel):
     published_at: AwareDatetime = Field(..., alias="publishedAt")
     thumbnails: Thumbnails
     localized: Localized
-
-    @field_serializer("published_at")
-    def serialize_published_at(self, value: AwareDatetime) -> str:
-        return value.strftime("%Y-%m-%dT%H:%M:%S.%f").rstrip("0").rstrip(".") + "Z"
+    country: str | None = None
 
 
 class RelatedPlaylists(GAPIBaseModel):
@@ -90,16 +86,31 @@ class Status(GAPIBaseModel):
     privacy_status: str = Field(..., alias="privacyStatus")
     is_linked: bool = Field(..., alias="isLinked")
     long_uploads_status: str = Field(..., alias="longUploadsStatus")
+    made_for_kids: bool | None = Field(None, alias="madeForKids")
 
 
 class Channel(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     title: str
+    keywords: str | None = None
+    unsubscribed_trailer: str | None = Field(None, alias="unsubscribedTrailer")
+    country: str | None = None
+    description: str | None = None
+    tracking_analytics_account_id: str | None = Field(
+        None,
+        alias="trackingAnalyticsAccountId",
+    )
+
+
+class Image(GAPIBaseModel):
+    model_config = ConfigDict(extra="forbid")
+    banner_external_url: str = Field(..., alias="bannerExternalUrl")
 
 
 class BrandingSettings(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     channel: Channel
+    image: Image | None = None
 
 
 class Item(GAPIBaseModel):
@@ -110,23 +121,15 @@ class Item(GAPIBaseModel):
     snippet: Snippet
     content_details: ContentDetails = Field(..., alias="contentDetails")
     statistics: Statistics
-    topic_details: TopicDetails = Field(..., alias="topicDetails")
+    topic_details: TopicDetails | None = Field(None, alias="topicDetails")
     status: Status
     branding_settings: BrandingSettings = Field(..., alias="brandingSettings")
     content_owner_details: dict[str, Any] = Field(..., alias="contentOwnerDetails")
 
 
-class NotYtDlapi(GAPIBaseModel):
-    model_config = ConfigDict(extra="forbid")
-    part: str
-    timestamp: AwareDatetime
-    username: str
-
-
-class ChannelModel(GAPIBaseModel):
+class ChannelsModel(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     kind: str
     etag: str
     page_info: PageInfo = Field(..., alias="pageInfo")
     items: list[Item]
-    not_yt_dlapi: NotYtDlapi

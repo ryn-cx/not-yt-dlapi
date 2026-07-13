@@ -6,12 +6,9 @@ from __future__ import annotations
 from logging import NullHandler, getLogger
 from typing import Any, override
 
-from good_ass_pydantic_integrator import ReplacementType
-
 from not_yt_dlapi.base_api_endpoint import (
     BaseEndpoint,
     fetch_all_pages,
-    generate_timestamp,
 )
 from not_yt_dlapi.constants import BASE_URL
 from not_yt_dlapi.exceptions import (
@@ -32,17 +29,6 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
 
     _response_model = PlaylistsModel
 
-    @classmethod
-    @override
-    def _replacement_types(cls) -> list[ReplacementType]:
-        return [
-            ReplacementType(
-                class_name="Snippet",
-                field_name="published_at",
-                new_type="str",
-            ),
-        ]
-
     def download(self, channel_id: str) -> dict[str, Any]:
         """Downloads the playlists file."""
         logger.info("Downloading: %s", f"{self.__class__.__name__} {channel_id}")
@@ -54,12 +40,6 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
                 "maxResults": 50,
             },
         ).json()
-        output["not_yt_dlapi"] = {
-            "channel_id": channel_id,
-            "part": PART,
-            "timestamp": generate_timestamp(),
-        }
-
         if "error" in output:
             msg = output["error"]["message"]
             if output["error"]["code"] == HTTP_NOT_FOUND:
@@ -83,12 +63,6 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
             f"{BASE_URL}/playlists",
             {"part": PART, "channelId": channel_id},
         )
-        output["not_yt_dlapi"] = {
-            "channel_id": channel_id,
-            "part": PART,
-            "timestamp": generate_timestamp(),
-        }
-
         if "error" in output:
             msg = output["error"]["message"]
             if output["error"]["code"] == HTTP_NOT_FOUND:

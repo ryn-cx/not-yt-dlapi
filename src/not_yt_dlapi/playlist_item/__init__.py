@@ -9,7 +9,6 @@ from typing import Any, override
 from not_yt_dlapi.base_api_endpoint import (
     BaseEndpoint,
     fetch_all_pages,
-    generate_timestamp,
 )
 from not_yt_dlapi.constants import BASE_URL
 from not_yt_dlapi.exceptions import (
@@ -17,7 +16,7 @@ from not_yt_dlapi.exceptions import (
     NotYTDLAPIError,
     PlaylistItemsNotFoundError,
 )
-from not_yt_dlapi.playlist_item.models import PlaylistItemModel
+from not_yt_dlapi.playlist_item.models import PlaylistItemsModel
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
@@ -25,10 +24,10 @@ logger.addHandler(NullHandler())
 PART = "contentDetails,id,snippet,status"
 
 
-class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
+class PlaylistItems(BaseEndpoint[PlaylistItemsModel]):
     """Manage the playlist items file."""
 
-    _response_model = PlaylistItemModel
+    _response_model = PlaylistItemsModel
 
     def download(self, playlist_id: str) -> dict[str, Any]:
         """Downloads the playlist items file."""
@@ -41,12 +40,6 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
                 "maxResults": 50,
             },
         ).json()
-        output["not_yt_dlapi"] = {
-            "playlist_id": playlist_id,
-            "part": PART,
-            "timestamp": generate_timestamp(),
-        }
-
         if "error" in output:
             msg = output["error"]["message"]
             if output["error"]["code"] == HTTP_NOT_FOUND:
@@ -70,12 +63,6 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
             f"{BASE_URL}/playlistItems",
             {"part": PART, "playlistId": playlist_id},
         )
-        output["not_yt_dlapi"] = {
-            "playlist_id": playlist_id,
-            "part": PART,
-            "timestamp": generate_timestamp(),
-        }
-
         if "error" in output:
             msg = output["error"]["message"]
             if output["error"]["code"] == HTTP_NOT_FOUND:
@@ -89,7 +76,7 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
     def has_content(response: dict[str, Any]) -> bool:
         return bool(response.get("items"))
 
-    def get(self, playlist_id: str) -> PlaylistItemModel:
+    def get(self, playlist_id: str) -> PlaylistItemsModel:
         """Downloads and parses the playlist items file.
 
         Raises:
@@ -99,14 +86,14 @@ class PlaylistItems(BaseEndpoint[PlaylistItemModel]):
         data = self.download(playlist_id)
         return self._parse_or_raise(data, f"{self.__class__.__name__} {playlist_id}")
 
-    def get_all(self, playlist_id: str) -> PlaylistItemModel:
+    def get_all(self, playlist_id: str) -> PlaylistItemsModel:
         """Downloads and parses all items from a playlist.
 
         Args:
             playlist_id: The ID of the playlist.
 
         Returns:
-            A PlaylistItemModel containing all parsed items.
+            A PlaylistItemsModel containing all parsed items.
 
         Raises:
             NoContentError: If the response has no meaningful content. The raw

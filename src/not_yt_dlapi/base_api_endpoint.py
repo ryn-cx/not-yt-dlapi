@@ -4,9 +4,8 @@
 from __future__ import annotations
 
 from abc import abstractmethod
-from datetime import datetime
 from logging import NullHandler, getLogger
-from typing import TYPE_CHECKING, Any, override
+from typing import TYPE_CHECKING, Any
 
 from good_ass_pydantic_integrator import GAPIBaseModel, GAPIClient
 
@@ -14,8 +13,6 @@ from not_yt_dlapi.constants import FILES_PATH
 from not_yt_dlapi.exceptions import NoContentError
 
 if TYPE_CHECKING:
-    from pathlib import Path
-
     from not_yt_dlapi import NotYTDLAPI
 
 logger = getLogger(__name__)
@@ -60,19 +57,10 @@ def fetch_all_pages(
     return combined
 
 
-def generate_timestamp() -> str:
-    """Generate an ISO 8601 timestamp for metadata."""
-    return datetime.now().astimezone().isoformat().replace("+00:00", "Z")
-
-
 class BaseExtractor[T: GAPIBaseModel](GAPIClient[T]):
     """Base class to extract data from API responses."""
 
-    @override
-    @classmethod
-    def json_files_folder(cls) -> Path:
-        folder_name = cls._folder_name(cls._model_name())
-        return FILES_PATH / folder_name.replace("_model", "")
+    JSON_FILES_ROOT = FILES_PATH
 
 
 class BaseEndpoint[T: GAPIBaseModel](BaseExtractor[T]):
@@ -88,7 +76,7 @@ class BaseEndpoint[T: GAPIBaseModel](BaseExtractor[T]):
         """Return whether the response has meaningful content."""
 
     def _parse_or_raise(self, response: dict[str, Any], log_id: str) -> T:
-        """Parse `response`, or raise `NoContentError` when it is empty.
+        """Parse `response`, or raise `NoContentError` if it is empty.
 
         Raises:
             NoContentError: If `has_content` is false.
