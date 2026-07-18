@@ -1,105 +1,105 @@
-# TODO: Validate
-"""Contains the Videos class."""
-
 from __future__ import annotations
 
-from copy import deepcopy
 from logging import NullHandler, getLogger
-from typing import Any, override
+from typing import TYPE_CHECKING, Any
 
 from not_yt_dlapi.base_api_endpoint import BaseEndpoint
-from not_yt_dlapi.constants import BASE_URL
-from not_yt_dlapi.exceptions import (
-    HTTP_NOT_FOUND,
-    NotYTDLAPIError,
-    VideoNotFoundError,
-)
+from not_yt_dlapi.exceptions import VideoNotFoundError
 from not_yt_dlapi.video.models import VideosModel
+
+if TYPE_CHECKING:
+    from not_yt_dlapi.video.models import Item
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
 
+PART = (
+    "contentDetails,"
+    "id,"
+    "liveStreamingDetails,"
+    "localizations,"
+    "paidProductPlacementDetails,"
+    "player,"
+    "recordingDetails,"
+    "snippet,"
+    "statistics,"
+    "status,"
+    "topicDetails"
+)
+DEFAULT_MAX_RESULTS = 50
+
 
 class Videos(BaseEndpoint[VideosModel]):
-    """Manage the videos file."""
-
     _response_model = VideosModel
 
-    def download(self, video_id: str) -> dict[str, Any]:
-        """Downloads the videos file."""
-        part = (
-            "contentDetails,"
-            "id,"
-            "liveStreamingDetails,"
-            "localizations,"
-            "paidProductPlacementDetails,"
-            "player,"
-            "recordingDetails,"
-            "snippet,"
-            "statistics,"
-            "status,"
-            "topicDetails"
+    def get_log_id(self, video_ids: list[str], part: str = PART) -> str:
+        return self.append_non_default_args(
+            f"{self.__class__.__name__} {video_ids=}",
+            part=(part, PART),
         )
 
-        logger.info("Downloading: %s", f"{self.__class__.__name__} {video_id}")
-        output = self._client.authenticated_get(
-            f"{BASE_URL}/videos",
-            params={"part": part, "id": video_id},
-        ).json()
-        if "error" in output:
-            msg = output["error"]["message"]
-            if output["error"]["code"] == HTTP_NOT_FOUND:
-                raise VideoNotFoundError(msg)
-            raise NotYTDLAPIError(msg)
+    def download(
+        self,
+        video_ids: str | list[str],
+        part: str = PART,
+    ) -> dict[str, Any]:
+        video_ids = [video_ids] if isinstance(video_ids, str) else video_ids
 
-        return output
+        log_id = self.get_log_id(video_ids, part)
+        response = self._client.download(
+            "videos",
+            params={"part": part, "id": ",".join(video_ids)},
+            log_id=log_id,
+        )
+        found_ids = {item["id"] for item in response.get("items", [])}
+        missing_ids = [video_id for video_id in video_ids if video_id not in found_ids]
+        if missing_ids:
+            msg = f"Video not found: {', '.join(missing_ids)}"
+            raise VideoNotFoundError(msg, response)
+        return response
+
+    def download_and_parse(
+        self,
+        video_ids: str | list[str],
+        part: str = PART,
+    ) -> VideosModel:
+        return self.parse(self.download(video_ids, part))
+
+    # TODO: Consider making a generalized version of this function for downloading
+    # values from a list if more lists are ever added.
+    def download_all(
+        self,
+        video_ids: list[str],
+        max_results: int = DEFAULT_MAX_RESULTS,
+        part: str = PART,
+    ) -> list[dict[str, Any]]:
+        return [
+            self.download(video_ids[i : i + max_results], part)
+            for i in range(0, len(video_ids), max_results)
+        ]
+
+    def download_and_parse_all(
+        self,
+        video_ids: list[str],
+        max_results: int = DEFAULT_MAX_RESULTS,
+        part: str = PART,
+    ) -> list[VideosModel]:
+        return [
+            self.parse(page) for page in self.download_all(video_ids, max_results, part)
+        ]
 
     @staticmethod
-    @override
-    def has_content(response: dict[str, Any]) -> bool:
-        return bool(response.get("items"))
+    def extract_items(
+        files: VideosModel | dict[str, Any] | list[VideosModel] | list[dict[str, Any]],
+    ) -> list[Item]:
+        if isinstance(files, (dict)):
+            files = [files]
 
-    def get(self, video_id: str) -> VideosModel:
-        """Downloads and parses the videos file.
+        if isinstance(files, (VideosModel)):
+            files = [files]
 
-        Raises:
-            NoContentError: If the response has no meaningful content. The raw
-                response is available on the exception's `response` attribute.
-        """
-        data = self.download(video_id)
-        return self._parse_or_raise(data, f"{self.__class__.__name__} {video_id}")
-
-    def download_multiple(self, video_ids: list[str]) -> list[dict[str, Any]]:
-        """Downloads video data for multiple video IDs, split into individual responses.
-
-        Automatically batches into groups of 50 (the API maximum per request).
-
-        Args:
-            video_ids: The IDs of the videos to download.
-
-        Returns:
-            A list of raw JSON responses, one per video.
-        """
-        results: list[dict[str, Any]] = []
-        for i in range(0, len(video_ids), 50):
-            batch = video_ids[i : i + 50]
-            response = self.download(",".join(batch))
-            base = {k: v for k, v in response.items() if k != "items"}
-            for item in response["items"]:
-                single = deepcopy(base)
-                single["items"] = [item]
-                results.append(single)
-        return results
-
-    def get_multiple(self, video_ids: list[str]) -> list[VideosModel]:
-        """Downloads and parses video data for multiple video IDs.
-
-        Each video is returned as its own model with a single item.
-
-        Args:
-            video_ids: The IDs of the videos to get.
-
-        Returns:
-            A list of VideosModel instances, one per video.
-        """
-        return [self.parse(response) for response in self.download_multiple(video_ids)]
+        models = [
+            page if isinstance(page, VideosModel) else VideosModel.model_validate(page)
+            for page in files
+        ]
+        return [item for model in models for item in model.items]

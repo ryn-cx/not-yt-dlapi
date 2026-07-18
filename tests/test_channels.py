@@ -1,65 +1,123 @@
-# TODO: Validate
 from __future__ import annotations
 
-import json
+from itertools import combinations
 from typing import TYPE_CHECKING
 
 import pytest
+from pydantic import BaseModel
 
-from tests.utils import (
-    assert_no_content_error,
-    data_path,
-    download_if_missing,
-)
+from not_yt_dlapi.exceptions import ChannelNotFoundError
+from tests.utils import assert_error, download_and_save, parse_json
 
 if TYPE_CHECKING:
     from not_yt_dlapi import NotYTDLAPI
-    from not_yt_dlapi.channel import Channels
-
-CHANNEL_ID = "UC4QobU6STFB0P71PMvOGN5A"
-"""channel_id of the YouTube channel that owns "Me at the zoo"."""
-CHANNEL_HANDLE = "@Google"
-"""Handle of the Google channel."""
-CHANNEL_USERNAME = "MrBeast"
-"""Legacy username of the MrBeast channel."""
-INVALID_CHANNEL_ID = "UCinvalidchannelid123456"
-
-# Each lookup is (cache name, download kwargs) so a single id downloads via the
-# matching channel_id/handle/username parameter.
-LOOKUPS: list[tuple[str, dict[str, str]]] = [
-    (CHANNEL_ID, {"channel_id": CHANNEL_ID}),
-    (CHANNEL_HANDLE, {"handle": CHANNEL_HANDLE}),
-    (CHANNEL_USERNAME, {"username": CHANNEL_USERNAME}),
-]
-
-LOOKUP_NAMES = [name for name, _ in LOOKUPS]
+    from not_yt_dlapi.channel import Channel
 
 
 @pytest.fixture(scope="session")
-def endpoint(client: NotYTDLAPI) -> Channels:
-    return client.channels
+def endpoint(client: NotYTDLAPI) -> Channel:
+    return client.channel
 
 
-class TestChannels:
-    @pytest.mark.parametrize(("name", "kwargs"), LOOKUPS)
-    def test_download(
-        self,
-        endpoint: Channels,
-        name: str,
-        kwargs: dict[str, str],
-    ) -> None:
-        download_if_missing(endpoint, name, lambda: endpoint.download(**kwargs))
+class TestData(BaseModel):
+    name: str
+    kwargs: dict[str, str]
+    channel_id: str | None = None
 
-    @pytest.mark.parametrize("name", LOOKUP_NAMES)
-    def test_value(self, endpoint: Channels, name: str) -> None:
-        data = endpoint.parse(json.loads(data_path(endpoint, name).read_text()))
-        # TODO: assert expected value (needs live data)
-        assert data is not None
 
-    def test_invalid(self, endpoint: Channels) -> None:
-        name = INVALID_CHANNEL_ID
-        assert_no_content_error(
-            endpoint,
-            name,
-            lambda: endpoint.get(channel_id=INVALID_CHANNEL_ID),
-        )
+VALID_TEST_DATA = [
+    # Every different parameter that can be used.
+    TestData(
+        name="UC4QobU6STFB0P71PMvOGN5A",
+        kwargs={"channel_id": "UC4QobU6STFB0P71PMvOGN5A"},
+        channel_id="UC4QobU6STFB0P71PMvOGN5A",
+    ),
+    TestData(
+        name="@Google",
+        kwargs={"channel_handle": "@Google"},
+        channel_id="UCK8sQmJBp8GCxrOtXWBpyEA",
+    ),
+    TestData(
+        name="MrBeast",
+        kwargs={"channel_username": "MrBeast"},
+        channel_id="UCgoFStVyEsm8tBZP5NC-aBQ",
+    ),
+]
+
+
+INVALID_TEST_DATA = [
+    # Every different parameter that can be used.
+    TestData(
+        name="UCCCCCCCCCCCCCCCCCCCCCCC",
+        kwargs={"channel_id": "UCCCCCCCCCCCCCCCCCCCCCCC"},
+    ),
+    TestData(
+        name="InvalidYouTubeHandleForTests",
+        kwargs={"channel_handle": "InvalidYouTubeHandleForTests"},
+    ),
+    TestData(
+        name="InvalidYouTubeUsernameFortests",
+        kwargs={"channel_username": "InvalidYouTubeUsernameFortests"},
+    ),
+]
+
+
+_ALL_PARAMS = {
+    "channel_id": "UC4QobU6STFB0P71PMvOGN5A",
+    "channel_handle": "@Google",
+    "channel_username": "MrBeast",
+}
+INVALID_PARAM_COMBINATIONS = [
+    dict(combo) for size in (2, 3) for combo in combinations(_ALL_PARAMS.items(), size)
+]
+
+
+@pytest.mark.parametrize("test_data", VALID_TEST_DATA, ids=lambda x: x.name)
+def test_download(endpoint: Channel, test_data: TestData) -> None:
+    download_and_save(
+        endpoint,
+        test_data.name,
+        lambda: endpoint.download(**test_data.kwargs),
+    )
+
+
+@pytest.mark.parametrize("test_data", VALID_TEST_DATA, ids=lambda x: x.name)
+def test_parse(endpoint: Channel, test_data: TestData) -> None:
+    channels = parse_json(endpoint, test_data.name)
+    assert len(channels.items) == 1
+    assert channels.items[0].id == test_data.channel_id
+
+
+@pytest.mark.parametrize("test_data", INVALID_TEST_DATA, ids=lambda x: x.name)
+def test_invalid_download(endpoint: Channel, test_data: TestData) -> None:
+    assert_error(
+        endpoint,
+        test_data.name,
+        lambda: endpoint.download(**test_data.kwargs),
+        ChannelNotFoundError,
+    )
+
+
+@pytest.mark.parametrize(
+    "kwargs",
+    INVALID_PARAM_COMBINATIONS,
+    ids=lambda x: ",".join(x.keys()),
+)
+def test_invalid_combinations(endpoint: Channel, kwargs: dict[str, str]) -> None:
+    with pytest.raises(ValueError, match="Invalid number of arguments"):
+        endpoint.download(**kwargs)
+
+
+@pytest.mark.parametrize("part", [None, "part_value"])
+@pytest.mark.parametrize(
+    "identifier",
+    ["channel_id", "channel_handle", "channel_username"],
+)
+def test_log_id(endpoint: Channel, identifier: str, part: str | None) -> None:
+    value = f"{identifier}_value"
+    kwargs: dict[str, str] = {identifier: value}
+    expected = f"Channel {identifier}='{value}'"
+    if part is not None:
+        kwargs["part"] = part
+        expected += f" part='{part}'"
+    assert endpoint.get_log_id(**kwargs) == expected

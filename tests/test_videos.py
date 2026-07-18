@@ -1,30 +1,32 @@
 # TODO: Validate
 from __future__ import annotations
 
-import json
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import pytest
 
+from not_yt_dlapi.exceptions import VideoNotFoundError
 from tests.utils import (
-    assert_no_content_error,
-    data_path,
-    download_if_missing,
+    assert_error,
+    download_and_save,
+    page_dicts,
+    page_models,
+    parse_json,
+    single_dict,
 )
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
+
     from not_yt_dlapi import NotYTDLAPI
     from not_yt_dlapi.video import Videos
+    from not_yt_dlapi.video.models import VideosModel
 
-VIDEO_ID = "jNQXAC9IVRw"
-"""video_id of "Me at the zoo"."""
-AGE_RESTRICTED_VIDEO_ID = "l1ITP7m6R0Q"
-"""video_id of an age-restricted video."""
-SECOND_VIDEO_ID = "S-8U4lSEq8A"
-"""video_id of a second video, used for multi-video requests."""
-INVALID_VIDEO_ID = "12345678901"
 
-VIDEO_IDS = [VIDEO_ID, AGE_RESTRICTED_VIDEO_ID, SECOND_VIDEO_ID]
+# The input shapes extract_items accepts.
+type ExtractInput = (
+    VideosModel | dict[str, Any] | list[VideosModel] | list[dict[str, Any]]
+)
 
 
 @pytest.fixture(scope="session")
@@ -32,25 +34,59 @@ def endpoint(client: NotYTDLAPI) -> Videos:
     return client.videos
 
 
-class TestVideos:
+# TODO: Find a private video for testing.
+VIDEO_ID = "jNQXAC9IVRw"
+VIDEO_ID_2 = "LY8Wi7XRXCA"
+# This is probably the age restricted video with the most views on YouTube.
+AGE_RESTRICTED_VIDEO_ID = "qpgTC9MDx1o"
+INVALID_VIDEO_ID = "00000000000"
+
+VIDEO_IDS: list[str] = [VIDEO_ID, AGE_RESTRICTED_VIDEO_ID, VIDEO_ID_2]
+
+
+class TestVideoId:
     @pytest.mark.parametrize("video_id", VIDEO_IDS)
     def test_download(self, endpoint: Videos, video_id: str) -> None:
-        download_if_missing(
+        download_and_save(
             endpoint,
             video_id,
-            lambda: endpoint.download(video_id),
+            lambda: endpoint.download([video_id]),
         )
 
     @pytest.mark.parametrize("video_id", VIDEO_IDS)
-    def test_value(self, endpoint: Videos, video_id: str) -> None:
-        data = endpoint.parse(json.loads(data_path(endpoint, video_id).read_text()))
-        # TODO: assert expected value (needs live data)
-        assert data is not None
+    def test_parse(self, endpoint: Videos, video_id: str) -> None:
+        data = parse_json(endpoint, video_id)
+        assert [item.id for item in data.items] == [video_id]
 
-    def test_invalid(self, endpoint: Videos) -> None:
-        name = INVALID_VIDEO_ID
-        assert_no_content_error(
+    @pytest.mark.parametrize("video_id", VIDEO_IDS)
+    @pytest.mark.parametrize(
+        "load",
+        [single_dict, parse_json, page_dicts, page_models],
+        ids=["dict", "model", "dicts", "models"],
+    )
+    def test_extract_items(
+        self,
+        endpoint: Videos,
+        video_id: str,
+        load: Callable[[Videos, str], ExtractInput],
+    ) -> None:
+        items = endpoint.extract_items(load(endpoint, video_id))
+        assert [item.id for item in items] == [video_id]
+
+    def test_invalid_download(self, endpoint: Videos) -> None:
+        assert_error(
             endpoint,
-            name,
-            lambda: endpoint.get(INVALID_VIDEO_ID),
+            INVALID_VIDEO_ID,
+            lambda: endpoint.download([INVALID_VIDEO_ID]),
+            VideoNotFoundError,
         )
+
+
+@pytest.mark.parametrize("part", [None, "part_value"])
+def test_log_id(endpoint: Videos, part: str | None) -> None:
+    video_ids = ["a", "b"]
+    kwargs: dict[str, str] = {} if part is None else {"part": part}
+    expected = f"Videos video_ids={video_ids}"
+    if part is not None:
+        expected += f" part='{part}'"
+    assert endpoint.get_log_id(video_ids, **kwargs) == expected

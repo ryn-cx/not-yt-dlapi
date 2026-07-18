@@ -68,12 +68,17 @@ class Snippet(GAPIBaseModel):
     live_broadcast_content: str = Field(..., alias="liveBroadcastContent")
     default_language: str = Field(..., alias="defaultLanguage")
     localized: Localized
-    default_audio_language: str = Field(..., alias="defaultAudioLanguage")
+    default_audio_language: str | None = Field(None, alias="defaultAudioLanguage")
 
 
 class ContentRating(GAPIBaseModel):
     model_config = ConfigDict(extra="forbid")
     yt_rating: str | None = Field(None, alias="ytRating")
+
+
+class RegionRestriction(GAPIBaseModel):
+    model_config = ConfigDict(extra="forbid")
+    allowed: list[str]
 
 
 class ContentDetails(GAPIBaseModel):
@@ -85,6 +90,10 @@ class ContentDetails(GAPIBaseModel):
     licensed_content: bool = Field(..., alias="licensedContent")
     content_rating: ContentRating = Field(..., alias="contentRating")
     projection: str
+    region_restriction: RegionRestriction | None = Field(
+        None,
+        alias="regionRestriction",
+    )
 
 
 class Status(GAPIBaseModel):

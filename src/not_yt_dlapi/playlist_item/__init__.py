@@ -1,103 +1,108 @@
 # TODO: Validate
-"""Contains the PlaylistItems class."""
 
 from __future__ import annotations
 
 from logging import NullHandler, getLogger
-from typing import Any, override
+from typing import TYPE_CHECKING, Any
 
-from not_yt_dlapi.base_api_endpoint import (
-    BaseEndpoint,
-    fetch_all_pages,
-)
-from not_yt_dlapi.constants import BASE_URL
-from not_yt_dlapi.exceptions import (
-    HTTP_NOT_FOUND,
-    NotYTDLAPIError,
-    PlaylistItemsNotFoundError,
-)
+from not_yt_dlapi.base_api_endpoint import BaseEndpoint
+from not_yt_dlapi.exceptions import PlaylistNotFoundError
 from not_yt_dlapi.playlist_item.models import PlaylistItemsModel
+
+if TYPE_CHECKING:
+    from not_yt_dlapi.playlist_item.models import Item
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
 
 PART = "contentDetails,id,snippet,status"
+DEFAULT_MAX_RESULTS = 50
 
 
 class PlaylistItems(BaseEndpoint[PlaylistItemsModel]):
-    """Manage the playlist items file."""
-
     _response_model = PlaylistItemsModel
 
-    def download(self, playlist_id: str) -> dict[str, Any]:
-        """Downloads the playlist items file."""
-        logger.info("Downloading: %s", f"{self.__class__.__name__} {playlist_id}")
-        output = self._client.authenticated_get(
-            f"{BASE_URL}/playlistItems",
-            params={
-                "part": PART,
-                "playlistId": playlist_id,
-                "maxResults": 50,
-            },
-        ).json()
-        if "error" in output:
-            msg = output["error"]["message"]
-            if output["error"]["code"] == HTTP_NOT_FOUND:
-                raise PlaylistItemsNotFoundError(msg)
-            raise NotYTDLAPIError(msg)
-
-        return output
-
-    def download_all(self, playlist_id: str) -> dict[str, Any]:
-        """Downloads all items from a playlist with automatic pagination.
-
-        Args:
-            playlist_id: The ID of the playlist.
-
-        Returns:
-            A combined response dict with all items from every page.
-        """
-        logger.info("Downloading: %s", f"{self.__class__.__name__} {playlist_id}")
-        output = fetch_all_pages(
-            self._client,
-            f"{BASE_URL}/playlistItems",
-            {"part": PART, "playlistId": playlist_id},
+    def get_log_id(
+        self,
+        playlist_id: str,
+        max_results: int = DEFAULT_MAX_RESULTS,
+        part: str = PART,
+    ) -> str:
+        return self.append_non_default_args(
+            f"{self.__class__.__name__} {playlist_id=}",
+            max_results=(max_results, DEFAULT_MAX_RESULTS),
+            part=(part, PART),
         )
-        if "error" in output:
-            msg = output["error"]["message"]
-            if output["error"]["code"] == HTTP_NOT_FOUND:
-                raise PlaylistItemsNotFoundError(msg)
-            raise NotYTDLAPIError(msg)
 
-        return output
+    def download(
+        self,
+        playlist_id: str,
+        max_results: int = DEFAULT_MAX_RESULTS,
+        part: str = PART,
+    ) -> dict[str, Any]:
+        log_id = self.get_log_id(playlist_id, max_results, part)
+        return self._client.download(
+            "playlistItems",
+            params={
+                "part": part,
+                "playlistId": playlist_id,
+                "maxResults": max_results,
+            },
+            not_found_error=PlaylistNotFoundError,
+            log_id=log_id,
+        )
+
+    def download_all_pages(
+        self,
+        playlist_id: str,
+        max_results: int = DEFAULT_MAX_RESULTS,
+        part: str = PART,
+    ) -> list[dict[str, Any]]:
+        log_id = self.get_log_id(playlist_id, max_results, part)
+        return self._client.download_all_pages(
+            "playlistItems",
+            {"part": part, "playlistId": playlist_id, "maxResults": max_results},
+            log_id,
+            not_found_error=PlaylistNotFoundError,
+        )
+
+    def download_and_parse(
+        self,
+        playlist_id: str,
+        max_results: int = DEFAULT_MAX_RESULTS,
+        part: str = PART,
+    ) -> PlaylistItemsModel:
+        response = self.download(playlist_id, max_results, part)
+        return self.parse(response)
+
+    def download_and_parse_all_pages(
+        self,
+        playlist_id: str,
+        max_results: int = DEFAULT_MAX_RESULTS,
+        part: str = PART,
+    ) -> list[PlaylistItemsModel]:
+        return [
+            self.parse(responses)
+            for responses in self.download_all_pages(playlist_id, max_results, part)
+        ]
 
     @staticmethod
-    @override
-    def has_content(response: dict[str, Any]) -> bool:
-        return bool(response.get("items"))
+    def extract_items(
+        files: PlaylistItemsModel
+        | dict[str, Any]
+        | list[PlaylistItemsModel]
+        | list[dict[str, Any]],
+    ) -> list[Item]:
+        if isinstance(files, (dict)):
+            files = [files]
 
-    def get(self, playlist_id: str) -> PlaylistItemsModel:
-        """Downloads and parses the playlist items file.
+        if isinstance(files, (PlaylistItemsModel)):
+            files = [files]
 
-        Raises:
-            NoContentError: If the response has no meaningful content. The raw
-                response is available on the exception's `response` attribute.
-        """
-        data = self.download(playlist_id)
-        return self._parse_or_raise(data, f"{self.__class__.__name__} {playlist_id}")
-
-    def get_all(self, playlist_id: str) -> PlaylistItemsModel:
-        """Downloads and parses all items from a playlist.
-
-        Args:
-            playlist_id: The ID of the playlist.
-
-        Returns:
-            A PlaylistItemsModel containing all parsed items.
-
-        Raises:
-            NoContentError: If the response has no meaningful content. The raw
-                response is available on the exception's `response` attribute.
-        """
-        data = self.download_all(playlist_id)
-        return self._parse_or_raise(data, f"{self.__class__.__name__} {playlist_id}")
+        models = [
+            page
+            if isinstance(page, PlaylistItemsModel)
+            else PlaylistItemsModel.model_validate(page)
+            for page in files
+        ]
+        return [item for model in models for item in model.items]

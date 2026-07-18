@@ -1,23 +1,22 @@
-# TODO: Validate
-"""Contains the NotYTDLAPI class."""
-
 from __future__ import annotations
 
 import time
+from itertools import count
 from logging import NullHandler, getLogger
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, overload
 
 from get_around import GetAround
 from google.auth.transport.requests import Request
 
-from not_yt_dlapi.channel import Channels
-from not_yt_dlapi.playlist import Playlist
+from not_yt_dlapi.channel import Channel
+from not_yt_dlapi.channel_section import ChannelSections
+from not_yt_dlapi.constants import BASE_URL
+from not_yt_dlapi.exceptions import HTTP_NOT_FOUND, NotYTDLAPIError
 from not_yt_dlapi.playlist_item import PlaylistItems
 from not_yt_dlapi.playlists import Playlists
 from not_yt_dlapi.video import Videos
 
 if TYPE_CHECKING:
-    import httpx
     from google.oauth2.credentials import Credentials
 
 logger = getLogger(__name__)
@@ -25,16 +24,29 @@ logger.addHandler(NullHandler())
 
 
 class NotYTDLAPI:
-    """YouTube Data API wrapper."""
-
+    @overload
     def __init__(
         self,
-        api_key: str | None = None,
         *,
+        api_key: str,
+        credentials: Credentials | None = None,
+        get_around_client: GetAround | None = None,
+    ) -> None: ...
+    @overload
+    def __init__(
+        self,
+        *,
+        api_key: str | None = None,
+        credentials: Credentials,
+        get_around_client: GetAround | None = None,
+    ) -> None: ...
+    def __init__(
+        self,
+        *,
+        api_key: str | None = None,
         credentials: Credentials | None = None,
         get_around_client: GetAround | None = None,
     ) -> None:
-        """Initialize the NotYTDLAPI client."""
         if api_key is None and credentials is None:
             msg = "Either api_key or credentials must be provided."
             raise ValueError(msg)
@@ -45,34 +57,62 @@ class NotYTDLAPI:
 
         self.videos = Videos(self)
         self.playlists = Playlists(self)
-        self.playlist = Playlist(self)
         self.playlist_items = PlaylistItems(self)
-        self.channels = Channels(self)
+        self.channel = Channel(self)
+        self.channel_sections = ChannelSections(self)
 
-    def authenticated_get(
+    def download(
         self,
-        url: str,
+        path: str,
         params: dict[str, Any],
-    ) -> httpx.Response:
-        """Perform a GET request authenticated with OAuth or an API key."""
-        request_params = dict(params)
+        log_id: str,
+        not_found_error: type[NotYTDLAPIError] = NotYTDLAPIError,
+    ) -> dict[str, Any]:
         headers: dict[str, str] = {}
-        if self.credentials is not None:
+        if self.credentials:
             if not self.credentials.valid:
                 self.credentials.refresh(Request())
             headers["Authorization"] = f"Bearer {self.credentials.token}"
         else:
-            request_params["key"] = self.api_key
+            params["key"] = self.api_key
 
-        # Log the caller-supplied params rather than request_params so the API key
-        # is never written to the logs.
-        operation = f"{url} params={params}"
-        logger.debug("Downloading: %s", operation)
+        logger.debug("Downloading: %s", log_id)
         start = time.monotonic()
         response = self.get_around_client.get(
-            url,
-            params=request_params,
+            f"{BASE_URL}/{path}",
+            params=params,
             headers=headers,
         )
-        logger.debug("Downloaded %s (%.4f s)", operation, time.monotonic() - start)
-        return response
+        logger.debug("Downloaded %s (%.4f s)", log_id, time.monotonic() - start)
+
+        response_json: dict[str, Any] = response.json()
+        if "error" in response_json:
+            msg = response_json["error"]["message"]
+            if response_json["error"]["code"] == HTTP_NOT_FOUND:
+                raise not_found_error(msg, response_json)
+            raise NotYTDLAPIError(msg, response_json)
+        return response_json
+
+    def download_all_pages(
+        self,
+        path: str,
+        params: dict[str, Any],
+        log_id: str,
+        *,
+        not_found_error: type[NotYTDLAPIError] = NotYTDLAPIError,
+    ) -> list[dict[str, Any]]:
+        pages: list[dict[str, Any]] = []
+        for page in count(start=1, step=1):
+            response = self.download(
+                path,
+                params,
+                f"{log_id} {page=}",
+                not_found_error,
+            )
+            pages.append(response)
+
+            params["pageToken"] = response.get("nextPageToken")
+            if not params["pageToken"]:
+                break
+
+        return pages

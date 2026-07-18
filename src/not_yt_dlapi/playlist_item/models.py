@@ -102,3 +102,4 @@ class PlaylistItemsModel(GAPIBaseModel):
     next_page_token: str | None = Field(None, alias="nextPageToken")
     items: list[Item]
     page_info: PageInfo = Field(..., alias="pageInfo")
+    prev_page_token: str | None = Field(None, alias="prevPageToken")

@@ -1,19 +1,11 @@
-# TODO: Validate
-"""Contains the Channels class."""
-
 from __future__ import annotations
 
 from logging import NullHandler, getLogger
-from typing import Any, override
+from typing import Any, overload
 
 from not_yt_dlapi.base_api_endpoint import BaseEndpoint
 from not_yt_dlapi.channel.models import ChannelsModel
-from not_yt_dlapi.constants import BASE_URL
-from not_yt_dlapi.exceptions import (
-    HTTP_NOT_FOUND,
-    ChannelNotFoundError,
-    NotYTDLAPIError,
-)
+from not_yt_dlapi.exceptions import ChannelNotFoundError
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
@@ -31,67 +23,98 @@ PART = (
 )
 
 
-class Channels(BaseEndpoint[ChannelsModel]):
-    """Manage the channels file."""
-
+class Channel(BaseEndpoint[ChannelsModel]):
     _response_model = ChannelsModel
 
+    def get_log_id(
+        self,
+        *,
+        channel_id: str | None = None,
+        channel_handle: str | None = None,
+        channel_username: str | None = None,
+        part: str = PART,
+    ) -> str:
+        return self.append_non_default_args(
+            f"{self.__class__.__name__}",
+            channel_id=(channel_id, None),
+            channel_handle=(channel_handle, None),
+            channel_username=(channel_username, None),
+            part=(part, PART),
+        )
+
+    @overload
+    def download(self, *, channel_id: str, part: str = PART) -> dict[str, Any]: ...
+    @overload
+    def download(self, *, channel_handle: str, part: str = PART) -> dict[str, Any]: ...
+    @overload
+    def download(
+        self,
+        *,
+        channel_username: str,
+        part: str = PART,
+    ) -> dict[str, Any]: ...
     def download(
         self,
         *,
         channel_id: str | None = None,
-        handle: str | None = None,
-        username: str | None = None,
+        channel_handle: str | None = None,
+        channel_username: str | None = None,
+        part: str = PART,
     ) -> dict[str, Any]:
-        """Downloads the channels file."""
-        if (channel_id is None) == (handle is None) == (username is None):
-            msg = "Exactly one of channel_id, handle, or username must be provided."
-            raise ValueError(msg)
+        params = self.get_single_arg(
+            id=channel_id,
+            for_handle=channel_handle,
+            for_username=channel_username,
+        )
+        log_id = self.get_log_id(
+            channel_id=channel_id,
+            channel_handle=channel_handle,
+            channel_username=channel_username,
+            part=part,
+        )
 
-        params: dict[str, str] = {"part": PART}
-        if channel_id is not None:
-            params["id"] = channel_id
-            logger.info("Downloading: %s", f"{self.__class__.__name__} {channel_id}")
-        elif handle is not None:
-            params["forHandle"] = handle
-            logger.info("Downloading: %s", f"{self.__class__.__name__} {handle}")
-        elif username is not None:
-            params["forUsername"] = username
-            logger.info("Downloading: %s", f"{self.__class__.__name__} {username}")
+        params["part"] = part
 
-        output = self._client.authenticated_get(
-            f"{BASE_URL}/channels",
-            params=params,
-        ).json()
+        response = self._client.download("channels", params, log_id)
+        if "items" not in response:
+            identifier = log_id.removeprefix(f"{self.__class__.__name__} ")
+            msg = f"Channel not found: {identifier}"
+            raise ChannelNotFoundError(msg, response)
+        return response
 
-        if "error" in output:
-            msg = output["error"]["message"]
-            if output["error"]["code"] == HTTP_NOT_FOUND:
-                raise ChannelNotFoundError(msg)
-            raise NotYTDLAPIError(msg)
-
-        return output
-
-    @staticmethod
-    @override
-    def has_content(response: dict[str, Any]) -> bool:
-        return bool(response.get("items"))
-
-    def get(
+    @overload
+    def download_and_parse(
+        self,
+        *,
+        channel_id: str,
+        part: str = PART,
+    ) -> ChannelsModel: ...
+    @overload
+    def download_and_parse(
+        self,
+        *,
+        channel_handle: str,
+        part: str = PART,
+    ) -> ChannelsModel: ...
+    @overload
+    def download_and_parse(
+        self,
+        *,
+        channel_username: str,
+        part: str = PART,
+    ) -> ChannelsModel: ...
+    def download_and_parse(
         self,
         *,
         channel_id: str | None = None,
-        handle: str | None = None,
-        username: str | None = None,
+        channel_handle: str | None = None,
+        channel_username: str | None = None,
+        part: str = PART,
     ) -> ChannelsModel:
-        """Downloads and parses the channels file.
-
-        Raises:
-            NoContentError: If the response has no meaningful content. The raw
-                response is available on the exception's `response` attribute.
-        """
-        data = self.download(channel_id=channel_id, handle=handle, username=username)
-        return self._parse_or_raise(
-            data,
-            f"{self.__class__.__name__} {channel_id or handle or username}",
+        params = self.get_single_arg(
+            channel_id=channel_id,
+            channel_handle=channel_handle,
+            channel_username=channel_username,
         )
+        response = self.download(**params, part=part)
+        return self.parse(response)

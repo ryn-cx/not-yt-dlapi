@@ -1,12 +1,9 @@
-# TODO: Validate
-import os
-
 import pytest
-from get_around import build_client_automatically
+from get_around import build_client_automatically, get_credential
 
 from not_yt_dlapi import NotYTDLAPI
 
-API_KEY = os.getenv("YOUTUBE_API_KEY", "")
+API_KEY = get_credential("YOUTUBE_API_KEY")
 
 
 @pytest.fixture(scope="session")
