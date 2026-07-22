@@ -23,7 +23,6 @@ if TYPE_CHECKING:
     from not_yt_dlapi.playlists import Playlists
     from not_yt_dlapi.playlists.models import PlaylistsModel
 
-
 # The input shapes extract_items accepts.
 type ExtractInput = (
     PlaylistsModel | dict[str, Any] | list[PlaylistsModel] | list[dict[str, Any]]
@@ -166,24 +165,3 @@ class TestChannelId:
             lambda: endpoint.download(channel_id=INVALID_CHANNEL_ID),
             ChannelNotFoundError,
         )
-
-
-@pytest.mark.parametrize("part", [None, "part_value"])
-@pytest.mark.parametrize("max_results", [None, 10])
-@pytest.mark.parametrize("identifier", ["playlist_id", "channel_id"])
-def test_log_id(
-    endpoint: Playlists,
-    identifier: str,
-    max_results: int | None,
-    part: str | None,
-) -> None:
-    value = f"{identifier}_value"
-    kwargs: dict[str, Any] = {identifier: value}
-    expected = f"Playlists {identifier}='{value}'"
-    if max_results is not None:
-        kwargs["max_results"] = max_results
-        expected += f" max_results={max_results}"
-    if part is not None:
-        kwargs["part"] = part
-        expected += f" part='{part}'"
-    assert endpoint.get_log_id(**kwargs) == expected

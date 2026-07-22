@@ -16,14 +16,8 @@ PART = "contentDetails,id,localizations,snippet,targeting"
 class ChannelSections(BaseEndpoint[ChannelSectionsModel]):
     _response_model = ChannelSectionsModel
 
-    def get_log_id(self, channel_id: str, part: str = PART) -> str:
-        return self.append_non_default_args(
-            f"{self.__class__.__name__} {channel_id=}",
-            part=(part, PART),
-        )
-
     def download(self, channel_id: str, part: str = PART) -> dict[str, Any]:
-        log_id = self.get_log_id(channel_id, part)
+        log_id = self.get_log_id(self.download, locals())
         return self._client.download(
             "channelSections",
             params={"part": part, "channelId": channel_id},

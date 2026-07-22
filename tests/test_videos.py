@@ -22,7 +22,6 @@ if TYPE_CHECKING:
     from not_yt_dlapi.video import Videos
     from not_yt_dlapi.video.models import VideosModel
 
-
 # The input shapes extract_items accepts.
 type ExtractInput = (
     VideosModel | dict[str, Any] | list[VideosModel] | list[dict[str, Any]]
@@ -37,11 +36,19 @@ def endpoint(client: NotYTDLAPI) -> Videos:
 # TODO: Find a private video for testing.
 VIDEO_ID = "jNQXAC9IVRw"
 VIDEO_ID_2 = "LY8Wi7XRXCA"
+VIDEO_ID_3 = "5ahp-nKTM8w"
+VIDEO_ID_4 = "h06djUQqIEA"
 # This is probably the age restricted video with the most views on YouTube.
 AGE_RESTRICTED_VIDEO_ID = "qpgTC9MDx1o"
 INVALID_VIDEO_ID = "00000000000"
 
-VIDEO_IDS: list[str] = [VIDEO_ID, AGE_RESTRICTED_VIDEO_ID, VIDEO_ID_2]
+VIDEO_IDS: list[str] = [
+    VIDEO_ID,
+    AGE_RESTRICTED_VIDEO_ID,
+    VIDEO_ID_2,
+    VIDEO_ID_3,
+    VIDEO_ID_4,
+]
 
 
 class TestVideoId:
@@ -80,13 +87,3 @@ class TestVideoId:
             lambda: endpoint.download([INVALID_VIDEO_ID]),
             VideoNotFoundError,
         )
-
-
-@pytest.mark.parametrize("part", [None, "part_value"])
-def test_log_id(endpoint: Videos, part: str | None) -> None:
-    video_ids = ["a", "b"]
-    kwargs: dict[str, str] = {} if part is None else {"part": part}
-    expected = f"Videos video_ids={video_ids}"
-    if part is not None:
-        expected += f" part='{part}'"
-    assert endpoint.get_log_id(video_ids, **kwargs) == expected

@@ -32,20 +32,14 @@ DEFAULT_MAX_RESULTS = 50
 class Videos(BaseEndpoint[VideosModel]):
     _response_model = VideosModel
 
-    def get_log_id(self, video_ids: list[str], part: str = PART) -> str:
-        return self.append_non_default_args(
-            f"{self.__class__.__name__} {video_ids=}",
-            part=(part, PART),
-        )
-
     def download(
         self,
         video_ids: str | list[str],
         part: str = PART,
     ) -> dict[str, Any]:
+        log_id = self.get_log_id(self.download, locals())
         video_ids = [video_ids] if isinstance(video_ids, str) else video_ids
 
-        log_id = self.get_log_id(video_ids, part)
         response = self._client.download(
             "videos",
             params={"part": part, "id": ",".join(video_ids)},

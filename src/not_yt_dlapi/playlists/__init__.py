@@ -20,22 +20,6 @@ DEFAULT_MAX_RESULTS = 50
 class Playlists(BaseEndpoint[PlaylistsModel]):
     _response_model = PlaylistsModel
 
-    def get_log_id(
-        self,
-        *,
-        playlist_id: str | None = None,
-        channel_id: str | None = None,
-        max_results: int = DEFAULT_MAX_RESULTS,
-        part: str = PART,
-    ) -> str:
-        return self.append_non_default_args(
-            f"{self.__class__.__name__}",
-            playlist_id=(playlist_id, None),
-            channel_id=(channel_id, None),
-            max_results=(max_results, DEFAULT_MAX_RESULTS),
-            part=(part, PART),
-        )
-
     @overload
     def download(
         self,
@@ -60,15 +44,10 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
     ) -> dict[str, Any]:
+        log_id = self.get_log_id(self.download, locals())
         params = self.get_single_arg(
             id=playlist_id,
             channelId=channel_id,
-        )
-        log_id = self.get_log_id(
-            playlist_id=playlist_id,
-            channel_id=channel_id,
-            max_results=max_results,
-            part=part,
         )
         params["part"] = part
         params["maxResults"] = max_results
@@ -92,11 +71,7 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
     ) -> list[dict[str, Any]]:
-        log_id = self.get_log_id(
-            channel_id=channel_id,
-            max_results=max_results,
-            part=part,
-        )
+        log_id = self.get_log_id(self.download_all, locals())
         return self._client.download_all_pages(
             "playlists",
             {"part": part, "channelId": channel_id, "maxResults": max_results},

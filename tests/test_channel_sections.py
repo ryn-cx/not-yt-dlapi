@@ -48,13 +48,3 @@ def test_invalid_download(endpoint: ChannelSections) -> None:
         lambda: endpoint.download(INVALID_CHANNEL_ID),
         ChannelNotFoundError,
     )
-
-
-@pytest.mark.parametrize("part", [None, "part_value"])
-def test_log_id(endpoint: ChannelSections, part: str | None) -> None:
-    channel_id = "channel_id_value"
-    kwargs: dict[str, str] = {} if part is None else {"part": part}
-    expected = f"ChannelSections channel_id='{channel_id}'"
-    if part is not None:
-        expected += f" part='{part}'"
-    assert endpoint.get_log_id(channel_id, **kwargs) == expected

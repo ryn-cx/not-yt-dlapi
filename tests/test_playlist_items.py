@@ -25,7 +25,6 @@ if TYPE_CHECKING:
     from not_yt_dlapi.playlist_item import PlaylistItems
     from not_yt_dlapi.playlist_item.models import PlaylistItemsModel
 
-
 # The input shapes extract_items accepts.
 type ExtractInput = (
     PlaylistItemsModel
@@ -175,22 +174,3 @@ def test_invalid_download(endpoint: PlaylistItems) -> None:
         lambda: endpoint.download(INVALID_PLAYLIST_ID),
         PlaylistItemsNotFoundError,
     )
-
-
-@pytest.mark.parametrize("part", [None, "part_value"])
-@pytest.mark.parametrize("max_results", [None, 10])
-def test_log_id(
-    endpoint: PlaylistItems,
-    max_results: int | None,
-    part: str | None,
-) -> None:
-    playlist_id = "playlist_id_value"
-    kwargs: dict[str, Any] = {}
-    expected = f"PlaylistItems playlist_id='{playlist_id}'"
-    if max_results is not None:
-        kwargs["max_results"] = max_results
-        expected += f" max_results={max_results}"
-    if part is not None:
-        kwargs["part"] = part
-        expected += f" part='{part}'"
-    assert endpoint.get_log_id(playlist_id, **kwargs) == expected

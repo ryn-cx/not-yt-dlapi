@@ -44,7 +44,6 @@ VALID_TEST_DATA = [
     ),
 ]
 
-
 INVALID_TEST_DATA = [
     # Every different parameter that can be used.
     TestData(
@@ -60,7 +59,6 @@ INVALID_TEST_DATA = [
         kwargs={"channel_username": "InvalidYouTubeUsernameFortests"},
     ),
 ]
-
 
 _ALL_PARAMS = {
     "channel_id": "UC4QobU6STFB0P71PMvOGN5A",
@@ -106,18 +104,3 @@ def test_invalid_download(endpoint: Channel, test_data: TestData) -> None:
 def test_invalid_combinations(endpoint: Channel, kwargs: dict[str, str]) -> None:
     with pytest.raises(ValueError, match="Invalid number of arguments"):
         endpoint.download(**kwargs)
-
-
-@pytest.mark.parametrize("part", [None, "part_value"])
-@pytest.mark.parametrize(
-    "identifier",
-    ["channel_id", "channel_handle", "channel_username"],
-)
-def test_log_id(endpoint: Channel, identifier: str, part: str | None) -> None:
-    value = f"{identifier}_value"
-    kwargs: dict[str, str] = {identifier: value}
-    expected = f"Channel {identifier}='{value}'"
-    if part is not None:
-        kwargs["part"] = part
-        expected += f" part='{part}'"
-    assert endpoint.get_log_id(**kwargs) == expected

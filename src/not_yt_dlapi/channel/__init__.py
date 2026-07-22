@@ -26,22 +26,6 @@ PART = (
 class Channel(BaseEndpoint[ChannelsModel]):
     _response_model = ChannelsModel
 
-    def get_log_id(
-        self,
-        *,
-        channel_id: str | None = None,
-        channel_handle: str | None = None,
-        channel_username: str | None = None,
-        part: str = PART,
-    ) -> str:
-        return self.append_non_default_args(
-            f"{self.__class__.__name__}",
-            channel_id=(channel_id, None),
-            channel_handle=(channel_handle, None),
-            channel_username=(channel_username, None),
-            part=(part, PART),
-        )
-
     @overload
     def download(self, *, channel_id: str, part: str = PART) -> dict[str, Any]: ...
     @overload
@@ -61,16 +45,11 @@ class Channel(BaseEndpoint[ChannelsModel]):
         channel_username: str | None = None,
         part: str = PART,
     ) -> dict[str, Any]:
+        log_id = self.get_log_id(self.download, locals())
         params = self.get_single_arg(
             id=channel_id,
             for_handle=channel_handle,
             for_username=channel_username,
-        )
-        log_id = self.get_log_id(
-            channel_id=channel_id,
-            channel_handle=channel_handle,
-            channel_username=channel_username,
-            part=part,
         )
 
         params["part"] = part
