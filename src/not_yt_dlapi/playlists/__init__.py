@@ -28,6 +28,7 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         playlist_id: str,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> dict[str, Any]: ...
     @overload
     def download(
@@ -36,6 +37,7 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         channel_id: str,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> dict[str, Any]: ...
     def download(
         self,
@@ -44,6 +46,7 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         channel_id: str | None = None,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> dict[str, Any]:
         log_id = self.get_log_id(self.download, locals())
         params = self.get_single_arg(
@@ -52,6 +55,8 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         )
         params["part"] = part
         params["maxResults"] = max_results
+        if page_token is not None:
+            params["pageToken"] = page_token
 
         # As far as I can tell playlists will always complete the download but return an
         # empty result but the channel will actually raise a 404 error.
@@ -71,11 +76,20 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         channel_id: str,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> list[dict[str, Any]]:
         log_id = self.get_log_id(self.download_all, locals())
+        params: dict[str, Any] = {
+            "part": part,
+            "channelId": channel_id,
+            "maxResults": max_results,
+        }
+        if page_token is not None:
+            params["pageToken"] = page_token
+
         return self._client.download_all_pages(
             "playlists",
-            {"part": part, "channelId": channel_id, "maxResults": max_results},
+            params,
             log_id,
             not_found_error=ChannelNotFoundError,
         )
@@ -87,6 +101,7 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         playlist_id: str,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> PlaylistsModel: ...
     @overload
     def download_and_parse(
@@ -95,6 +110,7 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         channel_id: str,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> PlaylistsModel: ...
     def download_and_parse(
         self,
@@ -103,13 +119,19 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         channel_id: str | None = None,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> PlaylistsModel:
         single_arg = self.get_single_arg(
             playlist_id=playlist_id,
             channel_id=channel_id,
         )
         return self.parse(
-            self.download(**single_arg, max_results=max_results, part=part),
+            self.download(
+                **single_arg,
+                max_results=max_results,
+                part=part,
+                page_token=page_token,
+            ),
         )
 
     def download_and_parse_all(
@@ -117,10 +139,16 @@ class Playlists(BaseEndpoint[PlaylistsModel]):
         channel_id: str,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> list[PlaylistsModel]:
         return [
             self.parse(file_content)
-            for file_content in self.download_all(channel_id, max_results, part)
+            for file_content in self.download_all(
+                channel_id,
+                max_results,
+                part,
+                page_token,
+            )
         ]
 
     @staticmethod

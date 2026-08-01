@@ -65,8 +65,8 @@ class Statistics(GAPIBaseModel):
 
 class TopicDetails(GAPIBaseModel):
     model_config = ConfigDict(extra='forbid')
-    topic_ids: list[str] | None = Field(None, alias='topicIds')
-    topic_categories: list[str] | None = Field(None, alias='topicCategories')
+    topic_ids: list[str] = Field(..., alias='topicIds')
+    topic_categories: list[str] = Field(..., alias='topicCategories')
 
 class Status(GAPIBaseModel):
     model_config = ConfigDict(extra='forbid')
@@ -92,7 +92,7 @@ class Image(GAPIBaseModel):
 class BrandingSettings(GAPIBaseModel):
     model_config = ConfigDict(extra='forbid')
     channel: Channel
-    image: Image
+    image: Image | None = None
 
 class EnGb(GAPIBaseModel):
     model_config = ConfigDict(extra='forbid')

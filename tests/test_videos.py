@@ -11,7 +11,7 @@ from tests.utils import (
     download_and_save,
     page_dicts,
     page_models,
-    parse_json,
+    parsed_json,
     single_dict,
 )
 
@@ -62,13 +62,13 @@ class TestVideoId:
 
     @pytest.mark.parametrize("video_id", VIDEO_IDS)
     def test_parse(self, endpoint: Videos, video_id: str) -> None:
-        data = parse_json(endpoint, video_id)
+        data = parsed_json(endpoint, video_id)
         assert [item.id for item in data.items] == [video_id]
 
     @pytest.mark.parametrize("video_id", VIDEO_IDS)
     @pytest.mark.parametrize(
         "load",
-        [single_dict, parse_json, page_dicts, page_models],
+        [single_dict, parsed_json, page_dicts, page_models],
         ids=["dict", "model", "dicts", "models"],
     )
     def test_extract_items(

@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 import pytest
 
 from not_yt_dlapi.exceptions import ChannelNotFoundError
-from tests.utils import assert_error, download_and_save, parse_json
+from tests.utils import assert_error, download_and_save, parsed_json
 
 if TYPE_CHECKING:
     from not_yt_dlapi import NotYTDLAPI
@@ -38,7 +38,7 @@ def test_download(endpoint: ChannelSections, channel_id: str) -> None:
 
 @pytest.mark.parametrize("channel_id", VALID_CHANNEL_IDS, ids=lambda x: x)
 def test_parse(endpoint: ChannelSections, channel_id: str) -> None:
-    channel_sections = parse_json(endpoint, channel_id)
+    channel_sections = parsed_json(endpoint, channel_id)
     assert channel_sections.items[0].snippet.channel_id == channel_id
 
 

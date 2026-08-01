@@ -13,7 +13,7 @@ from tests.utils import (
     download_and_save,
     page_dicts,
     page_models,
-    parse_json,
+    parsed_json,
     single_dict,
 )
 
@@ -44,6 +44,7 @@ PLAYLIST_IDS: list[str] = [
     "PLuhl9TnQPDCnWIhy_KSbtFwXVQnNvgfSh",
     # Channel uploads playlist: https://www.youtube.com/channel/UC4QobU6STFB0P71PMvOGN5A
     "UU4QobU6STFB0P71PMvOGN5A",
+    "TVSHZ4sc4JoEC9IdUMI4DcegnVhNMxEieH11w"
 ]
 
 INVALID_PLAYLIST_ID = "PLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
@@ -60,13 +61,13 @@ class TestPlaylistId:
 
     @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
     def test_parse(self, endpoint: Playlists, playlist_id: str) -> None:
-        playlists = parse_json(endpoint, playlist_id)
+        playlists = parsed_json(endpoint, playlist_id)
         assert [item.id for item in playlists.items] == [playlist_id]
 
     @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
     @pytest.mark.parametrize(
         "load",
-        [single_dict, parse_json, page_dicts, page_models],
+        [single_dict, parsed_json, page_dicts, page_models],
         ids=["dict", "model", "dicts", "models"],
     )
     def test_extract_items(
@@ -136,7 +137,7 @@ class TestChannelId:
 
     @pytest.mark.parametrize("test_channel", CHANNELS)
     def test_parse(self, endpoint: Playlists, test_channel: ChannelData) -> None:
-        playlists = parse_json(endpoint, test_channel.channel_id)
+        playlists = parsed_json(endpoint, test_channel.channel_id)
         assert test_channel.playlist_ids == {item.id for item in playlists.items}
 
     @pytest.mark.parametrize("test_channel", CHANNELS)
@@ -144,7 +145,7 @@ class TestChannelId:
         "load",
         [
             single_dict,
-            parse_json,
+            parsed_json,
             partial(page_dicts, folder="PlaylistsAll"),
             partial(page_models, folder="PlaylistsAll"),
         ],

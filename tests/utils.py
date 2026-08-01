@@ -19,22 +19,20 @@ if TYPE_CHECKING:
     from good_ass_pydantic_integrator import GAPIBaseModel, GAPIClient
 
 
-def get_json_path(endpoint: object, name: str, *, folder: str | None = None) -> Path:
+def json_path(endpoint: object, name: str, *, folder: str | None = None) -> Path:
     return FILES_PATH / (folder or f"{type(endpoint).__name__}Model") / f"{name}.json"
 
 
-def parse_json[T: GAPIBaseModel](endpoint: BaseEndpoint[T], name: str) -> T:
-    json_path = get_json_path(endpoint, name)
-    json_content = json_path.read_text()
-    parsed_json = json.loads(json_content)
-    return endpoint.parse(parsed_json)
+def parsed_json[T: GAPIBaseModel](endpoint: BaseEndpoint[T], name: str) -> T:
+    path = json_path(endpoint, name)
+    return endpoint.parse(json.loads(path.read_text()))
 
 
-# The loaders below produce each input shape that ``extract_items`` accepts,
-# so extraction tests can parametrize over a single ``load`` callable.
+# The loaders below produce each input shape that extract_items accepts,
+# so extraction tests can parametrize over a single load callable.
 def single_dict(endpoint: BaseEndpoint[Any], name: str) -> dict[str, Any]:
     """A single recorded page as a raw dict."""
-    return json.loads(get_json_path(endpoint, name).read_text())
+    return json.loads(json_path(endpoint, name).read_text())
 
 
 def page_dicts(
@@ -45,7 +43,7 @@ def page_dicts(
 ) -> list[dict[str, Any]]:
     """Recorded page(s) as a list of raw dicts, wrapping a single page."""
     content: list[dict[str, Any]] | dict[str, Any] = json.loads(
-        get_json_path(endpoint, name, folder=folder).read_text(),
+        json_path(endpoint, name, folder=folder).read_text(),
     )
     return content if isinstance(content, list) else [content]
 
@@ -67,12 +65,12 @@ def download_and_save(
     *,
     folder: str | None = None,
 ) -> Path:
-    json_path = get_json_path(endpoint, name, folder=folder)
-    if json_path.exists():
+    path = json_path(endpoint, name, folder=folder)
+    if path.exists():
         pytest.skip(f"File already recorded for {type(endpoint).__name__}/{name}")
-    json_path.parent.mkdir(parents=True, exist_ok=True)
-    json_path.write_text(json.dumps(get(), indent=2))
-    return json_path
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(get(), indent=2))
+    return path
 
 
 def assert_error(
@@ -90,7 +88,7 @@ def assert_error(
 
 def get_error_path(endpoint: object, name: str) -> Path:
     folder = f"Errors/{type(endpoint).__name__}Model"
-    return get_json_path(endpoint, name, folder=folder)
+    return json_path(endpoint, name, folder=folder)
 
 
 def record_error(
@@ -98,7 +96,7 @@ def record_error(
     name: str,
     data: dict[str, Any] | None = None,
 ) -> None:
-    json_path = get_error_path(endpoint, name)
-    json_path.parent.mkdir(parents=True, exist_ok=True)
+    path = get_error_path(endpoint, name)
+    path.parent.mkdir(parents=True, exist_ok=True)
     content = json.dumps(data, indent=2) if data is not None else ""
-    json_path.write_text(content)
+    path.write_text(content)

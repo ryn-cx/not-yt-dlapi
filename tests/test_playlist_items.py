@@ -14,7 +14,7 @@ from tests.utils import (
     download_and_save,
     page_dicts,
     page_models,
-    parse_json,
+    parsed_json,
     single_dict,
 )
 
@@ -131,7 +131,7 @@ def test_parse(
     endpoint: PlaylistItems,
     valid_test_data: TestData,
 ) -> None:
-    data = parse_json(endpoint, valid_test_data.playlist_id)
+    data = parsed_json(endpoint, valid_test_data.playlist_id)
     video_ids = {item.content_details.video_id for item in data.items}
     assert valid_test_data.video_ids == video_ids
 
@@ -140,7 +140,7 @@ EXTRACT_CASES = [
     pytest.param(data, load, id=f"{name}-{data.playlist_id}")
     for name, dataset, load in (
         ("dict", VALID_TEST_DATA, single_dict),
-        ("model", VALID_TEST_DATA, parse_json),
+        ("model", VALID_TEST_DATA, parsed_json),
         (
             "dicts",
             MULTI_VIDEO_TEST_DATA,

@@ -8,7 +8,7 @@ import pytest
 from pydantic import BaseModel
 
 from not_yt_dlapi.exceptions import ChannelNotFoundError
-from tests.utils import assert_error, download_and_save, parse_json
+from tests.utils import assert_error, download_and_save, parsed_json
 
 if TYPE_CHECKING:
     from not_yt_dlapi import NotYTDLAPI
@@ -82,7 +82,7 @@ def test_download(endpoint: Channel, test_data: TestData) -> None:
 
 @pytest.mark.parametrize("test_data", VALID_TEST_DATA, ids=lambda x: x.name)
 def test_parse(endpoint: Channel, test_data: TestData) -> None:
-    channels = parse_json(endpoint, test_data.name)
+    channels = parsed_json(endpoint, test_data.name)
     assert len(channels.items) == 1
     assert channels.items[0].id == test_data.channel_id
 

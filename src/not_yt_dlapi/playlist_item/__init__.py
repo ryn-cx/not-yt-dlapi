@@ -27,15 +27,20 @@ class PlaylistItems(BaseEndpoint[PlaylistItemsModel]):
         playlist_id: str,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> dict[str, Any]:
         log_id = self.get_log_id(self.download, locals())
+        params: dict[str, Any] = {
+            "part": part,
+            "playlistId": playlist_id,
+            "maxResults": max_results,
+        }
+        if page_token is not None:
+            params["pageToken"] = page_token
+
         return self._client.download(
             "playlistItems",
-            params={
-                "part": part,
-                "playlistId": playlist_id,
-                "maxResults": max_results,
-            },
+            params=params,
             not_found_error=PlaylistNotFoundError,
             log_id=log_id,
         )
@@ -45,11 +50,20 @@ class PlaylistItems(BaseEndpoint[PlaylistItemsModel]):
         playlist_id: str,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> list[dict[str, Any]]:
         log_id = self.get_log_id(self.download_all_pages, locals())
+        params: dict[str, Any] = {
+            "part": part,
+            "playlistId": playlist_id,
+            "maxResults": max_results,
+        }
+        if page_token is not None:
+            params["pageToken"] = page_token
+
         return self._client.download_all_pages(
             "playlistItems",
-            {"part": part, "playlistId": playlist_id, "maxResults": max_results},
+            params,
             log_id,
             not_found_error=PlaylistNotFoundError,
         )
@@ -59,8 +73,9 @@ class PlaylistItems(BaseEndpoint[PlaylistItemsModel]):
         playlist_id: str,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> PlaylistItemsModel:
-        response = self.download(playlist_id, max_results, part)
+        response = self.download(playlist_id, max_results, part, page_token)
         return self.parse(response)
 
     def download_and_parse_all_pages(
@@ -68,10 +83,16 @@ class PlaylistItems(BaseEndpoint[PlaylistItemsModel]):
         playlist_id: str,
         max_results: int = DEFAULT_MAX_RESULTS,
         part: str = PART,
+        page_token: str | None = None,
     ) -> list[PlaylistItemsModel]:
         return [
             self.parse(responses)
-            for responses in self.download_all_pages(playlist_id, max_results, part)
+            for responses in self.download_all_pages(
+                playlist_id,
+                max_results,
+                part,
+                page_token,
+            )
         ]
 
     @staticmethod
