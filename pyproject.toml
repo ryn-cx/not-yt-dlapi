@@ -44,6 +44,9 @@ extend-select = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = ["S101"]  # Asserts are allowed in tests.
+# Scratch scripts are run by hand rather than imported, and printing is how they
+# report what they did.
+"scratch/**/*.py" = ["INP001", "T201"]
 
 [tool.uv.sources]
 get-around = { git = "https://github.com/ryn-cx/get-around" }

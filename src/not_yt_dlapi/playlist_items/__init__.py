@@ -41,6 +41,10 @@ class PlaylistItems(BaseEndpoint):
     ) -> PlaylistItemListResponse:
         """Download a page of a playlist's items and read it.
 
+        A playlist YouTube generated for a show is answered with an empty page
+        rather than refused, and no part or parameter makes it hold anything.
+        `shows.list` is what lists one of those.
+
         Raises:
             NotFoundError: If there is no playlist with that id.
         """

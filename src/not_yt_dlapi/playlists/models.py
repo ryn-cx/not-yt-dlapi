@@ -155,7 +155,7 @@ class PlaylistListResponse(BaseResponseModel, APIModel):
     prev_page_token: str | None = None
     page_info: PageInfo
     # A page that found nothing has no `items` at all.
-    items: tuple[Playlist, ...] = ()
+    items: list[Playlist] = Field(default_factory=list)
     raw: SkipValidation[dict[str, Any]] = Field(repr=False)
 
     # TODO: Validate
@@ -173,17 +173,10 @@ class PlaylistFeedResponse(FeedResponse):
     is described on `FeedResponse`. What a playlist feed adds is saying which
     playlist it is of.
 
-    Nothing here has been checked against a downloaded feed, because YouTube is
-    currently refusing every playlist feed it is asked for. It is written from
-    the channel feed on the understanding that the two documents are the same
-    but for this field, which is what the two were before playlist feeds
-    stopped answering.
-
     Attributes:
-        playlist_id: Which playlist the feed is of. A channel feed writes its
-            channel id with the leading `UC` taken off, so whether a playlist
-            feed writes its id in full is one of the things that cannot be known
-            until playlist feeds answer again.
+        playlist_id: Which playlist the feed is of, written in full. A channel
+            feed writes its channel id with the leading `UC` taken off, where a
+            playlist feed keeps every character of the id it was asked for.
     """
 
     playlist_id: str

@@ -129,8 +129,8 @@ class ChannelTopicDetails(APIModel):
             content.
     """  # noqa: E501
 
-    topic_ids: tuple[str, ...] | None = None
-    topic_categories: tuple[str, ...] | None = None
+    topic_ids: list[str] | None = None
+    topic_categories: list[str] | None = None
 
 
 # TODO: Validate
@@ -273,7 +273,7 @@ class BrandingSettings(APIModel):
     channel: ChannelBrandingSettings
     watch: WatchBrandingSettings | None = None
     image: ImageBrandingSettings | None = None
-    hints: tuple[BrandingHint, ...] | None = None
+    hints: list[BrandingHint] | None = None
 
 
 # TODO: Validate
@@ -397,7 +397,7 @@ class ChannelListResponse(BaseResponseModel, APIModel):
     prev_page_token: str | None = None
     page_info: PageInfo
     # A response that found nothing has no `items` at all.
-    items: tuple[Channel, ...] = ()
+    items: list[Channel] = Field(default_factory=list)
     raw: SkipValidation[dict[str, Any]] = Field(repr=False)
 
     # TODO: Validate

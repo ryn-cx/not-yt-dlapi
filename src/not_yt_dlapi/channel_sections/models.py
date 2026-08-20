@@ -57,8 +57,8 @@ class ChannelSectionContentDetails(APIModel):
             `multipleChannels` type; cannot include your own channel.
     """  # noqa: E501
 
-    playlists: tuple[str, ...] | None = None
-    channels: tuple[str, ...] | None = None
+    playlists: list[str] | None = None
+    channels: list[str] | None = None
 
 
 # TODO: Validate
@@ -100,7 +100,7 @@ class ChannelSectionListResponse(BaseResponseModel, APIModel):
     kind: str
     etag: str
     # A channel that has arranged no shelves has no `items` at all.
-    items: tuple[ChannelSection, ...] = ()
+    items: list[ChannelSection] = Field(default_factory=list)
     raw: SkipValidation[dict[str, Any]] = Field(repr=False)
 
     # TODO: Validate

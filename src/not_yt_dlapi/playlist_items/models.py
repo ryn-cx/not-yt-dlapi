@@ -160,7 +160,7 @@ class PlaylistItemListResponse(BaseResponseModel, APIModel):
     prev_page_token: str | None = None
     page_info: PageInfo
     # An empty playlist has no `items` at all.
-    items: tuple[PlaylistItem, ...] = ()
+    items: list[PlaylistItem] = Field(default_factory=list)
     raw: SkipValidation[dict[str, Any]] = Field(repr=False)
 
     # TODO: Validate

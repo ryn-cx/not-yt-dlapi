@@ -21,8 +21,11 @@ from google.auth.transport.requests import Request
 from not_yt_dlapi.channel_sections import ChannelSections
 from not_yt_dlapi.channels import Channels
 from not_yt_dlapi.exceptions import HTTP_NOT_FOUND, APIError, HTTPError, NotFoundError
+from not_yt_dlapi.music import Music
 from not_yt_dlapi.playlist_items import PlaylistItems
 from not_yt_dlapi.playlists import Playlists
+from not_yt_dlapi.shows import Shows
+from not_yt_dlapi.utils import read_continuation, read_seasons
 from not_yt_dlapi.videos import Videos
 
 if TYPE_CHECKING:
@@ -30,12 +33,6 @@ if TYPE_CHECKING:
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
-
-BASE_URL = "https://www.googleapis.com/youtube/v3"
-"""Where the API lives, which is the same for every endpoint."""
-
-FEED_URL = "https://www.youtube.com/feeds/videos.xml"
-"""Where the feeds live, which is not the API and is the same for every feed."""
 
 
 # TODO: Validate
@@ -49,7 +46,7 @@ class NotYTDLAPI:
         *,
         api_key: str,
         credentials: Credentials | None = None,
-        sleep_time: float = 0,
+        sleep_time: float = 1,
         get_around_client: GetAround | None = None,
     ) -> None: ...
 
@@ -60,7 +57,7 @@ class NotYTDLAPI:
         *,
         api_key: str | None = None,
         credentials: Credentials,
-        sleep_time: float = 0,
+        sleep_time: float = 1,
         get_around_client: GetAround | None = None,
     ) -> None: ...
 
@@ -70,10 +67,17 @@ class NotYTDLAPI:
         *,
         api_key: str | None = None,
         credentials: Credentials | None = None,
-        sleep_time: float = 0,
+        sleep_time: float = 1,
         get_around_client: GetAround | None = None,
     ) -> None:
         """Initialize the client with an API key or OAuth credentials.
+
+        `sleep_time` is how long to wait after asking browse for something, and
+        has nothing to say about the API: the API is spent by the unit rather
+        than by the second, so waiting between requests costs the same quota
+        more slowly. Browse counts requests instead, and answers a run of them
+        made quickly with a refusal saying the network looks automated, so the
+        default is a second rather than nothing.
 
         Raises:
             ValueError: If neither an API key nor credentials are given, since
@@ -93,6 +97,8 @@ class NotYTDLAPI:
         self.channel_sections = ChannelSections(self)
         self.playlists = Playlists(self)
         self.playlist_items = PlaylistItems(self)
+        self.shows = Shows(self)
+        self.music = Music(self)
 
         super().__init__()
 
@@ -133,7 +139,7 @@ class NotYTDLAPI:
             query["key"] = self.api_key
 
         response = self.get_around_client.get(
-            f"{BASE_URL}/{path}",
+            f"https://www.googleapis.com/youtube/v3/{path}",
             params=query,
             headers=headers,
             timeout=30,
@@ -155,34 +161,14 @@ class NotYTDLAPI:
         if response.status_code != HTTPStatus.OK:
             raise HTTPError(response)
 
-        sleep(self.sleep_time)
-
         return output
 
     # TODO: Validate
     def download_feed(self, params: dict[str, Any], log_id: str) -> str:
-        """Download a feed and return the document as it was served.
-
-        A feed is not the API: it is served from youtube.com rather than from
-        the API's host, it costs no quota and it takes no key, so neither the
-        key nor the OAuth headers are sent with it.
-
-        What comes back is the XML itself rather than anything made of it, since
-        making something of it is the model's to do and what is downloaded is
-        what a recording of the download has to be able to be.
-
-        Asking about something that does not exist is refused here rather than
-        answered empty, and what comes back is YouTube's own 404 page rather
-        than anything machine-readable, so there is nothing to raise a
-        `NotFoundError` from and it is an `HTTPError` like any other refusal.
-
-        Raises:
-            HTTPError: If the feed is refused.
-        """
         start = monotonic()
 
         response = self.get_around_client.get(
-            FEED_URL,
+            "https://www.youtube.com/feeds/videos.xml",
             params=params,
             timeout=30,
         )
@@ -193,6 +179,83 @@ class NotYTDLAPI:
         if response.status_code != HTTPStatus.OK:
             raise HTTPError(response)
 
+        return response.text
+
+    # TODO: Validate
+    def browse(self, asked: dict[str, Any], log_id: str) -> dict[str, Any]:
+        start = monotonic()
+
+        response = self.get_around_client.post(
+            "https://www.youtube.com/youtubei/v1/browse",
+            json={
+                **asked,
+                "context": {
+                    "client": {
+                        "clientName": "WEB",
+                        "clientVersion": "2.20240401.00.00",
+                    },
+                },
+            },
+            headers={"Content-Type": "application/json"},
+            timeout=30,
+        )
+        duration = monotonic() - start
+
+        logger.debug("Downloaded: %s - Completed in %.4f seconds", log_id, duration)
+
+        # The wait comes before the refusal is raised: a refusal is the answer
+        # that most means the next request should not follow immediately.
         sleep(self.sleep_time)
 
-        return response.text
+        if response.status_code != HTTPStatus.OK:
+            raise HTTPError(response)
+
+        return response.json()
+
+    # TODO: Validate
+    def _browse_to_the_end(
+        self,
+        browsed: dict[str, Any],
+        log_id: str,
+    ) -> list[dict[str, Any]]:
+        answers = [browsed]
+        token = read_continuation(browsed)
+        while token is not None:
+            answers.append(self.browse({"continuation": token}, log_id))
+            token = read_continuation(answers[-1])
+        return answers
+
+    # TODO: Validate
+    def download_music(
+        self,
+        playlist_id: str,
+        log_id: str,
+    ) -> list[dict[str, Any]]:
+        """Ask browse for a music playlist and for the rest of it until there is none.
+
+        A release is one playlist with nothing to choose between, unlike a show,
+        so what it takes is the playlist itself and then however many
+        continuations the listing runs to.
+        """
+        opened = self.browse({"browseId": f"VL{playlist_id}"}, log_id)
+        return self._browse_to_the_end(opened, log_id)
+
+    # TODO: Validate
+    def download_show(
+        self,
+        playlist_id: str,
+        log_id: str,
+    ) -> list[dict[str, Any]]:
+        opened = self.browse({"browseId": f"VL{playlist_id}"}, log_id)
+        seasons, open_season = read_seasons(opened)
+
+        asked = [opened] + [
+            self.browse(seasons[number], log_id)
+            for number in sorted(seasons)
+            if number != open_season
+        ]
+        return [
+            answer
+            for browsed in asked
+            for answer in self._browse_to_the_end(browsed, log_id)
+        ]

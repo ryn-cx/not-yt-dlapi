@@ -1,10 +1,10 @@
 {
   "kind": "youtube#videoListResponse",
-  "etag": "fS6s2825ehqIF6A2bBaJPn2FnII",
+  "etag": "3-AbQITh0kDxtXC8BnPoJKJQe0o",
   "items": [
     {
       "kind": "youtube#video",
-      "etag": "tspNzWSX_hCL4wBCsDm6u9sRRXI",
+      "etag": "wfEGhrFltpK2kGM08h0OPk8Vk_k",
       "id": "jNQXAC9IVRw",
       "snippet": {
         "publishedAt": "2005-04-24T03:31:52Z",
@@ -61,10 +61,10 @@
         "madeForKids": false
       },
       "statistics": {
-        "viewCount": "405475370",
-        "likeCount": "19385366",
+        "viewCount": "405490187",
+        "likeCount": "19385987",
         "favoriteCount": "0",
-        "commentCount": "10564645"
+        "commentCount": "10564690"
       },
       "player": {
         "embedHtml": "<iframe width=\"480\" height=\"360\" src=\"//www.youtube.com/embed/jNQXAC9IVRw\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
@@ -79,13 +79,13 @@
         "recordingDate": "2005-04-23T00:00:00Z"
       },
       "localizations": {
-        "de": {
-          "title": "Ich im Zoo",
-          "description": "Das erste YouTube video. Vielleicht ist es Zeit zum Zoo zur\u00fcckzukehren?\n\n00:00 Intro\n00:05 Das coole Ding\n00:17 Ende"
-        },
         "en": {
           "title": "Me at the zoo",
           "description": "Microplastics are accumulating in human brains at an alarming rate\nhttps://www.youtube.com/watch?v=0PT5c1z3LL8\n\n\u201cNanoplastics and Human Health\u201d with Matthew J Campen, PhD, MSPH\nhttps://www.youtube.com/watch?v=RRBN_4L09Mg\n\n00:00 Intro\n00:05 The cool thing\n00:17 End"
+        },
+        "de": {
+          "title": "Ich im Zoo",
+          "description": "Das erste YouTube video. Vielleicht ist es Zeit zum Zoo zur\u00fcckzukehren?\n\n00:00 Intro\n00:05 Das coole Ding\n00:17 Ende"
         }
       },
       "paidProductPlacementDetails": {

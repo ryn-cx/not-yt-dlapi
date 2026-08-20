@@ -267,7 +267,7 @@ class FeedEntry(APIModel):
     video_id: str
     channel_id: str
     title: str
-    links: tuple[FeedLink, ...] = Field(alias="link")
+    links: list[FeedLink] = Field(alias="link")
     author: FeedAuthor
     published: str
     updated: str
@@ -301,12 +301,12 @@ class FeedResponse(BaseResponseModel, APIModel):
     """
 
     id: str
-    links: tuple[FeedLink, ...] = Field(alias="link")
+    links: list[FeedLink] = Field(alias="link")
     title: str
     author: FeedAuthor
     published: str
     # A feed with nothing in it has no `entry` elements at all.
-    entries: tuple[FeedEntry, ...] = Field(alias="entry", default=())
+    entries: list[FeedEntry] = Field(alias="entry", default=())
     raw: SkipValidation[str] = Field(repr=False)
 
     # TODO: Validate

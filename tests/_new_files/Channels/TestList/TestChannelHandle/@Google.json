@@ -1,6 +1,6 @@
 {
   "kind": "youtube#channelListResponse",
-  "etag": "HQWeUG1ct8oxGaoLWle9yVBfqpE",
+  "etag": "HSYLTbD9izv_KGftKENVFx8QM0E",
   "pageInfo": {
     "totalResults": 1,
     "resultsPerPage": 5
@@ -8,7 +8,7 @@
   "items": [
     {
       "kind": "youtube#channel",
-      "etag": "NFeIDr1WpimmMeNH7d3PRv0drc4",
+      "etag": "OblMIk1c2swYlgtS8ihfTdzVO7w",
       "id": "UCK8sQmJBp8GCxrOtXWBpyEA",
       "snippet": {
         "title": "Google",
@@ -51,14 +51,14 @@
       },
       "topicDetails": {
         "topicIds": [
-          "/m/06ntj",
+          "/m/019_rr",
           "/m/07c1v",
-          "/m/019_rr"
+          "/m/06ntj"
         ],
         "topicCategories": [
-          "https://en.wikipedia.org/wiki/Sport",
+          "https://en.wikipedia.org/wiki/Lifestyle_(sociology)",
           "https://en.wikipedia.org/wiki/Technology",
-          "https://en.wikipedia.org/wiki/Lifestyle_(sociology)"
+          "https://en.wikipedia.org/wiki/Sport"
         ]
       },
       "status": {

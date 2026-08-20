@@ -1,6 +1,6 @@
 {
   "kind": "youtube#videoListResponse",
-  "etag": "ty41OiuxblvufYRm5oykqdkEg7o",
+  "etag": "7DKekg8h9s2DSsll0ZI4kn9bDUo",
   "next_page_token": null,
   "prev_page_token": null,
   "page_info": {
@@ -10,7 +10,7 @@
   "items": [
     {
       "kind": "youtube#video",
-      "etag": "L-Mpzdbuqewou-UsHjUm186MtXA",
+      "etag": "MYjvrw3tObX23cGOungmQBPGQmw",
       "id": "jNQXAC9IVRw",
       "snippet": {
         "published_at": "2005-04-24T03:31:52Z",
@@ -146,11 +146,11 @@
         "contains_synthetic_media": null
       },
       "statistics": {
-        "view_count": 405448283,
-        "like_count": 19384343,
+        "view_count": 405489293,
+        "like_count": 19385941,
         "dislike_count": null,
         "favorite_count": 0,
-        "comment_count": 10564579
+        "comment_count": 10564687
       },
       "paid_product_placement_details": {
         "has_paid_product_placement": false
@@ -290,11 +290,11 @@
   ],
   "raw": {
     "kind": "youtube#videoListResponse",
-    "etag": "ty41OiuxblvufYRm5oykqdkEg7o",
+    "etag": "7DKekg8h9s2DSsll0ZI4kn9bDUo",
     "items": [
       {
         "kind": "youtube#video",
-        "etag": "L-Mpzdbuqewou-UsHjUm186MtXA",
+        "etag": "MYjvrw3tObX23cGOungmQBPGQmw",
         "id": "jNQXAC9IVRw",
         "snippet": {
           "publishedAt": "2005-04-24T03:31:52Z",
@@ -351,10 +351,10 @@
           "madeForKids": false
         },
         "statistics": {
-          "viewCount": "405448283",
-          "likeCount": "19384343",
+          "viewCount": "405489293",
+          "likeCount": "19385941",
           "favoriteCount": "0",
-          "commentCount": "10564579"
+          "commentCount": "10564687"
         },
         "player": {
           "embedHtml": "<iframe width=\"480\" height=\"360\" src=\"//www.youtube.com/embed/jNQXAC9IVRw\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
@@ -369,13 +369,13 @@
           "recordingDate": "2005-04-23T00:00:00Z"
         },
         "localizations": {
-          "en": {
-            "title": "Me at the zoo",
-            "description": "Microplastics are accumulating in human brains at an alarming rate\nhttps://www.youtube.com/watch?v=0PT5c1z3LL8\n\n\u201cNanoplastics and Human Health\u201d with Matthew J Campen, PhD, MSPH\nhttps://www.youtube.com/watch?v=RRBN_4L09Mg\n\n00:00 Intro\n00:05 The cool thing\n00:17 End"
-          },
           "de": {
             "title": "Ich im Zoo",
             "description": "Das erste YouTube video. Vielleicht ist es Zeit zum Zoo zur\u00fcckzukehren?\n\n00:00 Intro\n00:05 Das coole Ding\n00:17 Ende"
+          },
+          "en": {
+            "title": "Me at the zoo",
+            "description": "Microplastics are accumulating in human brains at an alarming rate\nhttps://www.youtube.com/watch?v=0PT5c1z3LL8\n\n\u201cNanoplastics and Human Health\u201d with Matthew J Campen, PhD, MSPH\nhttps://www.youtube.com/watch?v=RRBN_4L09Mg\n\n00:00 Intro\n00:05 The cool thing\n00:17 End"
           }
         },
         "paidProductPlacementDetails": {

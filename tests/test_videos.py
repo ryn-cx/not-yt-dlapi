@@ -1,7 +1,7 @@
 # TODO: Validate
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import pytest
 
@@ -57,6 +57,21 @@ class TestList:
             )
 
         # TODO: Validate
+        def test_parse(self) -> None:
+            self.parse_test(self.VIDEO_ID, VideoListResponse)
+
+    # TODO: Validate
+    class TestVideoWithoutViewCount(VideoTest):
+        VIDEO_ID = "6JTFYuloLFM"
+        """It's my fault for choosing this show as a joke...
+        https://www.youtube.com/watch?v=6JTFYuloLFM"""
+
+        def test_download(self, client: NotYTDLAPI) -> None:
+            self.record_test(
+                self.VIDEO_ID,
+                lambda: client.videos.list(self.VIDEO_ID).raw,
+            )
+
         def test_parse(self) -> None:
             self.parse_test(self.VIDEO_ID, VideoListResponse)
 
@@ -153,7 +168,7 @@ class TestListAll:
     """Test `videos.list_all`."""
 
     # TODO: Validate
-    class TestListAllAsksInBatches:
+    class TestListAllAsksInBatches(VideoTest):
         """What one request refuses, `list_all` asks for fifty at a time.
 
         Every video that comes back comes back in a response of its own, and more
@@ -165,18 +180,27 @@ class TestListAll:
         back than went in. What comes back is in the API's own order rather than the
         order it was asked about, so only the set of them is checked.
 
-        There is no response to record, only what the batches give.
+        What is recorded is what the batches gave, so they are asked for once
+        rather than on every run.
         """
+
+        NAME = f"{LONG_PLAYLIST_ID}-all"
 
         # TODO: Validate
         def test_download(self, client: NotYTDLAPI) -> None:
-            video_ids = playlist_video_ids(client, LONG_PLAYLIST_ID)
-            assert len(video_ids) == LONG_PLAYLIST_COUNT
+            def batched() -> list[dict[str, Any]]:
+                video_ids = playlist_video_ids(client, LONG_PLAYLIST_ID)
+                assert len(video_ids) == LONG_PLAYLIST_COUNT
+                return [response.raw for response in client.videos.list_all(video_ids)]
 
-            responses = client.videos.list_all(video_ids)
-            answered = [response.items[0].id for response in responses]
+            self.record_test(self.NAME, batched)
 
-            assert all(len(response.items) == 1 for response in responses)
+        # TODO: Validate
+        def test_each_video_arrived_once(self) -> None:
+            """Every video came back in a response of its own, and only once."""
+            responses = self.recorded_content(self.NAME)
+            answered = [response["items"][0]["id"] for response in responses]
+
+            assert all(len(response["items"]) == 1 for response in responses)
             assert len(answered) > MAX_IDS
             assert len(set(answered)) == len(answered)
-            assert set(answered) <= set(video_ids)

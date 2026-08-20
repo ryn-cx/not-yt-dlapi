@@ -1,0 +1,52 @@
+{
+  "kind": "youtube#playlistListResponse",
+  "etag": "06QXfUhNpbV33lCVFb3pSdfwGPQ",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#playlist",
+      "etag": "zhNrfebyLrF9wT7nRBxOW5YK4NA",
+      "id": "OLAK5uy_lVxq_QCXDlleCnpsszQyiFextilkX12_w",
+      "snippet": {
+        "publishedAt": "2024-03-21T17:41:07.624267Z",
+        "channelId": "UCBR8-60-B28hp2BmDPdntcQ",
+        "title": "WE DON'T TRUST YOU",
+        "description": "",
+        "thumbnails": {
+          "medium": {
+            "url": "https://i9.ytimg.com/s_p/OLAK5uy_lVxq_QCXDlleCnpsszQyiFextilkX12_w/mqdefault.jpg?sqp=CPyrm9QGir7X7AMICPaUrb0GEAE=&rs=AOn4CLBlL7ozsib79RvpT7w-_CiTpXrJuA&v=1739278966",
+            "width": 180,
+            "height": 180
+          },
+          "standard": {
+            "url": "https://i9.ytimg.com/s_p/OLAK5uy_lVxq_QCXDlleCnpsszQyiFextilkX12_w/sddefault.jpg?sqp=CPyrm9QGir7X7AMICPaUrb0GEAE=&rs=AOn4CLBtAtbAkH_suf68D9En0t60g3P-FA&v=1739278966",
+            "width": 640,
+            "height": 640
+          },
+          "maxres": {
+            "url": "https://i9.ytimg.com/s_p/OLAK5uy_lVxq_QCXDlleCnpsszQyiFextilkX12_w/maxresdefault.jpg?sqp=CPyrm9QGir7X7AMICPaUrb0GEAE=&rs=AOn4CLCIh12rmpeKbbLkT12kYdV3u19eeQ&v=1739278966",
+            "width": 1200,
+            "height": 1200
+          }
+        },
+        "channelTitle": "YouTube",
+        "localized": {
+          "title": "WE DON'T TRUST YOU",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 17
+      },
+      "player": {
+        "embedHtml": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=OLAK5uy_lVxq_QCXDlleCnpsszQyiFextilkX12_w\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      }
+    }
+  ]
+}

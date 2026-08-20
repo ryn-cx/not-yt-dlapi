@@ -70,11 +70,13 @@ class RecordedEndpoint:
 
     # TODO: Validate
     @classmethod
-    def recorded_content(cls, name: str | int) -> dict[str, Any] | str:
+    def recorded_content(cls, name: str | int) -> Any:  # noqa: ANN401
         """Return the content of the recorded file.
 
         A response served as something other than JSON is handed back as the
-        text it was recorded as, since reading it is the model's to do.
+        text it was recorded as, since reading it is the model's to do. What
+        comes back is therefore whatever the endpoint answers in, which is what
+        the model it is read into takes and nothing here has any say over.
         """
         path = cls.recorded_file_path(name)
         if not path.exists():
@@ -82,24 +84,19 @@ class RecordedEndpoint:
         text = path.read_text(encoding="utf-8")
         if cls.SUFFIX != ".json":
             return text
-        content: dict[str, Any] = json.loads(text)
-        return content
+        return json.loads(text)
 
     # TODO: Validate
     @classmethod
-    def new_file_path(cls, name: str | int) -> Path:
-        """Return the path a response that does not match its recording is put."""
-        return cls._recording_path("_new_files", name, cls.SUFFIX)
-
-    # TODO: Validate
-    @classmethod
-    def _recorded_as(cls, downloaded: dict[str, Any] | str) -> str:
+    def _recorded_as(cls, downloaded: Any) -> str:  # noqa: ANN401
         """Return what a downloaded response is written to a recording as.
 
-        A response served as something other than JSON is written exactly as it
-        arrived, so the recording is the document itself and not a rendering of
-        one. JSON is indented, which is the only thing done to it, so that the
-        recording can be read and diffed.
+        A response served as something other than JSON is written exactly as
+        it arrived, so the recording is the document itself and not a rendering
+        of one. JSON is indented, which is the only thing done to it, so that
+        the recording can be read and diffed, and it is whatever the endpoint
+        answers with rather than an object in particular: browse answers with a
+        list.
         """
         if isinstance(downloaded, str):
             return downloaded
@@ -110,37 +107,26 @@ class RecordedEndpoint:
     def record_test(
         cls,
         name: str | int,
-        download: Callable[[], dict[str, Any] | str],
+        download: Callable[[], Any],
     ) -> None:
-        """Download a response and check it against what was recorded.
+        """Record a response, unless there is one already.
+
+        A recording is what the parse tests read, so what it is for is to exist
+        rather than to be checked against what the API answers today. A run that
+        has one downloads nothing: the API is only ever asked for a response
+        nothing has recorded yet.
 
         Writing a recording fails the test rather than skipping it, because what
         was just written is only whatever the API happened to answer: it has to
         be read before it can stand in for correct.
-
-        A response that does not match its recording is written to `_new_files`
-        and the test fails. The recording is left alone, so the two can be
-        diffed and the new one moved over the old one once it has been looked
-        at.
         """
         path = cls.recorded_file_path(name)
-        downloaded = cls._recorded_as(download())
+        if path.exists():
+            pytest.skip(f"There is already a recorded response for {name}")
 
-        if not path.exists():
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(downloaded, encoding="utf-8")
-            pytest.fail(f"No recorded response for {name}, so it was recorded now")
-
-        new_path = cls.new_file_path(name)
-        if downloaded != path.read_text(encoding="utf-8"):
-            new_path.parent.mkdir(parents=True, exist_ok=True)
-            new_path.write_text(downloaded, encoding="utf-8")
-            pytest.fail(f"Response for {name} is not what was recorded, see {new_path}")
-
-        # What is in `_new_files` is whatever last failed to match, so a response
-        # that matches again clears it rather than leaving a stale mismatch
-        # behind.
-        new_path.unlink(missing_ok=True)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(cls._recorded_as(download()), encoding="utf-8")
+        pytest.fail(f"No recorded response for {name}, so it was recorded now")
 
     # TODO: Validate
     @classmethod

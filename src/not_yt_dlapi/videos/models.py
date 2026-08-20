@@ -69,7 +69,7 @@ class VideoSnippet(APIModel):
     thumbnails: Thumbnails
     channel_title: str
     # Only a video the uploader gave keywords to has any.
-    tags: tuple[str, ...] | None = None
+    tags: list[str] | None = None
     category_id: str
     live_broadcast_content: str
     # Only a video whose uploader said what language it is in has these.
@@ -92,8 +92,8 @@ class RegionRestriction(APIModel):
             in its value, then the video is viewable in that country.
     """  # noqa: E501
 
-    allowed: tuple[str, ...] | None = None
-    blocked: tuple[str, ...] | None = None
+    allowed: list[str] | None = None
+    blocked: list[str] | None = None
 
 
 # TODO: Validate
@@ -251,7 +251,7 @@ class ContentRating(APIModel):
     cscf_rating: str | None = None
     czfilm_rating: str | None = None
     djctq_rating: str | None = None
-    djctq_rating_reasons: tuple[str, ...] | None = None
+    djctq_rating_reasons: list[str] | None = None
     ecbmct_rating: str | None = None
     eefilm_rating: str | None = None
     egfilm_rating: str | None = None
@@ -260,7 +260,7 @@ class ContentRating(APIModel):
     fco_rating: str | None = None
     fmoc_rating: str | None = None
     fpb_rating: str | None = None
-    fpb_rating_reasons: tuple[str, ...] | None = None
+    fpb_rating_reasons: list[str] | None = None
     fsk_rating: str | None = None
     grfilm_rating: str | None = None
     icaa_rating: str | None = None
@@ -408,9 +408,10 @@ class VideoStatistics(APIModel):
         comment_count: The number of comments for the video.
     """
 
-    view_count: int
-    # A video whose uploader has hidden its likes or turned off its comments
-    # leaves that count out, and dislikes are only shown to the uploader.
+    # A video whose uploader has hidden its views or its likes, or turned off
+    # its comments, leaves that count out, and dislikes are only shown to the
+    # uploader.
+    view_count: int | None = None
     like_count: int | None = None
     dislike_count: int | None = None
     favorite_count: int
@@ -467,9 +468,9 @@ class VideoTopicDetails(APIModel):
             description of the video's content.
     """  # noqa: E501
 
-    topic_ids: tuple[str, ...] | None = None
-    relevant_topic_ids: tuple[str, ...] | None = None
-    topic_categories: tuple[str, ...] | None = None
+    topic_ids: list[str] | None = None
+    relevant_topic_ids: list[str] | None = None
+    topic_categories: list[str] | None = None
 
 
 # TODO: Validate
@@ -595,8 +596,8 @@ class FileDetails(APIModel):
     file_size: int | None = None
     file_type: str | None = None
     container: str | None = None
-    video_streams: tuple[VideoStream, ...] | None = None
-    audio_streams: tuple[AudioStream, ...] | None = None
+    video_streams: list[VideoStream] | None = None
+    audio_streams: list[AudioStream] | None = None
     duration_ms: int | None = None
     bitrate_bps: int | None = None
     creation_time: str | None = None
@@ -673,7 +674,7 @@ class TagSuggestion(APIModel):
     """
 
     tag: str | None = None
-    category_restricts: tuple[str, ...] | None = None
+    category_restricts: list[str] | None = None
 
 
 # TODO: Validate
@@ -699,11 +700,11 @@ class Suggestions(APIModel):
             video.
     """  # noqa: E501
 
-    processing_errors: tuple[str, ...] | None = None
-    processing_warnings: tuple[str, ...] | None = None
-    processing_hints: tuple[str, ...] | None = None
-    tag_suggestions: tuple[TagSuggestion, ...] | None = None
-    editor_suggestions: tuple[str, ...] | None = None
+    processing_errors: list[str] | None = None
+    processing_warnings: list[str] | None = None
+    processing_hints: list[str] | None = None
+    tag_suggestions: list[TagSuggestion] | None = None
+    editor_suggestions: list[str] | None = None
 
 
 # TODO: Validate
@@ -854,7 +855,7 @@ class VideoListResponse(BaseResponseModel, APIModel):
     prev_page_token: str | None = None
     page_info: PageInfo
     # A response that found nothing has no `items` at all.
-    items: tuple[Video, ...] = ()
+    items: list[Video] = Field(default_factory=list)
     raw: SkipValidation[dict[str, Any]] = Field(repr=False)
 
     # TODO: Validate
