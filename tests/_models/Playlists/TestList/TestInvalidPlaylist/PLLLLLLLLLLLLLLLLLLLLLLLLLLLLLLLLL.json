@@ -1,0 +1,20 @@
+{
+  "kind": "youtube#playlistListResponse",
+  "etag": "PqCO86vmlUDWFiOBSqOsOZRp5jE",
+  "next_page_token": null,
+  "prev_page_token": null,
+  "page_info": {
+    "total_results": 0,
+    "results_per_page": 50
+  },
+  "items": [],
+  "raw": {
+    "kind": "youtube#playlistListResponse",
+    "etag": "PqCO86vmlUDWFiOBSqOsOZRp5jE",
+    "pageInfo": {
+      "totalResults": 0,
+      "resultsPerPage": 50
+    },
+    "items": []
+  }
+}

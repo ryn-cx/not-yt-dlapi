@@ -9,8 +9,8 @@ authors = [
 ]
 dependencies = [
   "get-around",
-  "good-ass-pydantic-integrator",
   "google-api-python-client>=2.190.0",
+  "pydantic>=2",
 ]
 
 [dependency-groups]
@@ -19,30 +19,34 @@ dev = [
   "pytest>=9.0.2",
   "python-dotenv>=1.0.0",
   "ruff>=0.15.2",
-  "ty>=0.0.58",
+  "ty>=0.0.72",
 ]
 
 [build-system]
 requires = ["uv_build>=0.9.18,<0.10.0"]
 build-backend = "uv_build"
 
-[tool.ty.src]
-exclude = ["**/models.py"]
-
-[[tool.mypy.overrides]]
-module = ["*.models", "models"]
-ignore_errors = true
-
 [tool.ruff.lint]
 select = ["ALL"]  # Enable all linters.
-ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"]  # Never require docstrings.
+ignore = [
+  "CPY001",  # Copyright information is stored in LICENSE.
+  "D",  # Docstrings are not required.
+  "FIX002",  # TODO comments are allowed.
+  "TD002",  # TODO comments do not need an author.
+  "TD003",  # TODO comments do not need an issue link.
+]
 
-[tool.ruff.lint.pydocstyle]
-convention = "google"
+extend-select = [
+  "D400",  # Checks for docstrings in which the first line does not end in a period.
+  "D401",  # Checks for docstring first lines that are not in an imperative mood.
+  "D404",  # Checks for function docstrings that include the function's signature in the summary line.
+]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = ["S101"]  # Asserts allowed in tests.
+"tests/**/*.py" = ["S101"]  # Asserts are allowed in tests.
 
 [tool.uv.sources]
-good-ass-pydantic-integrator = { git = "https://github.com/ryn-cx/good-ass-pydantic-integrator" }
 get-around = { git = "https://github.com/ryn-cx/get-around" }
+
+[tool.ty.rules]
+all = "error"

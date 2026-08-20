@@ -1,0 +1,85 @@
+{
+  "kind": "youtube#channelListResponse",
+  "etag": "HQWeUG1ct8oxGaoLWle9yVBfqpE",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "NFeIDr1WpimmMeNH7d3PRv0drc4",
+      "id": "UCK8sQmJBp8GCxrOtXWBpyEA",
+      "snippet": {
+        "title": "Google",
+        "description": "Here to help. \n\nReimagining how AI can make your life better and help you explore your creativity, connect with the world, and discover new possibilities. Browse our latest product demos, unboxings, developer roundtables, podcasts, tips, tricks and more. Subscribe for the latest product updates, innovations, and a peek inside the magic of Google.\n",
+        "customUrl": "@google",
+        "publishedAt": "2005-09-18T22:37:10Z",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/bAseQlKvNmjdLQrvYWm_q3QDp8C8YKyYI-nYJewgOkPi0JU1_3X9oFgjrEdzkOlXzLGFxFbnsw=s88-c-k-c0x00ffffff-no-rj",
+            "width": 88,
+            "height": 88
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/bAseQlKvNmjdLQrvYWm_q3QDp8C8YKyYI-nYJewgOkPi0JU1_3X9oFgjrEdzkOlXzLGFxFbnsw=s240-c-k-c0x00ffffff-no-rj",
+            "width": 240,
+            "height": 240
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/bAseQlKvNmjdLQrvYWm_q3QDp8C8YKyYI-nYJewgOkPi0JU1_3X9oFgjrEdzkOlXzLGFxFbnsw=s800-c-k-c0x00ffffff-no-rj",
+            "width": 800,
+            "height": 800
+          }
+        },
+        "localized": {
+          "title": "Google",
+          "description": "Here to help. \n\nReimagining how AI can make your life better and help you explore your creativity, connect with the world, and discover new possibilities. Browse our latest product demos, unboxings, developer roundtables, podcasts, tips, tricks and more. Subscribe for the latest product updates, innovations, and a peek inside the magic of Google.\n"
+        }
+      },
+      "contentDetails": {
+        "relatedPlaylists": {
+          "likes": "",
+          "uploads": "UUK8sQmJBp8GCxrOtXWBpyEA"
+        }
+      },
+      "statistics": {
+        "viewCount": "6741495118",
+        "subscriberCount": "14500000",
+        "hiddenSubscriberCount": false,
+        "videoCount": "2757"
+      },
+      "topicDetails": {
+        "topicIds": [
+          "/m/06ntj",
+          "/m/07c1v",
+          "/m/019_rr"
+        ],
+        "topicCategories": [
+          "https://en.wikipedia.org/wiki/Sport",
+          "https://en.wikipedia.org/wiki/Technology",
+          "https://en.wikipedia.org/wiki/Lifestyle_(sociology)"
+        ]
+      },
+      "status": {
+        "privacyStatus": "public",
+        "isLinked": true,
+        "longUploadsStatus": "longUploadsUnspecified",
+        "madeForKids": false
+      },
+      "brandingSettings": {
+        "channel": {
+          "title": "Google",
+          "description": "Here to help. \n\nReimagining how AI can make your life better and help you explore your creativity, connect with the world, and discover new possibilities. Browse our latest product demos, unboxings, developer roundtables, podcasts, tips, tricks and more. Subscribe for the latest product updates, innovations, and a peek inside the magic of Google.\n",
+          "keywords": "Google Technology Science Android \"Google app\" \"Google Doodles\" \"Google Gemini\" \"Gemini AI\" \"Google AI\" Google Android \"Google Chrome\" \"Google Search\" \"Google AI\" YouTube \"Google Play Store\" AI \"Artificial Intelligence\" Tech Technology Innovation \"Machine Learning\" \"Quantum Computing\" \"Google I/O\" \"Made by Google\" \"Google Doodle\" \"Team Google\" Explained How-to Tutorial \"Google Tips\" \"Tech Tips\" \"Google Help\" \"Google products\" \"Google updates\" NotebookLM NanoBanana Veo \"Gen AI\" Pixel unboxing",
+          "trackingAnalyticsAccountId": "UA-7001471-1",
+          "unsubscribedTrailer": "YSKzyVOQmuA"
+        },
+        "image": {
+          "bannerExternalUrl": "https://yt3.googleusercontent.com/CCRE_EIc_j1eMz11icjGP-QXRMtUFg02CDqBHmuD6pSfD0c7BlPEOWo2_gTy2CGMEQl_4uyV_Q"
+        }
+      },
+      "contentOwnerDetails": {}
+    }
+  ]
+}

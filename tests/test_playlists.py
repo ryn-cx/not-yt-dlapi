@@ -1,169 +1,162 @@
 # TODO: Validate
 from __future__ import annotations
 
-from functools import partial
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 import pytest
-from pydantic import BaseModel
 
-from not_yt_dlapi.exceptions import ChannelNotFoundError, PlaylistNotFoundError
-from tests.utils import (
-    assert_error,
-    download_and_save,
-    page_dicts,
-    page_models,
-    parsed_json,
-    single_dict,
-)
+from not_yt_dlapi.exceptions import HTTPError
+from not_yt_dlapi.playlists import DEFAULT_MAX_RESULTS, Playlists
+from not_yt_dlapi.playlists.models import PlaylistListResponse
+from tests.utils import RecordedEndpoint
 
 if TYPE_CHECKING:
-    from collections.abc import Callable
-
     from not_yt_dlapi import NotYTDLAPI
-    from not_yt_dlapi.playlists import Playlists
-    from not_yt_dlapi.playlists.models import PlaylistsModel
-
-# The input shapes extract_items accepts.
-type ExtractInput = (
-    PlaylistsModel | dict[str, Any] | list[PlaylistsModel] | list[dict[str, Any]]
-)
 
 
-@pytest.fixture(scope="session")
-def endpoint(client: NotYTDLAPI) -> Playlists:
-    return client.playlists
+# TODO: Validate
+class PlaylistTest(RecordedEndpoint):
+    ENDPOINT = Playlists
 
 
-PLAYLIST_IDS: list[str] = [
-    # Album playlist.
-    # https://www.youtube.com/playlist?list=OLAK5uy_nt1Nw4wT6I7VlzNknxTiIz3hfED0ttO8Q
-    "OLAK5uy_nt1Nw4wT6I7VlzNknxTiIz3hfED0ttO8Q",
-    # Regular playlist.
-    # https://www.youtube.com/playlist?list=PLuhl9TnQPDCnWIhy_KSbtFwXVQnNvgfSh
-    "PLuhl9TnQPDCnWIhy_KSbtFwXVQnNvgfSh",
-    # Channel uploads playlist: https://www.youtube.com/channel/UC4QobU6STFB0P71PMvOGN5A
-    "UU4QobU6STFB0P71PMvOGN5A",
-    "TVSHZ4sc4JoEC9IdUMI4DcegnVhNMxEieH11w"
-]
+# TODO: Validate
+class TestList:
+    """Test `playlists.list`."""
 
-INVALID_PLAYLIST_ID = "PLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
+    class TestPlaylist(PlaylistTest):
+        PLAYLIST_ID = "PLuhl9TnQPDCnWIhy_KSbtFwXVQnNvgfSh"
+        """jawed's playlist
+        https://www.youtube.com/playlist?list=PLuhl9TnQPDCnWIhy_KSbtFwXVQnNvgfSh"""
+
+        def test_download(self, client: NotYTDLAPI) -> None:
+            self.record_test(
+                self.PLAYLIST_ID,
+                lambda: client.playlists.list(playlist_ids=self.PLAYLIST_ID).raw,
+            )
+
+        def test_parse(self) -> None:
+            self.parse_test(self.PLAYLIST_ID, PlaylistListResponse)
+
+    # TODO: Validate
+    class TestChannel(PlaylistTest):
+        CHANNEL_ID = "UC4QobU6STFB0P71PMvOGN5A"
+        """jawed's channel https://www.youtube.com/channel/UC4QobU6STFB0P71PMvOGN5A"""
+
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            self.record_test(
+                self.CHANNEL_ID,
+                lambda: client.playlists.list(channel_id=self.CHANNEL_ID).raw,
+            )
+
+        # TODO: Validate
+        def test_parse(self) -> None:
+            self.parse_test(self.CHANNEL_ID, PlaylistListResponse)
+
+    # TODO: Validate
+    class TestUploadsPlaylist(PlaylistTest):
+        PLAYLIST_ID = "UU4QobU6STFB0P71PMvOGN5A"
+        """jawed's channel https://www.youtube.com/playlist?list=UU4QobU6STFB0P71PMvOGN5A"""
+
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            self.record_test(
+                self.PLAYLIST_ID,
+                lambda: client.playlists.list(playlist_ids=self.PLAYLIST_ID).raw,
+            )
+
+        # TODO: Validate
+        def test_parse(self) -> None:
+            self.parse_test(self.PLAYLIST_ID, PlaylistListResponse)
+
+    # TODO: Validate
+    class TestMusicPlaylist(PlaylistTest):
+        PLAYLIST_ID = "OLAK5uy_kgvDzTzHW2NHKXbZ6kzcoCY-XfVE0c-Sc"
+        """Despacito is the most popular music video on all of YouTube and it comes from
+        this album. https://www.youtube.com/playlist?list=OLAK5uy_kgvDzTzHW2NHKXbZ6kzcoCY
+
+        Source: https://www.youtube.com/playlist?list=PLbpi6ZahtOH6rCGVbivmx20zx88ZKtUXl
+        """
+
+        def test_download(self, client: NotYTDLAPI) -> None:
+            self.record_test(
+                self.PLAYLIST_ID,
+                lambda: client.playlists.list(playlist_ids=self.PLAYLIST_ID).raw,
+            )
+
+        def test_parse(self) -> None:
+            self.parse_test(self.PLAYLIST_ID, PlaylistListResponse)
+
+    # TODO: Validate
+    class TestInvalidPlaylist(PlaylistTest):
+        PLAYLIST_ID = "PLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
+
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            self.record_test(
+                self.PLAYLIST_ID,
+                lambda: client.playlists.list(playlist_ids=self.PLAYLIST_ID).raw,
+            )
+
+        # TODO: Validate
+        def test_parse(self) -> None:
+            self.parse_test(self.PLAYLIST_ID, PlaylistListResponse)
 
 
-class TestPlaylistId:
-    @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
-    def test_download(self, endpoint: Playlists, playlist_id: str) -> None:
-        download_and_save(
-            endpoint,
-            playlist_id,
-            lambda: endpoint.download(playlist_id=playlist_id),
-        )
+# TODO: Validate
+class TestListAll:
+    """Test `playlists.list_all`."""
 
-    @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
-    def test_parse(self, endpoint: Playlists, playlist_id: str) -> None:
-        playlists = parsed_json(endpoint, playlist_id)
-        assert [item.id for item in playlists.items] == [playlist_id]
+    # TODO: Validate
+    class TestAllOfAChannelsPlaylists:
+        """Every playlist a channel made, which is far more than one page holds.
 
-    @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
-    @pytest.mark.parametrize(
-        "load",
-        [single_dict, parsed_json, page_dicts, page_models],
-        ids=["dict", "model", "dicts", "models"],
-    )
-    def test_extract_items(
-        self,
-        endpoint: Playlists,
-        playlist_id: str,
-        load: Callable[[Playlists, str], ExtractInput],
-    ) -> None:
-        items = endpoint.extract_items(load(endpoint, playlist_id))
-        assert [item.id for item in items] == [playlist_id]
+        The channel has thousands of them, so walking to the end takes tens of
+        requests and the count moves as YouTube makes more. What is checked is the
+        shape rather than the number: that more came back than one page holds, that
+        each playlist arrived in a response of its own, and that none arrived twice,
+        which is what a page walked wrongly would give.
 
-    def test_invalid_download(self, endpoint: Playlists) -> None:
-        assert_error(
-            endpoint,
-            INVALID_PLAYLIST_ID,
-            lambda: endpoint.download(playlist_id=INVALID_PLAYLIST_ID),
-            PlaylistNotFoundError,
-        )
+        There is no response to record, only what walking them all gives.
+        """
+
+        CHANNEL_ID = "UCBR8-60-B28hp2BmDPdntcQ"
+        """YouTube's own channel https://www.youtube.com/@YouTube/playlists"""
+
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            responses = client.playlists.list_all(channel_id=self.CHANNEL_ID)
+            playlist_ids = [response.items[0].id for response in responses]
+
+            assert all(len(response.items) == 1 for response in responses)
+            assert len(playlist_ids) > DEFAULT_MAX_RESULTS
+            assert len(set(playlist_ids)) == len(playlist_ids)
 
 
-class ChannelData(BaseModel):
-    channel_id: str
-    playlist_ids: set[str] = set()
+# TODO: Validate
+class TestFeed:
+    """Test `playlists.feed`."""
 
+    # TODO: Validate
+    class TestPlaylistIsDown:
+        """YouTube refuses every playlist feed it is asked for at the moment.
 
-CHANNELS: list[ChannelData] = [
-    # Channel with a playlist. https://www.youtube.com/user/jawed
-    ChannelData(
-        channel_id="UC4QobU6STFB0P71PMvOGN5A",
-        playlist_ids={"PLuhl9TnQPDCnWIhy_KSbtFwXVQnNvgfSh"},
-    ),
-    # Channel with no playlists. https://www.youtube.com/@jawedNOW
-    ChannelData(channel_id="UCPszuZ3hR89D4NqFd7g3mDQ"),
-    # A "Topic" channel whose playlists are not returned by the API.
-    # https://www.youtube.com/channel/UCo1DYcm1IZ9v3UPkpiAcgtg
-    ChannelData(channel_id="UCo1DYcm1IZ9v3UPkpiAcgtg"),
-]
+        There is nothing to record and nothing to parse while that is true, so
+        what is checked is only that the refusal comes back as a refusal. Which
+        refusal it is is not checked, because it is not always the same one: the
+        same request is answered `404` most times and `500` some of them, which
+        is what being broken looks like rather than what being asked about
+        something that does not exist looks like.
 
-INVALID_CHANNEL_ID = "UCCCCCCCCCCCCCCCCCCCCCCC"
+        When playlist feeds answer again this test is the one that fails, and
+        what replaces it is a download and a parse test like the channel feed
+        has.
+        """
 
+        PLAYLIST_ID = "UUEIwxahdLz7bap-VDs9h35A"
+        """The uploads playlist of https://www.youtube.com/@veritasium"""
 
-class TestChannelId:
-    @pytest.mark.parametrize("test_channel", CHANNELS)
-    def test_download(
-        self,
-        endpoint: Playlists,
-        test_channel: ChannelData,
-    ) -> None:
-        download_and_save(
-            endpoint,
-            test_channel.channel_id,
-            lambda: endpoint.download(channel_id=test_channel.channel_id),
-        )
-
-    @pytest.mark.parametrize("test_channel", CHANNELS)
-    def test_download_all(
-        self,
-        endpoint: Playlists,
-        test_channel: ChannelData,
-    ) -> None:
-        download_and_save(
-            endpoint,
-            test_channel.channel_id,
-            lambda: endpoint.download_all(channel_id=test_channel.channel_id),
-            folder="PlaylistsAll",
-        )
-
-    @pytest.mark.parametrize("test_channel", CHANNELS)
-    def test_parse(self, endpoint: Playlists, test_channel: ChannelData) -> None:
-        playlists = parsed_json(endpoint, test_channel.channel_id)
-        assert test_channel.playlist_ids == {item.id for item in playlists.items}
-
-    @pytest.mark.parametrize("test_channel", CHANNELS)
-    @pytest.mark.parametrize(
-        "load",
-        [
-            single_dict,
-            parsed_json,
-            partial(page_dicts, folder="PlaylistsAll"),
-            partial(page_models, folder="PlaylistsAll"),
-        ],
-        ids=["dict", "model", "dicts", "models"],
-    )
-    def test_extract_items(
-        self,
-        endpoint: Playlists,
-        test_channel: ChannelData,
-        load: Callable[[Playlists, str], ExtractInput],
-    ) -> None:
-        items = endpoint.extract_items(load(endpoint, test_channel.channel_id))
-        assert test_channel.playlist_ids == {item.id for item in items}
-
-    def test_invalid_download(self, endpoint: Playlists) -> None:
-        assert_error(
-            endpoint,
-            INVALID_CHANNEL_ID,
-            lambda: endpoint.download(channel_id=INVALID_CHANNEL_ID),
-            ChannelNotFoundError,
-        )
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            with pytest.raises(HTTPError):
+                client.playlists.feed(playlist_id=self.PLAYLIST_ID)

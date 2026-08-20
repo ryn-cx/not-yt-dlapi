@@ -1,107 +1,167 @@
 # TODO: Validate
 from __future__ import annotations
 
-from itertools import combinations
+from http import HTTPStatus
 from typing import TYPE_CHECKING
 
 import pytest
-from pydantic import BaseModel
 
-from not_yt_dlapi.exceptions import ChannelNotFoundError
-from tests.utils import assert_error, download_and_save, parsed_json
+from not_yt_dlapi.channels import Channels
+from not_yt_dlapi.channels.models import ChannelFeedResponse, ChannelListResponse
+from not_yt_dlapi.exceptions import HTTPError
+from tests.utils import RecordedEndpoint
 
 if TYPE_CHECKING:
     from not_yt_dlapi import NotYTDLAPI
-    from not_yt_dlapi.channel import Channel
 
 
-@pytest.fixture(scope="session")
-def endpoint(client: NotYTDLAPI) -> Channel:
-    return client.channel
+# TODO: Validate
+class ChannelTest(RecordedEndpoint):
+    ENDPOINT = Channels
 
 
-class TestData(BaseModel):
-    name: str
-    kwargs: dict[str, str]
-    channel_id: str | None = None
+# TODO: Validate
+class TestList:
+    """Test `channels.list`."""
+
+    # TODO: Validate
+    class TestChannelId(ChannelTest):
+        CHANNEL_ID = "UC4QobU6STFB0P71PMvOGN5A"
+
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            self.record_test(
+                self.CHANNEL_ID,
+                lambda: client.channels.list(channel_id=self.CHANNEL_ID).raw,
+            )
+
+        # TODO: Validate
+        def test_parse(self) -> None:
+            self.parse_test(self.CHANNEL_ID, ChannelListResponse)
+
+    # TODO: Validate
+    class TestChannelHandle(ChannelTest):
+        """A handle names the same thing an id does, and answers with the channel."""
+
+        HANDLE = "@Google"
+
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            self.record_test(
+                self.HANDLE,
+                lambda: client.channels.list(channel_handle=self.HANDLE).raw,
+            )
+
+        # TODO: Validate
+        def test_parse(self) -> None:
+            self.parse_test(self.HANDLE, ChannelListResponse)
+
+    # TODO: Validate
+    class TestChannelUsername(ChannelTest):
+        """A username is what a channel was named before handles existed.
+
+        It is not the handle: this is not the channel `@MrBeast` is.
+        """
+
+        USERNAME = "MrBeast"
+
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            self.record_test(
+                self.USERNAME,
+                lambda: client.channels.list(channel_username=self.USERNAME).raw,
+            )
+
+        # TODO: Validate
+        def test_parse(self) -> None:
+            self.parse_test(self.USERNAME, ChannelListResponse)
+
+    # TODO: Validate
+    class TestUnknownChannel(ChannelTest):
+        """An id nothing is under answers with no items at all, rather than refused."""
+
+        CHANNEL_ID = "UCCCCCCCCCCCCCCCCCCCCCCC"
+
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            self.record_test(
+                self.CHANNEL_ID,
+                lambda: client.channels.list(channel_id=self.CHANNEL_ID).raw,
+            )
+
+        # TODO: Validate
+        def test_parse(self) -> None:
+            assert "items" not in self.recorded_content(self.CHANNEL_ID)
+            self.parse_test(self.CHANNEL_ID, ChannelListResponse)
+
+    # TODO: Validate
+    class TestTooManyFilters:
+        """The API takes exactly one of the three ways of naming a channel."""
+
+        # TODO: Validate
+        def test_two_filters(self, client: NotYTDLAPI) -> None:
+            with pytest.raises(ValueError, match="Invalid number of arguments"):
+                client.channels.list(  # ty: ignore[no-matching-overload]
+                    channel_id="UC4QobU6STFB0P71PMvOGN5A",
+                    channel_handle="@jawed",
+                )
+
+        # TODO: Validate
+        def test_no_filters(self, client: NotYTDLAPI) -> None:
+            with pytest.raises(ValueError, match="Invalid number of arguments"):
+                client.channels.list()  # ty: ignore[no-matching-overload]
 
 
-VALID_TEST_DATA = [
-    # Every different parameter that can be used.
-    TestData(
-        name="UC4QobU6STFB0P71PMvOGN5A",
-        kwargs={"channel_id": "UC4QobU6STFB0P71PMvOGN5A"},
-        channel_id="UC4QobU6STFB0P71PMvOGN5A",
-    ),
-    TestData(
-        name="@Google",
-        kwargs={"channel_handle": "@Google"},
-        channel_id="UCK8sQmJBp8GCxrOtXWBpyEA",
-    ),
-    TestData(
-        name="MrBeast",
-        kwargs={"channel_username": "MrBeast"},
-        channel_id="UCgoFStVyEsm8tBZP5NC-aBQ",
-    ),
-]
+# TODO: Validate
+class TestFeed:
+    """Test `channels.feed`."""
 
-INVALID_TEST_DATA = [
-    # Every different parameter that can be used.
-    TestData(
-        name="UCCCCCCCCCCCCCCCCCCCCCCC",
-        kwargs={"channel_id": "UCCCCCCCCCCCCCCCCCCCCCCC"},
-    ),
-    TestData(
-        name="InvalidYouTubeHandleForTests",
-        kwargs={"channel_handle": "InvalidYouTubeHandleForTests"},
-    ),
-    TestData(
-        name="InvalidYouTubeUsernameFortests",
-        kwargs={"channel_username": "InvalidYouTubeUsernameFortests"},
-    ),
-]
+    # TODO: Validate
+    class TestChannelId(ChannelTest):
+        """The feed of a channel that is still uploading.
 
-_ALL_PARAMS = {
-    "channel_id": "UC4QobU6STFB0P71PMvOGN5A",
-    "channel_handle": "@Google",
-    "channel_username": "MrBeast",
-}
-INVALID_PARAM_COMBINATIONS = [
-    dict(combo) for size in (2, 3) for combo in combinations(_ALL_PARAMS.items(), size)
-]
+        A feed cannot be recorded the way a response can. It is the newest
+        fifteen videos of a channel that keeps publishing, and every entry
+        carries a view count that moves while it is being read, so no two
+        downloads of one feed are ever the same document and comparing one
+        against a recording would only ever fail.
 
+        So the two tests ask different things of the feed than an API endpoint's
+        do. The download test asks whether today's feed still reads into the
+        models at all, which is the thing that breaks when YouTube changes the
+        document. The recording under `_files` is a frozen sample kept by hand
+        rather than written by the test, and the parse test is what holds the
+        reading of it still.
+        """
 
-@pytest.mark.parametrize("test_data", VALID_TEST_DATA, ids=lambda x: x.name)
-def test_download(endpoint: Channel, test_data: TestData) -> None:
-    download_and_save(
-        endpoint,
-        test_data.name,
-        lambda: endpoint.download(**test_data.kwargs),
-    )
+        SUFFIX = ".xml"
+        """A feed is served as XML, and the recording is the document itself."""
 
+        CHANNEL_ID = "UChqUTb7kYRX8-EiaN3XFrSQ"
+        """Reuters https://www.youtube.com/channel/UChqUTb7kYRX8-EiaN3XFrSQ"""
 
-@pytest.mark.parametrize("test_data", VALID_TEST_DATA, ids=lambda x: x.name)
-def test_parse(endpoint: Channel, test_data: TestData) -> None:
-    channels = parsed_json(endpoint, test_data.name)
-    assert len(channels.items) == 1
-    assert channels.items[0].id == test_data.channel_id
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            feed = client.channels.feed(channel_id=self.CHANNEL_ID)
 
+            # The feed writes the channel's id without the `UC` it starts with,
+            # where every entry in it writes the same id in full.
+            assert feed.channel_id == self.CHANNEL_ID.removeprefix("UC")
+            assert feed.entries
+            assert all(entry.channel_id == self.CHANNEL_ID for entry in feed.entries)
 
-@pytest.mark.parametrize("test_data", INVALID_TEST_DATA, ids=lambda x: x.name)
-def test_invalid_download(endpoint: Channel, test_data: TestData) -> None:
-    assert_error(
-        endpoint,
-        test_data.name,
-        lambda: endpoint.download(**test_data.kwargs),
-        ChannelNotFoundError,
-    )
+        # TODO: Validate
+        def test_parse(self) -> None:
+            self.parse_test(self.CHANNEL_ID, ChannelFeedResponse)
 
+    # TODO: Validate
+    class TestUnknownChannel:
+        """An id nothing is under is refused, where `list` answers it empty."""
 
-@pytest.mark.parametrize(
-    "kwargs",
-    INVALID_PARAM_COMBINATIONS,
-    ids=lambda x: ",".join(x.keys()),
-)
-def test_invalid_combinations(endpoint: Channel, kwargs: dict[str, str]) -> None:
-    with pytest.raises(ValueError, match="Invalid number of arguments"):
-        endpoint.download(**kwargs)
+        CHANNEL_ID = "UCCCCCCCCCCCCCCCCCCCCCCC"
+
+        # TODO: Validate
+        def test_download(self, client: NotYTDLAPI) -> None:
+            with pytest.raises(HTTPError) as error:
+                client.channels.feed(channel_id=self.CHANNEL_ID)
+            assert error.value.status_code == HTTPStatus.NOT_FOUND

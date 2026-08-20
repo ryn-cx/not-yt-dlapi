@@ -1,533 +1,189 @@
-from pydantic import AwareDatetime, ConfigDict, Field
-from good_ass_pydantic_integrator import GAPIBaseModel
+# TODO: Validate
+"""Playlists models.
 
-class PageInfo(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    total_results: int = Field(..., alias='totalResults')
-    results_per_page: int = Field(..., alias='resultsPerPage')
+Shaped after the playlist resource as the API documents it: one class per
+documented object, one field per documented property, and the API's own wording
+for what each property is.
 
-class Default(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    url: str
-    width: int
-    height: int
+Every part is always asked for, so a property is optional here only when the
+resource itself decides whether to carry it, never because the request might not
+have asked.
+"""
 
-class Medium(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    url: str
-    width: int
-    height: int
+from __future__ import annotations
 
-class High(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    url: str
-    width: int
-    height: int
+from typing import Any, Self, override
 
-class Standard(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    url: str
-    width: int
-    height: int
+from pydantic import Field, SkipValidation
 
-class Maxres(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    url: str
-    width: int
-    height: int
+from not_yt_dlapi.base_response_model import BaseResponseModel
+from not_yt_dlapi.common_models import (
+    APIModel,
+    Localization,
+    Localizations,
+    PageInfo,
+    Thumbnails,
+)
+from not_yt_dlapi.feed_models import FeedResponse
 
-class Thumbnails(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    default: Default | None = None
-    medium: Medium
-    high: High | None = None
-    standard: Standard | None = None
-    maxres: Maxres | None = None
 
-class Localized(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-    description: str
+# TODO: Validate
+class PlaylistSnippet(APIModel):
+    """The `snippet` object contains basic details about the playlist, such as its title and description.
 
-class Snippet(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    published_at: AwareDatetime = Field(..., alias='publishedAt')
-    channel_id: str = Field(..., alias='channelId')
+    Attributes:
+        published_at: The date and time that the playlist was created. The value
+            is specified in ISO 8601 format.
+        channel_id: The ID that YouTube uses to uniquely identify the channel
+            that published the playlist.
+        title: The playlist's title.
+        description: The playlist's description.
+        thumbnails: The thumbnail images associated with the playlist.
+        channel_title: The channel title of the channel that the video belongs
+            to.
+        default_language: The language of the text in the `playlist` resource's
+            `snippet.title` and `snippet.description` properties.
+        localized: The `snippet.localized` object contains either a localized
+            title and description for the playlist or the title in the default
+            language for the playlist's metadata.
+    """  # noqa: E501
+
+    published_at: str
+    channel_id: str
     title: str
     description: str
     thumbnails: Thumbnails
-    channel_title: str = Field(..., alias='channelTitle')
-    default_language: str | None = Field(None, alias='defaultLanguage')
-    localized: Localized
-
-class Status(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    privacy_status: str = Field(..., alias='privacyStatus')
-    podcast_status: str | None = Field(None, alias='podcastStatus')
-
-class ContentDetails(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    item_count: int = Field(..., alias='itemCount')
-
-class Player(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    embed_html: str = Field(..., alias='embedHtml')
-
-class En(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-    description: str | None = None
-
-class Ru(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-    description: str | None = None
-
-class Ja(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-    description: str | None = None
-
-class EnXa(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Mr(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Sw(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Th(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Ro(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Vi(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Ta(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Te(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Da(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Pt(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Et(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class PtPt(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Bg(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Sv(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class ZhTw(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class EnGb(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-    description: str | None = None
-
-class Ar(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class No(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
+    channel_title: str
+    # Only a playlist whose owner said what language they wrote it in has one.
+    default_language: str | None = None
+    localized: Localization
+
+
+# TODO: Validate
+class PlaylistStatus(APIModel):
+    """The `status` object contains status information for the playlist.
+
+    Attributes:
+        privacy_status: The playlist's privacy status.
+        podcast_status: The playlist's podcast status. If value is `enabled`,
+            the playlist is marked as a podcast show. To set a playlist's
+            podcast status to `enabled`, the playlist must have a playlist
+            image.
+    """
+
+    privacy_status: str
+    podcast_status: str | None = None
+
+
+# TODO: Validate
+class PlaylistContentDetails(APIModel):
+    """The `contentDetails` object contains information about the playlist content.
+
+    Attributes:
+        item_count: The number of videos in the playlist.
+    """
+
+    item_count: int
+
+
+# TODO: Validate
+class PlaylistPlayer(APIModel):
+    """The `player` object contains information for embedded playlist playback.
+
+    Attributes:
+        embed_html: An `<iframe>` tag that embeds a player that will play the
+            playlist.
+    """
+
+    embed_html: str
+
+
+# TODO: Validate
+class Playlist(APIModel):
+    """One playlist.
+
+    Attributes:
+        kind: Identifies the API resource's type. The value will be
+            `youtube#playlist`.
+        etag: The Etag of this resource.
+        id: The ID that YouTube uses to uniquely identify the playlist.
+        snippet: The `snippet` object contains basic details about the playlist,
+            such as its title and description.
+        status: The `status` object contains status information for the
+            playlist.
+        content_details: The `contentDetails` object contains information about
+            the playlist content.
+        player: The `player` object contains information for embedded playlist
+            playback.
+        localizations: The `localizations` object encapsulates translations of
+            the playlist's metadata.
+    """
 
-class Ml(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Fr(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Ms(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class It(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class ZhHk(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Sr(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Id(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Kn(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Ko(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class ZhCn(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Lt(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Lv(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Zu(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Es419(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Tr(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Cs(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class FrCa(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Sl(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Hi(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Pl(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Nl(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Uk(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Eu(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class El(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Gu(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Es(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Fi(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Ca(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Fa(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class De(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Ur(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Hu(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Am(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Bn(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Iw(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Gl(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Is(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Sk(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Fil(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Af(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Hr(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Kk(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Mk(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Or(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class SrLatn(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class My(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Ne(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Uz(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Mn(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class EnIn(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Km(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Be(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class ArXb(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Ka(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Hy(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Bs(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Si(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Az(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class EsUs(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Pa(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class As(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Sq(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Lo(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Ky(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    title: str
-
-class Localizations(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    en: En | None = None
-    ru: Ru | None = None
-    ja: Ja | None = None
-    en_xa: EnXa | None = Field(None, alias='en-XA')
-    mr: Mr | None = None
-    sw: Sw | None = None
-    th: Th | None = None
-    ro: Ro | None = None
-    vi: Vi | None = None
-    ta: Ta | None = None
-    te: Te | None = None
-    da: Da | None = None
-    pt: Pt | None = None
-    et: Et | None = None
-    pt_pt: PtPt | None = Field(None, alias='pt-PT')
-    bg: Bg | None = None
-    sv: Sv | None = None
-    zh_tw: ZhTw | None = Field(None, alias='zh-TW')
-    en_gb: EnGb | None = Field(None, alias='en-GB')
-    ar: Ar | None = None
-    no: No | None = None
-    ml: Ml | None = None
-    fr: Fr | None = None
-    ms: Ms | None = None
-    it: It | None = None
-    zh_hk: ZhHk | None = Field(None, alias='zh-HK')
-    sr: Sr | None = None
-    id: Id | None = None
-    kn: Kn | None = None
-    ko: Ko | None = None
-    zh_cn: ZhCn | None = Field(None, alias='zh-CN')
-    lt: Lt | None = None
-    lv: Lv | None = None
-    zu: Zu | None = None
-    es_419: Es419 | None = Field(None, alias='es-419')
-    tr: Tr | None = None
-    cs: Cs | None = None
-    fr_ca: FrCa | None = Field(None, alias='fr-CA')
-    sl: Sl | None = None
-    hi: Hi | None = None
-    pl: Pl | None = None
-    nl: Nl | None = None
-    uk: Uk | None = None
-    eu: Eu | None = None
-    el: El | None = None
-    gu: Gu | None = None
-    es: Es | None = None
-    fi: Fi | None = None
-    ca: Ca | None = None
-    fa: Fa | None = None
-    de: De | None = None
-    ur: Ur | None = None
-    hu: Hu | None = None
-    am: Am | None = None
-    bn: Bn | None = None
-    iw: Iw | None = None
-    gl: Gl | None = None
-    is_: Is | None = Field(None, alias='is')
-    sk: Sk | None = None
-    fil: Fil | None = None
-    af: Af | None = None
-    hr: Hr | None = None
-    kk: Kk | None = None
-    mk: Mk | None = None
-    or_: Or | None = Field(None, alias='or')
-    sr_latn: SrLatn | None = Field(None, alias='sr-Latn')
-    my: My | None = None
-    ne: Ne | None = None
-    uz: Uz | None = None
-    mn: Mn | None = None
-    en_in: EnIn | None = Field(None, alias='en-IN')
-    km: Km | None = None
-    be: Be | None = None
-    ar_xb: ArXb | None = Field(None, alias='ar-XB')
-    ka: Ka | None = None
-    hy: Hy | None = None
-    bs: Bs | None = None
-    si: Si | None = None
-    az: Az | None = None
-    es_us: EsUs | None = Field(None, alias='es-US')
-    pa: Pa | None = None
-    as_: As | None = Field(None, alias='as')
-    sq: Sq | None = None
-    lo: Lo | None = None
-    ky: Ky | None = None
-
-class Item(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
     kind: str
     etag: str
     id: str
-    snippet: Snippet
-    status: Status
-    content_details: ContentDetails = Field(..., alias='contentDetails')
-    player: Player
+    snippet: PlaylistSnippet
+    status: PlaylistStatus
+    content_details: PlaylistContentDetails
+    player: PlaylistPlayer
+    # Only a playlist that has been translated carries translations.
     localizations: Localizations | None = None
 
-class NotYtDlapi(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
-    channel_id: str | None = None
-    part: str
-    timestamp: AwareDatetime
-    playlist_id: str | None = None
 
-class PlaylistsModel(GAPIBaseModel):
-    model_config = ConfigDict(extra='forbid')
+# TODO: Validate
+class PlaylistListResponse(BaseResponseModel, APIModel):
+    """One page of playlists.
+
+    Attributes:
+        kind: Identifies the API resource's type. The value will be
+            `youtube#playlistListResponse`.
+        etag: The Etag of this resource.
+        next_page_token: The token that can be used as the value of the
+            `pageToken` parameter to retrieve the next page in the result set.
+        prev_page_token: The token that can be used as the value of the
+            `pageToken` parameter to retrieve the previous page in the result
+            set.
+        page_info: The `pageInfo` object encapsulates paging information for the
+            result set.
+        items: A list of playlists that match the request criteria.
+        raw: The response as it was downloaded.
+    """
+
     kind: str
     etag: str
-    page_info: PageInfo = Field(..., alias='pageInfo')
-    items: list[Item]
-    next_page_token: str | None = Field(None, alias='nextPageToken')
-    not_yt_dlapi: NotYtDlapi | None = None
+    next_page_token: str | None = None
+    prev_page_token: str | None = None
+    page_info: PageInfo
+    # A page that found nothing has no `items` at all.
+    items: tuple[Playlist, ...] = ()
+    raw: SkipValidation[dict[str, Any]] = Field(repr=False)
+
+    # TODO: Validate
+    @classmethod
+    @override
+    def from_response(cls, data: dict[str, Any]) -> Self:
+        return cls.model_validate({**data, "raw": data})
+
+
+# TODO: Validate
+class PlaylistFeedResponse(FeedResponse):
+    """The fifteen most recent videos a playlist holds.
+
+    Everything a feed carries is the same whatever the feed is of, so all of it
+    is described on `FeedResponse`. What a playlist feed adds is saying which
+    playlist it is of.
+
+    Nothing here has been checked against a downloaded feed, because YouTube is
+    currently refusing every playlist feed it is asked for. It is written from
+    the channel feed on the understanding that the two documents are the same
+    but for this field, which is what the two were before playlist feeds
+    stopped answering.
+
+    Attributes:
+        playlist_id: Which playlist the feed is of. A channel feed writes its
+            channel id with the leading `UC` taken off, so whether a playlist
+            feed writes its id in full is one of the things that cannot be known
+            until playlist feeds answer again.
+    """
+
+    playlist_id: str

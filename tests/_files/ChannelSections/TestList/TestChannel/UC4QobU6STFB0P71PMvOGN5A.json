@@ -1,0 +1,42 @@
+{
+  "kind": "youtube#channelSectionListResponse",
+  "etag": "Z2ZC5LHKnbIV4-ks6SPdnVG2CJg",
+  "items": [
+    {
+      "kind": "youtube#channelSection",
+      "etag": "Clv--26MiWD_FQ7hh7cARV8Bru4",
+      "id": "UC4QobU6STFB0P71PMvOGN5A.jNQXAC9IVRw",
+      "snippet": {
+        "type": "recentuploads",
+        "channelId": "UC4QobU6STFB0P71PMvOGN5A",
+        "position": 0
+      }
+    },
+    {
+      "kind": "youtube#channelSection",
+      "etag": "4pn9NAX5FKOdcvNfHFqd-kIJdKE",
+      "id": "UC4QobU6STFB0P71PMvOGN5A.LeAltgu_pbM",
+      "snippet": {
+        "type": "multiplechannels",
+        "channelId": "UC4QobU6STFB0P71PMvOGN5A",
+        "title": "Featured channels",
+        "position": 1
+      },
+      "contentDetails": {
+        "channels": [
+          "UCPszuZ3hR89D4NqFd7g3mDQ"
+        ]
+      }
+    },
+    {
+      "kind": "youtube#channelSection",
+      "etag": "QuYJ2DHlZ7uI0A2zyKUxzpMDFDk",
+      "id": "UC4QobU6STFB0P71PMvOGN5A.nGzAI5pLbMY",
+      "snippet": {
+        "type": "subscriptions",
+        "channelId": "UC4QobU6STFB0P71PMvOGN5A",
+        "position": 2
+      }
+    }
+  ]
+}
