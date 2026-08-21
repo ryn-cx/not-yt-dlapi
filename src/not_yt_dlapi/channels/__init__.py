@@ -1,18 +1,7 @@
 # TODO: Validate
-"""Contains the Channels class.
+"""A `channel` resource contains information about a YouTube channel.
 
-Every part the API will hand out is always asked for, so what a request
-answers with is decided only by the channel rather than by the caller. That is
-what lets `models` say which properties a channel always carries.
-
-A channel can be asked for by id, by the `@handle` it is reachable at or by the
-username it had before handles existed, and the API takes exactly one of the
-three, so the endpoint does too.
-
-`feed` is not the API. It is the Atom feed of the channel's fifteen most recent
-videos, which is served from youtube.com, takes no key and costs no quota. It
-answers a much smaller question than `list` does and is only worth asking when
-that question is all that was wanted.
+https://developers.google.com/youtube/v3/docs/channels
 """
 
 from __future__ import annotations
@@ -47,7 +36,10 @@ an error.
 
 # TODO: Validate
 class Channels(BaseEndpoint):
-    """Channels, by id, handle or legacy username."""
+    """A `channel` resource contains information about a YouTube channel.
+
+    https://developers.google.com/youtube/v3/docs/channels
+    """
 
     # TODO: Validate
     @overload

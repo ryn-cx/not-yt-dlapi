@@ -12,9 +12,10 @@ have asked.
 
 from __future__ import annotations
 
-from typing import Any, Self, override
+import json
+from typing import Self, override
 
-from pydantic import Field, SkipValidation
+from pydantic import Field
 
 from not_yt_dlapi.base_response_model import BaseResponseModel
 from not_yt_dlapi.common_models import APIModel
@@ -94,17 +95,18 @@ class ChannelSectionListResponse(BaseResponseModel, APIModel):
             `youtube#channelSectionListResponse`.
         etag: The Etag of this resource.
         items: A list of ChannelSections that match the request criteria.
-        raw: The response as it was downloaded.
+        raw: The response as it was served, which is the document
+            itself rather than the reading of it.
     """
 
     kind: str
     etag: str
     # A channel that has arranged no shelves has no `items` at all.
     items: list[ChannelSection] = Field(default_factory=list)
-    raw: SkipValidation[dict[str, Any]] = Field(repr=False)
+    raw: str = Field(repr=False, exclude=True)
 
     # TODO: Validate
     @classmethod
     @override
-    def from_response(cls, data: dict[str, Any]) -> Self:
-        return cls.model_validate({**data, "raw": data})
+    def from_response(cls, data: str) -> Self:
+        return cls.model_validate({**json.loads(data), "raw": data})

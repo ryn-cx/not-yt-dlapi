@@ -1,0 +1,459 @@
+{
+  "kind": "youtube#channelListResponse",
+  "etag": "gYQgKvBZNA6DvmxNO5Am7RulFic",
+  "next_page_token": null,
+  "prev_page_token": null,
+  "page_info": {
+    "total_results": 1,
+    "results_per_page": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "4ZhD2gadFu1qjVvKFmdbdfjMcyQ",
+      "id": "UCooTDYkIERWBwDC1JKyoElQ",
+      "snippet": {
+        "title": "MF Doom - Topic",
+        "description": "",
+        "custom_url": null,
+        "published_at": "2013-07-20T01:06:59Z",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/fuhzDKScK8NdWOpRDYCjXgncKNWqrMMWi7dnrm1h5WBoJQLLZbGZnJbV1D3M9aGRdKnkowS6GA=s88-c-k-c0x00ffffff-no-rj",
+            "width": 88,
+            "height": 88
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/fuhzDKScK8NdWOpRDYCjXgncKNWqrMMWi7dnrm1h5WBoJQLLZbGZnJbV1D3M9aGRdKnkowS6GA=s240-c-k-c0x00ffffff-no-rj",
+            "width": 240,
+            "height": 240
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/fuhzDKScK8NdWOpRDYCjXgncKNWqrMMWi7dnrm1h5WBoJQLLZbGZnJbV1D3M9aGRdKnkowS6GA=s800-c-k-c0x00ffffff-no-rj",
+            "width": 800,
+            "height": 800
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "default_language": null,
+        "localized": {
+          "title": "MF Doom - Topic",
+          "description": ""
+        },
+        "country": null
+      },
+      "content_details": {
+        "related_playlists": {
+          "likes": "",
+          "favorites": null,
+          "uploads": "UUooTDYkIERWBwDC1JKyoElQ"
+        }
+      },
+      "statistics": {
+        "view_count": 358324594,
+        "subscriber_count": 11000,
+        "hidden_subscriber_count": false,
+        "video_count": 503
+      },
+      "topic_details": {
+        "topic_ids": [
+          "/m/0glt670",
+          "/m/04rlf"
+        ],
+        "topic_categories": [
+          "https://en.wikipedia.org/wiki/Hip_hop_music",
+          "https://en.wikipedia.org/wiki/Music"
+        ]
+      },
+      "status": {
+        "privacy_status": "public",
+        "is_linked": true,
+        "long_uploads_status": "longUploadsUnspecified",
+        "made_for_kids": null,
+        "self_declared_made_for_kids": null
+      },
+      "branding_settings": {
+        "channel": {
+          "title": "MF Doom - Topic",
+          "description": null,
+          "keywords": null,
+          "tracking_analytics_account_id": null,
+          "unsubscribed_trailer": null,
+          "default_language": null,
+          "country": null
+        },
+        "watch": null,
+        "image": {
+          "banner_external_url": "https://yt3.googleusercontent.com/n8B-GBvpuolp7_3VwQtKg5bVf-jTQEcLDXWRElWDxwoFe0eK2rjFBCpK03eqpP3yrVLNBaNtCw"
+        },
+        "hints": null
+      },
+      "audit_details": null,
+      "content_owner_details": {
+        "content_owner": null,
+        "time_linked": null
+      },
+      "localizations": {
+        "af": {
+          "title": "MF Doom - Onderwerp",
+          "description": null
+        },
+        "am": {
+          "title": "MF Doom - \u122d\u12d5\u1235",
+          "description": null
+        },
+        "ar": {
+          "title": "\u0627\u0644\u0645\u0648\u0636\u0648\u0639 - \u0625\u0645 \u0625\u0641 \u062f\u0648\u0645",
+          "description": "\u062f\u0627\u0646\u064a\u0644 \u062f\u0648\u0645\u064a\u0644 \u0645\u063a\u0646\u064a \u0647\u064a\u0628\u0647\u0648\u0628 \u0648\u0645\u0633\u062c\u0644 \u0623\u063a\u0627\u0646\u064a \u0648\u0645\u0646\u062a\u062c \u0628\u0631\u064a\u0637\u0627\u0646\u064a. \u064a\u0634\u062a\u0647\u0631 \u0628\u0623\u062f\u0627\u0626\u0647 \u0634\u062e\u0635\u064a\u0629 \u00ab\u0634\u0631\u064a\u0631 \u062e\u0627\u0631\u0642\u00bb \u0639\u0644\u0649 \u0627\u0644\u0645\u0633\u0631\u062d \u0648\u064a\u0639\u0631\u0641 \u0628\u0623\u0633\u0645\u0627\u0621 \u0645\u0633\u0631\u062d\u064a\u0629 \u0639\u062f\u064a\u062f\u0629 \u0648\u0631\u0626\u064a\u0633\u0627 \u0645\u0646\u0647\u0627 \u0623\u0645 \u0623\u0641 \u062f\u0648\u0645. \u0648\u0633\u0627\u0647\u0645 \u0641\u064a \u0627\u0644\u0643\u062b\u064a\u0631 \u0645\u0646 \u0627\u0644\u0645\u0634\u0627\u0631\u064a\u0639 \u0627\u0644\u0645\u0634\u062a\u0631\u0643\u0629 \u0645\u0639 \u0639\u062f\u0629 \u0641\u0646\u0627\u0646\u064a\u0646."
+        },
+        "ar_xb": null,
+        "as_": {
+          "title": "MF DOOM - \u09ac\u09bf\u09b7\u09df\u09ac\u09b8\u09cd\u09a4\u09c1",
+          "description": null
+        },
+        "az": {
+          "title": "MF Doom - M\u00f6vzu",
+          "description": null
+        },
+        "be": {
+          "title": "MF Doom - \u0442\u044d\u043c\u0430",
+          "description": null
+        },
+        "bg": {
+          "title": "MF DOOM \u2013 \u0422\u0435\u043c\u0430",
+          "description": "\u0414\u0430\u043d\u0438\u044a\u043b \u0414\u0443\u0300\u043c\u0438\u043b\u0435, \u043f\u043e-\u0438\u0437\u0432\u0435\u0441\u0442\u0435\u043d \u0441 \u043f\u0441\u0435\u0432\u0434\u043e\u043d\u0438\u043c\u0430 \u0441\u0438 MF DOOM, \u0435 \u0430\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438 \u0445\u0438\u043f-\u0445\u043e\u043f \u0430\u0440\u0442\u0438\u0441\u0442 \u0438 \u043c\u0443\u0437\u0438\u043a\u0430\u043b\u0435\u043d \u043f\u0440\u043e\u0434\u0443\u0446\u0435\u043d\u0442."
+        },
+        "bn": {
+          "title": "\u098f\u09ae\u098f\u09ab \u09a1\u09c1\u09ae - \u09ac\u09bf\u09b7\u09df",
+          "description": null
+        },
+        "bs": {
+          "title": "MF DOOM - tema",
+          "description": null
+        },
+        "ca": {
+          "title": "MF DOOM - Tema",
+          "description": "Daniel Dumile va ser un MC i productor musical brit\u00e0nic-estatunidenc conegut per molts sobrenoms entre els quals els m\u00e9s coneguts s\u00f3n MF DOOM o simplement DOOM. Destac\u00e0 pel seu complicat joc de paraules, la seva m\u00e0scara de metall i el personatge esc\u00e8nic \"supervill\u00e0\". Dumile es va convertir en una figura important del hip hop underground als anys 2000. Despr\u00e9s de la seva mort, Variety el va descriure com una de les \"figures m\u00e9s celebrades, imprevisibles i enigm\u00e0tiques\" de l'escena.\nNascut a Londres, Dumile es va mudar a Long Island, Nova York, de ben jove. Va comen\u00e7ar la seva carrera el 1988 com a membre de KMD, actuant amb el nom de Zev Love X. El grup es va dissoldre el 1993 arran la mort del membre DJ Subroc, el germ\u00e0 de Dumile. Despr\u00e9s d'un par\u00e8ntesi, Dumile va tornar a apar\u00e8ixer a finals dels anys noranta, actuant en esdeveniments de micr\u00f2fon obert mentre portava una m\u00e0scara de metall que s'assembla a la del supervill\u00e0 Doctor Doom de Marvel Comics, que es representa a la portada del seu \u00e0lbum debut de 1999 Operation: Doomsday. Va adoptar la personalitat de MF Doom i rarament va fer aparicions p\u00fabliques sense m\u00e0scara despr\u00e9s."
+        },
+        "cs": {
+          "title": "MF DOOM \u2013 t\u00e9ma",
+          "description": "Daniel Dumile, zn\u00e1m\u00fd tak\u00e9 jako MF DOOM nebo jednodu\u0161e DOOM, byl britsko-americk\u00fd rapper a producent. D\u00edky sv\u00fdm slo\u017eit\u00fdm slovn\u00edm h\u0159\u00ed\u010dk\u00e1m, charakteristick\u00e9 kovov\u00e9 masce a \u201esuperpadou\u0161sk\u00e9\u201c person\u011b se Dumile stal v\u00fdznamnou postavou undergroundov\u00e9ho a alternativn\u00edho hip hopu na po\u010d\u00e1tku 21. stolet\u00ed. Po jeho smrti ho \u010dasopis Variety popsal jako jednu z \u201enejvlivn\u011bj\u0161\u00edch, nejnep\u0159edv\u00eddateln\u011bj\u0161\u00edch a nejz\u00e1hadn\u011bj\u0161\u00edch postav\u201c v hudebn\u00edm sv\u011bt\u011b.\nDumile se narodil v Lond\u00fdn\u011b a v mlad\u00e9m v\u011bku se p\u0159est\u011bhoval do Long Islandu v New Yorku. Svoji kari\u00e9ru za\u010dal v roce 1988 jako \u010dlen tria KMD, kde vystupoval pod jm\u00e9nem Zev Love X. Skupina se rozpadla v roce 1993 po smrti \u010dlena DJ Subroca, Dumileho bratra. Po p\u0159est\u00e1vce se Dumile znovu objevil koncem 90. let. Za\u010dal vystupovat na open mic akc\u00edch s kovovou maskou p\u0159ipom\u00ednaj\u00edc\u00ed masku superpadoucha Doctora Dooma z Marvel Comics, kter\u00fd je zobrazen na obalu jeho debutov\u00e9ho s\u00f3lov\u00e9ho alba \u201eOperation: Doomsday\u201c z roku 1999. P\u0159ijal personu MF Doom a pot\u00e9 z\u0159\u00eddka vystupoval na ve\u0159ejnosti bez masky.\nB\u011bhem Dumileho nejplodn\u011bj\u0161\u00edho obdob\u00ed, na za\u010d\u00e1tku 21. stolet\u00ed, vydal oce\u0148ovan\u00e9 album Mm..Food jako MF Doom, stejn\u011b jako alba vydan\u00e1 pod pseudonymy King Geedorah a Viktor Vaughn."
+        },
+        "da": {
+          "title": "MF DOOM - Emne",
+          "description": "Daniel Dumile, bedre kendt under kunstnernavnet MF Doom, var en britisk-amerikansk rapper og producer. Han var is\u00e6r kendt for at b\u00e6re en metalmaske under optr\u00e6dener i offentligheden, samt for sin unikke m\u00e5de at rappe p\u00e5, hvor is\u00e6r rim og flow havde stor betydning. Han havde som f\u00f8lge af masken et relativt ukendt ansigt blandt den brede befolkning. Masken var st\u00e6rkt inspireret af Marvel Comics tegneserie-skurken Doctor Doom."
+        },
+        "de": {
+          "title": "MF DOOM \u2013 Thema",
+          "description": "MF Doom Eigenschreibweise MF DOOM, b\u00fcrgerlich Daniel Dumile, war ein britischer Rapper. Er trat unter vielen verschiedenen Alter Egos in Erscheinung. Sein Markenzeichen war seine metallene Gesichtsmaske. Das K\u00fcrzel \u201eMF\u201c kann wahlweise f\u00fcr \u201eMetal Face\u201c, \u201eMetal Fingers\u201c, \u201eMulti Faced\u201c, \u201eMic Fiend\u201c oder auch, wie bei seinem ehemals engen Freund MF Grimm, f\u00fcr \u201eMad Flows\u201c stehen.\nKurz nach seiner Geburt wanderte seine Familie in die USA aus. Er lebte die meiste Zeit seines Lebens in Long Island, New York, erlangte allerdings nie die US-amerikanische Staatsangeh\u00f6rigkeit. 2010 wurde ihm die Wiedereinreise nach einer Europa-Tournee verweigert. Bis zu seinem Tod lebte er daher in England. 2020 starb er im Alter von 49 Jahren an den Nebenwirkungen der Einnahme eines Blutdruckmedikaments."
+        },
+        "de_at": null,
+        "de_ch": null,
+        "de_de": null,
+        "el": {
+          "title": "MF Doom - \u0398\u03ad\u03bc\u03b1",
+          "description": null
+        },
+        "en": {
+          "title": "MF Doom - Topic",
+          "description": "Daniel Dumile, also known by his stage name MF Doom or simply Doom, was a British and American rapper, songwriter, and record producer. Noted for his intricate wordplay, signature metal mask, and \"supervillain\" stage persona, he became a major figure of underground hip hop and alternative hip hop in the 2000s, and has been widely regarded as one of the greatest and most influential lyricists in underground rap.\nDumile was born in London and raised in Long Beach, New York. He began his career in 1988 as a member of the trio KMD, performing as Zev Love X. The group disbanded in 1993 after the death of his brother DJ Subroc. After a hiatus, Dumile reemerged in the late 1990s. He began performing at open mic events while wearing a metal mask resembling that of the Marvel Comics supervillain Doctor Doom, who is depicted on the cover of his 1999 debut solo album Operation: Doomsday. He adopted the MF Doom persona and rarely made unmasked public appearances thereafter.\nDuring Dumile's most prolific period, the early to mid-2000s, he released the acclaimed Mm..Food as MF Doom, as well as albums released under the pseudonyms King Geedorah and Viktor Vaughn."
+        },
+        "en_au": null,
+        "en_ca": null,
+        "en_gb": {
+          "title": "MF Doom - Topic",
+          "description": null
+        },
+        "en_ie": null,
+        "en_in": {
+          "title": "MF Doom - Topic",
+          "description": null
+        },
+        "en_sg": null,
+        "en_us": null,
+        "en_xa": null,
+        "en_za": null,
+        "es": {
+          "title": "MF DOOM - Tema",
+          "description": "Daniel Dumile\u200b, conocido por su nombre art\u00edstico MF DOOM o simplemente DOOM, fue un rapero, compositor y productor discogr\u00e1fico brit\u00e1nico\u2013estadounidense.\nEs reconocido por sus intrincados juegos de palabras, su caracter\u00edstica m\u00e1scara, y por su personaje de escenario como \u201csupervillano\u201d, Dumile se convirti\u00f3 en un icono en la m\u00fasica Underground hip hop y del rap alternativo en la d\u00e9cada de los 2000.\u200b\u200b Luego de su fallecimiento, la revista Variety lo describi\u00f3 como una de las \u201cfiguras m\u00e1s enigm\u00e1ticas, impredecibles y celebradas\u201d de su g\u00e9nero.\u200b\nNacido en Londres, Dumile se mud\u00f3 a Long Island, Nueva York a una edad temprana. Dumile comenz\u00f3 su carrera musical en 1988 siendo miembro de KMD, bajo el nombre de Zev Love X. El grupo se disolvi\u00f3 en 1993 luego de la muerte de Dingilizwe Dumile, hermano de Dumile. Luego de un descanso, Dumile resurgi\u00f3 a finales de la d\u00e9cada de los 90, comenz\u00f3 a participar en eventos de micr\u00f3fono abierto usando una m\u00e1scara met\u00e1lica similar a la usada por el supervillano de Marvel Comics, Doctor Doom, personaje que fue usado en la portada de su primer \u00e1lbum, Operation: Doomsday. Dumile adopt\u00f3 el personaje de MF DOOM y rara vez aparec\u00eda en escena sin su m\u00e1scara."
+        },
+        "es_419": {
+          "title": "MF DOOM: Tema",
+          "description": null
+        },
+        "es_es": null,
+        "es_mx": null,
+        "es_us": {
+          "title": "MF DOOM: Tema",
+          "description": null
+        },
+        "et": {
+          "title": "MF DOOM \u2013 teema",
+          "description": null
+        },
+        "eu": {
+          "title": "MF DOOM: gaia",
+          "description": "Daniel Dumile britainiar-amerikar raperoa, musikagilea eta disko ekoizlea izan zen. Londresen jaio zen. Bere ibilbidea 1988an hasi zen. Madlibekin lan egin zuen eta biek Madvillain izenez ezagutzen den bikotea egin zuten. Beraien Madvillainy diskoa ezaguna da.\nDumile 2020ko urriaren 31n hil zen, 49 urte zituela. Bere heriotza bi hilabete geroago, abenduaren 31n jakinarazi zuen emazteak."
+        },
+        "fa": {
+          "title": "MF DOOM - \u0639\u0646\u0648\u0627\u0646",
+          "description": "\u062f\u0627\u0646\u06cc\u0644 \u062f\u0648\u0645\u06cc\u0644\u0647 \u06a9\u0647 \u0628\u0627 \u0646\u0627\u0645 \u0647\u0646\u0631\u06cc \u00ab\u0627\u0645\u200c\u0627\u0641 \u062f\u0648\u0645\u00bb \u0634\u0646\u0627\u062e\u062a\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f\u060c \u0647\u0646\u0631\u0645\u0646\u062f \u0627\u0646\u06af\u0644\u06cc\u0633\u06cc-\u0622\u0645\u0631\u06cc\u06a9\u0627\u06cc\u06cc \u0647\u06cc\u067e \u0647\u0627\u067e \u0628\u0648\u062f. \u0627\u0648 \u0645\u0648\u0632\u06cc\u06a9\u200c\u0647\u0627\u06cc\u0634 \u0631\u0627 \u0628\u0627 \u0686\u0646\u062f\u06cc\u0646 \u0646\u0627\u0645 \u0645\u0633\u062a\u0639\u0627\u0631 \u0627\u062c\u0631\u0627 \u06a9\u0631\u062f \u06a9\u0647 \u0645\u0647\u0645\u200c\u062a\u0631\u06cc\u0646 \u0622\u0646\u200c\u0647\u0627 \u0647\u0645\u06cc\u0646 \u0644\u0642\u0628 \u00ab\u0627\u0645\u200c\u0627\u0641 \u062f\u0648\u0645\u00bb \u0628\u0648\u062f. \u062f\u0648\u0645\u06cc\u0644\u0647 \u062f\u0631 \u0627\u0648\u0627\u062e\u0631 \u062f\u0647\u0647 \u06f1\u06f9\u06f8\u06f0 \u0648 \u062f\u0631 \u0639\u0635\u0631 \u0637\u0644\u0627\u06cc\u06cc \u0647\u06cc\u067e \u0647\u0627\u067e \u0634\u0631\u0648\u0639 \u0628\u0647 \u06a9\u0627\u0631 \u06a9\u0631\u062f \u0648 \u062f\u0631 \u0627\u0648\u0627\u06cc\u0644 \u0642\u0631\u0646 \u06f2\u06f1 \u0628\u0627 \u0622\u0646 \u0627\u0633\u062a\u0627\u06cc\u0644 \u06a9\u0645\u06cc\u06a9\u200c\u0628\u0648\u06a9\u06cc \u062e\u0648\u062f \u0648 \u0633\u0628\u06a9 \u062e\u0627\u0635\u0634 \u062f\u0631 \u0628\u0627\u0632\u06cc \u0628\u0627 \u06a9\u0644\u0645\u0627\u062a\u060c \u062a\u0628\u062f\u06cc\u0644 \u0628\u0647 \u0686\u0647\u0631\u0647\u0654 \u0627\u0635\u0644\u06cc \u0647\u06cc\u067e \u0647\u0627\u067e \u0632\u06cc\u0631\u0632\u0645\u06cc\u0646\u06cc \u062a\u0628\u062f\u06cc\u0644 \u0634\u062f. \u067e\u0633 \u0627\u0632 \u0645\u0631\u06af\u060c \u0648\u0631\u0627\u06cc\u062a\u06cc \u0648\u06cc \u0631\u0627 \u00ab\u06cc\u06a9\u06cc \u0627\u0632 \u0686\u0647\u0631\u0647\u200c\u0647\u0627\u06cc \u0645\u0634\u0647\u0648\u0631\u060c \u063a\u06cc\u0631\u0642\u0627\u0628\u0644 \u067e\u06cc\u0634\u200c\u0628\u06cc\u0646\u06cc \u0648 \u0645\u0639\u0645\u0627\u06cc\u06cc \u062f\u0631 \u0647\u06cc\u067e \u0647\u0627\u067e \u0645\u0633\u062a\u0642\u0644\u00bb \u062e\u0648\u0627\u0646\u062f."
+        },
+        "fi": {
+          "title": "MF DOOM \u2013 aihekanava",
+          "description": "MF DOOM oli Yhdysvalloissa New Yorkin Long Islandilla varttunut hiphop-artisti. H\u00e4n esiintyi uransa aikana useilla muillakin taiteilijanimill\u00e4, joista tunnetuimpia ovat Viktor Vaughn, King Geedorah ja Supervillain. Sooloalbumiensa lis\u00e4ksi h\u00e4n teki yhteisalbumeita muun muassa Danger Mousen ja Madlibin kanssa. H\u00e4n toimi sek\u00e4 MC:n\u00e4 ett\u00e4 tuottajana, ja teki my\u00f6s instrumentaali-hiphopia. H\u00e4n oli yksi underground-hiphopin tunnetuimpia artisteja.\nDumile k\u00e4ytti taiteilijanimell\u00e4\u00e4n esiintyess\u00e4\u00e4n aina naamiota. H\u00e4nen alter egonsa pohjautui Marvelin sarjakuvakonnaan Tohtori Doomiin. H\u00e4nen yksityisel\u00e4m\u00e4st\u00e4\u00e4n tiedet\u00e4\u00e4n varsin v\u00e4h\u00e4n, mutta vuonna 2006 h\u00e4n kertoi MySpace-sivullaan olevansa naimisissa ja kahden lapsen is\u00e4. Vaikka brittil\u00e4issyntyinen Dumile asuikin l\u00e4hes koko el\u00e4m\u00e4ns\u00e4 Yhdysvalloissa, h\u00e4n p\u00e4\u00e4tti pysy\u00e4 Ison-Britannian kansalaisena.\nDumile kuului aikaisemmin hiphop-yhtye KMD:hen, joka hajosi vuonna 1993 h\u00e4nen b\u00e4nditoveri-veljens\u00e4 kuoltua auto-onnettomuudessa. Onnettomuuden j\u00e4lkeen Dumile vet\u00e4ytyi musiikkibisneksest\u00e4 vuosiksi, palaten vuonna 1999 uudella taiteilijanimell\u00e4\u00e4n sooloalbumilla Operation Doomsday.\nMF DOOM kuoli 31. lokakuuta 2020 Leedsiss\u00e4, Englannissa ollessaan 49-vuotias."
+        },
+        "fil": {
+          "title": "MF DOOM - Paksa",
+          "description": null
+        },
+        "fr": {
+          "title": "MF DOOM",
+          "description": "MF DOOM, de son vrai nom Daniel Dumile, n\u00e9 le 13 juillet 1971 \u00e0 Londres et mort le 31 octobre 2020 \u00e0 Leeds, est un rappeur et producteur musical britannique, principalement actif au sein de la sc\u00e8ne hip-hop de New York. Il a la particularit\u00e9 d'avoir utilis\u00e9 plusieurs noms de sc\u00e8ne dans sa carri\u00e8re comme MF DOOM, en r\u00e9f\u00e9rence au personnage de comics docteur Doom, Zev Love X, King Geedorah, Metal Fingers, Viktor Vaughn ou encore DOOM.\nDumile parlait souvent de lui-m\u00eame \u00e0 la troisi\u00e8me personne, ce que Docteur Fatalis \u00e9tait \u00e9galement connu pour faire."
+        },
+        "fr_be": null,
+        "fr_ca": {
+          "title": "MF DOOM \u2013 Sujet",
+          "description": null
+        },
+        "fr_ch": null,
+        "fr_fr": null,
+        "gl": {
+          "title": "MF DOOM - Tema",
+          "description": null
+        },
+        "gu": {
+          "title": "MF DOOM - \u0aae\u0ac1\u0aa6\u0acd\u0aa6\u0acb",
+          "description": null
+        },
+        "hi": {
+          "title": "\u090f\u092e\u090f\u092b \u0921\u0942\u092e - \u0935\u093f\u0937\u092f",
+          "description": null
+        },
+        "hr": {
+          "title": "MF DOOM \u2013 tema",
+          "description": "Daniel Dumile, poznatiji pod umjetni\u010dkim imenom MF Doom, bio je britansko-ameri\u010dki reper, tekstopisac i glazbeni producent. Bio je prepoznatljiv po svojoj \"igri rije\u010dima\", misti\u010dnom imid\u017eu s metalnom maskom i likom \"superzlikovca\". Smatra se najistaknutijim umjetnikom alternativne i underground hip-hop scene tijekom 2000-ih godina. Poslije smrti, magazin Variety ga je nazvao \"najslavljenijom, najnepredvidljivijom i najenigmati\u010dnijom figurom svoje scene\"."
+        },
+        "hu": {
+          "title": "MF DOOM - t\u00e9ma",
+          "description": "MF Doom, sz\u00fcletett Daniel Dumile brit hiphop zen\u00e9sz \u00e9s rapper. Karrierje sor\u00e1n sz\u00e1mos \u00e1lneve volt, legink\u00e1bb az MF Doom nev\u00e9n ismert, melyben az MF feltehet\u0151en Metal Face-t jelent, \u00e9s DOOM akkor haszn\u00e1lja, ha nem csak rappel, hanem a zen\u00e9t is \u0151 k\u00e9sz\u00edti. T\u00f6bb kollaborat\u00edv projektben jelent meg, \u00fagymint a Danger Doom, a Madvillain vagy a JJ DOOM Jneiro Jarel-el."
+        },
+        "hy": {
+          "title": "MF Doom\u055d \u0569\u0565\u0574\u0561",
+          "description": "\u0534\u0561\u0576\u056b\u0565\u056c \u0534\u0578\u0582\u0574\u056b\u056c\u0565\u0575, \u0561\u057c\u0561\u057e\u0565\u056c \u0570\u0561\u0575\u057f\u0576\u056b \u0567 \u056b\u0580 \u0562\u0565\u0574\u0561\u056f\u0561\u0576 \u0561\u0576\u0578\u0582\u0576\u0578\u057e MF DOOM \u056f\u0561\u0574 \u057a\u0561\u0580\u0566\u0561\u057a\u0565\u057d DOOM, \u0562\u0580\u056b\u057f\u0561\u0576\u0561\u0581\u056b-\u0561\u0574\u0565\u0580\u056b\u056f\u0561\u0581\u056b \u057c\u0565\u0583\u0565\u0580 \u0587 \u057a\u0580\u0578\u0564\u0575\u0578\u0582\u057d\u0565\u0580\u0589 \u0546\u0577\u0561\u0576\u0561\u057e\u0578\u0580\u057e\u0565\u056c \u0567 \u056b\u0580 \u0562\u0561\u0580\u0564 \u0562\u0561\u057c\u0561\u056d\u0561\u0572\u0578\u057e, \u0576\u0577\u0561\u0576\u0561\u057e\u0578\u0580 \u0574\u0565\u057f\u0561\u0572\u0561\u056f\u0561\u0576 \u0564\u056b\u0574\u0561\u056f\u0578\u057e \u0587 \u00ab\u0563\u0565\u0580\u0579\u0561\u0580\u0561\u0563\u0578\u0580\u056e\u00bb \u0562\u0565\u0574\u0561\u056f\u0561\u0576 \u056f\u0565\u0580\u057a\u0561\u0580\u0578\u057e\u0589 \u0534\u0578\u0582\u0574\u056b\u056c\u0565\u0575\u0568 2000-\u0561\u056f\u0561\u0576\u0576\u0565\u0580\u056b\u0576 \u0564\u0561\u0580\u0571\u0561\u057e \u0561\u0576\u0564\u0565\u0580\u0563\u0580\u0561\u0578\u0582\u0576\u0564 \u0570\u056b\u0583 \u0570\u0578\u0583\u056b \u0587 \u0561\u056c\u057f\u0565\u0580\u0576\u0561\u057f\u056b\u057e \u0570\u056b\u0583 \u0570\u0578\u0583\u056b \u0563\u056c\u056d\u0561\u057e\u0578\u0580 \u0563\u0578\u0580\u056e\u056b\u0579\u0589 \u0546\u0580\u0561 \u0574\u0561\u0570\u056b\u0581 \u0570\u0565\u057f\u0578 Variety-\u0576 \u0576\u0580\u0561\u0576 \u0576\u056f\u0561\u0580\u0561\u0563\u0580\u0565\u0581 \u0578\u0580\u057a\u0565\u057d \u057f\u0565\u057d\u0561\u0580\u0561\u0576\u056b \u00ab\u0561\u0574\u0565\u0576\u0561\u0570\u0561\u0575\u057f\u0576\u056b, \u0561\u0576\u056f\u0561\u0576\u056d\u0561\u057f\u0565\u057d\u0565\u056c\u056b \u0587 \u0561\u057c\u0565\u0572\u056e\u057e\u0561\u056e\u0561\u0575\u056b\u0576 \u056f\u0565\u0580\u057a\u0561\u0580\u0576\u0565\u0580\u056b\u0581 \u0574\u0565\u056f\u0568\u00bb\u0589\n\u0534\u0578\u0582\u0574\u056b\u056c\u0565\u0575\u0568 \u056e\u0576\u057e\u0565\u056c \u0567 \u053c\u0578\u0576\u0564\u0578\u0576\u0578\u0582\u0574 \u0587 \u0565\u0580\u056b\u057f\u0561\u057d\u0561\u0580\u0564 \u057f\u0561\u0580\u056b\u0584\u0578\u0582\u0574 \u057f\u0565\u0572\u0561\u0583\u0578\u056d\u057e\u0565\u056c \u0567 \u053c\u0578\u0576\u0563 \u0531\u0575\u056c\u0565\u0576\u0564, \u0546\u0575\u0578\u0582 \u0545\u0578\u0580\u0584\u0589 \u0546\u0561 \u056b\u0580 \u056f\u0561\u0580\u056b\u0565\u0580\u0561\u0576 \u057d\u056f\u057d\u0565\u056c \u0567 1988 \u0569\u057e\u0561\u056f\u0561\u0576\u056b\u0576 \u0578\u0580\u057a\u0565\u057d KMD \u057f\u0580\u056b\u0578\u0575\u056b \u0561\u0576\u0564\u0561\u0574\u055d \u0570\u0561\u0576\u0564\u0565\u057d \u0563\u0561\u056c\u0578\u057e \u0578\u0580\u057a\u0565\u057d Zev Love X\u0589 \u0544\u056b \u0568\u0576\u0564\u0574\u056b\u057b\u0578\u0582\u0574\u056b\u0581 \u0570\u0565\u057f\u0578 \u0534\u0578\u0582\u0574\u056b\u056c\u0565\u0575\u0568 \u0576\u0578\u0580\u056b\u0581 \u0570\u0561\u0575\u057f\u0576\u057e\u0565\u0581 1990-\u0561\u056f\u0561\u0576\u0576\u0565\u0580\u056b \u057e\u0565\u0580\u057b\u056b\u0576\u0589 \u0546\u0561 \u057d\u056f\u057d\u0565\u0581 \u0565\u056c\u0578\u0582\u0575\u0569 \u0578\u0582\u0576\u0565\u0576\u0561\u056c \u0574\u056b\u057b\u0578\u0581\u0561\u057c\u0578\u0582\u0574\u0576\u0565\u0580\u056b \u056a\u0561\u0574\u0561\u0576\u0561\u056f \u056f\u0580\u0565\u056c\u0578\u057e \u0574\u0565\u057f\u0561\u0572\u0575\u0561 \u0564\u056b\u0574\u0561\u056f\u0589 \u0544\u0565\u057f\u0561\u0572\u0575\u0561 \u0564\u056b\u0574\u0561\u056f\u0568 \u0576\u0580\u0561\u0576 \u0576\u0574\u0561\u0576\u0561\u0581\u0576\u0578\u0582\u0574 \u0567\u0580 Marvel Comics-\u056b \u057d\u0578\u0582\u057a\u0565\u0580\u0579\u0561\u0580\u0561\u0563\u0578\u0580\u056e Doctor Doom-\u056b\u0576, \u0578\u057e \u057a\u0561\u057f\u056f\u0565\u0580\u057e\u0561\u056e \u0567 1999 \u0569\u057e\u0561\u056f\u0561\u0576\u056b \u056b\u0580 \u0564\u0565\u0562\u0575\u0578\u0582\u057f\u0561\u0575\u056b\u0576 Operation: Doomsday \u0561\u056c\u0562\u0578\u0574\u056b \u0577\u0561\u057a\u056b\u056f\u056b\u0576\u0589 \u0546\u0561 \u057d\u057f\u0565\u0572\u056e\u0565\u0581 MF DOOM-\u056b \u056f\u0565\u0580\u057a\u0561\u0580\u0568 \u0587 \u0564\u0580\u0561\u0576\u056b\u0581 \u0570\u0565\u057f\u0578 \u0570\u0561\u0566\u057e\u0561\u0564\u0565\u057a \u0567\u0580 \u0564\u056b\u0574\u0561\u056f\u0561\u0566\u0565\u0580\u056e\u057e\u0561\u056e \u0570\u0561\u0576\u0580\u0561\u0575\u056b\u0576 \u0565\u056c\u0578\u0582\u0575\u0569\u0576\u0565\u0580 \u0578\u0582\u0576\u0565\u0576\u0578\u0582\u0574\u0589\n\u0534\u0578\u0582\u0574\u056b\u056c\u0565\u0575\u056b \u0561\u0574\u0565\u0576\u0561\u0562\u0565\u0572\u0574\u0576\u0561\u057e\u0578\u0580 \u056a\u0561\u0574\u0561\u0576\u0561\u056f\u0561\u0577\u0580\u057b\u0561\u0576\u0578\u0582\u0574\u055d 2000-\u0561\u056f\u0561\u0576\u0576\u0565\u0580\u056b \u057d\u056f\u0566\u0562\u056b\u0581 \u0574\u056b\u0576\u0579\u0587 \u056f\u0565\u057d\u0565\u0580\u0568, \u0576\u0561 \u0569\u0578\u0572\u0561\u0580\u056f\u0565\u0581 \u0570\u0561\u0576\u0580\u0561\u0570\u0561\u0575\u057f Mm..Food-\u0568, \u056b\u0576\u0579\u057a\u0565\u057d \u0576\u0561\u0587 \u0561\u056c\u0562\u0578\u0574\u0576\u0565\u0580, \u0578\u0580\u0578\u0576\u0584 \u0569\u0578\u0572\u0561\u0580\u056f\u057e\u0565\u0581\u056b\u0576 King Geedorah \u0587 Viktor Vaughn \u056f\u0565\u0572\u056e\u0561\u0576\u0578\u0582\u0576\u0576\u0565\u0580\u0578\u057e\u0589"
+        },
+        "id": {
+          "title": "MF DOOM - Topik",
+          "description": "Daniel Dumile, juga dikenal dengan nama panggungnya MF Doom atau hanya Doom keduanya sebagian besar ditulis dengan huruf kapital semua, adalah rapper, penulis lagu, dan produser rekaman Britania Raya keturunan Amerika Serikat. Terkenal karena permainan kata-kata yang rumit, topeng logam khasnya, dan persona panggung \"adidurjana\", ia menjadi tokoh utama hip hop underground dan hip hop alternatif pada tahun 2000-an.\nDumile lahir di London dan dibesarkan di Long Beach, New York. Ia memulai kariernya pada tahun 1988 asebagai anggota trio KMD, tampil sebagai Zev Love X. Grup tersebut bubar pada tahun 1993 setelah kematian adik laki-lakinya DJ Subroc. Setelah hiatus, Dumile muncul kembali pada akhir tahun 1990-an. Ia mulai tampil di acara open mic sambil memakai topeng logam yang menyerupai topeng penjahat super Marvel Comics Doctor Doom, yang digambarkan di sampul album solo debutnya tahun 1999 Operation: Doomsday. Ia mengadopsi persona MF Doom dan jarang tampil di depan umum tanpa topeng setelah itu.\nSelama periode paling produktif Dumile, awal hingga pertengahan tahun 2000-an, ia merilis album terkenal sebagai Mm.."
+        },
+        "is_": {
+          "title": "MF Doom \u2013 Efni",
+          "description": "Daniel Dumile, einnig \u00feekktur undir svi\u00f0snafninu MF Doom e\u00f0a einfaldlega Doom, var breskur-bandar\u00edskur rappari og t\u00f3nlistarma\u00f0ur."
+        },
+        "it": {
+          "title": "MF DOOM (tema)",
+          "description": "MF Doom, pseudonimo di Daniel Dumile, \u00e8 stato un rapper e produttore discografico britannico.\nNato in Inghilterra, si trasfer\u00ec in tenera et\u00e0 con la famiglia a Long Island, New York. Qui cominci\u00f2 la sua carriera musicale sotto il nome di Zev Love X, formando insieme al fratello il gruppo KMD. Dopo un periodo di inattivit\u00e0, torn\u00f2 sulla scena con il suo primo album da solista, Operation: Doomsday, con il quale si present\u00f2 ufficialmente come MF DOOM, il suo alter ego in stile supervillain, con l'iconica maschera che \u00e8 diventata il tratto distintivo dell'artista. Il suo periodo d'oro arriv\u00f2 nel 2004, quando pubblic\u00f2 i suoi due progetti pi\u00f9 acclamati, gli album MM..Food e Madvillainy. Quest'ultimo \u00e8 il frutto della collaborazione con il produttore californiano Madlib, con cui forma il duo Madvillain, ed \u00e8 ritenuto uno dei migliori album hip hop di sempre. Nello stesso periodo pubblica musica sotto diversi pseudonimi, come King Geedorah, Viktor Vaughn e Danger Doom, e pi\u00f9 recentemente come DOOM, prima di essere costretto a rientrare in patria."
+        },
+        "iw": {
+          "title": "\u05d0\u05dd \u05d0\u05e3 \u05d3\u05d5\u05dd \u2013 \u05e0\u05d5\u05e9\u05d0",
+          "description": "\u05d3\u05e0\u05d9\u05d0\u05dc \u05d3\u05d5\u05de\u05dc\u05d9\u05d9, \u05d4\u05d9\u05d4 \u05d9\u05d3\u05d5\u05e2 \u05d2\u05dd \u05ea\u05d7\u05ea \u05e9\u05de\u05d5\u05ea \u05d4\u05d1\u05de\u05d4: \u05d0\u05dd \u05d0\u05e3 \u05d3\u05d5\u05dd, \u05d6\u05d0\u05d1 \u05dc\u05d0\u05d1 \u05d0\u05d9\u05e7\u05e1, \u05d5\u05d9\u05e7\u05d8\u05d5\u05e8 \u05d5\u05d0\u05df, \u05e7\u05d9\u05e0\u05d2 \u05d2\u05d9\u05d3\u05d5\u05e8\u05d4, \u05d4\u05d9\u05d4 \u05e8\u05d0\u05e4\u05e8 \u05d5\u05de\u05e4\u05d9\u05e7 \u05de\u05d5\u05d6\u05d9\u05e7\u05dc\u05d9 \u05d1\u05e8\u05d9\u05d8\u05d9-\u05d0\u05de\u05e8\u05d9\u05e7\u05d0\u05d9. \u05d3\u05d5\u05dd \u05d4\u05d9\u05d4 \u05de\u05d5\u05db\u05e8 \u05d1\u05e1\u05d2\u05e0\u05d5\u05df \u05db\u05ea\u05d9\u05d1\u05ea \u05d4\u05e9\u05d9\u05e8\u05d9\u05dd \u05d4\u05d9\u05d9\u05d7\u05d5\u05d3\u05d9 \u05e9\u05dc\u05d5, \u05d5\u05d1\u05db\u05da \u05e9\u05d4\u05d5\u05d0 \u05d2\u05d9\u05dc\u05dd \u05d6\u05d4\u05d5\u05ea \u05db\u05e4\u05d5\u05dc\u05d4 \u05e9\u05dc \u05e8\u05d0\u05e4\u05e8 \u05d5\u05e9\u05dc \"\u05d3\u05de\u05d5\u05ea \u05e0\u05d1\u05dc\". \u05d3\u05d5\u05dd \u05e9\u05d9\u05ea\u05e3 \u05e4\u05e2\u05d5\u05dc\u05d4 \u05d1\u05de\u05e1\u05e4\u05e8 \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd, \u05db\u05de\u05d5: \u05d3\u05d9\u05d9\u05e0\u05d2'\u05e8 \u05d3\u05d5\u05dd, \u05d2'\u05d9\u05d9 \u05d2'\u05d9\u05d9 \u05d3\u05d5\u05dd \u05d5\u05de\u05d0\u05d3\u05d5\u05d9\u05dc\u05df."
+        },
+        "ja": {
+          "title": "\u30a8\u30e0\u30fb\u30a8\u30d5\u30fb\u30c9\u30a5\u30fc\u30e0 - \u30c8\u30d4\u30c3\u30af",
+          "description": null
+        },
+        "ka": {
+          "title": "MF Doom \u2014 \u10d7\u10d4\u10db\u10d0",
+          "description": null
+        },
+        "kk": {
+          "title": "MF Doom - \u0422\u0430\u049b\u044b\u0440\u044b\u043f",
+          "description": null
+        },
+        "km": {
+          "title": "MF Doom - \u1794\u17d2\u179a\u1792\u17b6\u1793\u200b\u1794\u1791",
+          "description": null
+        },
+        "kn": {
+          "title": "MF Doom - \u0cb5\u0cbf\u0cb7\u0caf",
+          "description": null
+        },
+        "ko": {
+          "title": "\uc5e0\uc5d0\ud504 \ub460 - \uc8fc\uc81c",
+          "description": "\ub300\ub2c8\uc5bc \ub450\uba40\ub808\uc774\uc740 MF DOOM \ud639\uc740 \uac04\ub2e8\ud788 DOOM\uc774\ub77c\ub294 \uac00\uba85\uc73c\ub85c \ud65c\ub3d9\ud558\uc600\ub358 \uc601\uad6d \ucd9c\uc0dd\uc758 \ubbf8\uad6d \ub798\ud37c\uc774\uc790 \uc74c\uc545 \ud504\ub85c\ub4c0\uc11c\uc774\ub2e4. \uac00\uc0ac\uc5d0 \ub4dc\ub7ec\ub09c \ub09c\ud574\ud55c \uc5b8\uc5b4 \uc720\ud76c\ub098, \uc2dc\uadf8\ub2c8\ucc98\uc778 \ub9c8\uc2a4\ud06c, \uadf8\ub9ac\uace0 \"\uc288\ud37c\ube4c\ub7f0\"\uc774\ub77c\ub294 \ubb34\ub300\uc758 \ud398\ub974\uc18c\ub098\ub85c \ub110\ub9ac \uc54c\ub824\uc838 \uc788\ub294 \ub450\uba40\ub808\uc774\ub294 2000\ub144\ub300 \uc5b8\ub354\uadf8\ub77c\uc6b4\ub4dc \ud799\ud569\uacfc \uc5bc\ud130\ub108\ud2f0\ube0c \ud799\ud569\uc5d0\uc11c \ube7c\ub193\uc744 \uc218 \uc5c6\ub294 \uc8fc\uc694 \uc778\ubb3c\uc774\ub2e4. \ub450\uba40\ub808\uc774\uac00 \uc0ac\ub9dd\ud55c \ud6c4 \ubc84\ub77c\uc774\uc5b4\ud2f0\ub294 \"\uac00\uc7a5 \uc720\uba85\ud558\uace0, \uc608\uce21\ud560 \uc218 \uc5c6\uc73c\uba70, \uc218\uc218\uaed8\ub07c \uac19\uc740 \uc778\ubb3c\"\uc774\ub77c\uace0 \ud45c\ud604\ud558\uc600\ub2e4.\n\ub7f0\ub358\uc5d0\uc11c \ud0dc\uc5b4\ub09c \ub450\uba40\ub808\uc774\ub294 \uc5b4\ub9b0 \uc2dc\uc808\uc5d0 \ub274\uc695\uc758 \ub871\uc544\uc77c\ub79c\ub4dc\ub85c \uc774\uc0ac\ub97c \uc654\ub2e4. 1988\ub144 \ud799\ud569 \ud2b8\ub9ac\uc624 KMD\uc758 \uba64\ubc84\ub85c \ub4e4\uc5b4\uac00 \uc81c\ube0c \ub7ec\ube0c X\ub77c\ub294 \ud65c\ub3d9\uba85\uc73c\ub85c \uacf5\uc5f0\uc744 \ud558\uba70 \uc74c\uc545 \uacbd\ub825\uc744 \uc2dc\uc791\ud558\uc600\ub2e4. KMD\ub294 \uba64\ubc84\uc774\uc790 \ub450\uba40\ub808\uc774\uc758 \ub3d9\uc0dd\uc778 DJ \uc11c\ube0c\ub85d\uc774 \uc0ac\ub9dd\ud55c 1993\ub144\uc5d0 \ud574\uccb4\ub418\uc5c8\ub2e4. \ud65c\ub3d9 \uc911\ub2e8 \uc774\ud6c4, \ub450\uba40\ub808\uc774\ub294 1990\ub144\ub300 \ub9d0 \uc624\ud508 \ub9c8\uc774\ud06c \uc774\ubca4\ud2b8\uc5d0\uc11c \uacf5\uc5f0\uc744 \uc2dc\uc791\ud558\uba70 \ub2e4\uc2dc \ubaa8\uc2b5\uc744 \ub4dc\ub7ec\ub0c8\ub2e4. \ub2f9\uc2dc \ub450\uba40\ub808\uc774\ub294 \ub9c8\ube14 \ucf54\ubbf9\uc2a4\uc758 \uc288\ud37c\ube4c\ub7f0 \ub2e5\ud130 \ub460\uc758 \uae08\uc18d \ub9c8\uc2a4\ud06c\ub97c \ucc29\uc6a9\ud558\uace0 \ud65c\ub3d9\ud558\uc600\uc73c\uba70, \uc774\ud6c4 1999\ub144\uc5d0 \ubc1c\ub9e4\ud55c \uccab \uc194\ub85c \uc74c\ubc18 \u201cOperation: Doomsday\u201d\uc758 \ud45c\uc9c0\uc5d0\ub3c4 \uc774\uac00 \ud45c\ud604\ub418\uc5c8\ub2e4. \uadf8 \ud6c4 \ub450\uba40\ub808\uc774\ub294 MF DOOM\uc774\ub77c\ub294 \ud398\ub974\uc18c\ub098\ub97c \uc774\uc6a9\ud558\uba70, \ub9c8\uc2a4\ud06c\ub97c \uc4f0\uc9c0 \uc54a\uc558\uc744 \ub54c\ub294 \ub300\uc911 \uc55e\uc5d0 \ubaa8\uc2b5\uc744 \uac70\uc758 \ub4dc\ub7ec\ub0b4\uc9c0 \uc54a\uc558\ub2e4.\n2003\ub144\ubd80\ud130 2005\ub144\uae4c\uc9c0, \ub450\uba40\ub808\uc774\ub294 \ub124 \uc7a5\uc758 \uc194\ub85c \uc74c\ubc18\uacfc \uc138 \uc7a5\uc758 \uceec\ub798\ubc84\ub808\uc774\uc158 \uc74c\ubc18\uc744 \ubc1c\ub9e4\ud558\uc600\ub2e4. \ucd94\uac00\ub85c \ud3c9\ub2e8\uc73c\ub85c\ubd80\ud130 \uadf9\ucc2c\uc744 \ubc1b\uc740 2004\ub144 \uc791 \u201cMm..Food\u201d\ub97c MF DOOM\uc774\ub77c\ub294 \uc774\ub984\uc73c\ub85c \ub0c8\uc73c\uba70, \uadf8 \uc678 \ub450 \uc7a5\uc740 \ube45\ud130 \ubcf8, \ud55c \uc7a5\uc740 \ud0b9 \uae30\ub3c4\ub77c\ub77c\ub294 \uc774\ub984\uc73c\ub85c \uc74c\ubc18\uc744 \ub0c8\ub2e4. \ud504\ub85c\ub4c0\uc11c \ub9e4\ub4e4\ub9bd\uacfc \ud611\uc5c5\ud558\uc5ec \ub9e4\ub4dc\ube4c\ub7f0\uc774\ub77c\ub294 \uc774\ub984\uc73c\ub85c 2004\ub144\uc5d0 \ubc1c\ud45c\ud55c \u201cMadvillainy\u201d\ub294 \ub450\uba40\ub808\uc774\uc758 \uc791\ud488 \uc911 \ucd5c\uace0\uc758 \uac78\uc791\uc774\uc790 \ud799\ud569 \uc5ed\uc0ac\uc0c1 \uac00\uc7a5 \ud68d\uae30\uc801\uc778 \uc74c\ubc18 \uc911 \ud558\ub098\ub85c \uaf3d\ud78c\ub2e4. \uc774\ub4ec\ud574\uc5d0\ub294 \ub370\uc778\uc800 \ub9c8\uc6b0\uc2a4\uc640 \ud568\uaed8 \ub370\uc778\uc800 \ub460\uc774\ub77c\ub294 \ub4c0\uc624\ub97c \uacb0\uc131\ud558\uc5ec \u201cThe Mouse and the Mask\u201d\ub97c \ubc1c\ub9e4\ud558\uc600\ub2e4.\n\ub450\uba40\ub808\uc774\ub294 \uc0dd\uc804 \ubbf8\uad6d\uc5d0\uc11c \uac00\uc7a5 \uc624\ub79c \uc2dc\uac04\uc744 \ubcf4\ub0c8\uc9c0\ub9cc, \ubbf8\uad6d \uc2dc\ubbfc\uad8c\uc744 \ud55c \ubc88\ub3c4 \ucde8\ub4dd\ud558\uc9c0 \uc54a\uc558\ub2e4. \uacb0\uad6d 2010\ub144, \uc804\ud574\uc5d0 \ubc1c\ub9e4\ud55c \uc5ec\uc12f \ubc88\uc9f8\uc774\uc790 \ub9c8\uc9c0\ub9c9 \uc815\uaddc \uc74c\ubc18 \u201cBorn Like This\u201d\uc758 \uc138\uacc4 \ud22c\uc5b4 \ud6c4 \uc785\uad6d \uac70\ubd80\ub97c \ub2f9\ud558\uc600\ub2e4."
+        },
+        "ky": {
+          "title": "MF Doom - \u0422\u0435\u043c\u0430",
+          "description": null
+        },
+        "lo": {
+          "title": "MF Doom - \u0eab\u0ebb\u0ea7\u200b\u0e82\u0ecd\u0ec9",
+          "description": null
+        },
+        "lt": {
+          "title": "MF DOOM \u2013 tema",
+          "description": null
+        },
+        "lv": {
+          "title": "MF DOOM \u2013 t\u0113ma",
+          "description": null
+        },
+        "mk": {
+          "title": "\u0422\u0435\u043c\u0430 - MF DOOM",
+          "description": null
+        },
+        "ml": {
+          "title": "MF Doom - \u0d35\u0d3f\u0d37\u0d2f\u0d02",
+          "description": null
+        },
+        "mn": {
+          "title": "MF Doom - \u0421\u044d\u0434\u044d\u0432",
+          "description": "\u0414\u04af\u043c\u0438\u043b\u044d \u0414\u044d\u043d\u0438\u0435\u043b, \u0431\u0430\u0441 MF Doom \u044d\u0441\u0432\u044d\u043b Doom \u0433\u044d\u0445 \u0442\u0430\u0439\u0437\u043d\u044b \u043d\u044d\u0440\u044d\u044d\u0440 \u043d\u044c \u0430\u043b\u0434\u0430\u0440\u0448\u0441\u0430\u043d, \u0411\u0440\u0438\u0442\u0430\u043d\u0438 \u0431\u0430 \u0410\u043c\u0435\u0440\u0438\u043a\u0438\u0439\u043d \u0440\u044d\u043f\u043f\u0435\u0440, \u0434\u0443\u0443 \u0437\u043e\u0445\u0438\u043e\u0433\u0447, \u043f\u0440\u043e\u0434\u044e\u0441\u0435\u0440 \u0431\u0430\u0439\u0441\u0430\u043d. \u041d\u0430\u0440\u0438\u0439\u043d \u0431\u04af\u0442\u044d\u0446\u0442\u044d\u0439 \u04af\u0433\u0441\u0438\u0439\u043d \u0445\u044d\u043b\u043b\u044d\u0433 \u0447\u0430\u0434\u0432\u0430\u0440, \u04e9\u04e9\u0440\u0438\u0439\u043d\u0445 \u043d\u044c \u0442\u04e9\u043c\u04e9\u0440 \u0431\u0430\u0433, \u0442\u0430\u0439\u0437\u0430\u043d \u0434\u044d\u044d\u0440\u0445 \"supervillain\" \u0434\u04af\u0440\u044d\u044d\u0440\u044d\u044d \u0430\u043b\u0434\u0430\u0440\u0442\u0430\u0439, \u0442\u044d\u0440\u044d\u044d\u0440 2000-\u0430\u0430\u0434 \u043e\u043d\u044b \u04af\u0435\u0434 \u0433\u0430\u0437\u0430\u0440 \u0434\u043e\u043e\u0440\u0445 \u0440\u044d\u043f \u04af\u0439\u043b\u0434\u0432\u044d\u0440\u043b\u044d\u043b \u0431\u043e\u043b\u043e\u043d \u0430\u043b\u044c\u0442\u0435\u0440\u043d\u0430\u0442\u0438\u0432 \u0445\u0438\u043f \u0445\u043e\u043f \u0445\u04e9\u0433\u0436\u043c\u0438\u0439\u043d \u043d\u044d\u0440\u0434 \u0433\u0430\u0440\u0441\u0430\u043d \u0445\u04af\u043d \u0431\u043e\u043b\u0441\u043e\u043d \u044e\u043c.\n\u0414\u04af\u043c\u0438\u043b\u044d \u041b\u043e\u043d\u0434\u043e\u043d\u0434 \u0442\u04e9\u0440\u0436, Long Beach, New York \u0445\u043e\u0442\u043e\u0434 \u04e9\u0441\u0441\u04e9\u043d. \u0422\u044d\u0440\u044d\u044d\u0440 1988 \u043e\u043d\u0434 Zev Love X \u0434\u04af\u0440\u044d\u044d\u0440 KMD \u0433\u0443\u0440\u0432\u0430\u043b\u044b\u043d \u0433\u0438\u0448\u04af\u04af\u043d \u0431\u043e\u043b\u0436 \u0443\u0440\u0430\u043d \u0431\u04af\u0442\u044d\u044d\u043b\u0438\u0439\u043d \u0433\u0430\u0440\u0430\u0430\u0433\u0430\u0430 \u044d\u0445\u044d\u043b\u0441\u044d\u043d. \u0425\u0430\u043c\u0442\u043b\u0430\u0433 1993 \u043e\u043d\u0434 \u0414\u04af\u043c\u0438\u043b\u0438\u0439\u043d \u0430\u0445 DJ Subroc \u043d\u0430\u0441 \u0431\u0430\u0440\u0441\u043d\u044b \u0434\u0430\u0440\u0430\u0430 \u0442\u0430\u0440\u0441\u0430\u043d. 1990-\u044d\u044d\u0434 \u043e\u043d\u044b \u0441\u04af\u04af\u043b\u044d\u044d\u0440 \u0414\u04af\u043c\u0438\u043b\u044d \u0445\u044d\u0441\u044d\u0433 \u0437\u0430\u0432\u0441\u0430\u0440\u043b\u0430\u0441\u043d\u044b \u0434\u0430\u0440\u0430\u0430 \u0434\u0430\u0445\u0438\u043d \u0433\u0430\u0440\u0447 \u0438\u0440\u044d\u0432. \u0422\u044d\u0440\u044d\u044d\u0440 1999 \u043e\u043d\u0434 \u0433\u0430\u0440\u0433\u0430\u0441\u0430\u043d Operation: Doomsday \u043d\u044d\u0440\u0442\u044d\u0439 \u0430\u043d\u0445\u043d\u044b \u0431\u0438\u0435 \u0434\u0430\u0430\u0441\u0430\u043d \u0446\u043e\u043c\u0433\u0438\u0439\u043d\u0445\u043e\u043e \u043d\u04af\u04af\u0440\u044d\u043d \u0434\u044d\u044d\u0440 \u0434\u04af\u0440\u0441\u043b\u044d\u0433\u0434\u0441\u044d\u043d Marvel Comics- \u0438\u0439\u043d \u0441\u0443\u043f\u0435\u0440 \u0445\u043e\u0440\u043e\u043d \u0441\u0430\u043d\u0430\u0430\u0442 Doctor Doom-\u0442\u043e\u0439 \u0442\u04e9\u0441\u0442\u044d\u0439 \u043c\u0435\u0442\u0430\u043b\u043b \u043c\u0430\u0441\u043a \u0437\u04af\u04af\u0436 \u0431\u0430\u0439\u0445\u0434\u0430\u0430 \u043d\u044d\u044d\u043b\u0442\u0442\u044d\u0439 \u04af\u0439\u043b \u0430\u0436\u0438\u043b\u0433\u0430\u0430\u043d\u0434 \u043e\u0440\u043e\u043b\u0446\u043e\u0436 \u044d\u0445\u044d\u043b\u0441\u044d\u043d. \u0422\u044d\u0440\u044d\u044d\u0440 MF Doom-\u0438\u0439\u043d \u0434\u04af\u0440\u0438\u0439\u0433 \u0445\u04af\u043b\u044d\u044d\u043d \u0430\u0432\u0441\u0430\u043d \u0431\u04e9\u0433\u04e9\u04e9\u0434 \u0434\u0430\u0440\u0430\u0430 \u043d\u044c \u043e\u043b\u043d\u044b \u04e9\u043c\u043d\u04e9 \u043d\u04af\u04af\u0440\u044d\u044d \u043d\u0443\u0443\u043b\u0433\u04af\u0439 \u0433\u0430\u0440\u0430\u0445 \u043d\u044c \u0445\u043e\u0432\u043e\u0440 \u0431\u0430\u0439\u0432.\n\u0414\u04af\u043c\u0438\u043b\u0438\u0439\u043d \u0445\u0430\u043c\u0433\u0438\u0439\u043d \u04af\u0440 \u0431\u04af\u0442\u044d\u044d\u043b\u0442\u044d\u0439 \u04af\u0435 \u0431\u0443\u044e\u0443 2000-\u0430\u0430\u0434 \u043e\u043d\u044b \u044d\u0445\u044d\u043d \u04af\u0435\u044d\u0441 \u0434\u0443\u043d\u0434 \u04af\u0435 \u0445\u04af\u0440\u0442\u044d\u043b \u0442\u044d\u0440\u044d\u044d\u0440 \u0430\u043b\u0434\u0430\u0440\u0442\u0430\u0439 Mm..Food-\u0433 MF Doom \u043d\u044d\u0440\u044d\u044d\u0440, \u043c\u04e9\u043d \u041a\u0438\u043d\u0433 \u0413\u0438\u0434\u043e\u0440\u0430, \u0412\u0438\u043a\u0442\u043e\u0440 \u0412\u043e\u043d \u0433\u044d\u0441\u044d\u043d \u0437\u043e\u0445\u0438\u043e\u043c\u043e\u043b \u043d\u044d\u0440\u044d\u044d\u0440 \u0446\u043e\u043c\u0433\u0438\u0439\u0433 \u0433\u0430\u0440\u0433\u0430\u0441\u0430\u043d."
+        },
+        "mr": {
+          "title": "\u090f\u092e\u090f\u092b \u0921\u0942\u092e - \u0935\u093f\u0937\u092f",
+          "description": null
+        },
+        "ms": {
+          "title": "MF DOOM - Topik",
+          "description": "Daniel Dumile, atau dikenali sebagai namanya MF Doom atau Doom, adalah rapper dan rekod producer British-Amerika. Terkenal dengan permainan kata yang rumit, topeng logam khas, dan persona pentasnya \"supervillain \", Dumile menjadi tokoh utama underground hip hop pada tahun 2000-an. Selepas kematian beliau, Variety menggambarkannya sebagai salah satu \"tokoh yang paling terkenal, tidak dapat diramalkan dan penuh teka-teki\".\nPada tahun 2003 hingga 2005, Dumile mengeluarkan empat album solo dan tiga album kolaboratif. Sebagai tambahan kepada Mm.. Food di bawah moniker MF Doom, dia merilis album solo termasuk satu dengan nama samaran King Geedorah dan dua sebagai Viktor Vaughn. Madvillainy, dirakam dengan producer Madlib dengan nama Madvillain, sering disebut sebagai magnum opus Dumile dan dianggap sebagai album mercu tanda dalam dunia hip hop. Pada tahun 2005, Dumile melancarkan The Mouse and the Mask bersama producer Danger Mouse dan saluran televisyen Adult Swim sebagai Danger Doom.\nWalaupun dia menjalani sebahagian besar hidupnya berhijrah di Amerika Syarikat, Dumile tidak pernah mempunyai kewarganegaraan Amerika."
+        },
+        "my": {
+          "title": "MF Doom - \u1001\u1031\u102b\u1004\u103a\u1038\u1005\u1009\u103a",
+          "description": null
+        },
+        "ne": {
+          "title": "MF Doom - \u0935\u093f\u0937\u092f",
+          "description": null
+        },
+        "nl": {
+          "title": "MF DOOM - Onderwerp",
+          "description": "Daniel Dumile was een Brits-Amerikaans hiphopartiest die gedurende zijn carri\u00e8re verscheidene artiestennamen gebruikt heeft, waarvan MF DOOM het bekendst is."
+        },
+        "nl_be": null,
+        "nl_nl": null,
+        "no": {
+          "title": "MF DOOM \u2013 emne",
+          "description": "Daniel Dumile, bedre kjent som MF Doom, var en britisk-amerikansk rapper. Han er ogs\u00e5 kjent under artistnavnene Zev Love X, King Geedorah, Viktor Vaughn og Metal Fingers.\nHan gav ut mange album, de fleste av dem ble godt mottatt blant anmeldere, blant annet Operation: Doomsday, Vaudeville Villain, Take Me To Your Leader og Madvillainy. Det sistnevnte lagde MF Doom sammen med produsenten Madlib; duoen kalte seg Madvillain. Det har f\u00e5tt b\u00e5de kult- og klassikerstatus.\nP\u00e5 starten av 1990-tallet var Dumile med i rapgruppa KMD, da under navnet Zev Love X."
+        },
+        "or_": {
+          "title": "MF Doom - \u0b2c\u0b3f\u0b37\u0b5f",
+          "description": null
+        },
+        "pa": {
+          "title": "\u0a35\u0a3f\u0a38\u0a3c\u0a3e - MF Doom",
+          "description": null
+        },
+        "pl": {
+          "title": "MF DOOM \u2013 temat",
+          "description": "MF Doom, tak\u017ce: Viktor Vaughn, King Geedorah i Metal Fingers w\u0142a\u015bc. Daniel Dumile \u2013 brytyjsko-ameryka\u0144ski artysta hip-hopowy pochodzenia trynidadzko-zimbabwejskiego. Na jego liryk\u0119 ogromny wp\u0142yw wywar\u0142y ameryka\u0144skie komiksy."
+        },
+        "pt": {
+          "title": "MF DOOM - Tema",
+          "description": "Daniel Dumile, mais conhecido como MF DOOM, foi um rapper e produtor ingl\u00eas influente na cena do hip hop dos anos 2000. Come\u00e7ou a carreira como Zev Love X no KMD e ap\u00f3s a morte de seu irm\u00e3o, voltou para o mundo do rap como MF DOOM. Caracterizou-se por usar uma m\u00e1scara semelhante ao do personagem Doutor Destino, da Marvel Comics. Posteriormente, a Marvel exerce mais influ\u00eancias na carreira musical de Daniel Dumile, como nos alter egos Viktor Vaughn e King Geedorah. Com o tempo, a m\u00e1scara que o rapper veste passa a adotar maiores semelhan\u00e7as ao que o personagem Maximus usa no filme Gladiador, do diretor Ridley Scott. Seu pseud\u00f4nimo, MF DOOM, possui dois significados distintos ligados aos seus talentos como rapper e como produtor, sendo assim Metal Face no microfone e Metal Fingers como DJ. Al\u00e9m de diversos \u00e1lbuns solo, DOOM j\u00e1 colaborou com v\u00e1rios artistas e trabalhou em diversos grupos e duplas musicais. Dentre suas colabora\u00e7\u00f5es mais conhecidas e influentes est\u00e1 o \u00e1lbum Madvillainy, lan\u00e7ado em conjunto com o produtor Madlib sob a alcunha Madvillain."
+        },
+        "pt_br": {
+          "title": "MF DOOM - Tema",
+          "description": null
+        },
+        "pt_pt": {
+          "title": "MF DOOM \u2013 T\u00f3pico",
+          "description": null
+        },
+        "ro": {
+          "title": "MF DOOM - Subiect",
+          "description": null
+        },
+        "ru": {
+          "title": "MF Doom \u2013 \u0442\u0435\u043c\u0430",
+          "description": "\u0414\u044d\u0301\u043d\u0438\u0435\u043b \u0414\u0443\u0301\u043c\u0438\u043b\u044c\u0435 \u2014 \u0431\u0440\u0438\u0442\u0430\u043d\u0441\u043a\u0438\u0439 \u0440\u044d\u043f\u0435\u0440 \u0438 \u043f\u0440\u043e\u0434\u044e\u0441\u0435\u0440, \u0438\u0437\u0432\u0435\u0441\u0442\u043d\u044b\u0439 \u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u043c \u043d\u043e\u0448\u0435\u043d\u0438\u0435\u043c \u043c\u0430\u0441\u043a\u0438, \u043d\u0435\u043e\u0431\u044b\u0447\u043d\u043e\u0439 \u043c\u0430\u043d\u0435\u0440\u043e\u0439 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f, \u0430 \u0442\u0430\u043a\u0436\u0435 \u0442\u0435\u043a\u0441\u0442\u0430\u043c\u0438 \u043f\u0435\u0441\u0435\u043d, \u0432 \u043a\u043e\u0442\u043e\u0440\u044b\u0445 \u043e\u043d \u043e\u0442\u044b\u0433\u0440\u044b\u0432\u0430\u0435\u0442 \u0440\u043e\u043b\u044c \u0437\u043b\u043e\u0434\u0435\u044f. \u041e\u043d \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043b \u043c\u043d\u043e\u0436\u0435\u0441\u0442\u0432\u043e \u043f\u0441\u0435\u0432\u0434\u043e\u043d\u0438\u043c\u043e\u0432, \u0441\u0440\u0435\u0434\u0438 \u043a\u043e\u0442\u043e\u0440\u044b\u0445 MF DOOM, Viktor Vaughn, King Geedorah, Metal Face \u0438 Metal Fingers.\n\u0414\u0443\u043c\u0438\u043b\u0435\u0439 \u043d\u0430\u0447\u0430\u043b \u0441\u0432\u043e\u0439 \u0442\u0432\u043e\u0440\u0447\u0435\u0441\u043a\u0438\u0439 \u043f\u0443\u0442\u044c \u0432 1988 \u0433\u043e\u0434\u0443, \u043e\u0441\u043d\u043e\u0432\u0430\u0432 \u0441 \u0431\u0440\u0430\u0442\u043e\u043c DJ Subroc \u0433\u0440\u0443\u043f\u043f\u0443 KMD, \u0432 \u043a\u043e\u0442\u043e\u0440\u043e\u0439 \u043e\u043d \u043f\u0440\u0438\u043d\u044f\u043b \u0443\u0447\u0430\u0441\u0442\u0438\u0435 \u043f\u043e\u0434 \u043f\u0441\u0435\u0432\u0434\u043e\u043d\u0438\u043c\u043e\u043c Zev Love X. \u0412 1991 \u0433\u043e\u0434\u0443 \u0433\u0440\u0443\u043f\u043f\u0430 \u0432\u044b\u043f\u0443\u0441\u0442\u0438\u043b\u0430 \u0430\u043b\u044c\u0431\u043e\u043c Mr.Hood, \u0441\u0442\u0430\u0432\u0448\u0438\u0439 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u043e\u043f\u0443\u043b\u044f\u0440\u043d\u044b\u043c. \u0412 1993 \u0433\u043e\u0434\u0443 DJ Subroc \u0431\u044b\u043b \u0441\u0431\u0438\u0442 \u043d\u0430\u0441\u043c\u0435\u0440\u0442\u044c \u043f\u0440\u0438 \u043f\u043e\u043f\u044b\u0442\u043a\u0435 \u043f\u0435\u0440\u0435\u0445\u043e\u0434\u0430 \u0430\u0432\u0442\u043e\u043c\u0430\u0433\u0438\u0441\u0442\u0440\u0430\u043b\u0438. \u041d\u0435\u0441\u043c\u043e\u0442\u0440\u044f \u043d\u0430 \u044d\u0442\u043e, \u0414\u044d\u043d\u0438\u0435\u043b \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u043b \u0440\u0430\u0431\u043e\u0442\u0443 \u043d\u0430\u0434 Black Bastards, \u0432\u0442\u043e\u0440\u044b\u043c \u0430\u043b\u044c\u0431\u043e\u043c\u043e\u043c \u0433\u0440\u0443\u043f\u043f\u044b. \u0412 1994 \u0433\u043e\u0434\u0443, \u043a\u043e\u0433\u0434\u0430 \u0430\u043b\u044c\u0431\u043e\u043c \u0431\u044b\u043b \u043f\u0440\u0430\u043a\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u0433\u043e\u0442\u043e\u0432, \u043b\u0435\u0439\u0431\u043b Elektra \u0440\u0435\u0448\u0438\u043b \u043f\u0440\u0435\u043a\u0440\u0430\u0442\u0438\u0442\u044c \u0441\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441 \u0433\u0440\u0443\u043f\u043f\u043e\u0439. \u0420\u0430\u0437\u043e\u0437\u043b\u0438\u0432\u0448\u0438\u0441\u044c \u043d\u0430 \u0432\u0441\u044e \u043c\u0443\u0437\u044b\u043a\u0430\u043b\u044c\u043d\u0443\u044e \u0438\u043d\u0434\u0443\u0441\u0442\u0440\u0438\u044e, \u0414\u0443\u043c\u0438\u043b\u0435\u0439 \u0443\u0448\u0451\u043b \u0432 \u0442\u0435\u043d\u044c.\n\u0412 1997 \u0433\u043e\u0434\u0443 \u043e\u043d \u0432\u0435\u0440\u043d\u0443\u043b\u0441\u044f, \u043d\u043e \u0443\u0436\u0435 \u043f\u043e\u0434 \u043f\u0441\u0435\u0432\u0434\u043e\u043d\u0438\u043c\u043e\u043c MF DOOM \u0438 \u0441\u043a\u0440\u044b\u0432\u0430\u044f \u0441\u0432\u043e\u0451 \u043b\u0438\u0446\u043e \u043f\u043e\u0434 \u043c\u0430\u0441\u043a\u043e\u0439. \u0412 1999 \u0433\u043e\u0434\u0443 \u043e\u043d \u0432\u044b\u043f\u0443\u0441\u0442\u0438\u043b \u0430\u043b\u044c\u0431\u043e\u043c Operation: Doomsday, \u0441\u0442\u0430\u0432\u0448\u0438\u0439 \u043a\u0443\u043b\u044c\u0442\u043e\u0432\u044b\u043c \u0432 \u0430\u043d\u0434\u0435\u0440\u0433\u0440\u0430\u0443\u043d\u0434-\u0445\u0438\u043f-\u0445\u043e\u043f-\u0441\u0446\u0435\u043d\u0435. \u0412 2003 \u0433\u043e\u0434\u0443 \u043e\u043d \u0432\u044b\u043f\u0443\u0441\u0442\u0438\u043b \u0435\u0449\u0451 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0430\u043b\u044c\u0431\u043e\u043c\u043e\u0432, \u0441\u0440\u0435\u0434\u0438 \u043a\u043e\u0442\u043e\u0440\u044b\u0445 Take Me to Your Leader \u043f\u043e\u0434 \u043f\u0441\u0435\u0432\u0434\u043e\u043d\u0438\u043c\u043e\u043c King Geedorah \u0438 Vaudeville Villain \u043f\u043e\u0434 \u043f\u0441\u0435\u0432\u0434\u043e\u043d\u0438\u043c\u043e\u043c Viktor Vaughn."
+        },
+        "si": {
+          "title": "MF Doom - \u0db8\u0dcf\u0dad\u0dd8\u0d9a\u0dcf\u0dc0",
+          "description": null
+        },
+        "sk": {
+          "title": "MF DOOM \u2013 t\u00e9ma",
+          "description": null
+        },
+        "sl": {
+          "title": "MF DOOM \u2013 tema",
+          "description": null
+        },
+        "sq": {
+          "title": "MF Doom - Tema",
+          "description": null
+        },
+        "sr": {
+          "title": "MF DOOM \u2013 \u0442\u0435\u043c\u0430",
+          "description": "\u0414\u0430\u043d\u0438\u0458\u0435\u043b \u0414\u0443\u043c\u0438\u043b\u0435\u0458 \u0431\u0438\u043e \u0458\u0435 \u0431\u0440\u0438\u0442\u0430\u043d\u0441\u043a\u043e-\u0430\u043c\u0435\u0440\u0438\u0447\u043a\u0438 \u0440\u0435\u043f\u0435\u0440, \u0442\u0435\u043a\u0441\u0442\u043e\u043f\u0438\u0441\u0430\u0446 \u0438 \u043c\u0443\u0437\u0438\u0447\u043a\u0438 \u043f\u0440\u043e\u0434\u0443\u0446\u0435\u043d\u0442, \u043f\u043e\u0437\u043d\u0430\u0442 \u043f\u043e \u0443\u043c\u0435\u0442\u043d\u0438\u0447\u043a\u0438\u043c \u0438\u043c\u0435\u043d\u043e\u043c MF Doom. \u0411\u0438\u043e \u0458\u0435 \u043d\u0430\u0458\u0432\u0438\u0448\u0435 \u043f\u043e\u0437\u043d\u0430\u0442 \u043f\u043e \u0441\u0432\u043e\u0458\u043e\u0458 \u0443\u043c\u0435\u0442\u043d\u0438\u0447\u043a\u043e\u0458 \u043f\u0435\u0440\u0441\u043e\u043d\u0438 \u0441\u0443\u043f\u0435\u0440-\u0437\u043b\u0438\u043a\u043e\u0432\u0446\u0430 \u0438 \u043f\u043e \u0441\u0432\u043e\u043c \u043f\u0440\u0435\u043f\u043e\u0437\u043d\u0430\u0442\u0459\u0438\u0432\u043e\u043c \u0441\u0442\u0438\u043b\u0443 \u0438 \u043b\u0438\u0440\u0438\u043a\u0430\u043c\u0430 \u043f\u0443\u043d\u0438\u0445 \u0440\u0438\u043c\u0430 \u0438 \u0445\u0443\u043c\u043e\u0440\u0430.\n\u0411\u0438\u043e \u0458\u0435 \u043f\u0440\u0435\u043f\u043e\u0437\u043d\u0430\u0442\u0459\u0438\u0432 \u043f\u043e \u0441\u0432\u043e\u0458\u043e\u0458 \u0458\u0435\u0434\u0438\u043d\u0441\u0442\u0432\u0435\u043d\u043e\u0458 \u043c\u0430\u0441\u043a\u0438, \u0441\u043b\u0438\u0447\u043d\u0430 \u043c\u0430\u0441\u043a\u0438 \u0414\u043e\u043a\u0442\u043e\u0440 \u0414\u0443\u043c\u0430 \u0438\u0437 \u041c\u0430\u0440\u0432\u0435\u043b \u0443\u043d\u0438\u0432\u0435\u0440\u0437\u0443\u043c\u0430. \u0427\u0435\u0441\u0442\u043e \u0441\u0435 \u043c\u043e\u0433\u043b\u0430 \u0432\u0438\u0434\u0435\u0442\u0438 \u0438\u043b\u0443\u0441\u0442\u0440\u043e\u0432\u0430\u043d\u0430 \u043d\u0430 \u045a\u0435\u0433\u043e\u0432\u0438\u043c \u043f\u0440\u043e\u0458\u0435\u043a\u0442\u0438\u043c\u0430 \u043a\u0430\u043e \u0448\u0442\u043e \u0458\u0435 \u0442\u043e \u0441\u043b\u0443\u0447\u0430\u0458 \u043d\u0430 \u043e\u043c\u043e\u0442\u0443 \u0430\u043b\u0431\u0443\u043c\u0430 \u041e\u043f\u0435\u0440\u0430\u0446\u0438\u0458\u0430: \u0421\u0443\u0434\u045a\u0438 \u0434\u0430\u043d, \u0438\u0437\u0434\u0430\u0442\u043e\u0433 1999. \u0433\u043e\u0434\u0438\u043d\u0435.\n\u0411\u0438\u043e \u0458\u0435 \u0432\u0435\u043e\u043c\u0430 \u043f\u043e\u0437\u043d\u0430\u0442 \u0443 \u0443\u043d\u0434\u0435\u0440\u0433\u0440\u043e\u0443\u043d\u0434 \u0445\u0438\u043f-\u0445\u043e\u043f \u0441\u0446\u0435\u043d\u0438, \u0442\u043e\u043a\u043e\u043c \u0432\u0440\u0435\u043c\u0435\u043d\u0430 \u0458\u0435 \u0437\u0430\u0441\u043b\u0443\u0436\u0438\u043e \u043e\u043f\u0438\u0441 \u201e\u043e\u043c\u0438\u0459\u0435\u043d\u0438 \u0440\u0435\u043f\u0435\u0440 \u0432\u0430\u0448\u0435\u0433 \u043e\u043c\u0438\u0459\u0435\u043d\u043e\u0433 \u0440\u0435\u043f\u0435\u0440\u0430\u201d. \u0423\u0442\u0438\u0446\u0430\u043e \u0458\u0435 \u043d\u0430 \u0440\u0430\u0434 \u0438 \u0434\u0438\u0441\u043a\u043e\u0433\u0440\u0430\u0444\u0438\u0458\u0443 \u0438 \u043c\u043e\u0434\u0435\u0440\u043d\u0438\u0445 \u043c\u0443\u0437\u0438\u0447\u0430\u0440\u0430 \u0438\u0437 \u0441\u0432\u0435\u0442\u0430 \u0445\u0438\u043f-\u0445\u043e\u043f\u0430."
+        },
+        "sr_latn": {
+          "title": "MF DOOM \u2013 tema",
+          "description": null
+        },
+        "sv": {
+          "title": "MF DOOM \u2013 \u00c4mne",
+          "description": "Daniel Dumile, f\u00f6dd 13 juli 1971 i London i Storbritannien, d\u00f6d 31 oktober 2020, var en amerikansk rappare och hiphopproducent som var k\u00e4nd under ett flertal artistnamn som han anv\u00e4nt under sin karri\u00e4r: F\u00f6rst Zev Love X, men mest k\u00e4nd var han under namnet MF Doom. I sidoprojekt har han kallat sig bland annat King Geedorah, Metal Fingers och Viktor Vaughn."
+        },
+        "sw": {
+          "title": "MF Doom - Mada",
+          "description": null
+        },
+        "ta": {
+          "title": "MF Doom - \u0ba4\u0bb2\u0bc8\u0baa\u0bcd\u0baa\u0bc1",
+          "description": null
+        },
+        "te": {
+          "title": "MF Doom - \u0c05\u0c02\u0c36\u0c02",
+          "description": null
+        },
+        "th": {
+          "title": "MF DOOM - \u0e2b\u0e31\u0e27\u0e02\u0e49\u0e2d",
+          "description": null
+        },
+        "tr": {
+          "title": "MF DOOM - Konu",
+          "description": "Daniel Dumile veya en bilinen sahne ad\u0131yla MF DOOM, Londra do\u011fumlu \u0130ngiliz-Amerikal\u0131 rap m\u00fczik sanat\u00e7\u0131s\u0131yd\u0131. Sahne ad\u0131ndaki \"MF\", \"Metal Face\" ve \"Metal Fingers\" s\u00f6z \u00f6beklerinin ba\u015f harflerinden olu\u015fan bir k\u0131saltmad\u0131r.\nDoom, underground hip hop d\u00fcnyas\u0131nda olduk\u00e7a sayg\u0131n bir yere sahiptir. \u00d6zellikle prod\u00fcksiyon alan\u0131ndaki \u00e7al\u0131\u015fmalar\u0131 ve haz\u0131rlad\u0131\u011f\u0131 kompleks lirikleri ustaca kullanabilme yetene\u011fiyle \u00fcn salm\u0131\u015f isimdir. Kendisi ayr\u0131ca Danger Mouse ile birlikte Danger Doom ve Madlib ile birlikte de Madvillain isimli projelerde yer alm\u0131\u015ft\u0131r."
+        },
+        "uk": {
+          "title": "MF Doom \u2013 \u0442\u0435\u043c\u0430",
+          "description": "\u0414\u0435\u043d\u0456\u0435\u043b \u0414\u0443\u043c\u0456\u043b\u0435\u0439 \u2014 \u043d\u0430\u0440\u043e\u0434\u0436\u0435\u043d\u0438\u0439 \u0432 \u0410\u043d\u0433\u043b\u0456\u0457 \u0430\u043c\u0435\u0440\u0438\u043a\u0430\u043d\u0441\u044c\u043a\u0438\u0439 \u0440\u0435\u043f\u0435\u0440 \u0456 \u043f\u0440\u043e\u0434\u044e\u0441\u0435\u0440, \u0432\u0456\u0434\u043e\u043c\u0438\u0439 \u043f\u043e\u0441\u0442\u0456\u0439\u043d\u0438\u043c \u043d\u043e\u0441\u0456\u043d\u043d\u044f\u043c \u043c\u0430\u0441\u043a\u0438, \u043d\u0435\u0437\u0432\u0438\u0447\u0430\u0439\u043d\u043e\u044e \u043c\u0430\u043d\u0435\u0440\u043e\u044e \u0432\u0438\u043a\u043e\u043d\u0430\u043d\u043d\u044f, \u0430 \u0442\u0430\u043a\u043e\u0436 \u0442\u0435\u043a\u0441\u0442\u0430\u043c\u0438 \u043f\u0456\u0441\u0435\u043d\u044c, \u0432 \u044f\u043a\u0438\u0445 \u0432\u0456\u043d \u0432\u0456\u0434\u0456\u0433\u0440\u0430\u0454 \u0440\u043e\u043b\u044c \u043b\u0438\u0445\u043e\u0434\u0456\u044f. \u0412\u0456\u043d \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u043e\u0432\u0443\u0432\u0430\u0432 \u0431\u0435\u0437\u043b\u0456\u0447 \u0441\u0446\u0435\u043d\u0456\u0447\u043d\u0438\u0445 \u0456\u043c\u0435\u043d, \u0441\u0435\u0440\u0435\u0434 \u044f\u043a\u0438\u0445 MF DOOM, Viktor Vaughn, King Geedorah, Metal Face \u0456 Metal Fingers.\n\u0414\u0443\u043c\u0456\u043b\u0435\u0439 \u043f\u043e\u0447\u0430\u0432 \u0441\u0432\u0456\u0439 \u0442\u0432\u043e\u0440\u0447\u0438\u0439 \u0448\u043b\u044f\u0445 \u0443 1988 \u0440\u043e\u0446\u0456, \u0437\u0430\u0441\u043d\u0443\u0432\u0430\u0432\u0448\u0438 \u0437 \u0431\u0440\u0430\u0442\u043e\u043c DJ Subroc \u0433\u0443\u0440\u0442 KMD, \u0432 \u044f\u043a\u0456\u0439 \u0432\u0456\u043d \u0432\u0437\u044f\u0432 \u0443\u0447\u0430\u0441\u0442\u044c \u043f\u0456\u0434 \u043f\u0441\u0435\u0432\u0434\u043e\u043d\u0456\u043c\u043e\u043c Zev Love X. 1991 \u0440\u043e\u043a\u0443 \u0433\u0443\u0440\u0442 \u0432\u0438\u043f\u0443\u0441\u0442\u0438\u0432 \u0430\u043b\u044c\u0431\u043e\u043c Mr. Hood, \u0449\u043e \u0441\u0442\u0430\u0432 \u0434\u043e\u0441\u0438\u0442\u044c \u043f\u043e\u043f\u0443\u043b\u044f\u0440\u043d\u0438\u043c. 1993 \u0440\u043e\u043a\u0443 DJ Subroc \u0431\u0443\u0432 \u0437\u0431\u0438\u0442\u0438\u0439 \u043d\u0430 \u0441\u043c\u0435\u0440\u0442\u044c \u043f\u0440\u0438 \u0441\u043f\u0440\u043e\u0431\u0456 \u043f\u0435\u0440\u0435\u0445\u043e\u0434\u0443 \u0430\u0432\u0442\u043e\u043c\u0430\u0433\u0456\u0441\u0442\u0440\u0430\u043b\u0456. \u041f\u043e\u043f\u0440\u0438 \u0446\u0435, \u0414\u0435\u043d\u0456\u0435\u043b \u043f\u0440\u043e\u0434\u043e\u0432\u0436\u0438\u0432 \u0440\u043e\u0431\u043e\u0442\u0443 \u043d\u0430\u0434 Black Bastards, \u0434\u0440\u0443\u0433\u0438\u043c \u0430\u043b\u044c\u0431\u043e\u043c\u043e\u043c \u0433\u0443\u0440\u0442\u0443. \u0412 1994 \u0440\u043e\u0446\u0456, \u043a\u043e\u043b\u0438 \u0430\u043b\u044c\u0431\u043e\u043c \u0431\u0443\u0432 \u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u043e \u0433\u043e\u0442\u043e\u0432\u0438\u0439, \u043b\u0435\u0439\u0431\u043b Elektra \u0432\u0438\u0440\u0456\u0448\u0438\u0432 \u043f\u0440\u0438\u043f\u0438\u043d\u0438\u0442\u0438 \u0441\u043f\u0456\u0432\u043f\u0440\u0430\u0446\u044e \u0437 \u043a\u043e\u043b\u0435\u043a\u0442\u0438\u0432\u043e\u043c. \u0420\u043e\u0437\u0441\u0435\u0440\u0434\u0438\u0432\u0448\u0438\u0441\u044c \u043d\u0430 \u0432\u0441\u044e \u043c\u0443\u0437\u0438\u0447\u043d\u0443 \u0456\u043d\u0434\u0443\u0441\u0442\u0440\u0456\u044e, \u0414\u0443\u043c\u0456\u043b\u0435\u0439 \u043f\u0456\u0448\u043e\u0432 \u0443 \u0442\u0456\u043d\u044c.\n\u0412 1997 \u0440\u043e\u0446\u0456 \u0432\u0456\u043d \u043f\u043e\u0432\u0435\u0440\u043d\u0443\u0432\u0441\u044f, \u0430\u043b\u0435 \u0432\u0436\u0435 \u043f\u0456\u0434 \u043f\u0441\u0435\u0432\u0434\u043e\u043d\u0456\u043c\u043e\u043c MF Doom \u0456 \u043f\u0440\u0438\u0445\u043e\u0432\u0443\u044e\u0447\u0438 \u0441\u0432\u043e\u0454 \u043e\u0431\u043b\u0438\u0447\u0447\u044f \u043f\u0456\u0434 \u043c\u0430\u0441\u043a\u043e\u044e. 1999 \u0440\u043e\u043a\u0443 \u0432\u0456\u043d \u0432\u0438\u043f\u0443\u0441\u0442\u0438\u0432 \u0430\u043b\u044c\u0431\u043e\u043c Operation: Doomsday, \u0449\u043e \u0441\u0442\u0430\u0432 \u043a\u0443\u043b\u044c\u0442\u043e\u0432\u0438\u043c \u043d\u0430 \u0430\u043d\u0434\u0435\u0440\u0433\u0440\u0430\u0443\u043d\u0434 \u0445\u0456\u043f-\u0445\u043e\u043f \u0441\u0446\u0435\u043d\u0456. 2003 \u0440\u043e\u043a\u0443 \u0432\u0456\u043d \u0432\u0438\u043f\u0443\u0441\u0442\u0438\u0432 \u0449\u0435 \u043a\u0456\u043b\u044c\u043a\u0430 \u0430\u043b\u044c\u0431\u043e\u043c\u0456\u0432, \u0441\u0435\u0440\u0435\u0434 \u044f\u043a\u0438\u0445 Take Me to Your Leader \u043f\u0456\u0434 \u043f\u0441\u0435\u0432\u0434\u043e\u043d\u0456\u043c\u043e\u043c King Geedorah \u0456 Vaudeville Villain \u043f\u0456\u0434 \u043f\u0441\u0435\u0432\u0434\u043e\u043d\u0456\u043c\u043e\u043c Viktor Vaughn."
+        },
+        "ur": {
+          "title": "MF Doom - \u0645\u0648\u0636\u0648\u0639",
+          "description": null
+        },
+        "uz": {
+          "title": "Mavzu \u2013 MF Doom",
+          "description": null
+        },
+        "vi": {
+          "title": "MF DOOM - Ch\u1ee7 \u0111\u1ec1",
+          "description": null
+        },
+        "zh": {
+          "title": null,
+          "description": "\u4e39\u5c3c\u5c14\u00b7\u675c\u9ed8\u83b1\uff0c\u4ee5\u827a\u540dMF DOOM\u6216\u7b80\u79f0Doom\u88ab\u5927\u4f17\u719f\u77e5\uff0c\u662f\u4e00\u4f4d\u82f1\u56fd\u88d4\u7f8e\u56fd\u4eba\u7684\u9976\u820c\u6b4c\u624b\u3001\u8bcd\u66f2\u4f5c\u8005\u53ca\u5531\u7247\u5236\u4f5c\u4eba\u3002\u675c\u9ed8\u83b1\u4ee5\u5176\u8270\u6da9\u590d\u6742\u7684\u53cc\u5173\u8bed\uff0c\u6807\u5fd7\u6027\u7684\u91d1\u5c5e\u9762\u5177\u53ca\u8d85\u7ea7\u53cd\u6d3e\u7684\u8868\u6f14\u5f62\u8c61\u95fb\u540d\uff0c\u4e3a2000\u5e74\u4ee3\u5730\u4e0b\u563b\u54c8\u4e0e\u53e6\u7c7b\u563b\u54c8\u7684\u4ee3\u8868\u4eba\u7269\u3002\u5728\u5176\u53bb\u4e16\u540e\uff0c\u300a\u7efc\u827a\u300b\u5c06\u5176\u5f62\u5bb9\u4e3a\u201c\u6700\u8457\u540d\u3001\u6700\u96be\u9884\u6d4b\u3001\u4e14\u6700\u795e\u79d8\u7684\u4eba\u7269\u201d\u4e4b\u4e00\u3002\n\u675c\u9ed8\u83b1\u51fa\u751f\u4e8e\u82f1\u56fd\u4f26\u6566\uff0c\u4e8e\u5e74\u8f7b\u65f6\u642c\u81f3\u957f\u5c9b\u3002\u5e76\u4e8e1988\u5e74\u4f5c\u4e3a\u4e09\u4eba\u9976\u820c\u56e2\u4f53KMD\u4e2d\u7684\u6210\u5458\u5f00\u59cb\u5176\u804c\u4e1a\u751f\u6daf\uff0c\u5e76\u4ee5\u827a\u540dZev Love X\u7684\u8eab\u4efd\u8868\u6f14\u3002\u8be5\u56e2\u4f53\u4e8e1993\u5e74\u56e0DJ Subroc\u7684\u53bb\u4e16\u800c\u89e3\u6563\u3002\u5728\u77ed\u6682\u7684\u6c89\u5bc2\u540e\uff0c\u675c\u9ed8\u83b1\u4e8e1990\u5e74\u4ee3\u672b\u671f\u518d\u6b21\u6d3b\u8dc3\u5e76\u5f00\u59cb\u4e8e\u5f00\u653e\u9ea6\u6d3b\u52a8\u4e2d\u8868\u6f14\uff0c\u6234\u7740\u7c7b\u4f3c\u4e8e\u6f2b\u5a01\u6f2b\u753b\u4e2d\u8d85\u7ea7\u53cd\u6d3e\u6bc1\u706d\u535a\u58eb\u7684\u91d1\u5c5e\u9762\u5177\u3002\u6bc1\u706d\u535a\u58eb\u7684\u5f62\u8c61\u4ea6\u51fa\u73b0\u4e8e\u5176\u9996\u5f20\u4e2a\u4eba\u4e13\u8f91\u300aOperation: Doomsday\u300b\u7684\u5c01\u9762\u4e0a\u3002\u675c\u9ed8\u83b1\u81ea\u6b64\u5f00\u59cb\u91c7\u7528MF Doom\u7684\u8868\u6f14\u5f62\u8c61\uff0c\u6b64\u540e\u5f88\u5c11\u5728\u6ca1\u6709\u9762\u5177\u7684\u60c5\u51b5\u4e0b\u516c\u5f00\u9732\u9762\u3002\n\u5728\u675c\u9ed8\u83b1\u4f5c\u54c1\u6700\u4e30\u5bcc\u4e4b\u65f6\u671f\uff0c\u53732000\u5e74\u4ee3\u521d\u671f\u81f3\u4e2d\u671f\uff0c\u4ed6\u4ee5MF Doom \u7684\u540d\u4e49\u53d1\u884c\u4e86\u5e7f\u53d7\u597d\u8bc4\u7684\u4e13\u8f91\u300aMM...Food\u300b\uff0c\u540c\u65f6\u4ea6\u4ee5King Geedorah\u4e0eViktor Vaughn\u7684\u827a\u540d\u53d1\u884c\u4e13\u8f91\u3002\u57282004\u5e74\u4e0e\u9976\u820c\u5236\u4f5c\u4ebaMadlib\u4ee5\u563b\u54c8\u53cc\u4eba\u7ec4\u5408Madvillain\u7684\u540d\u4e49\u5f55\u5236\u4e86\u4e13\u8f91\u300aMadvillainy\u300b\uff0c\u8be5\u4e13\u8f91\u88ab\u8ba4\u4e3a\u662f\u675c\u9ed8\u83b1\u7684\u4ee3\u8868\u4f5c\uff0c\u4e13\u8f91\u4e2dMadlib\u72ec\u7279\u7684\u53d6\u6837\u6280\u5de7\u4e0e\u675c\u9ed8\u83b1\u5bf9\u4e8e\u53cc\u5173\u8bed\u4e0e\u591a\u79cd\u62bc\u97f5\u6280\u5de7\u7684\u8fd0\u7528\uff0c\u4f7f\u300aMadvillainy\u300b\u4ea6\u88ab\u5e7f\u6cdb\u79f0\u4e3a\u9976\u820c\u97f3\u4e50\u4e2d\u91cc\u7a0b\u7891\u5f0f\u7684\u4e13\u8f91\u3002 \u7ee7\u300aMadvillainy\u300b\u540e\uff0c\u675c\u9ed8\u83b1\u4ea6\u4ee5\u827a\u540dDanger Doom\u4e0e\u5236\u4f5c\u4ebaDanger Mouse\u53d1\u884c\u4e86\u53e6\u4e00\u5e7f\u53d7\u597d\u8bc4\u7684\u5408\u4f5c\u4e13\u8f91\u300aThe Mouse and the Mask\u300b\u3002\n\u5373\u4f7f\u675c\u9ed8\u83b1\u4e00\u751f\u5927\u90e8\u5206\u65f6\u95f4\u90fd\u751f\u6d3b\u5728\u7f8e\u56fd\uff0c\u4ed6\u5374\u4ece\u672a\u53d6\u5f97\u7f8e\u56fd\u516c\u6c11\u8eab\u4efd\u30022010\u5e74\uff0c\u675c\u9ed8\u83b1\u5728\u7ed3\u675f\u4e86\u7b2c\u516d\u5f20\u4ea6\u662f\u6700\u540e\u4e00\u5f20\u4e2a\u4eba\u4e13\u8f91\u300aBorn Like This\u300b\u7684\u56fd\u9645\u5de1\u6f14\u56de\u6765\u540e\u88ab\u62d2\u7edd\u5165\u5883\uff0c\u56e0\u6b64\u4ed6\u9009\u62e9\u79fb\u5c45\u4f26\u6566\u3002\u5728\u751f\u547d\u7684\u6700\u540e\u51e0\u5e74\uff0c\u4ed6\u4e3b\u8981\u4e0e\u5176\u4ed6\u827a\u672f\u5bb6\u5408\u4f5c\u3002"
+        },
+        "zh_cn": {
+          "title": "M\u00b7F\u00b7\u675c\u59c6 - \u4e3b\u9898",
+          "description": null
+        },
+        "zh_hk": {
+          "title": "MF Doom - \u4e3b\u984c",
+          "description": null
+        },
+        "zh_tw": {
+          "title": "MF Doom - \u4e3b\u984c",
+          "description": "\u4e39\u5c3c\u723e\u00b7\u675c\u9ed8\u840a\uff0c\u4ee5\u85dd\u540dMF DOOM\u6216\u7c21\u7a31Doom\u88ab\u5927\u773e\u719f\u77e5\uff0c\u662f\u4e00\u4f4d\u82f1\u570b\u88d4\u7f8e\u570b\u4eba\u7684\u9952\u820c\u6b4c\u624b\u3001\u8a5e\u66f2\u4f5c\u8005\u53ca\u5531\u7247\u88fd\u4f5c\u4eba\u3002\u675c\u9ed8\u840a\u4ee5\u5176\u8271\u6f80\u8907\u96dc\u7684\u96d9\u95dc\u8a9e\uff0c\u6a19\u8a8c\u6027\u7684\u91d1\u5c6c\u9762\u5177\u53ca\u8d85\u7d1a\u53cd\u6d3e\u7684\u8868\u6f14\u5f62\u8c61\u805e\u540d\uff0c\u70ba2000\u5e74\u4ee3\u5730\u4e0b\u563b\u54c8\u8207\u53e6\u985e\u563b\u54c8\u7684\u4ee3\u8868\u4eba\u7269\u3002\u5728\u5176\u53bb\u4e16\u5f8c\uff0c\u300a\u7d9c\u85dd\u300b\u5c07\u5176\u5f62\u5bb9\u70ba\u300c\u6700\u8457\u540d\u3001\u6700\u96e3\u9810\u6e2c\u3001\u4e14\u6700\u795e\u79d8\u7684\u4eba\u7269\u300d\u4e4b\u4e00\u3002\n\u675c\u9ed8\u840a\u51fa\u751f\u65bc\u82f1\u570b\u502b\u6566\uff0c\u65bc\u5e74\u8f15\u6642\u642c\u81f3\u9577\u5cf6\u3002\u4e26\u65bc1988\u5e74\u4f5c\u70ba\u4e09\u4eba\u9952\u820c\u5718\u9ad4KMD\u4e2d\u7684\u6210\u54e1\u958b\u59cb\u5176\u8077\u696d\u751f\u6daf\uff0c\u4e26\u4ee5\u85dd\u540dZev Love X\u7684\u8eab\u5206\u8868\u6f14\u3002\u8a72\u5718\u9ad4\u65bc1993\u5e74\u56e0DJ Subroc\u7684\u53bb\u4e16\u800c\u89e3\u6563\u3002\u5728\u77ed\u66ab\u7684\u6c89\u5bc2\u5f8c\uff0c\u675c\u9ed8\u840a\u65bc1990\u5e74\u4ee3\u672b\u671f\u518d\u6b21\u6d3b\u8e8d\u4e26\u958b\u59cb\u65bc\u958b\u653e\u9ea5\u6d3b\u52d5\u4e2d\u8868\u6f14\uff0c\u6234\u8457\u985e\u4f3c\u65bc\u6f2b\u5a01\u6f2b\u756b\u4e2d\u8d85\u7d1a\u53cd\u6d3e\u6bc0\u6ec5\u535a\u58eb\u7684\u91d1\u5c6c\u9762\u5177\u3002\u6bc0\u6ec5\u535a\u58eb\u7684\u5f62\u8c61\u4ea6\u51fa\u73fe\u65bc\u5176\u9996\u5f35\u500b\u4eba\u5c08\u8f2f\u300aOperation: Doomsday\u300b\u7684\u5c01\u9762\u4e0a\u3002\u675c\u9ed8\u840a\u81ea\u6b64\u958b\u59cb\u63a1\u7528MF Doom\u7684\u8868\u6f14\u5f62\u8c61\uff0c\u6b64\u5f8c\u5f88\u5c11\u5728\u6c92\u6709\u9762\u5177\u7684\u60c5\u6cc1\u4e0b\u516c\u958b\u9732\u9762\u3002\n\u5728\u675c\u9ed8\u840a\u4f5c\u54c1\u6700\u8c50\u5bcc\u4e4b\u6642\u671f\uff0c\u53732000\u5e74\u4ee3\u521d\u671f\u81f3\u4e2d\u671f\uff0c\u4ed6\u4ee5 MF Doom \u7684\u540d\u7fa9\u767c\u884c\u4e86\u5ee3\u53d7\u597d\u8a55\u7684\u5c08\u8f2f\u300aMM...Food\u300b\uff0c\u540c\u6642\u4ea6\u4ee5King Geedorah\u8207Viktor Vaughn\u7684\u85dd\u540d\u767c\u884c\u5c08\u8f2f\u3002\u57282004\u5e74\u8207\u9952\u820c\u88fd\u4f5c\u4ebaMadlib\u4ee5\u563b\u54c8\u96d9\u4eba\u7d44\u5408Madvillain\u7684\u540d\u7fa9\u9304\u88fd\u4e86\u5c08\u8f2f\u300aMadvillainy\u300b\uff0c\u8a72\u5c08\u8f2f\u88ab\u8a8d\u70ba\u662f\u675c\u9ed8\u840a\u7684\u4ee3\u8868\u4f5c\uff0c\u5c08\u8f2f\u4e2dMadlib\u7368\u7279\u7684\u53d6\u6a23\u6280\u5de7\u8207\u675c\u9ed8\u840a\u5c0d\u65bc\u96d9\u95dc\u8a9e\u8207\u591a\u7a2e\u62bc\u97fb\u6280\u5de7\u7684\u904b\u7528\uff0c\u4f7f\u300aMadvillainy\u300b\u4ea6\u88ab\u5ee3\u6cdb\u7a31\u70ba\u9952\u820c\u97f3\u6a02\u4e2d\u91cc\u7a0b\u7891\u5f0f\u7684\u5c08\u8f2f\u3002 \u7e7c\u300aMadvillainy\u300b\u5f8c\uff0c\u675c\u9ed8\u840a\u4ea6\u4ee5\u85dd\u540dDanger Doom\u8207\u88fd\u4f5c\u4ebaDanger Mouse\u767c\u884c\u4e86\u53e6\u4e00\u5ee3\u53d7\u597d\u8a55\u7684\u5408\u4f5c\u5c08\u8f2f\u300aThe Mouse and the Mask\u300b\u3002\n\u5373\u4f7f\u675c\u9ed8\u840a\u4e00\u751f\u5927\u90e8\u5206\u6642\u9593\u90fd\u751f\u6d3b\u5728\u7f8e\u570b\uff0c\u4ed6\u537b\u5f9e\u672a\u53d6\u5f97\u7f8e\u570b\u516c\u6c11\u8eab\u5206\u30022010\u5e74\uff0c\u675c\u9ed8\u840a\u5728\u7d50\u675f\u4e86\u7b2c\u516d\u5f35\u4ea6\u662f\u6700\u5f8c\u4e00\u5f35\u500b\u4eba\u5c08\u8f2f\u300aBorn Like This\u300b\u7684\u570b\u969b\u5de1\u6f14\u56de\u4f86\u5f8c\u88ab\u62d2\u7d55\u5165\u5883\uff0c\u56e0\u6b64\u4ed6\u9078\u64c7\u79fb\u5c45\u502b\u6566\u3002\u5728\u751f\u547d\u7684\u6700\u5f8c\u5e7e\u5e74\uff0c\u4ed6\u4e3b\u8981\u8207\u5176\u4ed6\u85dd\u8853\u5bb6\u5408\u4f5c\u3002"
+        },
+        "zu": {
+          "title": "MF Doom - Isihloko",
+          "description": null
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,423 @@
+{
+  "season": 1,
+  "seasons": [
+    {
+      "number": 1,
+      "browse_id": "SCCHEGe0F1jvGhq_UPgeZSVg",
+      "params": "kgZOCgExGkkSGFVDemkyUld0Y211WkcwVVFuVmt2TnNVUSItY25jbDozMGQtNjZlNjQwMDMtMDAwMC0yZWFkLWIwODYtMjQwNTg4ODNmZDU0",
+      "selected": true
+    },
+    {
+      "number": 2,
+      "browse_id": "SCCHEGe0F1jvGhq_UPgeZSVg",
+      "params": "kgZOCgEyGkkSGFVDemkyUld0Y211WkcwVVFuVmt2TnNVUSItY25jbDozMGQtNjZlNjQwMDMtMDAwMC0yZWFkLWIwODYtMjQwNTg4ODNmZDU0",
+      "selected": false
+    }
+  ],
+  "episodes": [
+    {
+      "video_id": "6JTFYuloLFM",
+      "title": "The Tell Tale Tummy /  A Little Help",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 1,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/6JTFYuloLFM/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/6JTFYuloLFM/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/6JTFYuloLFM/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/6JTFYuloLFM/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "FVk0SViGfxo",
+      "title": "Growing Pains/ King Grumpy",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 2,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/FVk0SViGfxo/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/FVk0SViGfxo/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/FVk0SViGfxo/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/FVk0SViGfxo/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "p93UHtSfOTQ",
+      "title": "Ice Creamed / Heatwave",
+      "length_seconds": 1275,
+      "length_text": "21:15",
+      "index": 3,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/p93UHtSfOTQ/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/p93UHtSfOTQ/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/p93UHtSfOTQ/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/p93UHtSfOTQ/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "k6wYbQlNUBw",
+      "title": "Erased / Unbearable",
+      "length_seconds": 1275,
+      "length_text": "21:15",
+      "index": 4,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/k6wYbQlNUBw/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/k6wYbQlNUBw/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/k6wYbQlNUBw/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/k6wYbQlNUBw/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "k3rvE7t87SY",
+      "title": "Care-ful Bear\u00a0 / Case of the Grumpies",
+      "length_seconds": 1274,
+      "length_text": "21:14",
+      "index": 5,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/k3rvE7t87SY/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/k3rvE7t87SY/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/k3rvE7t87SY/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/k3rvE7t87SY/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "EevMDwZv0fE",
+      "title": "Cheer, There and Everywhere / Twinklet",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 6,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/EevMDwZv0fE/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/EevMDwZv0fE/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/EevMDwZv0fE/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/EevMDwZv0fE/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "YueEfhuuqSY",
+      "title": "Belly Ball/  Bubbles",
+      "length_seconds": 1276,
+      "length_text": "21:16",
+      "index": 7,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/YueEfhuuqSY/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/YueEfhuuqSY/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/YueEfhuuqSY/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/YueEfhuuqSY/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "xK4Ol3irvq4",
+      "title": "Rainshine Meadows / Oopsy the Hero",
+      "length_seconds": 1276,
+      "length_text": "21:16",
+      "index": 8,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/xK4Ol3irvq4/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xK4Ol3irvq4/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xK4Ol3irvq4/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xK4Ol3irvq4/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "nXkfLnHSzqI",
+      "title": "All You Need/ Gobblebugs",
+      "length_seconds": 1276,
+      "length_text": "21:16",
+      "index": 9,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/nXkfLnHSzqI/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/nXkfLnHSzqI/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/nXkfLnHSzqI/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/nXkfLnHSzqI/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "mN9j7zrFU7A",
+      "title": "Grizzle-ized/ Share and Share a Like",
+      "length_seconds": 1276,
+      "length_text": "21:16",
+      "index": 10,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/mN9j7zrFU7A/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/mN9j7zrFU7A/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/mN9j7zrFU7A/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/mN9j7zrFU7A/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "bRjvUNUWsIU",
+      "title": "Dare Bears/ Battle of the Band",
+      "length_seconds": 1275,
+      "length_text": "21:15",
+      "index": 11,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/bRjvUNUWsIU/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/bRjvUNUWsIU/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/bRjvUNUWsIU/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/bRjvUNUWsIU/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "VB1dInJlxkc",
+      "title": "Re-Booted /  Flower Power",
+      "length_seconds": 1275,
+      "length_text": "21:15",
+      "index": 12,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/VB1dInJlxkc/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/VB1dInJlxkc/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/VB1dInJlxkc/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/VB1dInJlxkc/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "xmrVzSOeXq8",
+      "title": "Two of a Kind / Stand Up and Cheer",
+      "length_seconds": 1275,
+      "length_text": "21:15",
+      "index": 13,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/xmrVzSOeXq8/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xmrVzSOeXq8/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xmrVzSOeXq8/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xmrVzSOeXq8/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    }
+  ],
+  "continuation": null
+}

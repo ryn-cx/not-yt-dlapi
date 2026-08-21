@@ -1,0 +1,61 @@
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "K2q9kpGFc8MFscw9bu7ZiukS2Hc",
+  "next_page_token": null,
+  "prev_page_token": null,
+  "page_info": {
+    "total_results": 1,
+    "results_per_page": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "Lt3779X_kPPFXIYrLqwT1rLsZmE",
+      "id": "VVU0UW9iVTZTVEZCMFA3MVBNdk9HTjVBLmpOUVhBQzlJVlJ3",
+      "snippet": {
+        "published_at": "2005-04-24T03:31:52Z",
+        "channel_id": "UC4QobU6STFB0P71PMvOGN5A",
+        "title": "Me at the zoo",
+        "description": "Microplastics are accumulating in human brains at an alarming rate\nhttps://www.youtube.com/watch?v=0PT5c1z3LL8\n\n\u201cNanoplastics and Human Health\u201d with Matthew J Campen, PhD, MSPH\nhttps://www.youtube.com/watch?v=RRBN_4L09Mg\n\n00:00 Intro\n00:05 The cool thing\n00:17 End",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/jNQXAC9IVRw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/jNQXAC9IVRw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/jNQXAC9IVRw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "jawed",
+        "video_owner_channel_title": "jawed",
+        "video_owner_channel_id": "UC4QobU6STFB0P71PMvOGN5A",
+        "playlist_id": "UU4QobU6STFB0P71PMvOGN5A",
+        "position": 0,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "jNQXAC9IVRw"
+        }
+      },
+      "content_details": {
+        "video_id": "jNQXAC9IVRw",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": "2005-04-24T03:31:52Z"
+      },
+      "status": {
+        "privacy_status": "public"
+      }
+    }
+  ]
+}

@@ -3,6 +3,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+import pytest
+
 from not_yt_dlapi.shows import Shows
 from not_yt_dlapi.shows.models import Show
 from tests.utils import RecordedEndpoint
@@ -10,63 +12,50 @@ from tests.utils import RecordedEndpoint
 if TYPE_CHECKING:
     from not_yt_dlapi import NotYTDLAPI
 
+SHOW_ID = "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw"
+"""Every season of a show, each holding the episodes listed under it."""
+
 
 # TODO: Validate
-class ShowTest(RecordedEndpoint):
+class TestList(RecordedEndpoint):
     ENDPOINT = Shows
+    MODEL = Show
+    PLAYLIST_IDS = (
+        pytest.param(SHOW_ID, id="show"),
+        # Hell's Kitchen has run for over twenty years and YouTube carries three
+        # of them, numbered the way the show numbers them, so the first season
+        # of what comes back is season twenty-one.
+        # https://www.youtube.com/show/SC76ETXKYZoiPWiG6TLxkBLA
+        pytest.param(
+            "TVSHI1FGTrUgFn4lRj_kLDPqR3ZC_PDpPGEPg", id="seasons not from one",
+        ),
+    )
 
-
-# TODO: Validate
-class TestList:
-    """Test `shows.list`."""
-
-    # TODO: Validate
-    class TestShow(ShowTest):
-        """Every season of a show, each holding the episodes listed under it."""
-
-        PLAYLIST_ID = "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw"
-
-        # TODO: Validate
-        def test_download(self, client: NotYTDLAPI) -> None:
-            self.record_test(
-                self.PLAYLIST_ID,
-                lambda: client.shows.list(self.PLAYLIST_ID).raw,
-            )
-
-        # TODO: Validate
-        def test_parse(self) -> None:
-            self.parse_test(self.PLAYLIST_ID, Show)
+    SECOND_SEASON = f"{SHOW_ID}_season_2"
+    """The season after the one the show's menu opens on."""
 
     # TODO: Validate
-    class TestFirstSeasonIsNotSeasonOne(ShowTest):
-        """A show whose seasons are numbered from where the show is up to.
+    @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
+    def test_download(self, client: NotYTDLAPI, playlist_id: str) -> None:
+        self.download_test(playlist_id, lambda: client.shows.list(playlist_id))
 
-        Hell's Kitchen has run for over twenty years and YouTube carries three
-        of them, numbered the way the show numbers them rather than from one.
-        So the first season of what comes back is season twenty-one, which is
-        what nothing here may assume otherwise.
-        """
+    # TODO: Validate
+    @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
+    def test_parse(self, playlist_id: str) -> None:
+        self.parse_test(playlist_id)
 
-        PLAYLIST_ID = "TVSHI1FGTrUgFn4lRj_kLDPqR3ZC_PDpPGEPg"
-        """https://www.youtube.com/show/SC76ETXKYZoiPWiG6TLxkBLA"""
+    # TODO: Validate
+    def test_download_second_season(self, client: NotYTDLAPI) -> None:
+        # A season is asked for by the entry the menu carries for it rather than
+        # by its number, so the entry is read out of the show's own recording
+        # and there is nothing to ask with until that download has been made.
+        opened = Show.from_response(self.dumped_file_content(SHOW_ID))
+        season = next(link for link in opened.seasons if not link.selected)
+        self.download_test(
+            self.SECOND_SEASON,
+            lambda: client.shows.list(season=season),
+        )
 
-        # TODO: Validate
-        def test_download(self, client: NotYTDLAPI) -> None:
-            self.record_test(
-                self.PLAYLIST_ID,
-                lambda: client.shows.list(self.PLAYLIST_ID).raw,
-            )
-
-        # TODO: Validate
-        def test_parse(self) -> None:
-            self.parse_test(self.PLAYLIST_ID, Show)
-
-        # TODO: Validate
-        def test_seasons_are_numbered_as_the_show_numbers_them(self) -> None:
-            """The seasons are the numbers the show gives them, not one upwards."""
-            show = Show.from_response(self.recorded_content(self.PLAYLIST_ID))
-            numbers = [season.number for season in show.seasons]
-
-            assert numbers
-            assert numbers[0] != 1
-            assert numbers == sorted(numbers)
+    # TODO: Validate
+    def test_parse_second_season(self) -> None:
+        self.parse_test(self.SECOND_SEASON)

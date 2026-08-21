@@ -1,0 +1,366 @@
+{
+  "kind": "youtube#channelListResponse",
+  "etag": "gYQgKvBZNA6DvmxNO5Am7RulFic",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "4ZhD2gadFu1qjVvKFmdbdfjMcyQ",
+      "id": "UCooTDYkIERWBwDC1JKyoElQ",
+      "snippet": {
+        "title": "MF Doom - Topic",
+        "description": "",
+        "publishedAt": "2013-07-20T01:06:59Z",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/fuhzDKScK8NdWOpRDYCjXgncKNWqrMMWi7dnrm1h5WBoJQLLZbGZnJbV1D3M9aGRdKnkowS6GA=s88-c-k-c0x00ffffff-no-rj",
+            "width": 88,
+            "height": 88
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/fuhzDKScK8NdWOpRDYCjXgncKNWqrMMWi7dnrm1h5WBoJQLLZbGZnJbV1D3M9aGRdKnkowS6GA=s240-c-k-c0x00ffffff-no-rj",
+            "width": 240,
+            "height": 240
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/fuhzDKScK8NdWOpRDYCjXgncKNWqrMMWi7dnrm1h5WBoJQLLZbGZnJbV1D3M9aGRdKnkowS6GA=s800-c-k-c0x00ffffff-no-rj",
+            "width": 800,
+            "height": 800
+          }
+        },
+        "localized": {
+          "title": "MF Doom - Topic",
+          "description": ""
+        }
+      },
+      "contentDetails": {
+        "relatedPlaylists": {
+          "likes": "",
+          "uploads": "UUooTDYkIERWBwDC1JKyoElQ"
+        }
+      },
+      "statistics": {
+        "viewCount": "358324594",
+        "subscriberCount": "11000",
+        "hiddenSubscriberCount": false,
+        "videoCount": "503"
+      },
+      "topicDetails": {
+        "topicIds": [
+          "/m/0glt670",
+          "/m/04rlf"
+        ],
+        "topicCategories": [
+          "https://en.wikipedia.org/wiki/Hip_hop_music",
+          "https://en.wikipedia.org/wiki/Music"
+        ]
+      },
+      "status": {
+        "privacyStatus": "public",
+        "isLinked": true,
+        "longUploadsStatus": "longUploadsUnspecified"
+      },
+      "brandingSettings": {
+        "channel": {
+          "title": "MF Doom - Topic"
+        },
+        "image": {
+          "bannerExternalUrl": "https://yt3.googleusercontent.com/n8B-GBvpuolp7_3VwQtKg5bVf-jTQEcLDXWRElWDxwoFe0eK2rjFBCpK03eqpP3yrVLNBaNtCw"
+        }
+      },
+      "contentOwnerDetails": {},
+      "localizations": {
+        "ne": {
+          "title": "MF Doom - विषय"
+        },
+        "bn": {
+          "title": "এমএফ ডুম - বিষয়"
+        },
+        "hy": {
+          "title": "MF Doom՝ թեմա",
+          "description": "Դանիել Դումիլեյ, առավել հայտնի է իր բեմական անունով MF DOOM կամ պարզապես DOOM, բրիտանացի-ամերիկացի ռեփեր և պրոդյուսեր։ Նշանավորվել է իր բարդ բառախաղով, նշանավոր մետաղական դիմակով և «գերչարագործ» բեմական կերպարով։ Դումիլեյը 2000-ականներին դարձավ անդերգրաունդ հիփ հոփի և ալտերնատիվ հիփ հոփի գլխավոր գործիչ։ Նրա մահից հետո Variety-ն նրան նկարագրեց որպես տեսարանի «ամենահայտնի, անկանխատեսելի և առեղծվածային կերպարներից մեկը»։\nԴումիլեյը ծնվել է Լոնդոնում և երիտասարդ տարիքում տեղափոխվել է Լոնգ Այլենդ, Նյու Յորք։ Նա իր կարիերան սկսել է 1988 թվականին որպես KMD տրիոյի անդամ՝ հանդես գալով որպես Zev Love X։ Մի ընդմիջումից հետո Դումիլեյը նորից հայտնվեց 1990-ականների վերջին։ Նա սկսեց ելույթ ունենալ միջոցառումների ժամանակ կրելով մետաղյա դիմակ։ Մետաղյա դիմակը նրան նմանացնում էր Marvel Comics-ի սուպերչարագործ Doctor Doom-ին, ով պատկերված է 1999 թվականի իր դեբյուտային Operation: Doomsday ալբոմի շապիկին։ Նա ստեղծեց MF DOOM-ի կերպարը և դրանից հետո հազվադեպ էր դիմակազերծված հանրային ելույթներ ունենում։\nԴումիլեյի ամենաբեղմնավոր ժամանակաշրջանում՝ 2000-ականների սկզբից մինչև կեսերը, նա թողարկեց հանրահայտ Mm..Food-ը, ինչպես նաև ալբոմներ, որոնք թողարկվեցին King Geedorah և Viktor Vaughn կեղծանուններով։"
+        },
+        "ru": {
+          "title": "MF Doom – тема",
+          "description": "Дэ́ниел Ду́милье — британский рэпер и продюсер, известный постоянным ношением маски, необычной манерой исполнения, а также текстами песен, в которых он отыгрывает роль злодея. Он использовал множество псевдонимов, среди которых MF DOOM, Viktor Vaughn, King Geedorah, Metal Face и Metal Fingers.\nДумилей начал свой творческий путь в 1988 году, основав с братом DJ Subroc группу KMD, в которой он принял участие под псевдонимом Zev Love X. В 1991 году группа выпустила альбом Mr.Hood, ставший достаточно популярным. В 1993 году DJ Subroc был сбит насмерть при попытке перехода автомагистрали. Несмотря на это, Дэниел продолжил работу над Black Bastards, вторым альбомом группы. В 1994 году, когда альбом был практически готов, лейбл Elektra решил прекратить сотрудничество с группой. Разозлившись на всю музыкальную индустрию, Думилей ушёл в тень.\nВ 1997 году он вернулся, но уже под псевдонимом MF DOOM и скрывая своё лицо под маской. В 1999 году он выпустил альбом Operation: Doomsday, ставший культовым в андерграунд-хип-хоп-сцене. В 2003 году он выпустил ещё несколько альбомов, среди которых Take Me to Your Leader под псевдонимом King Geedorah и Vaudeville Villain под псевдонимом Viktor Vaughn."
+        },
+        "es-US": {
+          "title": "MF DOOM: Tema"
+        },
+        "hr": {
+          "title": "MF DOOM – tema",
+          "description": "Daniel Dumile, poznatiji pod umjetničkim imenom MF Doom, bio je britansko-američki reper, tekstopisac i glazbeni producent. Bio je prepoznatljiv po svojoj \"igri riječima\", mističnom imidžu s metalnom maskom i likom \"superzlikovca\". Smatra se najistaknutijim umjetnikom alternativne i underground hip-hop scene tijekom 2000-ih godina. Poslije smrti, magazin Variety ga je nazvao \"najslavljenijom, najnepredvidljivijom i najenigmatičnijom figurom svoje scene\"."
+        },
+        "hi": {
+          "title": "एमएफ डूम - विषय"
+        },
+        "pa": {
+          "title": "ਵਿਸ਼ਾ - MF Doom"
+        },
+        "en-IN": {
+          "title": "MF Doom - Topic"
+        },
+        "eu": {
+          "title": "MF DOOM: gaia",
+          "description": "Daniel Dumile britainiar-amerikar raperoa, musikagilea eta disko ekoizlea izan zen. Londresen jaio zen. Bere ibilbidea 1988an hasi zen. Madlibekin lan egin zuen eta biek Madvillain izenez ezagutzen den bikotea egin zuten. Beraien Madvillainy diskoa ezaguna da.\nDumile 2020ko urriaren 31n hil zen, 49 urte zituela. Bere heriotza bi hilabete geroago, abenduaren 31n jakinarazi zuen emazteak."
+        },
+        "pt-PT": {
+          "title": "MF DOOM – Tópico"
+        },
+        "hu": {
+          "title": "MF DOOM - téma",
+          "description": "MF Doom, született Daniel Dumile brit hiphop zenész és rapper. Karrierje során számos álneve volt, leginkább az MF Doom nevén ismert, melyben az MF feltehetően Metal Face-t jelent, és DOOM akkor használja, ha nem csak rappel, hanem a zenét is ő készíti. Több kollaboratív projektben jelent meg, úgymint a Danger Doom, a Madvillain vagy a JJ DOOM Jneiro Jarel-el."
+        },
+        "sk": {
+          "title": "MF DOOM – téma"
+        },
+        "ta": {
+          "title": "MF Doom - தலைப்பு"
+        },
+        "lo": {
+          "title": "MF Doom - ຫົວ\u200bຂໍ້"
+        },
+        "sq": {
+          "title": "MF Doom - Tema"
+        },
+        "ja": {
+          "title": "エム・エフ・ドゥーム - トピック"
+        },
+        "km": {
+          "title": "MF Doom - ប្រធាន\u200bបទ"
+        },
+        "af": {
+          "title": "MF Doom - Onderwerp"
+        },
+        "es": {
+          "title": "MF DOOM - Tema",
+          "description": "Daniel Dumile\u200b, conocido por su nombre artístico MF DOOM o simplemente DOOM, fue un rapero, compositor y productor discográfico británico–estadounidense.\nEs reconocido por sus intrincados juegos de palabras, su característica máscara, y por su personaje de escenario como “supervillano”, Dumile se convirtió en un icono en la música Underground hip hop y del rap alternativo en la década de los 2000.\u200b\u200b Luego de su fallecimiento, la revista Variety lo describió como una de las “figuras más enigmáticas, impredecibles y celebradas” de su género.\u200b\nNacido en Londres, Dumile se mudó a Long Island, Nueva York a una edad temprana. Dumile comenzó su carrera musical en 1988 siendo miembro de KMD, bajo el nombre de Zev Love X. El grupo se disolvió en 1993 luego de la muerte de Dingilizwe Dumile, hermano de Dumile. Luego de un descanso, Dumile resurgió a finales de la década de los 90, comenzó a participar en eventos de micrófono abierto usando una máscara metálica similar a la usada por el supervillano de Marvel Comics, Doctor Doom, personaje que fue usado en la portada de su primer álbum, Operation: Doomsday. Dumile adoptó el personaje de MF DOOM y rara vez aparecía en escena sin su máscara."
+        },
+        "ur": {
+          "title": "MF Doom - موضوع"
+        },
+        "et": {
+          "title": "MF DOOM – teema"
+        },
+        "iw": {
+          "title": "אם אף דום – נושא",
+          "description": "דניאל דומליי, היה ידוע גם תחת שמות הבמה: אם אף דום, זאב לאב איקס, ויקטור ואן, קינג גידורה, היה ראפר ומפיק מוזיקלי בריטי-אמריקאי. דום היה מוכר בסגנון כתיבת השירים הייחודי שלו, ובכך שהוא גילם זהות כפולה של ראפר ושל \"דמות נבל\". דום שיתף פעולה במספר פרויקטים, כמו: דיינג'ר דום, ג'יי ג'יי דום ומאדוילן."
+        },
+        "sr": {
+          "title": "MF DOOM – тема",
+          "description": "Данијел Думилеј био је британско-амерички репер, текстописац и музички продуцент, познат по уметничким именом MF Doom. Био је највише познат по својој уметничкој персони супер-зликовца и по свом препознатљивом стилу и лирикама пуних рима и хумора.\nБио је препознатљив по својој јединственој маски, слична маски Доктор Дума из Марвел универзума. Често се могла видети илустрована на његовим пројектима као што је то случај на омоту албума Операција: Судњи дан, издатог 1999. године.\nБио је веома познат у ундергроунд хип-хоп сцени, током времена је заслужио опис „омиљени репер вашег омиљеног репера”. Утицао је на рад и дискографију и модерних музичара из света хип-хопа."
+        },
+        "fi": {
+          "title": "MF DOOM – aihekanava",
+          "description": "MF DOOM oli Yhdysvalloissa New Yorkin Long Islandilla varttunut hiphop-artisti. Hän esiintyi uransa aikana useilla muillakin taiteilijanimillä, joista tunnetuimpia ovat Viktor Vaughn, King Geedorah ja Supervillain. Sooloalbumiensa lisäksi hän teki yhteisalbumeita muun muassa Danger Mousen ja Madlibin kanssa. Hän toimi sekä MC:nä että tuottajana, ja teki myös instrumentaali-hiphopia. Hän oli yksi underground-hiphopin tunnetuimpia artisteja.\nDumile käytti taiteilijanimellään esiintyessään aina naamiota. Hänen alter egonsa pohjautui Marvelin sarjakuvakonnaan Tohtori Doomiin. Hänen yksityiselämästään tiedetään varsin vähän, mutta vuonna 2006 hän kertoi MySpace-sivullaan olevansa naimisissa ja kahden lapsen isä. Vaikka brittiläissyntyinen Dumile asuikin lähes koko elämänsä Yhdysvalloissa, hän päätti pysyä Ison-Britannian kansalaisena.\nDumile kuului aikaisemmin hiphop-yhtye KMD:hen, joka hajosi vuonna 1993 hänen bänditoveri-veljensä kuoltua auto-onnettomuudessa. Onnettomuuden jälkeen Dumile vetäytyi musiikkibisneksestä vuosiksi, palaten vuonna 1999 uudella taiteilijanimellään sooloalbumilla Operation Doomsday.\nMF DOOM kuoli 31. lokakuuta 2020 Leedsissä, Englannissa ollessaan 49-vuotias."
+        },
+        "da": {
+          "title": "MF DOOM - Emne",
+          "description": "Daniel Dumile, bedre kendt under kunstnernavnet MF Doom, var en britisk-amerikansk rapper og producer. Han var især kendt for at bære en metalmaske under optrædener i offentligheden, samt for sin unikke måde at rappe på, hvor især rim og flow havde stor betydning. Han havde som følge af masken et relativt ukendt ansigt blandt den brede befolkning. Masken var stærkt inspireret af Marvel Comics tegneserie-skurken Doctor Doom."
+        },
+        "zh-TW": {
+          "title": "MF Doom - 主題",
+          "description": "丹尼爾·杜默萊，以藝名MF DOOM或簡稱Doom被大眾熟知，是一位英國裔美國人的饒舌歌手、詞曲作者及唱片製作人。杜默萊以其艱澀複雜的雙關語，標誌性的金屬面具及超級反派的表演形象聞名，為2000年代地下嘻哈與另類嘻哈的代表人物。在其去世後，《綜藝》將其形容為「最著名、最難預測、且最神秘的人物」之一。\n杜默萊出生於英國倫敦，於年輕時搬至長島。並於1988年作為三人饒舌團體KMD中的成員開始其職業生涯，並以藝名Zev Love X的身分表演。該團體於1993年因DJ Subroc的去世而解散。在短暫的沉寂後，杜默萊於1990年代末期再次活躍並開始於開放麥活動中表演，戴著類似於漫威漫畫中超級反派毀滅博士的金屬面具。毀滅博士的形象亦出現於其首張個人專輯《Operation: Doomsday》的封面上。杜默萊自此開始採用MF Doom的表演形象，此後很少在沒有面具的情況下公開露面。\n在杜默萊作品最豐富之時期，即2000年代初期至中期，他以 MF Doom 的名義發行了廣受好評的專輯《MM...Food》，同時亦以King Geedorah與Viktor Vaughn的藝名發行專輯。在2004年與饒舌製作人Madlib以嘻哈雙人組合Madvillain的名義錄製了專輯《Madvillainy》，該專輯被認為是杜默萊的代表作，專輯中Madlib獨特的取樣技巧與杜默萊對於雙關語與多種押韻技巧的運用，使《Madvillainy》亦被廣泛稱為饒舌音樂中里程碑式的專輯。 繼《Madvillainy》後，杜默萊亦以藝名Danger Doom與製作人Danger Mouse發行了另一廣受好評的合作專輯《The Mouse and the Mask》。\n即使杜默萊一生大部分時間都生活在美國，他卻從未取得美國公民身分。2010年，杜默萊在結束了第六張亦是最後一張個人專輯《Born Like This》的國際巡演回來後被拒絕入境，因此他選擇移居倫敦。在生命的最後幾年，他主要與其他藝術家合作。"
+        },
+        "de": {
+          "title": "MF DOOM – Thema",
+          "description": "MF Doom Eigenschreibweise MF DOOM, bürgerlich Daniel Dumile, war ein britischer Rapper. Er trat unter vielen verschiedenen Alter Egos in Erscheinung. Sein Markenzeichen war seine metallene Gesichtsmaske. Das Kürzel „MF“ kann wahlweise für „Metal Face“, „Metal Fingers“, „Multi Faced“, „Mic Fiend“ oder auch, wie bei seinem ehemals engen Freund MF Grimm, für „Mad Flows“ stehen.\nKurz nach seiner Geburt wanderte seine Familie in die USA aus. Er lebte die meiste Zeit seines Lebens in Long Island, New York, erlangte allerdings nie die US-amerikanische Staatsangehörigkeit. 2010 wurde ihm die Wiedereinreise nach einer Europa-Tournee verweigert. Bis zu seinem Tod lebte er daher in England. 2020 starb er im Alter von 49 Jahren an den Nebenwirkungen der Einnahme eines Blutdruckmedikaments."
+        },
+        "cs": {
+          "title": "MF DOOM – téma",
+          "description": "Daniel Dumile, známý také jako MF DOOM nebo jednoduše DOOM, byl britsko-americký rapper a producent. Díky svým složitým slovním hříčkám, charakteristické kovové masce a „superpadoušské“ personě se Dumile stal významnou postavou undergroundového a alternativního hip hopu na počátku 21. století. Po jeho smrti ho časopis Variety popsal jako jednu z „nejvlivnějších, nejnepředvídatelnějších a nejzáhadnějších postav“ v hudebním světě.\nDumile se narodil v Londýně a v mladém věku se přestěhoval do Long Islandu v New Yorku. Svoji kariéru začal v roce 1988 jako člen tria KMD, kde vystupoval pod jménem Zev Love X. Skupina se rozpadla v roce 1993 po smrti člena DJ Subroca, Dumileho bratra. Po přestávce se Dumile znovu objevil koncem 90. let. Začal vystupovat na open mic akcích s kovovou maskou připomínající masku superpadoucha Doctora Dooma z Marvel Comics, který je zobrazen na obalu jeho debutového sólového alba „Operation: Doomsday“ z roku 1999. Přijal personu MF Doom a poté zřídka vystupoval na veřejnosti bez masky.\nBěhem Dumileho nejplodnějšího období, na začátku 21. století, vydal oceňované album Mm..Food jako MF Doom, stejně jako alba vydaná pod pseudonymy King Geedorah a Viktor Vaughn."
+        },
+        "bs": {
+          "title": "MF DOOM - tema"
+        },
+        "as": {
+          "title": "MF DOOM - বিষয়বস্তু"
+        },
+        "my": {
+          "title": "MF Doom - ခေါင်းစဉ်"
+        },
+        "sl": {
+          "title": "MF DOOM – tema"
+        },
+        "it": {
+          "title": "MF DOOM (tema)",
+          "description": "MF Doom, pseudonimo di Daniel Dumile, è stato un rapper e produttore discografico britannico.\nNato in Inghilterra, si trasferì in tenera età con la famiglia a Long Island, New York. Qui cominciò la sua carriera musicale sotto il nome di Zev Love X, formando insieme al fratello il gruppo KMD. Dopo un periodo di inattività, tornò sulla scena con il suo primo album da solista, Operation: Doomsday, con il quale si presentò ufficialmente come MF DOOM, il suo alter ego in stile supervillain, con l'iconica maschera che è diventata il tratto distintivo dell'artista. Il suo periodo d'oro arrivò nel 2004, quando pubblicò i suoi due progetti più acclamati, gli album MM..Food e Madvillainy. Quest'ultimo è il frutto della collaborazione con il produttore californiano Madlib, con cui forma il duo Madvillain, ed è ritenuto uno dei migliori album hip hop di sempre. Nello stesso periodo pubblica musica sotto diversi pseudonimi, come King Geedorah, Viktor Vaughn e Danger Doom, e più recentemente come DOOM, prima di essere costretto a rientrare in patria."
+        },
+        "id": {
+          "title": "MF DOOM - Topik",
+          "description": "Daniel Dumile, juga dikenal dengan nama panggungnya MF Doom atau hanya Doom keduanya sebagian besar ditulis dengan huruf kapital semua, adalah rapper, penulis lagu, dan produser rekaman Britania Raya keturunan Amerika Serikat. Terkenal karena permainan kata-kata yang rumit, topeng logam khasnya, dan persona panggung \"adidurjana\", ia menjadi tokoh utama hip hop underground dan hip hop alternatif pada tahun 2000-an.\nDumile lahir di London dan dibesarkan di Long Beach, New York. Ia memulai kariernya pada tahun 1988 asebagai anggota trio KMD, tampil sebagai Zev Love X. Grup tersebut bubar pada tahun 1993 setelah kematian adik laki-lakinya DJ Subroc. Setelah hiatus, Dumile muncul kembali pada akhir tahun 1990-an. Ia mulai tampil di acara open mic sambil memakai topeng logam yang menyerupai topeng penjahat super Marvel Comics Doctor Doom, yang digambarkan di sampul album solo debutnya tahun 1999 Operation: Doomsday. Ia mengadopsi persona MF Doom dan jarang tampil di depan umum tanpa topeng setelah itu.\nSelama periode paling produktif Dumile, awal hingga pertengahan tahun 2000-an, ia merilis album terkenal sebagai Mm.."
+        },
+        "be": {
+          "title": "MF Doom - тэма"
+        },
+        "pl": {
+          "title": "MF DOOM – temat",
+          "description": "MF Doom, także: Viktor Vaughn, King Geedorah i Metal Fingers właśc. Daniel Dumile – brytyjsko-amerykański artysta hip-hopowy pochodzenia trynidadzko-zimbabwejskiego. Na jego lirykę ogromny wpływ wywarły amerykańskie komiksy."
+        },
+        "en-GB": {
+          "title": "MF Doom - Topic"
+        },
+        "zh-HK": {
+          "title": "MF Doom - 主題"
+        },
+        "th": {
+          "title": "MF DOOM - หัวข้อ"
+        },
+        "is": {
+          "title": "MF Doom – Efni",
+          "description": "Daniel Dumile, einnig þekktur undir sviðsnafninu MF Doom eða einfaldlega Doom, var breskur-bandarískur rappari og tónlistarmaður."
+        },
+        "fr": {
+          "title": "MF DOOM",
+          "description": "MF DOOM, de son vrai nom Daniel Dumile, né le 13 juillet 1971 à Londres et mort le 31 octobre 2020 à Leeds, est un rappeur et producteur musical britannique, principalement actif au sein de la scène hip-hop de New York. Il a la particularité d'avoir utilisé plusieurs noms de scène dans sa carrière comme MF DOOM, en référence au personnage de comics docteur Doom, Zev Love X, King Geedorah, Metal Fingers, Viktor Vaughn ou encore DOOM.\nDumile parlait souvent de lui-même à la troisième personne, ce que Docteur Fatalis était également connu pour faire."
+        },
+        "ro": {
+          "title": "MF DOOM - Subiect"
+        },
+        "am": {
+          "title": "MF Doom - ርዕስ"
+        },
+        "no": {
+          "title": "MF DOOM – emne",
+          "description": "Daniel Dumile, bedre kjent som MF Doom, var en britisk-amerikansk rapper. Han er også kjent under artistnavnene Zev Love X, King Geedorah, Viktor Vaughn og Metal Fingers.\nHan gav ut mange album, de fleste av dem ble godt mottatt blant anmeldere, blant annet Operation: Doomsday, Vaudeville Villain, Take Me To Your Leader og Madvillainy. Det sistnevnte lagde MF Doom sammen med produsenten Madlib; duoen kalte seg Madvillain. Det har fått både kult- og klassikerstatus.\nPå starten av 1990-tallet var Dumile med i rapgruppa KMD, da under navnet Zev Love X."
+        },
+        "en": {
+          "title": "MF Doom - Topic",
+          "description": "Daniel Dumile, also known by his stage name MF Doom or simply Doom, was a British and American rapper, songwriter, and record producer. Noted for his intricate wordplay, signature metal mask, and \"supervillain\" stage persona, he became a major figure of underground hip hop and alternative hip hop in the 2000s, and has been widely regarded as one of the greatest and most influential lyricists in underground rap.\nDumile was born in London and raised in Long Beach, New York. He began his career in 1988 as a member of the trio KMD, performing as Zev Love X. The group disbanded in 1993 after the death of his brother DJ Subroc. After a hiatus, Dumile reemerged in the late 1990s. He began performing at open mic events while wearing a metal mask resembling that of the Marvel Comics supervillain Doctor Doom, who is depicted on the cover of his 1999 debut solo album Operation: Doomsday. He adopted the MF Doom persona and rarely made unmasked public appearances thereafter.\nDuring Dumile's most prolific period, the early to mid-2000s, he released the acclaimed Mm..Food as MF Doom, as well as albums released under the pseudonyms King Geedorah and Viktor Vaughn."
+        },
+        "fil": {
+          "title": "MF DOOM - Paksa"
+        },
+        "nl": {
+          "title": "MF DOOM - Onderwerp",
+          "description": "Daniel Dumile was een Brits-Amerikaans hiphopartiest die gedurende zijn carrière verscheidene artiestennamen gebruikt heeft, waarvan MF DOOM het bekendst is."
+        },
+        "fa": {
+          "title": "MF DOOM - عنوان",
+          "description": "دانیل دومیله که با نام هنری «ام\u200cاف دوم» شناخته می\u200cشود، هنرمند انگلیسی-آمریکایی هیپ هاپ بود. او موزیک\u200cهایش را با چندین نام مستعار اجرا کرد که مهم\u200cترین آن\u200cها همین لقب «ام\u200cاف دوم» بود. دومیله در اواخر دهه ۱۹۸۰ و در عصر طلایی هیپ هاپ شروع به کار کرد و در اوایل قرن ۲۱ با آن استایل کمیک\u200cبوکی خود و سبک خاصش در بازی با کلمات، تبدیل به چهرهٔ اصلی هیپ هاپ زیرزمینی تبدیل شد. پس از مرگ، ورایتی وی را «یکی از چهره\u200cهای مشهور، غیرقابل پیش\u200cبینی و معمایی در هیپ هاپ مستقل» خواند."
+        },
+        "bg": {
+          "title": "MF DOOM – Тема",
+          "description": "Даниъл Ду̀миле, по-известен с псевдонима си MF DOOM, е английски хип-хоп артист и музикален продуцент."
+        },
+        "sr-Latn": {
+          "title": "MF DOOM – tema"
+        },
+        "mn": {
+          "title": "MF Doom - Сэдэв",
+          "description": "Дүмилэ Дэниел, бас MF Doom эсвэл Doom гэх тайзны нэрээр нь алдаршсан, Британи ба Америкийн рэппер, дуу зохиогч, продюсер байсан. Нарийн бүтэцтэй үгсийн хэллэг чадвар, өөрийнх нь төмөр баг, тайзан дээрх \"supervillain\" дүрээрээ алдартай, тэрээр 2000-аад оны үед газар доорх рэп үйлдвэрлэл болон альтернатив хип хоп хөгжмийн нэрд гарсан хүн болсон юм.\nДүмилэ Лондонд төрж, Long Beach, New York хотод өссөн. Тэрээр 1988 онд Zev Love X дүрээр KMD гурвалын гишүүн болж уран бүтээлийн гараагаа эхэлсэн. Хамтлаг 1993 онд Дүмилийн ах DJ Subroc нас барсны дараа тарсан. 1990-ээд оны сүүлээр Дүмилэ хэсэг завсарласны дараа дахин гарч ирэв. Тэрээр 1999 онд гаргасан Operation: Doomsday нэртэй анхны бие даасан цомгийнхоо нүүрэн дээр дүрслэгдсэн Marvel Comics- ийн супер хорон санаат Doctor Doom-той төстэй металл маск зүүж байхдаа нээлттэй үйл ажилгаанд оролцож эхэлсэн. Тэрээр MF Doom-ийн дүрийг хүлээн авсан бөгөөд дараа нь олны өмнө нүүрээ нуулгүй гарах нь ховор байв.\nДүмилийн хамгийн үр бүтээлтэй үе буюу 2000-аад оны эхэн үеэс дунд үе хүртэл тэрээр алдартай Mm..Food-г MF Doom нэрээр, мөн Кинг Гидора, Виктор Вон гэсэн зохиомол нэрээр цомгийг гаргасан."
+        },
+        "az": {
+          "title": "MF Doom - Mövzu"
+        },
+        "kn": {
+          "title": "MF Doom - ವಿಷಯ"
+        },
+        "pt": {
+          "title": "MF DOOM - Tema",
+          "description": "Daniel Dumile, mais conhecido como MF DOOM, foi um rapper e produtor inglês influente na cena do hip hop dos anos 2000. Começou a carreira como Zev Love X no KMD e após a morte de seu irmão, voltou para o mundo do rap como MF DOOM. Caracterizou-se por usar uma máscara semelhante ao do personagem Doutor Destino, da Marvel Comics. Posteriormente, a Marvel exerce mais influências na carreira musical de Daniel Dumile, como nos alter egos Viktor Vaughn e King Geedorah. Com o tempo, a máscara que o rapper veste passa a adotar maiores semelhanças ao que o personagem Maximus usa no filme Gladiador, do diretor Ridley Scott. Seu pseudônimo, MF DOOM, possui dois significados distintos ligados aos seus talentos como rapper e como produtor, sendo assim Metal Face no microfone e Metal Fingers como DJ. Além de diversos álbuns solo, DOOM já colaborou com vários artistas e trabalhou em diversos grupos e duplas musicais. Dentre suas colaborações mais conhecidas e influentes está o álbum Madvillainy, lançado em conjunto com o produtor Madlib sob a alcunha Madvillain."
+        },
+        "sw": {
+          "title": "MF Doom - Mada"
+        },
+        "tr": {
+          "title": "MF DOOM - Konu",
+          "description": "Daniel Dumile veya en bilinen sahne adıyla MF DOOM, Londra doğumlu İngiliz-Amerikalı rap müzik sanatçısıydı. Sahne adındaki \"MF\", \"Metal Face\" ve \"Metal Fingers\" söz öbeklerinin baş harflerinden oluşan bir kısaltmadır.\nDoom, underground hip hop dünyasında oldukça saygın bir yere sahiptir. Özellikle prodüksiyon alanındaki çalışmaları ve hazırladığı kompleks lirikleri ustaca kullanabilme yeteneğiyle ün salmış isimdir. Kendisi ayrıca Danger Mouse ile birlikte Danger Doom ve Madlib ile birlikte de Madvillain isimli projelerde yer almıştır."
+        },
+        "sv": {
+          "title": "MF DOOM – Ämne",
+          "description": "Daniel Dumile, född 13 juli 1971 i London i Storbritannien, död 31 oktober 2020, var en amerikansk rappare och hiphopproducent som var känd under ett flertal artistnamn som han använt under sin karriär: Först Zev Love X, men mest känd var han under namnet MF Doom. I sidoprojekt har han kallat sig bland annat King Geedorah, Metal Fingers och Viktor Vaughn."
+        },
+        "ca": {
+          "title": "MF DOOM - Tema",
+          "description": "Daniel Dumile va ser un MC i productor musical britànic-estatunidenc conegut per molts sobrenoms entre els quals els més coneguts són MF DOOM o simplement DOOM. Destacà pel seu complicat joc de paraules, la seva màscara de metall i el personatge escènic \"supervillà\". Dumile es va convertir en una figura important del hip hop underground als anys 2000. Després de la seva mort, Variety el va descriure com una de les \"figures més celebrades, imprevisibles i enigmàtiques\" de l'escena.\nNascut a Londres, Dumile es va mudar a Long Island, Nova York, de ben jove. Va començar la seva carrera el 1988 com a membre de KMD, actuant amb el nom de Zev Love X. El grup es va dissoldre el 1993 arran la mort del membre DJ Subroc, el germà de Dumile. Després d'un parèntesi, Dumile va tornar a aparèixer a finals dels anys noranta, actuant en esdeveniments de micròfon obert mentre portava una màscara de metall que s'assembla a la del supervillà Doctor Doom de Marvel Comics, que es representa a la portada del seu àlbum debut de 1999 Operation: Doomsday. Va adoptar la personalitat de MF Doom i rarament va fer aparicions públiques sense màscara després."
+        },
+        "ko": {
+          "title": "엠에프 둠 - 주제",
+          "description": "대니얼 두멀레이은 MF DOOM 혹은 간단히 DOOM이라는 가명으로 활동하였던 영국 출생의 미국 래퍼이자 음악 프로듀서이다. 가사에 드러난 난해한 언어 유희나, 시그니처인 마스크, 그리고 \"슈퍼빌런\"이라는 무대의 페르소나로 널리 알려져 있는 두멀레이는 2000년대 언더그라운드 힙합과 얼터너티브 힙합에서 빼놓을 수 없는 주요 인물이다. 두멀레이가 사망한 후 버라이어티는 \"가장 유명하고, 예측할 수 없으며, 수수께끼 같은 인물\"이라고 표현하였다.\n런던에서 태어난 두멀레이는 어린 시절에 뉴욕의 롱아일랜드로 이사를 왔다. 1988년 힙합 트리오 KMD의 멤버로 들어가 제브 러브 X라는 활동명으로 공연을 하며 음악 경력을 시작하였다. KMD는 멤버이자 두멀레이의 동생인 DJ 서브록이 사망한 1993년에 해체되었다. 활동 중단 이후, 두멀레이는 1990년대 말 오픈 마이크 이벤트에서 공연을 시작하며 다시 모습을 드러냈다. 당시 두멀레이는 마블 코믹스의 슈퍼빌런 닥터 둠의 금속 마스크를 착용하고 활동하였으며, 이후 1999년에 발매한 첫 솔로 음반 “Operation: Doomsday”의 표지에도 이가 표현되었다. 그 후 두멀레이는 MF DOOM이라는 페르소나를 이용하며, 마스크를 쓰지 않았을 때는 대중 앞에 모습을 거의 드러내지 않았다.\n2003년부터 2005년까지, 두멀레이는 네 장의 솔로 음반과 세 장의 컬래버레이션 음반을 발매하였다. 추가로 평단으로부터 극찬을 받은 2004년 작 “Mm..Food”를 MF DOOM이라는 이름으로 냈으며, 그 외 두 장은 빅터 본, 한 장은 킹 기도라라는 이름으로 음반을 냈다. 프로듀서 매들립과 협업하여 매드빌런이라는 이름으로 2004년에 발표한 “Madvillainy”는 두멀레이의 작품 중 최고의 걸작이자 힙합 역사상 가장 획기적인 음반 중 하나로 꼽힌다. 이듬해에는 데인저 마우스와 함께 데인저 둠이라는 듀오를 결성하여 “The Mouse and the Mask”를 발매하였다.\n두멀레이는 생전 미국에서 가장 오랜 시간을 보냈지만, 미국 시민권을 한 번도 취득하지 않았다. 결국 2010년, 전해에 발매한 여섯 번째이자 마지막 정규 음반 “Born Like This”의 세계 투어 후 입국 거부를 당하였다."
+        },
+        "or": {
+          "title": "MF Doom - ବିଷୟ"
+        },
+        "ml": {
+          "title": "MF Doom - വിഷയം"
+        },
+        "zh-CN": {
+          "title": "M·F·杜姆 - 主题"
+        },
+        "mr": {
+          "title": "एमएफ डूम - विषय"
+        },
+        "ky": {
+          "title": "MF Doom - Тема"
+        },
+        "zu": {
+          "title": "MF Doom - Isihloko"
+        },
+        "fr-CA": {
+          "title": "MF DOOM – Sujet"
+        },
+        "es-419": {
+          "title": "MF DOOM: Tema"
+        },
+        "si": {
+          "title": "MF Doom - මාතෘකාව"
+        },
+        "ka": {
+          "title": "MF Doom — თემა"
+        },
+        "gu": {
+          "title": "MF DOOM - મુદ્દો"
+        },
+        "ar": {
+          "title": "الموضوع - إم إف دوم",
+          "description": "دانيل دوميل مغني هيبهوب ومسجل أغاني ومنتج بريطاني. يشتهر بأدائه شخصية «شرير خارق» على المسرح ويعرف بأسماء مسرحية عديدة ورئيسا منها أم أف دوم. وساهم في الكثير من المشاريع المشتركة مع عدة فنانين."
+        },
+        "gl": {
+          "title": "MF DOOM - Tema"
+        },
+        "vi": {
+          "title": "MF DOOM - Chủ đề"
+        },
+        "uk": {
+          "title": "MF Doom – тема",
+          "description": "Деніел Думілей — народжений в Англії американський репер і продюсер, відомий постійним носінням маски, незвичайною манерою виконання, а також текстами пісень, в яких він відіграє роль лиходія. Він використовував безліч сценічних імен, серед яких MF DOOM, Viktor Vaughn, King Geedorah, Metal Face і Metal Fingers.\nДумілей почав свій творчий шлях у 1988 році, заснувавши з братом DJ Subroc гурт KMD, в якій він взяв участь під псевдонімом Zev Love X. 1991 року гурт випустив альбом Mr. Hood, що став досить популярним. 1993 року DJ Subroc був збитий на смерть при спробі переходу автомагістралі. Попри це, Деніел продовжив роботу над Black Bastards, другим альбомом гурту. В 1994 році, коли альбом був практично готовий, лейбл Elektra вирішив припинити співпрацю з колективом. Розсердившись на всю музичну індустрію, Думілей пішов у тінь.\nВ 1997 році він повернувся, але вже під псевдонімом MF Doom і приховуючи своє обличчя під маскою. 1999 року він випустив альбом Operation: Doomsday, що став культовим на андерграунд хіп-хоп сцені. 2003 року він випустив ще кілька альбомів, серед яких Take Me to Your Leader під псевдонімом King Geedorah і Vaudeville Villain під псевдонімом Viktor Vaughn."
+        },
+        "lv": {
+          "title": "MF DOOM – tēma"
+        },
+        "mk": {
+          "title": "Тема - MF DOOM"
+        },
+        "kk": {
+          "title": "MF Doom - Тақырып"
+        },
+        "ms": {
+          "title": "MF DOOM - Topik",
+          "description": "Daniel Dumile, atau dikenali sebagai namanya MF Doom atau Doom, adalah rapper dan rekod producer British-Amerika. Terkenal dengan permainan kata yang rumit, topeng logam khas, dan persona pentasnya \"supervillain \", Dumile menjadi tokoh utama underground hip hop pada tahun 2000-an. Selepas kematian beliau, Variety menggambarkannya sebagai salah satu \"tokoh yang paling terkenal, tidak dapat diramalkan dan penuh teka-teki\".\nPada tahun 2003 hingga 2005, Dumile mengeluarkan empat album solo dan tiga album kolaboratif. Sebagai tambahan kepada Mm.. Food di bawah moniker MF Doom, dia merilis album solo termasuk satu dengan nama samaran King Geedorah dan dua sebagai Viktor Vaughn. Madvillainy, dirakam dengan producer Madlib dengan nama Madvillain, sering disebut sebagai magnum opus Dumile dan dianggap sebagai album mercu tanda dalam dunia hip hop. Pada tahun 2005, Dumile melancarkan The Mouse and the Mask bersama producer Danger Mouse dan saluran televisyen Adult Swim sebagai Danger Doom.\nWalaupun dia menjalani sebahagian besar hidupnya berhijrah di Amerika Syarikat, Dumile tidak pernah mempunyai kewarganegaraan Amerika."
+        },
+        "lt": {
+          "title": "MF DOOM – tema"
+        },
+        "te": {
+          "title": "MF Doom - అంశం"
+        },
+        "el": {
+          "title": "MF Doom - Θέμα"
+        },
+        "uz": {
+          "title": "Mavzu – MF Doom"
+        },
+        "zh": {
+          "description": "丹尼尔·杜默莱，以艺名MF DOOM或简称Doom被大众熟知，是一位英国裔美国人的饶舌歌手、词曲作者及唱片制作人。杜默莱以其艰涩复杂的双关语，标志性的金属面具及超级反派的表演形象闻名，为2000年代地下嘻哈与另类嘻哈的代表人物。在其去世后，《综艺》将其形容为“最著名、最难预测、且最神秘的人物”之一。\n杜默莱出生于英国伦敦，于年轻时搬至长岛。并于1988年作为三人饶舌团体KMD中的成员开始其职业生涯，并以艺名Zev Love X的身份表演。该团体于1993年因DJ Subroc的去世而解散。在短暂的沉寂后，杜默莱于1990年代末期再次活跃并开始于开放麦活动中表演，戴着类似于漫威漫画中超级反派毁灭博士的金属面具。毁灭博士的形象亦出现于其首张个人专辑《Operation: Doomsday》的封面上。杜默莱自此开始采用MF Doom的表演形象，此后很少在没有面具的情况下公开露面。\n在杜默莱作品最丰富之时期，即2000年代初期至中期，他以MF Doom 的名义发行了广受好评的专辑《MM...Food》，同时亦以King Geedorah与Viktor Vaughn的艺名发行专辑。在2004年与饶舌制作人Madlib以嘻哈双人组合Madvillain的名义录制了专辑《Madvillainy》，该专辑被认为是杜默莱的代表作，专辑中Madlib独特的取样技巧与杜默莱对于双关语与多种押韵技巧的运用，使《Madvillainy》亦被广泛称为饶舌音乐中里程碑式的专辑。 继《Madvillainy》后，杜默莱亦以艺名Danger Doom与制作人Danger Mouse发行了另一广受好评的合作专辑《The Mouse and the Mask》。\n即使杜默莱一生大部分时间都生活在美国，他却从未取得美国公民身份。2010年，杜默莱在结束了第六张亦是最后一张个人专辑《Born Like This》的国际巡演回来后被拒绝入境，因此他选择移居伦敦。在生命的最后几年，他主要与其他艺术家合作。"
+        },
+        "pt-BR": {
+          "title": "MF DOOM - Tema"
+        }
+      }
+    }
+  ]
+}

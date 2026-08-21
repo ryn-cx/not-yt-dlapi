@@ -12,7 +12,7 @@ know what an answer holds, so it belongs to neither of them.
 from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any
-from urllib.parse import parse_qs, urlsplit
+from urllib.parse import parse_qs, urlsplit, urlunsplit
 
 if TYPE_CHECKING:
     from collections.abc import Iterator
@@ -34,6 +34,21 @@ def find(node: Any, key: str) -> Iterator[Any]:  # noqa: ANN401 - Browse data is
     elif isinstance(node, list):
         for value in node:
             yield from find(value, key)
+
+
+# TODO: Validate
+def strip_url_parameters(url: str) -> str:
+    """Return a video thumbnail URL without the parameters that expire.
+
+    Browse signs a thumbnail with a crop and an expiry. A video thumbnail is
+    served without them as the full frame, so they are dropped. Any other image,
+    such as the cover a playlist is served from `i9.ytimg.com`, is only served
+    signed and is handed back as it came.
+    """
+    parts = urlsplit(url)
+    if not parts.path.startswith("/vi/"):
+        return url
+    return urlunsplit(parts._replace(query=""))
 
 
 # TODO: Validate

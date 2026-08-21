@@ -9,6 +9,7 @@ to inherit.
 
 from __future__ import annotations
 
+import json
 from inspect import Parameter, signature
 from typing import TYPE_CHECKING, Any
 
@@ -67,8 +68,8 @@ class BaseEndpoint:
     # TODO: Validate
     @staticmethod
     def split[ResponseT: BaseResponseModel](
-        load: Callable[[dict[str, Any]], ResponseT],
-        pages: Iterable[dict[str, Any]],
+        load: Callable[[str], ResponseT],
+        pages: Iterable[str],
     ) -> list[ResponseT]:
         """Put every item several requests answered with in a response of its own.
 
@@ -82,9 +83,14 @@ class BaseEndpoint:
         answers with was read the same way a `list` would have read it.
 
         Nothing found is no responses rather than one holding nothing.
+
+        A response holding one item is written out again for the model to read,
+        since a response is text now and there is no such text to hand: what one
+        of these carries on `raw` is a response nobody was ever served, which is
+        the same thing its paging tokens are.
         """
         return [
-            load({**raw, "items": [item]})
-            for raw in pages
-            for item in raw.get("items", ())
+            load(json.dumps({**page, "items": [item]}))
+            for page in map(json.loads, pages)
+            for item in page.get("items", ())
         ]

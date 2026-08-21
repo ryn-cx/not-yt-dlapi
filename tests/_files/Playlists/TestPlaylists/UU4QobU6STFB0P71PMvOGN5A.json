@@ -1,0 +1,311 @@
+{
+  "kind": "youtube#playlistListResponse",
+  "etag": "_L-PhdYXYomObWJPa9pqN3fXBLM",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#playlist",
+      "etag": "-Hgv1GxRbEA4UONl2_2d7J3aHB0",
+      "id": "UU4QobU6STFB0P71PMvOGN5A",
+      "snippet": {
+        "publishedAt": "2020-02-20T08:00:00Z",
+        "channelId": "UC4QobU6STFB0P71PMvOGN5A",
+        "title": "Uploads from jawed",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/jNQXAC9IVRw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/jNQXAC9IVRw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/jNQXAC9IVRw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "jawed",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Uploads from jawed",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 1
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=UU4QobU6STFB0P71PMvOGN5A\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      },
+      "localizations": {
+        "ca": {
+          "title": "Pujades de: jawed"
+        },
+        "lo": {
+          "title": "ການອັບໂຫຼດຈາກ jawed"
+        },
+        "ar-XB": {
+          "title": "\u200f\u202eUploads\u202c\u200f \u200f\u202efrom\u202c\u200f jawed"
+        },
+        "pt-PT": {
+          "title": "Carregamentos de jawed"
+        },
+        "as": {
+          "title": "jawedৰ পৰা আপল’ডসমূহ"
+        },
+        "ro": {
+          "title": "Încărcări de la jawed"
+        },
+        "iw": {
+          "title": "העלאות מ-jawed"
+        },
+        "fr-CA": {
+          "title": "Vidéos mises en ligne par jawed"
+        },
+        "de": {
+          "title": "Uploads von jawed"
+        },
+        "pt": {
+          "title": "Uploads de jawed"
+        },
+        "sv": {
+          "title": "Uppladdat från jawed"
+        },
+        "en": {
+          "title": "Uploads from jawed",
+          "description": ""
+        },
+        "zh-HK": {
+          "title": "由「jawed」上載"
+        },
+        "bn": {
+          "title": "jawed-এর আপলোড করা ভিডিও"
+        },
+        "am": {
+          "title": "ሰቀላዎች ከjawed"
+        },
+        "fa": {
+          "title": "بارگذاری\u200cهای jawed"
+        },
+        "ms": {
+          "title": "Muat naik daripada jawed"
+        },
+        "ml": {
+          "title": "jawed-ലെ അപ്\u200cലോഡുകൾ"
+        },
+        "is": {
+          "title": "Upphleðslur frá jawed"
+        },
+        "ur": {
+          "title": "jawed کی جانب سے اپ لوڈز"
+        },
+        "ar": {
+          "title": "فيديوهات محمّلة من قناة jawed"
+        },
+        "or": {
+          "title": "jawedରୁ ଅପ୍\u200d\u200dଲୋଡ୍\u200cଗୁଡ଼ିକ"
+        },
+        "sq": {
+          "title": "Ngarkime nga jawed"
+        },
+        "da": {
+          "title": "Uploads fra jawed"
+        },
+        "fr": {
+          "title": "Vidéos mises en ligne par jawed"
+        },
+        "mr": {
+          "title": "jawed वरील अपलोड"
+        },
+        "ka": {
+          "title": "ატვირთვები jawed-დან"
+        },
+        "lt": {
+          "title": "Turinys, kurį įkėlė jawed"
+        },
+        "vi": {
+          "title": "Video tải lên từ jawed"
+        },
+        "ja": {
+          "title": "jawed さんのアップロード動画"
+        },
+        "es-419": {
+          "title": "Cargas de jawed"
+        },
+        "id": {
+          "title": "Upload dari jawed"
+        },
+        "uz": {
+          "title": "jawed kanaliga yuklanganlar"
+        },
+        "sl": {
+          "title": "Naloženi videoposnetki iz kanala jawed"
+        },
+        "si": {
+          "title": "jawed වෙතින් උඩුගත කිරීම්"
+        },
+        "ne": {
+          "title": "jawed ले अपलोड गरेका"
+        },
+        "es": {
+          "title": "Vídeos subidos de jawed"
+        },
+        "no": {
+          "title": "Opplastinger fra jawed"
+        },
+        "cs": {
+          "title": "Nahráno z kanálu jawed"
+        },
+        "en-IN": {
+          "title": "Uploads from jawed"
+        },
+        "lv": {
+          "title": "Kanāla jawed augšupielādes"
+        },
+        "ko": {
+          "title": "jawed에서 업로드한 동영상"
+        },
+        "nl": {
+          "title": "Uploads van jawed"
+        },
+        "be": {
+          "title": "Запампоўкі з канала \"jawed\""
+        },
+        "my": {
+          "title": "jawed မှ အပ်လုဒ်များ"
+        },
+        "fil": {
+          "title": "Mga upload mula sa jawed"
+        },
+        "az": {
+          "title": "jawed kanalından yükləmələr"
+        },
+        "th": {
+          "title": "อัปโหลดจาก jawed"
+        },
+        "en-XA": {
+          "title": "[Ûþļöåðš ƒŕöm ᐅjawedᐊ one two three four]"
+        },
+        "tr": {
+          "title": "jawed kanalının yüklemeleri"
+        },
+        "zu": {
+          "title": "Okulayishiwe okuvela ku-jawed"
+        },
+        "sr-Latn": {
+          "title": "Videi otpremljeni sa jawed"
+        },
+        "el": {
+          "title": "Μεταφορτώσεις από jawed"
+        },
+        "et": {
+          "title": "Üleslaadimised kanalilt jawed"
+        },
+        "kk": {
+          "title": "jawed арнасынан жүктеп салынған бейнелер"
+        },
+        "ru": {
+          "title": "Видео с канала \"jawed\""
+        },
+        "bg": {
+          "title": "Качвания от jawed"
+        },
+        "gu": {
+          "title": "jawedમાંથી અપલોડ"
+        },
+        "hu": {
+          "title": "Feltöltések innen: jawed"
+        },
+        "ky": {
+          "title": "jawed каналынан жүктөлүп берилгендер"
+        },
+        "hr": {
+          "title": "Prijenosi kanala jawed"
+        },
+        "gl": {
+          "title": "Cargas de jawed"
+        },
+        "pl": {
+          "title": "Przesłane przez kanał jawed"
+        },
+        "fi": {
+          "title": "Videoita kanavalta jawed"
+        },
+        "bs": {
+          "title": "Otpremanja s kanala jawed"
+        },
+        "mn": {
+          "title": "jawed-с байршуулсан"
+        },
+        "uk": {
+          "title": "Завантаження з каналу \"jawed\""
+        },
+        "sw": {
+          "title": "Video zilizopakiwa kutoka jawed"
+        },
+        "it": {
+          "title": "Video caricati da jawed"
+        },
+        "eu": {
+          "title": "\"jawed\" kanalak kargatutakoak"
+        },
+        "te": {
+          "title": "jawed నుండి అప్\u200cలోడ్\u200cలు"
+        },
+        "af": {
+          "title": "Oplaaie vanaf jawed"
+        },
+        "zh-CN": {
+          "title": "来自“jawed”上传的内容"
+        },
+        "hi": {
+          "title": "jawed के अपलोड किए गए वीडियो"
+        },
+        "ta": {
+          "title": "jawed சேனல் பதிவேற்றியவை"
+        },
+        "en-GB": {
+          "title": "Uploads from jawed"
+        },
+        "sr": {
+          "title": "Видеи отпремљени са jawed"
+        },
+        "pa": {
+          "title": "jawed ਦੇ ਅੱਪਲੋਡ"
+        },
+        "km": {
+          "title": "ការង្ហោះ\u200bពី jawed"
+        },
+        "zh-TW": {
+          "title": "「jawed」上傳的影片"
+        },
+        "es-US": {
+          "title": "Cargas de jawed"
+        },
+        "hy": {
+          "title": "Վերբեռնումներ jawed-ից"
+        },
+        "mk": {
+          "title": "Прикачувања од jawed"
+        },
+        "sk": {
+          "title": "Nahrané videá z kanála jawed"
+        },
+        "kn": {
+          "title": "jawed ನಿಂದ ಅಪ್\u200cಲೋಡ್\u200cಗಳು"
+        }
+      }
+    }
+  ]
+}

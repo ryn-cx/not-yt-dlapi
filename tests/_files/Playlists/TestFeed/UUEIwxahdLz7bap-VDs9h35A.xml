@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?playlist_id=UUEIwxahdLz7bap-VDs9h35A"/>
+ <id>yt:playlist:UUEIwxahdLz7bap-VDs9h35A</id>
+ <yt:playlistId>UUEIwxahdLz7bap-VDs9h35A</yt:playlistId>
+ <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+ <title>Uploads from Steve Mould</title>
+ <author>
+  <name>Steve Mould</name>
+  <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+ </author>
+ <published>2020-02-23T08:00:00+00:00</published>
+ <entry>
+  <id>yt:video:ti2qiU_JTUQ</id>
+  <yt:videoId>ti2qiU_JTUQ</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>The Euler Disc Is The Wrong Shape</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=ti2qiU_JTUQ"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-08-01T15:57:07+00:00</published>
+  <updated>2026-08-15T22:30:14+00:00</updated>
+  <media:group>
+   <media:title>The Euler Disc Is The Wrong Shape</media:title>
+   <media:content url="https://www.youtube.com/v/ti2qiU_JTUQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/ti2qiU_JTUQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Get your own Singularity Disc here: https://metmo.co.uk/singularity
+
+Large discs like the Euler disc spin for a really long time but we discovered some optimisations to make it spin even longer.</media:description>
+   <media:community>
+    <media:starRating count="40946" average="5.00" min="1" max="5"/>
+    <media:statistics views="924545"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:1EyN9_QO4_A</id>
+  <yt:videoId>1EyN9_QO4_A</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>The Arm Spin That Stops a Fall</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=1EyN9_QO4_A"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-07-09T14:46:20+00:00</published>
+  <updated>2026-07-18T21:48:10+00:00</updated>
+  <media:group>
+   <media:title>The Arm Spin That Stops a Fall</media:title>
+   <media:content url="https://www.youtube.com/v/1EyN9_QO4_A?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/1EyN9_QO4_A/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Take your personal data back with Incogni! Use code SCIENCE at the link below and get 60% off an annual plan: https://incogni.com/science
+
+Humans use conservation of angular momentum to recover from an imbalance. Here's why.
+
+Thanks to Gareth Barnaby for his amazing robot. More about his work here: https://senmag-robotics.com
+
+You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="72072" average="5.00" min="1" max="5"/>
+    <media:statistics views="3955166"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:rm9pUwgf9SE</id>
+  <yt:videoId>rm9pUwgf9SE</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>Why clouds and foam are white</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/rm9pUwgf9SE"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-07-03T19:00:34+00:00</published>
+  <updated>2026-07-08T04:15:11+00:00</updated>
+  <media:group>
+   <media:title>Why clouds and foam are white</media:title>
+   <media:content url="https://www.youtube.com/v/rm9pUwgf9SE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/rm9pUwgf9SE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+just like these amazing people:
+
+Glenn Watson
+Peter Turner
+Joël van der Loo
+Matthew Cocke
+Mark Brouwer
+Deneb
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="17952" average="5.00" min="1" max="5"/>
+    <media:statistics views="319316"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:biCFghI9uKU</id>
+  <yt:videoId>biCFghI9uKU</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>The disappearing ink that isn’t ink</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/biCFghI9uKU"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-06-26T11:00:20+00:00</published>
+  <updated>2026-07-04T11:12:34+00:00</updated>
+  <media:group>
+   <media:title>The disappearing ink that isn’t ink</media:title>
+   <media:content url="https://www.youtube.com/v/biCFghI9uKU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/biCFghI9uKU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+just like these amazing people:
+
+Glenn Watson
+Peter Turner
+Joël van der Loo
+Matthew Cocke
+Mark Brouwer
+Deneb
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="6835" average="5.00" min="1" max="5"/>
+    <media:statistics views="153729"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:EP1mYq8hLIY</id>
+  <yt:videoId>EP1mYq8hLIY</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>The Anti Trampoline Effect</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=EP1mYq8hLIY"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-06-25T15:30:19+00:00</published>
+  <updated>2026-07-11T18:46:35+00:00</updated>
+  <media:group>
+   <media:title>The Anti Trampoline Effect</media:title>
+   <media:content url="https://www.youtube.com/v/EP1mYq8hLIY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/EP1mYq8hLIY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Click this link https://www.hensonshaving.com/stevemould and use the
+code stevemould to receive 100 free blades with the purchase of your AL13 razor
+
+When you combine a bouncy surface with a bouncy ball, you might kill the bounce! You have to tune their vibrations!
+
+Dr Andy Wright at the University of St Andrews contacted me after watching the atomic trampoline video (https://youtu.be/QpuCtzdvix4) because some of the questions I had in the video had been answered by a couple of final year projects he had run (completed by undergraduates Connor Richardson and Sam Edwards). They found they could tune their model of a golf ball and club to give a perfect bounce or a rubbish bounce. Andy kindly shared the simulation code from these projects, and my animations were built animations on top of that.
+
+The simulation software is here: https://stevemould.com/bounce
+
+You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="47447" average="5.00" min="1" max="5"/>
+    <media:statistics views="2383559"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:4cUX0jJC3HY</id>
+  <yt:videoId>4cUX0jJC3HY</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>What chilli is actually doing to you...</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/4cUX0jJC3HY"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-06-19T11:30:12+00:00</published>
+  <updated>2026-06-26T01:54:18+00:00</updated>
+  <media:group>
+   <media:title>What chilli is actually doing to you...</media:title>
+   <media:content url="https://www.youtube.com/v/4cUX0jJC3HY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/4cUX0jJC3HY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+just like these amazing people:
+
+Glenn Watson
+Peter Turner
+Joël van der Loo
+Matthew Cocke
+Mark Brouwer
+Deneb
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="8830" average="5.00" min="1" max="5"/>
+    <media:statistics views="180190"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:CsEV7ryCJ9A</id>
+  <yt:videoId>CsEV7ryCJ9A</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>This structure feels impossible to move</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/CsEV7ryCJ9A"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-06-12T19:00:00+00:00</published>
+  <updated>2026-08-10T05:15:46+00:00</updated>
+  <media:group>
+   <media:title>This structure feels impossible to move</media:title>
+   <media:content url="https://www.youtube.com/v/CsEV7ryCJ9A?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/CsEV7ryCJ9A/hqdefault.jpg" width="480" height="360"/>
+   <media:description>You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+just like these amazing people:
+
+Glenn Watson
+Peter Turner
+Joël van der Loo
+Matthew Cocke
+Mark Brouwer
+Deneb
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="77595" average="5.00" min="1" max="5"/>
+    <media:statistics views="1966138"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:2yiRyAipXe8</id>
+  <yt:videoId>2yiRyAipXe8</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>This zipper is really weird...</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/2yiRyAipXe8"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-06-08T18:10:29+00:00</published>
+  <updated>2026-06-16T20:26:21+00:00</updated>
+  <media:group>
+   <media:title>This zipper is really weird...</media:title>
+   <media:content url="https://www.youtube.com/v/2yiRyAipXe8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/2yiRyAipXe8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>The Y zipper, invented by William Freeman in 1985 at MIT, can be flexible and rigid.</media:description>
+   <media:community>
+    <media:starRating count="60490" average="5.00" min="1" max="5"/>
+    <media:statistics views="2313325"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:WWPVRMQJF_k</id>
+  <yt:videoId>WWPVRMQJF_k</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>Why doesn’t the ball stay inside?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/WWPVRMQJF_k"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-06-05T19:00:05+00:00</published>
+  <updated>2026-06-16T08:12:32+00:00</updated>
+  <media:group>
+   <media:title>Why doesn’t the ball stay inside?</media:title>
+   <media:content url="https://www.youtube.com/v/WWPVRMQJF_k?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/WWPVRMQJF_k/hqdefault.jpg" width="480" height="360"/>
+   <media:description>You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+just like these amazing people:
+
+Glenn Watson
+Peter Turner
+Joël van der Loo
+Matthew Cocke
+Mark Brouwer
+Deneb
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="14847" average="5.00" min="1" max="5"/>
+    <media:statistics views="561979"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:XCh5XhfEg0U</id>
+  <yt:videoId>XCh5XhfEg0U</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>This Stone is Flexible?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/XCh5XhfEg0U"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-06-04T16:44:32+00:00</published>
+  <updated>2026-06-16T07:58:43+00:00</updated>
+  <media:group>
+   <media:title>This Stone is Flexible?</media:title>
+   <media:content url="https://www.youtube.com/v/XCh5XhfEg0U?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/XCh5XhfEg0U/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Sandstone is made of sand grains, so how does it flex?</media:description>
+   <media:community>
+    <media:starRating count="18758" average="5.00" min="1" max="5"/>
+    <media:statistics views="757380"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:IFqI11SIGXo</id>
+  <yt:videoId>IFqI11SIGXo</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>Steel Absorbs Gas Like a Sponge</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=IFqI11SIGXo"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-05-31T19:56:12+00:00</published>
+  <updated>2026-06-29T02:50:28+00:00</updated>
+  <media:group>
+   <media:title>Steel Absorbs Gas Like a Sponge</media:title>
+   <media:content url="https://www.youtube.com/v/IFqI11SIGXo?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/IFqI11SIGXo/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Take your personal data back with Incogni. Use code SCIENCE at the link below and get 60% off an annual plan: https://incogni.com/science
+
+High Temperature Hydrogen Attack (HTHA) is a problem in the fertiliser industry and others when bubbles of methane form in steel. I use Non Destructive Testing (ultrasonic scanning) to see them. Here's why it happens.
+
+Evident Inspection Technologies (now part of Wabtec Corporation): https://ims.evidentscientific.com for all your non-destructive testing needs!
+
+USCSB video about the Tesoro's Anacortes Refinery: https://www.youtube.com/watch?v=8vPaQYM-tWs
+
+You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="38992" average="5.00" min="1" max="5"/>
+    <media:statistics views="1263000"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:af86iJXVds0</id>
+  <yt:videoId>af86iJXVds0</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>Why won’t this ball go under the table?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/af86iJXVds0"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-05-29T11:30:02+00:00</published>
+  <updated>2026-06-09T15:32:27+00:00</updated>
+  <media:group>
+   <media:title>Why won’t this ball go under the table?</media:title>
+   <media:content url="https://www.youtube.com/v/af86iJXVds0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/af86iJXVds0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+just like these amazing people:
+
+Glenn Watson
+Peter Turner
+Joël van der Loo
+Matthew Cocke
+Mark Brouwer
+Deneb
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="8748" average="5.00" min="1" max="5"/>
+    <media:statistics views="273672"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:eJQg5e85yCI</id>
+  <yt:videoId>eJQg5e85yCI</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>This image changes when you flip it</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/eJQg5e85yCI"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-05-22T19:00:23+00:00</published>
+  <updated>2026-05-29T12:28:48+00:00</updated>
+  <media:group>
+   <media:title>This image changes when you flip it</media:title>
+   <media:content url="https://www.youtube.com/v/eJQg5e85yCI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/eJQg5e85yCI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+just like these amazing people:
+
+Glenn Watson
+Peter Turner
+Joël van der Loo
+Matthew Cocke
+Mark Brouwer
+Deneb
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="12404" average="5.00" min="1" max="5"/>
+    <media:statistics views="302314"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:xeW-1Xa3xF8</id>
+  <yt:videoId>xeW-1Xa3xF8</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>Why are some rocks dumbbell shaped?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/xeW-1Xa3xF8"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-05-20T19:04:05+00:00</published>
+  <updated>2026-05-23T21:45:03+00:00</updated>
+  <media:group>
+   <media:title>Why are some rocks dumbbell shaped?</media:title>
+   <media:content url="https://www.youtube.com/v/xeW-1Xa3xF8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/xeW-1Xa3xF8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Dumbbell shaped rocks (tektites) form in a pretty cool way.</media:description>
+   <media:community>
+    <media:starRating count="4733" average="5.00" min="1" max="5"/>
+    <media:statistics views="168384"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:QfWlJHNXy10</id>
+  <yt:videoId>QfWlJHNXy10</yt:videoId>
+  <yt:channelId>UCEIwxahdLz7bap-VDs9h35A</yt:channelId>
+  <title>Optic Fibres Are Weird...</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/QfWlJHNXy10"/>
+  <author>
+   <name>Steve Mould</name>
+   <uri>https://www.youtube.com/channel/UCEIwxahdLz7bap-VDs9h35A</uri>
+  </author>
+  <published>2026-05-15T18:40:29+00:00</published>
+  <updated>2026-05-19T11:30:04+00:00</updated>
+  <media:group>
+   <media:title>Optic Fibres Are Weird...</media:title>
+   <media:content url="https://www.youtube.com/v/QfWlJHNXy10?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/QfWlJHNXy10/hqdefault.jpg" width="480" height="360"/>
+   <media:description>You can buy my books here:
+https://stevemould.com/books
+
+You can support me on Patreon and get access to the exclusive Discord:
+https://www.patreon.com/stevemould
+
+just like these amazing people:
+
+Glenn Watson
+Peter Turner
+Joël van der Loo
+Matthew Cocke
+Mark Brouwer
+Deneb
+
+Twitter: http://twitter.com/moulds
+Instagram: https://www.instagram.com/stevemouldscience/
+Facebook: https://www.facebook.com/stevemouldscience/
+TikTok: https://www.tiktok.com/stevemould
+Buy nerdy maths things: http://mathsgear.co.uk</media:description>
+   <media:community>
+    <media:starRating count="35123" average="5.00" min="1" max="5"/>
+    <media:statistics views="1047220"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

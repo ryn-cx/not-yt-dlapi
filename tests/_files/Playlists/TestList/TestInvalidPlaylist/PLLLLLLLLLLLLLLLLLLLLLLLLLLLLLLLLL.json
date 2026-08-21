@@ -1,9 +1,0 @@
-{
-  "kind": "youtube#playlistListResponse",
-  "etag": "PqCO86vmlUDWFiOBSqOsOZRp5jE",
-  "pageInfo": {
-    "totalResults": 0,
-    "resultsPerPage": 50
-  },
-  "items": []
-}

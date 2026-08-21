@@ -1,7 +1,7 @@
 # TODO: Validate
-"""Videos: list.
+"""A `video` resource represents a YouTube video.
 
-Returns a list of videos that match the API request parameters.
+https://developers.google.com/youtube/v3/docs/videos
 """
 
 from __future__ import annotations
@@ -37,10 +37,10 @@ PART = (
 
 # TODO: Validate
 class Videos(BaseEndpoint):
-    """Videos: list.
+    """A `video` resource represents a YouTube video.
 
-        Returns a list of videos that match the API request parameters.
-    ."""
+    https://developers.google.com/youtube/v3/docs/videos
+    """
 
     # TODO: Validate
     def list(self, video_ids: str | Sequence[str]) -> VideoListResponse:

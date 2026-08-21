@@ -1,0 +1,67 @@
+{
+  "kind": "youtube#playlistListResponse",
+  "etag": "rR0NQOiPN0HEhbdD6lYp454p0c4",
+  "next_page_token": null,
+  "prev_page_token": null,
+  "page_info": {
+    "total_results": 1,
+    "results_per_page": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#playlist",
+      "etag": "LHyGacy_UOCS4V5p650Kkv5RELw",
+      "id": "PLuhl9TnQPDCnWIhy_KSbtFwXVQnNvgfSh",
+      "snippet": {
+        "published_at": "2020-04-28T07:33:06.091651Z",
+        "channel_id": "UC4QobU6STFB0P71PMvOGN5A",
+        "title": "YouTube",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/lVI_J1cbFb4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/lVI_J1cbFb4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/lVI_J1cbFb4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/lVI_J1cbFb4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/lVI_J1cbFb4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "jawed",
+        "default_language": null,
+        "localized": {
+          "title": "YouTube",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 4
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLuhl9TnQPDCnWIhy_KSbtFwXVQnNvgfSh\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    }
+  ]
+}

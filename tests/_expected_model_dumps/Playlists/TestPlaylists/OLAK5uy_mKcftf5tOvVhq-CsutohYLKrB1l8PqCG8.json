@@ -1,0 +1,59 @@
+{
+  "kind": "youtube#playlistListResponse",
+  "etag": "GOQ0yqTbyEl8n69s0urOso3SfgM",
+  "next_page_token": null,
+  "prev_page_token": null,
+  "page_info": {
+    "total_results": 1,
+    "results_per_page": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#playlist",
+      "etag": "1GKjgK04bxi9C9cCRExHV-odCZM",
+      "id": "OLAK5uy_mKcftf5tOvVhq-CsutohYLKrB1l8PqCG8",
+      "snippet": {
+        "published_at": "2025-08-10T03:29:50.157985Z",
+        "channel_id": "UCBR8-60-B28hp2BmDPdntcQ",
+        "title": "God Does Like Ugly (Preluxe Edition)",
+        "description": "",
+        "thumbnails": {
+          "default": null,
+          "medium": {
+            "url": "https://i9.ytimg.com/s_p/OLAK5uy_mKcftf5tOvVhq-CsutohYLKrB1l8PqCG8/mqdefault.jpg?sqp=CKCOodQGir7X7AMICLCk4MQGEAE=&rs=AOn4CLDZOk39QaEOGLiPc1T-l3iXyKH6OQ&v=1754796592",
+            "width": 180,
+            "height": 180
+          },
+          "high": null,
+          "standard": {
+            "url": "https://i9.ytimg.com/s_p/OLAK5uy_mKcftf5tOvVhq-CsutohYLKrB1l8PqCG8/sddefault.jpg?sqp=CKCOodQGir7X7AMICLCk4MQGEAE=&rs=AOn4CLArbAcvchh429zs8JA3L5qyVdHyhw&v=1754796592",
+            "width": 640,
+            "height": 640
+          },
+          "maxres": {
+            "url": "https://i9.ytimg.com/s_p/OLAK5uy_mKcftf5tOvVhq-CsutohYLKrB1l8PqCG8/maxresdefault.jpg?sqp=CKCOodQGir7X7AMICLCk4MQGEAE=&rs=AOn4CLBWbKpe1e2Jky8-BhNoe7ck_eIsiw&v=1754796592",
+            "width": 1200,
+            "height": 1200
+          }
+        },
+        "channel_title": "YouTube",
+        "default_language": null,
+        "localized": {
+          "title": "God Does Like Ugly (Preluxe Edition)",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 19
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=OLAK5uy_mKcftf5tOvVhq-CsutohYLKrB1l8PqCG8\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    }
+  ]
+}

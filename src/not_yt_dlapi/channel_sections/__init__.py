@@ -1,8 +1,10 @@
 # TODO: Validate
-"""Contains the ChannelSections class.
+"""A `channelSection` resource contains information about a set of videos that
+a channel has chosen to feature. For example, a section could feature a
+channel's latest uploads, most popular uploads, or videos from one or more
+playlists. A channel can create a maximum of 10 shelves.
 
-Unlike a channel or a video, a channel id nothing is under is refused here
-rather than answered with nothing, so an unknown channel raises.
+https://developers.google.com/youtube/v3/docs/channelSections
 """
 
 from __future__ import annotations
@@ -21,7 +23,13 @@ PART = "contentDetails,id,snippet"
 
 # TODO: Validate
 class ChannelSections(BaseEndpoint):
-    """The shelves on a channel's page."""
+    """A `channelSection` resource contains information about a set of videos that
+    a channel has chosen to feature. For example, a section could feature a
+    channel's latest uploads, most popular uploads, or videos from one or more
+    playlists. A channel can create a maximum of 10 shelves.
+
+    https://developers.google.com/youtube/v3/docs/channelSections
+    """
 
     # TODO: Validate
     def list(

@@ -9,183 +9,241 @@ find; recording a response and reading it back is the same either way.
 from __future__ import annotations
 
 import json
+import operator
+from collections.abc import Sequence
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, ClassVar
 
 import pytest
+from pydantic import BaseModel
 
 if TYPE_CHECKING:
     from collections.abc import Callable
 
     from not_yt_dlapi.base_response_model import BaseResponseModel
 
+type Dump = dict[str, Any]
+
 
 # TODO: Validate
 class RecordedEndpoint:
-    """Reads and writes the recordings a test class owns.
-
-    What tells two recordings of one endpoint apart is the test that asked for
-    them rather than anything in the request, since every test of an endpoint
-    asks for the same thing under a different set of arguments. Subclassing is
-    what says which test that is: the recordings live under the subclass's own
-    name, so nothing has to be told the name or carry it around.
-
-    Never put a `test_` method here. It would be inherited and so would run once
-    per subclass.
-    """
-
     ENDPOINT: ClassVar[type]
-    """The endpoint whose responses the subclass records."""
-
     SUFFIX: ClassVar[str] = ".json"
-    """What a recording of the response is named after.
+    MODEL: ClassVar[type[BaseResponseModel]]
+    UPDATE_FREQUENCY: ClassVar[timedelta] = timedelta(days=7)
 
-    A recording is the response exactly as it was served, so an endpoint that
-    answers in something other than JSON says so here and its recordings are
-    written and read as the text they arrived as. The feeds answer in XML.
-    """
+    IGNORED: ClassVar[tuple[str, ...]] = ()
+    SAME_TYPE: ClassVar[tuple[str, ...]] = ()
+    SORTED: ClassVar[tuple[str, ...]] = ()
+    LESS_THAN: ClassVar[tuple[str, ...]] = ()
+    LESS_THAN_OR_EQUAL: ClassVar[tuple[str, ...]] = ()
+    GREATER_THAN: ClassVar[tuple[str, ...]] = ()
+    GREATER_THAN_OR_EQUAL: ClassVar[tuple[str, ...]] = ()
 
-    # TODO: Validate
     @classmethod
-    def _recording_path(cls, folder: str, name: str | int, suffix: str) -> Path:
-        """Return the path a recording of `name` is kept at.
-
-        A test class is nested inside the endpoint it covers, so its qualified
-        name already says which endpoint answered and which case was asked for.
-        The recording is filed under that nesting rather than under the class
-        name alone, which two endpoints are free to share.
-
-        What a recording is named after is as often a number as a string, so
-        `name` is taken as either and written out as a string here rather than
-        at every call.
-        """
+    def _build_file_path(cls, folder: str, name: str | int, suffix: str) -> Path:
         root = Path(__file__).parent / folder / cls.ENDPOINT.__name__
         return root.joinpath(*cls.__qualname__.split(".")) / f"{name}{suffix}"
 
-    # TODO: Validate
     @classmethod
-    def recorded_file_path(cls, name: str | int) -> Path:
-        """Return the path of the recorded file."""
-        return cls._recording_path("_files", name, cls.SUFFIX)
+    def dumped_file_path(cls, name: str | int) -> Path:
+        return cls._build_file_path("_files", name, cls.SUFFIX)
 
-    # TODO: Validate
     @classmethod
-    def recorded_content(cls, name: str | int) -> Any:  # noqa: ANN401
-        """Return the content of the recorded file.
+    def dumped_file_content(cls, name: str | int) -> str:
+        return cls.dumped_file_path(name).read_text(encoding="utf-8")
 
-        A response served as something other than JSON is handed back as the
-        text it was recorded as, since reading it is the model's to do. What
-        comes back is therefore whatever the endpoint answers in, which is what
-        the model it is read into takes and nothing here has any say over.
-        """
-        path = cls.recorded_file_path(name)
-        if not path.exists():
-            pytest.skip(f"No recorded response for {name}")
-        text = path.read_text(encoding="utf-8")
-        if cls.SUFFIX != ".json":
-            return text
-        return json.loads(text)
+    @classmethod
+    def write_file(cls, path: Path, content: str) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding="utf-8")
 
     # TODO: Validate
     @classmethod
-    def _recorded_as(cls, downloaded: Any) -> str:  # noqa: ANN401
-        """Return what a downloaded response is written to a recording as.
-
-        A response served as something other than JSON is written exactly as
-        it arrived, so the recording is the document itself and not a rendering
-        of one. JSON is indented, which is the only thing done to it, so that
-        the recording can be read and diffed, and it is whatever the endpoint
-        answers with rather than an object in particular: browse answers with a
-        list.
-        """
-        if isinstance(downloaded, str):
-            return downloaded
-        return json.dumps(downloaded, indent=2)
+    def dumped_file_age(cls, name: str | int) -> timedelta:
+        modified = cls.dumped_file_path(name).stat().st_mtime
+        return datetime.now(UTC) - datetime.fromtimestamp(modified, UTC)
 
     # TODO: Validate
     @classmethod
-    def record_test(
+    def dump_model(
+        cls,
+        model: BaseResponseModel | Sequence[BaseResponseModel],
+    ) -> str:
+        if isinstance(model, Sequence):
+            return json.dumps([entry.raw for entry in model], indent=2)
+        return model.raw
+
+    # TODO: Validate
+    @classmethod
+    def download_test(
         cls,
         name: str | int,
-        download: Callable[[], Any],
+        download: Callable[[], BaseResponseModel | Sequence[BaseResponseModel]],
     ) -> None:
-        """Record a response, unless there is one already.
+        """Test that the response from the API's structure does not change."""
+        dumped_file_path = cls.dumped_file_path(name)
 
-        A recording is what the parse tests read, so what it is for is to exist
-        rather than to be checked against what the API answers today. A run that
-        has one downloads nothing: the API is only ever asked for a response
-        nothing has recorded yet.
+        # If the file does not exist the file just needs to be downloaded with no
+        # verification.
+        if not dumped_file_path.exists():
+            cls.write_file(dumped_file_path, cls.dump_model(download()))
+            return
 
-        Writing a recording fails the test rather than skipping it, because what
-        was just written is only whatever the API happened to answer: it has to
-        be read before it can stand in for correct.
-        """
-        path = cls.recorded_file_path(name)
-        if path.exists():
-            pytest.skip(f"There is already a recorded response for {name}")
+        if cls.dumped_file_age(name) < cls.UPDATE_FREQUENCY:
+            pytest.skip("The dumped files are up to date.")
 
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(cls._recorded_as(download()), encoding="utf-8")
-        pytest.fail(f"No recorded response for {name}, so it was recorded now")
+        existing_model = cls.load_models(cls.dumped_file_content(name))
+        new_model = download()
+        if differences := cls.differences(existing_model, new_model):
+            new_file_path = dumped_file_path.with_name(f"{name}.new{cls.SUFFIX}")
+            cls.write_file(new_file_path, cls.dump_model(new_model))
+            reported = "\n".join(differences)
+            pytest.fail(
+                f"The downloaded file for {name} does not match the recorded one. "
+                f"The old file was kept and the new one saved as "
+                f"{new_file_path.name}.\n{reported}",
+            )
+
+        dumped_file_path.touch()
 
     # TODO: Validate
     @classmethod
     def recorded_model_path(cls, name: str | int) -> Path:
-        """Return the path of the recorded model dump.
+        return cls._build_file_path("_expected_model_dumps", name, ".json")
 
-        A dump is JSON whatever the response was served as, so this is the one
-        recording `SUFFIX` has no say over.
-        """
-        return cls._recording_path("_models", name, ".json")
+    # TODO: Validate
+    @classmethod
+    def recorded_model_dump(cls, name: str | int) -> Dump | list[Dump]:
+        dump: Dump | list[Dump] = json.loads(
+            cls.recorded_model_path(name).read_text(encoding="utf-8"),
+        )
+        return dump
 
     # TODO: Validate
     @classmethod
     def recorded_model_content(
         cls,
         name: str | int,
-        model: BaseResponseModel,
-    ) -> dict[str, Any]:
-        """Return the recorded dump of `model`, writing the recording the first time.
-
-        A parse test compares what it read against this rather than against a
-        model it builds from the same response, because a model built from the
-        response mirrors whatever the reading does and cannot disagree with it.
-
-        What is returned is the recording as it stands rather than a model read
-        back out of it, since reading it back puts it through the same coercion
-        the parsing does and so hides a value that is written one way and read
-        another.
-
-        Writing a recording fails the test rather than skipping it, because what
-        was just written is only whatever the reading currently produces: it is
-        the thing being checked and has to be read before it can stand in for
-        correct.
-        """
-        path = cls.recorded_model_path(name)
-        if not path.exists():
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(
-                json.dumps(model.model_dump(mode="json"), indent=2),
-                encoding="utf-8",
-            )
-            pytest.fail(f"No recorded model for {name}, so it was recorded now")
-        content: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
-        return content
+        current_dump: Dump | list[Dump],
+    ) -> Dump | list[Dump]:
+        model_path = cls.recorded_model_path(name)
+        if not model_path.exists():
+            # Nothing has been recorded to compare against, so what was just
+            # parsed is written down and stands as the expected dump.
+            cls.write_file(model_path, json.dumps(current_dump, indent=2))
+            return current_dump
+        return cls.recorded_model_dump(name)
 
     # TODO: Validate
     @classmethod
-    def parse_test(cls, name: str | int, model: type[BaseResponseModel]) -> None:
-        """Read a recorded response and check it against the recorded model.
+    def differences(
+        cls,
+        old_value: object,
+        new_value: object,
+        field_path: str = "",
+        field_id: str = "",
+    ) -> list[str]:
+        """List every field of the model whose value moved in a way it may not."""
+        if field_id in cls.IGNORED:
+            return []
 
-        The reading is the model's own `from_response`, which is what a download
-        ends in too, so the test exercises the same call.
+        if field_id in cls.SAME_TYPE:
+            old_type = type(old_value).__name__
+            new_type = type(new_value).__name__
+            moved = f"{field_path}: was a {old_type}, now a {new_type}"
+            return [] if old_type == new_type else [moved]
 
-        What the two sides are compared as is what each is written out to rather
-        than as models, so what is checked is every value as it is recorded
-        rather than two models that agree only because reading the recording
-        back undid whatever the parsing did to it.
-        """
-        parsed = model.from_response(cls.recorded_content(name))
-        recorded = cls.recorded_model_content(name, parsed)
+        if isinstance(old_value, BaseModel) and isinstance(new_value, BaseModel):
+            model_name = type(old_value).__name__
+            return [
+                difference
+                for name in type(old_value).model_fields
+                # raw holds the whole document, so it is never compared.
+                if name != "raw"
+                for difference in cls.differences(
+                    getattr(old_value, name),
+                    getattr(new_value, name),
+                    f"{field_path}.{name}" if field_path else name,
+                    f"{model_name}.{name}",
+                )
+            ]
 
-        assert parsed.model_dump(mode="json") == recorded
+        if isinstance(old_value, list) and isinstance(new_value, list):
+            if len(old_value) != len(new_value):
+                held = f"held {len(old_value)} items, now holds {len(new_value)}"
+                return [f"{field_path}: {held}"]
+            # The API returns some lists in whatever order it likes, so they are
+            # sorted before being held against each other.
+            old_items = sorted(old_value) if field_id in cls.SORTED else old_value
+            new_items = sorted(new_value) if field_id in cls.SORTED else new_value
+            return [
+                difference
+                for index, (old_item, new_item) in enumerate(
+                    zip(old_items, new_items, strict=True),
+                )
+                for difference in cls.differences(
+                    old_item,
+                    new_item,
+                    f"{field_path}[{index}]",
+                    field_id,
+                )
+            ]
+
+        ordering = next(
+            (
+                comparison
+                for names, comparison in (
+                    (cls.LESS_THAN, operator.lt),
+                    (cls.LESS_THAN_OR_EQUAL, operator.le),
+                    (cls.GREATER_THAN, operator.gt),
+                    (cls.GREATER_THAN_OR_EQUAL, operator.ge),
+                )
+                if field_id in names
+            ),
+            None,
+        )
+        # Only numbers are ordered. A field named under one of the comparisons
+        # that holds anything else has to come back as it was.
+        if (
+            ordering is not None
+            and isinstance(old_value, int | float)
+            and isinstance(new_value, int | float)
+        ):
+            allowed = ordering(old_value, new_value)
+            reason = f"which {ordering.__name__} does not allow"
+        else:
+            allowed = old_value == new_value
+            reason = "and it may not change"
+
+        moved = f"{field_path}: was {old_value!r}, now {new_value!r}, {reason}"
+        return [] if allowed else [moved]
+
+    # TODO: Validate
+    @classmethod
+    def load_models(cls, content: str) -> BaseResponseModel | list[BaseResponseModel]:
+        """Parse the file into a model, or one model per response."""
+        documents: str | list[str] = (
+            json.loads(content) if cls.SUFFIX == ".json" else content
+        )
+        if isinstance(documents, list):
+            return [cls.MODEL.from_response(document) for document in documents]
+        return cls.MODEL.from_response(content)
+
+    # TODO: Validate
+    @classmethod
+    def load_content(cls, content: str) -> Dump | list[Dump]:
+        """Parse the file and dump the model, or one model per response."""
+        models = cls.load_models(content)
+        if isinstance(models, list):
+            return [model.model_dump(mode="json") for model in models]
+        return models.model_dump(mode="json")
+
+    # TODO: Validate
+    @classmethod
+    def parse_test(cls, name: str | int) -> None:
+        current_dump = cls.load_content(cls.dumped_file_content(name))
+        expected_dump = cls.recorded_model_content(name, current_dump)
+
+        assert current_dump == expected_dump

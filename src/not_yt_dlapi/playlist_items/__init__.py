@@ -1,8 +1,10 @@
 # TODO: Validate
-"""Contains the PlaylistItems class.
+"""A `playlistItem` resource identifies another resource, such as a video, that
+is included in a playlist. In addition, the `playlistItem` resource contains
+details about the included resource that pertain specifically to how that
+resource is used in that playlist.
 
-A page of a playlist comes back at a time; `next_page_token` on the result is
-what asks for the page after it.
+https://developers.google.com/youtube/v3/docs/playlistItems
 """
 
 from __future__ import annotations
@@ -29,7 +31,13 @@ DEFAULT_MAX_RESULTS = 50
 
 # TODO: Validate
 class PlaylistItems(BaseEndpoint):
-    """The videos in a playlist."""
+    """A `playlistItem` resource identifies another resource, such as a video, that
+    is included in a playlist. In addition, the `playlistItem` resource contains
+    details about the included resource that pertain specifically to how that
+    resource is used in that playlist.
+
+    https://developers.google.com/youtube/v3/docs/playlistItems
+    """
 
     # TODO: Validate
     def list(

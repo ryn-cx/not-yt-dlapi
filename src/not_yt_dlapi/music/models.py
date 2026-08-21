@@ -11,20 +11,21 @@ Browse writes the tracks of a music playlist as lockups rather than as the
 playlist entries a show is written in, and a lockup says who published the
 track, how long it runs, how often it has been watched and how long ago it went
 up. It does not number itself, so a track's place in the album is where it sits
-in the listing. The answers themselves are kept on `raw`, so what browse said
-and this does not read is still there to read.
+in the listing. The answer itself is kept on `raw`, so what browse said and this
+does not read is still there to read.
 """
 
 from __future__ import annotations
 
+import json
 from collections import Counter
 from typing import Any, Self, override
 
-from pydantic import Field, SkipValidation
+from pydantic import Field
 
 from not_yt_dlapi.base_response_model import BaseResponseModel
 from not_yt_dlapi.common_models import APIModel
-from not_yt_dlapi.utils import find, read_text
+from not_yt_dlapi.utils import find, read_continuation, read_text, strip_url_parameters
 
 
 # TODO: Validate
@@ -72,14 +73,11 @@ class MusicThumbnail(APIModel):
 def read_images(node: Any, key: str) -> list[MusicThumbnail]:  # noqa: ANN401 - Browse data is any JSON.
     """Return every image written under `key`, in the order they are written.
 
-    Browse writes a set of images as `thumbnails` where a playlist is described
-    and as `sources` where a track is, and the same set of images either way. An
-    image that is a piece of the site rather than a picture of something says
-    which piece it is instead of where it is served from, and is not an image
-    of anything, so it is passed over.
+    An image that is a piece of the site rather than a picture of something says
+    which piece it is instead of where it is served from, so it is passed over.
     """
     return [
-        MusicThumbnail(**image)
+        MusicThumbnail(**image | {"url": strip_url_parameters(image["url"])})
         for images in find(node, key)
         for image in images
         if "url" in image
@@ -155,7 +153,13 @@ class MusicTrack(APIModel):
 
 # TODO: Validate
 class MusicPlaylist(BaseResponseModel, APIModel):
-    """A music playlist that browse listed, and the tracks on it.
+    """One stretch of a music playlist that browse listed, and the tracks on it.
+
+    Browse hands out a long listing a stretch at a time, and only the first of
+    them carries the header, because the ones after it are the rest of a listing
+    already asked for rather than the playlist again. So everything the header
+    says is missing from a stretch that is not the first, and what such a
+    stretch holds is tracks and the token for the one after it.
 
     Attributes:
         playlist_id: The ID that YouTube uses to uniquely identify the playlist.
@@ -166,47 +170,48 @@ class MusicPlaylist(BaseResponseModel, APIModel):
         release_type: What kind of release it is, written the way it is shown
             and so in whatever language the answer came back in: `Album`,
             `Single` and `EP` are what an auto-generated playlist says.
+        thumbnails: The images the playlist is pictured by, which for a release
+            is its cover art, smallest first. The URL is signed and expires, so
+            what to do about that is the caller's.
         artist_channel_id: The channel of the musician whose release this is,
             which is the channel that published the tracks. A release is put out
             on one channel however many people are credited on it, so this names
-            the main musician and `artists` is what names the rest.
-        thumbnails: The images the playlist is pictured by, which for a release
-            is its cover art, smallest first.
-        tracks: The tracks, in the order browse listed them, which is the order
-            they are in on the release.
-        raw: The answers browse gave, in the order it gave them.
+            the main musician and `artists` is what names the rest. It is read
+            from the tracks, so a stretch holding none names nobody.
+        tracks: The tracks this stretch listed, in the order it listed them,
+            which is the order they are in on the release.
+        continuation: What the stretch after this one is asked for by, which is
+            nothing once there is no more of the listing.
+        raw: The answer browse gave, as it was served.
     """
 
-    playlist_id: str
-    title: str
+    playlist_id: str | None = None
+    title: str | None = None
     artists: list[str] = Field(default_factory=list)
     release_type: str | None = None
     artist_channel_id: str | None = None
     thumbnails: list[MusicThumbnail] = Field(default_factory=list)
     tracks: list[MusicTrack] = Field(default_factory=list)
-    raw: SkipValidation[list[dict[str, Any]]] = Field(repr=False)
+    continuation: str | None = None
+    raw: str = Field(repr=False, exclude=True)
 
     # TODO: Validate
     @classmethod
     @override
-    def from_response(cls, data: list[dict[str, Any]]) -> Self:
-        """Read every answer browse gave as the one playlist they are of.
-
-        Only the first answer carries the header, because the ones after it are
-        the rest of a listing already asked for rather than the playlist again.
-        The tracks are read from all of them in the order they arrived, which is
-        the order the listing is in.
+    def from_response(cls, data: str) -> Self:
+        """Read one answer browse gave.
 
         A lockup is how browse writes anything it lists, and a music playlist
         has been seen listing nothing but videos, so anything else one is ever
         written for is not a track and is left out rather than read as one.
         """
-        header = next(find(data[0], "playlistHeaderRenderer"))
+        browsed = json.loads(data)
+        header = next(find(browsed, "playlistHeaderRenderer"), {})
         artists, release_type = read_credit(header.get("subtitle"))
+        title = header.get("title")
         tracks = [
             MusicTrack.from_lockup(lockup)
-            for answer in data
-            for lockup in find(answer, "lockupViewModel")
+            for lockup in find(browsed, "lockupViewModel")
             if lockup.get("contentType") == "LOCKUP_CONTENT_TYPE_VIDEO"
         ]
         published_by = Counter(
@@ -214,8 +219,8 @@ class MusicPlaylist(BaseResponseModel, APIModel):
         )
 
         return cls(
-            playlist_id=header["playlistId"],
-            title=read_text(header["title"]),
+            playlist_id=header.get("playlistId"),
+            title=None if title is None else read_text(title),
             artists=artists,
             release_type=release_type,
             # A release whose tracks went up on more than one channel is put
@@ -230,5 +235,6 @@ class MusicPlaylist(BaseResponseModel, APIModel):
                 "thumbnails",
             ),
             tracks=tracks,
+            continuation=read_continuation(browsed),
             raw=data,
         )

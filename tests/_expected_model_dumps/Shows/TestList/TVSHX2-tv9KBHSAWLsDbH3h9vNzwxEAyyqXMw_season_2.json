@@ -1,0 +1,361 @@
+{
+  "season": 2,
+  "seasons": [
+    {
+      "number": 1,
+      "browse_id": "SCCHEGe0F1jvGhq_UPgeZSVg",
+      "params": "kgZOCgExGkkSGFVDemkyUld0Y211WkcwVVFuVmt2TnNVUSItY25jbDozMGQtNjZlNjQwMDMtMDAwMC0yZWFkLWIwODYtMjQwNTg4ODNmZDU0",
+      "selected": false
+    },
+    {
+      "number": 2,
+      "browse_id": "SCCHEGe0F1jvGhq_UPgeZSVg",
+      "params": "kgZOCgEyGkkSGFVDemkyUld0Y211WkcwVVFuVmt2TnNVUSItY25jbDozMGQtNjZlNjQwMDMtMDAwMC0yZWFkLWIwODYtMjQwNTg4ODNmZDU0",
+      "selected": true
+    }
+  ],
+  "episodes": [
+    {
+      "video_id": "1QiLOZOFs-Q",
+      "title": "True Heart's Big Trip / Bumbleberry Jammed",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 1,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/1QiLOZOFs-Q/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/1QiLOZOFs-Q/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/1QiLOZOFs-Q/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/1QiLOZOFs-Q/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "t01P7zTr140",
+      "title": "Desperately Seeking Mr. Beaks / Good Knight Bedtime",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 2,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/t01P7zTr140/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/t01P7zTr140/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/t01P7zTr140/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/t01P7zTr140/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "IHuLqCVubn4",
+      "title": "Bumpity and Tweazle / Here Comes McKenna",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 3,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/IHuLqCVubn4/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/IHuLqCVubn4/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/IHuLqCVubn4/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/IHuLqCVubn4/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "YD9TpU2Oc0o",
+      "title": "Surprise Day / Tempus Fugits",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 4,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/YD9TpU2Oc0o/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/YD9TpU2Oc0o/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/YD9TpU2Oc0o/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/YD9TpU2Oc0o/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "eudsTPIh0Ok",
+      "title": "Whose Friend is Who? / Present & Accounted For",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 5,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/eudsTPIh0Ok/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/eudsTPIh0Ok/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/eudsTPIh0Ok/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/eudsTPIh0Ok/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "s9Uhy9UtSZ0",
+      "title": "Harmony Unplugged / King of the Gobblebugs",
+      "length_seconds": 1276,
+      "length_text": "21:16",
+      "index": 6,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/s9Uhy9UtSZ0/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/s9Uhy9UtSZ0/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/s9Uhy9UtSZ0/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/s9Uhy9UtSZ0/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "aAKabNsneYQ",
+      "title": "Night Shift / No Snow Day",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 7,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/aAKabNsneYQ/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/aAKabNsneYQ/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/aAKabNsneYQ/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/aAKabNsneYQ/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "Qfp81qPqRyk",
+      "title": "Belly Blanked / All Give and No Take",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 8,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/Qfp81qPqRyk/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Qfp81qPqRyk/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Qfp81qPqRyk/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Qfp81qPqRyk/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "59OwQyeGPIg",
+      "title": "Luck 'O Oopsy / Rudemate",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 9,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/59OwQyeGPIg/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/59OwQyeGPIg/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/59OwQyeGPIg/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/59OwQyeGPIg/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "1TIL2a_CX-A",
+      "title": "Tour de Farce / Bad News",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 10,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/1TIL2a_CX-A/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/1TIL2a_CX-A/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/1TIL2a_CX-A/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/1TIL2a_CX-A/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "video_id": "fGYBMeF4o4s",
+      "title": "Forget It / Gone",
+      "length_seconds": 1277,
+      "length_text": "21:17",
+      "index": 11,
+      "playlist_id": "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw",
+      "is_playable": true,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/fGYBMeF4o4s/hqdefault.jpg",
+          "width": 168,
+          "height": 94
+        },
+        {
+          "url": "https://i.ytimg.com/vi/fGYBMeF4o4s/hqdefault.jpg",
+          "width": 196,
+          "height": 110
+        },
+        {
+          "url": "https://i.ytimg.com/vi/fGYBMeF4o4s/hqdefault.jpg",
+          "width": 246,
+          "height": 138
+        },
+        {
+          "url": "https://i.ytimg.com/vi/fGYBMeF4o4s/hqdefault.jpg",
+          "width": 336,
+          "height": 188
+        }
+      ]
+    }
+  ],
+  "continuation": null
+}

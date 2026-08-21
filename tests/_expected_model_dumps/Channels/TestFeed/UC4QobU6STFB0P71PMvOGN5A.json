@@ -1,0 +1,66 @@
+{
+  "id": "yt:channel:4QobU6STFB0P71PMvOGN5A",
+  "links": [
+    {
+      "rel": "self",
+      "href": "http://www.youtube.com/feeds/videos.xml?channel_id=UC4QobU6STFB0P71PMvOGN5A"
+    },
+    {
+      "rel": "alternate",
+      "href": "https://www.youtube.com/channel/UC4QobU6STFB0P71PMvOGN5A"
+    }
+  ],
+  "title": "jawed",
+  "author": {
+    "name": "jawed",
+    "uri": "https://www.youtube.com/channel/UC4QobU6STFB0P71PMvOGN5A"
+  },
+  "published": "2005-04-24T03:20:54+00:00",
+  "entries": [
+    {
+      "id": "yt:video:jNQXAC9IVRw",
+      "video_id": "jNQXAC9IVRw",
+      "channel_id": "UC4QobU6STFB0P71PMvOGN5A",
+      "title": "Me at the zoo",
+      "links": [
+        {
+          "rel": "alternate",
+          "href": "https://www.youtube.com/watch?v=jNQXAC9IVRw"
+        }
+      ],
+      "author": {
+        "name": "jawed",
+        "uri": "https://www.youtube.com/channel/UC4QobU6STFB0P71PMvOGN5A"
+      },
+      "published": "2005-04-24T03:31:52+00:00",
+      "updated": "2026-08-20T10:22:17+00:00",
+      "media_group": {
+        "title": "Me at the zoo",
+        "content": {
+          "url": "https://www.youtube.com/v/jNQXAC9IVRw?version=3",
+          "type": "application/x-shockwave-flash",
+          "width": 640,
+          "height": 390
+        },
+        "thumbnail": {
+          "url": "https://i3.ytimg.com/vi/jNQXAC9IVRw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "description": "Microplastics are accumulating in human brains at an alarming rate\nhttps://www.youtube.com/watch?v=0PT5c1z3LL8\n\n\u201cNanoplastics and Human Health\u201d with Matthew J Campen, PhD, MSPH\nhttps://www.youtube.com/watch?v=RRBN_4L09Mg\n\n00:00 Intro\n00:05 The cool thing\n00:17 End",
+        "community": {
+          "star_rating": {
+            "count": 19390628,
+            "average": 5.0,
+            "min": 1,
+            "max": 5
+          },
+          "statistics": {
+            "views": 405645335
+          }
+        }
+      }
+    }
+  ],
+  "channel_id": "4QobU6STFB0P71PMvOGN5A"
+}

@@ -1,0 +1,275 @@
+{
+  "kind": "youtube#videoListResponse",
+  "etag": "SVVGZ2FPWm4ScWAR61hQidr4OoM",
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "jQbgh5fg4rDris8MYQJsyguueBQ",
+      "id": "jNQXAC9IVRw",
+      "snippet": {
+        "publishedAt": "2005-04-24T03:31:52Z",
+        "channelId": "UC4QobU6STFB0P71PMvOGN5A",
+        "title": "Me at the zoo",
+        "description": "Microplastics are accumulating in human brains at an alarming rate\nhttps://www.youtube.com/watch?v=0PT5c1z3LL8\n\n“Nanoplastics and Human Health” with Matthew J Campen, PhD, MSPH\nhttps://www.youtube.com/watch?v=RRBN_4L09Mg\n\n00:00 Intro\n00:05 The cool thing\n00:17 End",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/jNQXAC9IVRw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/jNQXAC9IVRw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/jNQXAC9IVRw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "jawed",
+        "tags": [
+          "me at the zoo",
+          "jawed karim",
+          "first youtube video"
+        ],
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Me at the zoo",
+          "description": "Microplastics are accumulating in human brains at an alarming rate\nhttps://www.youtube.com/watch?v=0PT5c1z3LL8\n\n“Nanoplastics and Human Health” with Matthew J Campen, PhD, MSPH\nhttps://www.youtube.com/watch?v=RRBN_4L09Mg\n\n00:00 Intro\n00:05 The cool thing\n00:17 End"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT19S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": false,
+        "madeForKids": false
+      },
+      "statistics": {
+        "viewCount": "405645335",
+        "likeCount": "19390628",
+        "favoriteCount": "0",
+        "commentCount": "10565476"
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"480\" height=\"360\" src=\"//www.youtube.com/embed/jNQXAC9IVRw\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      },
+      "recordingDetails": {
+        "locationDescription": "San Diego Zoo",
+        "location": {
+          "latitude": 32.7360353,
+          "longitude": -117.1509849,
+          "altitude": 0
+        },
+        "recordingDate": "2005-04-23T00:00:00Z"
+      },
+      "localizations": {
+        "en": {
+          "title": "Me at the zoo",
+          "description": "Microplastics are accumulating in human brains at an alarming rate\nhttps://www.youtube.com/watch?v=0PT5c1z3LL8\n\n“Nanoplastics and Human Health” with Matthew J Campen, PhD, MSPH\nhttps://www.youtube.com/watch?v=RRBN_4L09Mg\n\n00:00 Intro\n00:05 The cool thing\n00:17 End"
+        },
+        "de": {
+          "title": "Ich im Zoo",
+          "description": "Das erste YouTube video. Vielleicht ist es Zeit zum Zoo zurückzukehren?\n\n00:00 Intro\n00:05 Das coole Ding\n00:17 Ende"
+        }
+      },
+      "paidProductPlacementDetails": {
+        "hasPaidProductPlacement": false
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "RbdAeAn0kCKoSNAq2xlKyGj2lPU",
+      "id": "LY8Wi7XRXCA",
+      "snippet": {
+        "publishedAt": "2007-01-26T08:42:43Z",
+        "channelId": "UCHw6-Tni_p2-ExJH6XcN2Rw",
+        "title": "How to Increase Your Wi-Fi Signal",
+        "description": "Do you need a stronger wireless signal or greater network access? I'm Mark Erickson, and this is Infinite Solutions. In this episode, I'll show you a simple hack to extend the range of your wireless card.\n\nNeed more help? Contact me at www.marksinfinitesolutions.com",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/LY8Wi7XRXCA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/LY8Wi7XRXCA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/LY8Wi7XRXCA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "infinitesolutions",
+        "tags": [
+          "Wireless",
+          "Network",
+          "Card",
+          "802.11g",
+          "WiMAX",
+          "wifi",
+          "cellular",
+          "Ethernet",
+          "cell",
+          "phone",
+          "satellite",
+          "dish",
+          "Mark",
+          "Erickson",
+          "Infinite",
+          "Solutions"
+        ],
+        "categoryId": "26",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "How to Increase Your Wi-Fi Signal",
+          "description": "Do you need a stronger wireless signal or greater network access? I'm Mark Erickson, and this is Infinite Solutions. In this episode, I'll show you a simple hack to extend the range of your wireless card.\n\nNeed more help? Contact me at www.marksinfinitesolutions.com"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT2M35S",
+        "dimension": "2d",
+        "definition": "sd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false
+      },
+      "statistics": {
+        "viewCount": "8173561",
+        "likeCount": "24805",
+        "favoriteCount": "0",
+        "commentCount": "6347"
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"480\" height=\"360\" src=\"//www.youtube.com/embed/LY8Wi7XRXCA\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      },
+      "topicDetails": {
+        "topicCategories": [
+          "https://en.wikipedia.org/wiki/Technology"
+        ]
+      },
+      "recordingDetails": {},
+      "localizations": {
+        "id": {
+          "title": "Cara Meningkatkan Sinyal Wi-Fi Anda",
+          "description": "Apakah Anda membutuhkan sinyal nirkabel yang lebih kuat atau akses jaringan yang lebih luas? Saya Mark Erickson, dan ini Infinite Solutions. Dalam episode ini, saya akan menunjukkan kepada Anda trik sederhana untuk memperluas jangkauan kartu nirkabel Anda.\n\nButuh bantuan lebih lanjut? Hubungi saya di www.marksinfinitesolutions.com"
+        },
+        "nl-NL": {
+          "title": "Zo vergroot je je wifisignaal",
+          "description": "Heb je een sterker draadloos signaal of betere netwerktoegang nodig? Ik ben Mark Erickson en dit is Infinite Solutions. In deze aflevering laat ik je een simpele truc zien om het bereik van je draadloze netwerkkaart te vergroten.\n\nHeb je meer hulp nodig? Neem contact met me op via www.marksinfinitesolutions.com"
+        },
+        "ar": {
+          "title": "كيفية تقوية إشارة الواي فاي الخاصة بك",
+          "description": "هل تحتاج إلى إشارة لاسلكية أقوى أو نطاق شبكة أوسع؟ معكم مارك إريكسون، وهذه قناة إنفينيت سوليوشنز. في هذه الحلقة، سأعرض لكم حيلة بسيطة لزيادة مدى بطاقة الشبكة اللاسلكية لديكم.\n\nهل تحتاجون إلى مزيد من المساعدة؟ تواصلوا معي عبر الموقع الإلكتروني www.marksinfinitesolutions.com"
+        },
+        "uk": {
+          "title": "Як підсилити сигнал Wi-Fi",
+          "description": "Вам потрібен сильніший бездротовий сигнал або кращий доступ до мережі? Я Марк Еріксон, і це Infinite Solutions. У цьому епізоді я покажу вам простий лайфхак для розширення радіусу дії вашої бездротової карти.\n\nПотрібна додаткова допомога? Зв'яжіться зі мною на сайті www.marksinfinitesolutions.com"
+        },
+        "bn": {
+          "title": "ওয়াই-ফাই সিগন্যাল বাড়ানোর উপায়",
+          "description": "আপনার কি আরও শক্তিশালী ওয়্যারলেস সিগন্যাল বা আরও বেশি নেটওয়ার্ক অ্যাক্সেস প্রয়োজন? আমি মার্ক এরিকসন, এবং এটি ইনফিনিট সলিউশনস। এই পর্বে, আমি আপনাদের ওয়্যারলেস কার্ডের রেঞ্জ বাড়ানোর একটি সহজ কৌশল দেখাবো।\n\nআরও সাহায্যের প্রয়োজন? আমার সাথে যোগাযোগ করুন www.marksinfinitesolutions.com-এ।"
+        },
+        "ml": {
+          "title": "നിങ്ങളുടെ വൈഫൈ സിഗ്നൽ വർദ്ധിപ്പിക്കുന്നത് എങ്ങനെ",
+          "description": "നിങ്ങൾക്ക് കൂടുതൽ ശക്തമായ വയർലെസ് സിഗ്നൽ ആവശ്യമുണ്ടോ അതോ കൂടുതൽ നെറ്റ്\u200cവർക്ക് ആക്\u200cസസ് ആവശ്യമുണ്ടോ? ഞാൻ മാർക്ക് എറിക്സൺ, ഇതാണ് ഇൻഫിനിറ്റ് സൊല്യൂഷൻസ്. ഈ എപ്പിസോഡിൽ, നിങ്ങളുടെ വയർലെസ് കാർഡിന്റെ ശ്രേണി വർദ്ധിപ്പിക്കുന്നതിനുള്ള ഒരു ലളിതമായ ഹാക്ക് ഞാൻ നിങ്ങൾക്ക് കാണിച്ചുതരാം.\n\nകൂടുതൽ സഹായം ആവശ്യമുണ്ടോ? www.marksinfinitesolutions.com എന്ന വിലാസത്തിൽ എന്നെ ബന്ധപ്പെടുക."
+        },
+        "ta": {
+          "title": "உங்கள் வைஃபை (Wi-Fi) சிக்னலை அதிகரிப்பது எப்படி?",
+          "description": "உங்களுக்கு வலுவான வயர்லெஸ் சிக்னல் அல்லது மேம்பட்ட நெட்வொர்க் அணுகல் தேவையா? நான் மார்க் எரிக்சன், இது இன்ஃபினைட் சொல்யூஷன்ஸ். இந்த அத்தியாயத்தில், உங்கள் வயர்லெஸ் கார்டின் வரம்பை நீட்டிக்க ஒரு எளிய வழியை நான் உங்களுக்குக் காண்பிப்பேன்.\n\nமேலும் உதவி தேவையா? www.marksinfinitesolutions.com என்ற இணையதளத்தில் என்னைத் தொடர்பு கொள்ளுங்கள்."
+        },
+        "de-DE": {
+          "title": "So verstärken Sie Ihr WLAN-Signal",
+          "description": "Benötigen Sie ein stärkeres WLAN-Signal oder einen größeren Netzwerkzugang? Ich bin Mark Erickson, und das ist Infinite Solutions. In dieser Folge zeige ich Ihnen einen einfachen Trick, um die Reichweite Ihrer WLAN-Karte zu erhöhen.\n\nBenötigen Sie weitere Hilfe? Kontaktieren Sie mich unter www.marksinfinitesolutions.com"
+        },
+        "en": {
+          "title": "How to Increase Your Wi-Fi Signal",
+          "description": "Do you need a stronger wireless signal or greater network access? I'm Mark Erickson, and this is Infinite Solutions. In this episode, I'll show you a simple hack to extend the range of your wireless card.\n\nNeed more help? Contact me at www.marksinfinitesolutions.com"
+        },
+        "ru": {
+          "title": "Как усилить сигнал Wi-Fi",
+          "description": "Вам нужен более сильный беспроводной сигнал или расширенный доступ к сети? Меня зовут Марк Эриксон, и это Infinite Solutions. В этом выпуске я покажу вам простой способ увеличить радиус действия вашей беспроводной карты.\n\nНужна дополнительная помощь? Свяжитесь со мной по адресу www.marksinfinitesolutions.com"
+        },
+        "hi": {
+          "title": "अपने वाई-फाई सिग्नल को कैसे बढ़ाएं",
+          "description": "क्या आपको बेहतर वायरलेस सिग्नल या ज़्यादा नेटवर्क एक्सेस की ज़रूरत है? मैं मार्क एरिक्सन हूँ, और यह है इनफिनिट सॉल्यूशंस। इस एपिसोड में, मैं आपको वायरलेस कार्ड की रेंज बढ़ाने का एक आसान तरीका दिखाऊंगा।\n\nऔर मदद चाहिए? मुझसे www.marksinfinitesolutions.com पर संपर्क करें।"
+        },
+        "it": {
+          "title": "Come aumentare il segnale Wi-Fi",
+          "description": "Hai bisogno di un segnale wireless più forte o di una maggiore copertura di rete? Sono Mark Erickson e questo è Infinite Solutions. In questo episodio, ti mostrerò un semplice trucco per estendere la portata della tua scheda wireless.\n\nHai bisogno di ulteriore assistenza? Contattami su www.marksinfinitesolutions.com"
+        },
+        "pa": {
+          "title": "ਆਪਣਾ ਵਾਈ-ਫਾਈ ਸਿਗਨਲ ਕਿਵੇਂ ਵਧਾਈਏ",
+          "description": "ਕੀ ਤੁਹਾਨੂੰ ਇੱਕ ਮਜ਼ਬੂਤ \u200b\u200bਵਾਇਰਲੈੱਸ ਸਿਗਨਲ ਜਾਂ ਵੱਧ ਨੈੱਟਵਰਕ ਪਹੁੰਚ ਦੀ ਲੋੜ ਹੈ? ਮੈਂ ਮਾਰਕ ਐਰਿਕਸਨ ਹਾਂ, ਅਤੇ ਇਹ ਇਨਫਿਨਿਟੀ ਸਲਿਊਸ਼ਨਜ਼ ਹੈ। ਇਸ ਐਪੀਸੋਡ ਵਿੱਚ, ਮੈਂ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਵਾਇਰਲੈੱਸ ਕਾਰਡ ਦੀ ਰੇਂਜ ਵਧਾਉਣ ਲਈ ਇੱਕ ਸਧਾਰਨ ਹੈਕ ਦਿਖਾਵਾਂਗਾ।\n\nਹੋਰ ਮਦਦ ਦੀ ਲੋੜ ਹੈ? ਮੇਰੇ ਨਾਲ www.marksinfinitesolutions.com 'ਤੇ ਸੰਪਰਕ ਕਰੋ।"
+        },
+        "ko": {
+          "title": "Wi-Fi 신호 증폭하는 방법",
+          "description": "더 강력한 무선 신호나 더 넓은 네트워크 접속이 필요하신가요? 저는 마크 에릭슨이고, 여기는 인피니트 솔루션입니다. 이번 에피소드에서는 무선 네트워크 카드 범위를 확장하는 간단한 팁을 알려드리겠습니다.\n\n더 궁금한 점이 있으시면 www.marksinfinitesolutions.com으로 문의하세요."
+        },
+        "te": {
+          "title": "మీ వై-ఫై సిగ్నల్\u200cను ఎలా పెంచుకోవాలి",
+          "description": "మీకు మరింత బలమైన వైర్\u200cలెస్ సిగ్నల్ లేదా ఎక్కువ నెట్\u200cవర్క్ యాక్సెస్ అవసరమా? నేను మార్క్ ఎరిక్సన్, మరియు ఇది ఇన్ఫినిట్ సొల్యూషన్స్. ఈ ఎపిసోడ్\u200cలో, మీ వైర్\u200cలెస్ కార్డ్ పరిధిని విస్తరించడానికి ఒక సులభమైన ఉపాయాన్ని మీకు చూపిస్తాను.\n\nమరింత సహాయం కావాలా? నన్ను www.marksinfinitesolutions.com లో సంప్రదించండి."
+        },
+        "fr-FR": {
+          "title": "Comment booster votre signal Wi-Fi",
+          "description": "Besoin d'un signal Wi-Fi plus puissant ou d'une meilleure connexion réseau ? Je suis Mark Erickson, et bienvenue sur Infinite Solutions. Dans cet épisode, je vous montre une astuce simple pour étendre la portée de votre carte Wi-Fi.\n\nBesoin d'aide ? Contactez-moi sur www.marksinfinitesolutions.com"
+        },
+        "pl": {
+          "title": "Jak wzmocnić sygnał Wi-Fi",
+          "description": "Potrzebujesz silniejszego sygnału bezprzewodowego lub lepszego dostępu do sieci? Nazywam się Mark Erickson i jestem z Infinite Solutions. W tym odcinku pokażę Ci prosty sposób na zwiększenie zasięgu Twojej karty bezprzewodowej.\n\nPotrzebujesz więcej pomocy? Skontaktuj się ze mną na stronie www.marksinfinitesolutions.com"
+        },
+        "iw": {
+          "title": "איך להגביר את אות ה-Wi-Fi שלך",
+          "description": "האם אתם זקוקים לאות אלחוטי חזק יותר או לגישה טובה יותר לרשת? אני מארק אריקסון, וזה Infinite Solutions. בפרק הזה, אראה לכם טריק פשוט להרחבת טווח הכרטיס האלחוטי שלכם.\n\nצריכים עזרה נוספת? צרו איתי קשר בכתובת www.marksinfinitesolutions.com"
+        },
+        "pt-BR": {
+          "title": "Como aumentar o sinal do seu Wi-Fi",
+          "description": "Precisa de um sinal Wi-Fi mais forte ou de maior alcance na rede? Eu sou Mark Erickson, e este é o Infinite Solutions. Neste episódio, vou mostrar um truque simples para estender o alcance da sua placa de rede sem fio.\n\nPrecisa de mais ajuda? Entre em contato comigo em www.marksinfinitesolutions.com"
+        },
+        "ja": {
+          "title": "Wi-Fi信号を強化する方法",
+          "description": "より強力な無線信号や、より広いネットワークアクセスが必要ですか？マーク・エリクソンです。こちらはインフィニット・ソリューションズです。今回のエピソードでは、無線LANカードの通信範囲を拡張する簡単な方法をご紹介します。\n\nさらに詳しい情報が必要な場合は、www.marksinfinitesolutions.com までお問い合わせください。"
+        },
+        "es-US": {
+          "title": "Cómo aumentar tu señal de Wi-Fi",
+          "description": "¿Necesitas una señal inalámbrica más potente o mayor acceso a la red? Soy Mark Erickson, y esto es Infinite Solutions. En este episodio, te mostraré un truco sencillo para ampliar el alcance de tu tarjeta inalámbrica.\n\n¿Necesitas más ayuda? Contáctame en www.marksinfinitesolutions.com"
+        }
+      },
+      "paidProductPlacementDetails": {
+        "hasPaidProductPlacement": false
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 2,
+    "resultsPerPage": 2
+  }
+}

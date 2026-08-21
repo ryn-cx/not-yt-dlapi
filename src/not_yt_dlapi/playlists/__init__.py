@@ -1,19 +1,10 @@
 # TODO: Validate
-"""Contains the Playlists class.
+"""A `playlist` resource represents a YouTube playlist. A playlist is a
+collection of videos that can be viewed sequentially and shared with other
+users. By default, playlists are publicly visible to other users, but
+playlists can be public or private.
 
-Playlists are asked for either by their own ids or by the channel they belong
-to, and the API takes exactly one of the two, so the endpoint does too. A page
-of them comes back at a time; `next_page_token` on the result is what asks for
-the page after it.
-
-Every part the API will hand out is always asked for, so what a request answers
-with is decided only by the playlist rather than by the caller. That is what
-lets `models` say which properties a playlist always carries.
-
-`feed` is not the API. It is the Atom feed of the playlist's fifteen most recent
-videos, which is served from youtube.com, takes no key and costs no quota.
-YouTube is currently refusing every playlist feed it is asked for, so it raises
-rather than answering until that is fixed.
+https://developers.google.com/youtube/v3/docs/playlists
 """
 
 from __future__ import annotations
@@ -44,7 +35,13 @@ MAX_IDS = 50
 
 # TODO: Validate
 class Playlists(BaseEndpoint):
-    """Playlists, by their own ids or by the channel that owns them."""
+    """A `playlist` resource represents a YouTube playlist. A playlist is a
+    collection of videos that can be viewed sequentially and shared with other
+    users. By default, playlists are publicly visible to other users, but
+    playlists can be public or private.
+
+    https://developers.google.com/youtube/v3/docs/playlists
+    """
 
     # TODO: Validate
     @overload

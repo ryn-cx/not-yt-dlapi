@@ -1,0 +1,18 @@
+{
+  "kind": "youtube#channelSectionListResponse",
+  "etag": "it0Jydz74-uLfsPdyIgW5lBO8zw",
+  "items": [
+    {
+      "kind": "youtube#channelSection",
+      "etag": "XYpG9GuLWnSivqoK3xTJKwvI7bQ",
+      "id": "UCooTDYkIERWBwDC1JKyoElQ.jNQXAC9IVRw",
+      "snippet": {
+        "type": "channelsectiontypeundefined",
+        "channel_id": "UCooTDYkIERWBwDC1JKyoElQ",
+        "title": null,
+        "position": 0
+      },
+      "content_details": null
+    }
+  ]
+}

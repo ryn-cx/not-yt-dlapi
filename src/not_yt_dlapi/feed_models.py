@@ -23,7 +23,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Any, Self, override
 from xml.etree.ElementTree import fromstring
 
-from pydantic import Field, SkipValidation
+from pydantic import Field
 
 from not_yt_dlapi.base_response_model import BaseResponseModel
 from not_yt_dlapi.common_models import APIModel
@@ -307,7 +307,7 @@ class FeedResponse(BaseResponseModel, APIModel):
     published: str
     # A feed with nothing in it has no `entry` elements at all.
     entries: list[FeedEntry] = Field(alias="entry", default=())
-    raw: SkipValidation[str] = Field(repr=False)
+    raw: str = Field(repr=False, exclude=True)
 
     # TODO: Validate
     @classmethod

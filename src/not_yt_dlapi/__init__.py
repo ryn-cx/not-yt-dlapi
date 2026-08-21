@@ -25,7 +25,7 @@ from not_yt_dlapi.music import Music
 from not_yt_dlapi.playlist_items import PlaylistItems
 from not_yt_dlapi.playlists import Playlists
 from not_yt_dlapi.shows import Shows
-from not_yt_dlapi.utils import read_continuation, read_seasons
+from not_yt_dlapi.topic import Topic
 from not_yt_dlapi.videos import Videos
 
 if TYPE_CHECKING:
@@ -99,6 +99,7 @@ class NotYTDLAPI:
         self.playlist_items = PlaylistItems(self)
         self.shows = Shows(self)
         self.music = Music(self)
+        self.topic = Topic(self)
 
         super().__init__()
 
@@ -121,8 +122,13 @@ class NotYTDLAPI:
         path: str,
         params: dict[str, Any],
         log_id: str,
-    ) -> dict[str, Any]:
+    ) -> str:
         """Make a request to the YouTube Data API.
+
+        What comes back is the body as it was served rather than the reading of
+        it. The body is read here to see whether the API is answering with an
+        error, since that is the only thing this has to know, and reading it
+        into a model is the model's own to do.
 
         Raises:
             HTTPError: If the body is not JSON, which is something other than
@@ -142,7 +148,6 @@ class NotYTDLAPI:
             f"https://www.googleapis.com/youtube/v3/{path}",
             params=query,
             headers=headers,
-            timeout=30,
         )
         duration = monotonic() - start
 
@@ -161,7 +166,7 @@ class NotYTDLAPI:
         if response.status_code != HTTPStatus.OK:
             raise HTTPError(response)
 
-        return output
+        return response.text
 
     # TODO: Validate
     def download_feed(self, params: dict[str, Any], log_id: str) -> str:
@@ -170,7 +175,6 @@ class NotYTDLAPI:
         response = self.get_around_client.get(
             "https://www.youtube.com/feeds/videos.xml",
             params=params,
-            timeout=30,
         )
         duration = monotonic() - start
 
@@ -182,7 +186,7 @@ class NotYTDLAPI:
         return response.text
 
     # TODO: Validate
-    def browse(self, asked: dict[str, Any], log_id: str) -> dict[str, Any]:
+    def browse(self, asked: dict[str, Any], log_id: str) -> str:
         start = monotonic()
 
         response = self.get_around_client.post(
@@ -197,7 +201,6 @@ class NotYTDLAPI:
                 },
             },
             headers={"Content-Type": "application/json"},
-            timeout=30,
         )
         duration = monotonic() - start
 
@@ -210,52 +213,4 @@ class NotYTDLAPI:
         if response.status_code != HTTPStatus.OK:
             raise HTTPError(response)
 
-        return response.json()
-
-    # TODO: Validate
-    def _browse_to_the_end(
-        self,
-        browsed: dict[str, Any],
-        log_id: str,
-    ) -> list[dict[str, Any]]:
-        answers = [browsed]
-        token = read_continuation(browsed)
-        while token is not None:
-            answers.append(self.browse({"continuation": token}, log_id))
-            token = read_continuation(answers[-1])
-        return answers
-
-    # TODO: Validate
-    def download_music(
-        self,
-        playlist_id: str,
-        log_id: str,
-    ) -> list[dict[str, Any]]:
-        """Ask browse for a music playlist and for the rest of it until there is none.
-
-        A release is one playlist with nothing to choose between, unlike a show,
-        so what it takes is the playlist itself and then however many
-        continuations the listing runs to.
-        """
-        opened = self.browse({"browseId": f"VL{playlist_id}"}, log_id)
-        return self._browse_to_the_end(opened, log_id)
-
-    # TODO: Validate
-    def download_show(
-        self,
-        playlist_id: str,
-        log_id: str,
-    ) -> list[dict[str, Any]]:
-        opened = self.browse({"browseId": f"VL{playlist_id}"}, log_id)
-        seasons, open_season = read_seasons(opened)
-
-        asked = [opened] + [
-            self.browse(seasons[number], log_id)
-            for number in sorted(seasons)
-            if number != open_season
-        ]
-        return [
-            answer
-            for browsed in asked
-            for answer in self._browse_to_the_end(browsed, log_id)
-        ]
+        return response.text

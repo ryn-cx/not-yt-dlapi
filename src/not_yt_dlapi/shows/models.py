@@ -8,32 +8,27 @@ says, named the way browse names it but in snake_case.
 
 An entry says which video it is, what it is called, how long it is, where it
 sits in the season and what it is pictured by. It says nothing about who
-published it or when, so there is nothing of that here. The entry itself is kept
-on `raw`, so what browse said and this does not read is still there to read.
+published it or when, so there is nothing of that here. The answer itself is
+kept on `raw`, so what browse said and this does not read is still there to
+read.
 """
 
 from __future__ import annotations
 
+import json
 from typing import Any, Self, override
 
-from pydantic import Field, SkipValidation
+from pydantic import Field
 
 from not_yt_dlapi.base_response_model import BaseResponseModel
 from not_yt_dlapi.common_models import APIModel
-from not_yt_dlapi.utils import find, read_seasons, read_text
-
-
-# TODO: Validate
-def read_open_season(browsed: dict[str, Any]) -> int | None:
-    """Return which season an answer holds, if the answer says.
-
-    Every answer carrying a season carries the menu of them too, with the one
-    it holds marked as the one chosen. An answer to a continuation carries no
-    menu, because it is the rest of a season already named rather than a season
-    of its own, and nothing else browse answers with names a season either.
-    """
-    _, open_season = read_seasons(browsed)
-    return open_season
+from not_yt_dlapi.utils import (
+    find,
+    read_continuation,
+    read_seasons,
+    read_text,
+    strip_url_parameters,
+)
 
 
 # TODO: Validate
@@ -101,69 +96,88 @@ class ShowEpisode(APIModel):
             playlist_id=watch["playlistId"],
             is_playable=entry.get("isPlayable", False),
             thumbnails=[
-                ShowThumbnail(**thumbnail)
+                ShowThumbnail(
+                    **thumbnail | {"url": strip_url_parameters(thumbnail["url"])},
+                )
                 for thumbnail in entry.get("thumbnail", {}).get("thumbnails", ())
             ],
         )
 
 
 # TODO: Validate
-class ShowSeason(APIModel):
-    """One season of a show, and the episodes browse listed under it.
+class ShowSeasonLink(APIModel):
+    """One season of a show, as the menu of them offers it.
+
+    A season is its own thing to ask browse for, and what it is asked for by is
+    written in the menu rather than worked out from the number, so what the menu
+    says is kept as it stands and handed back to `list` to ask with.
 
     Attributes:
         number: Which season it is, counted the way the show counts them, which
-            starts at one.
-        episodes: The episodes, in the order browse listed them.
+            is not always from one.
+        browse_id: What browse calls the season, which is the show itself rather
+            than the playlist the show was opened by.
+        params: What browse is told to narrow the show down to this season,
+            which is an opaque string the menu carries.
+        selected: Whether this is the season the answer the menu came in holds.
+            Opening a show gives whichever season its menu starts on, so this is
+            what says which of them was already answered.
     """
 
     number: int
-    episodes: list[ShowEpisode] = Field(default_factory=list)
+    browse_id: str
+    params: str | None = None
+    selected: bool = False
 
 
 # TODO: Validate
 class Show(BaseResponseModel, APIModel):
-    """The seasons of a show that browse listed, and what is in each of them.
+    """One stretch of one season of a show, and what browse listed in it.
 
-    The episodes are kept under the season they belong to rather than run
-    together, because that is the only thing that says which season an episode
-    is from: an entry says where it sits in its own season and nothing about
-    which season that is.
+    Browse hands out a season a stretch at a time, and only the stretch that
+    begins one carries the menu of seasons, because the ones after it are the
+    rest of a season already asked for rather than the show again. So a stretch
+    that is not the first says neither which season it is nor what the other
+    seasons are, and what it holds is episodes and the token for the one after
+    it.
 
     Attributes:
-        seasons: The seasons the answers held, lowest number first.
-        raw: The answers browse gave, in the order it gave them.
+        season: Which season this stretch is of, if the answer says, which it
+            does by marking that season as the one chosen in its menu.
+        seasons: The seasons the menu offers, lowest number first, each holding
+            what it is asked for by.
+        episodes: The episodes this stretch listed, in the order it listed them.
+        continuation: What the stretch after this one is asked for by, which is
+            nothing once there is no more of the season.
+        raw: The answer browse gave, as it was served.
     """
 
-    seasons: list[ShowSeason] = Field(default_factory=list)
-    raw: SkipValidation[list[dict[str, Any]]] = Field(repr=False)
+    season: int | None = None
+    seasons: list[ShowSeasonLink] = Field(default_factory=list)
+    episodes: list[ShowEpisode] = Field(default_factory=list)
+    continuation: str | None = None
+    raw: str = Field(repr=False, exclude=True)
 
     # TODO: Validate
     @classmethod
     @override
-    def from_response(cls, data: list[dict[str, Any]]) -> Self:
-        """Read every answer browse gave, filing each episode under its season.
-
-        An answer says which season it holds, and an answer to a continuation
-        says nothing because it is the rest of the season the answer before it
-        named. So the answers are read in the order they were given and each
-        one that names a season says which season the ones after it belong to
-        until another does. A show whose only season is the playlist itself
-        names none at all, and its one season is its first.
-        """
-        episodes: dict[int, list[dict[str, Any]]] = {}
-        season = 1
-        for answer in data:
-            season = read_open_season(answer) or season
-            episodes.setdefault(season, []).extend(read_entries(answer))
+    def from_response(cls, data: str) -> Self:
+        """Read one answer browse gave."""
+        browsed = json.loads(data)
+        menu, open_season = read_seasons(browsed)
 
         return cls(
+            season=open_season,
             seasons=[
-                ShowSeason(
+                ShowSeasonLink(
                     number=number,
-                    episodes=[ShowEpisode.from_entry(entry) for entry in entries],
+                    browse_id=endpoint["browseId"],
+                    params=endpoint.get("params"),
+                    selected=number == open_season,
                 )
-                for number, entries in sorted(episodes.items())
+                for number, endpoint in sorted(menu.items())
             ],
+            episodes=[ShowEpisode.from_entry(entry) for entry in read_entries(browsed)],
+            continuation=read_continuation(browsed),
             raw=data,
         )
