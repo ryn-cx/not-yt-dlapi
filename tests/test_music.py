@@ -22,8 +22,9 @@ class TestList(RecordedEndpoint):
     )
 
     PLAYLIST_IDS = (
-        pytest.param("OLAK5uy_mYS5efFtXpNEV9MDDZsGt3LkFJNR02GzY", id="one artist"),
-        pytest.param("OLAK5uy_lVxq_QCXDlleCnpsszQyiFextilkX12_w", id="two artists"),
+        pytest.param("OLAK5uy_mYS5efFtXpNEV9MDDZsGt3LkFJNR02GzY", id="channel - one artist"),
+        pytest.param("OLAK5uy_lVxq_QCXDlleCnpsszQyiFextilkX12_w", id="channel - two artists"),
+        pytest.param("OLAK5uy_kiAyq0iiYYIPvqybBkpxFvNai3lAw3fyU", id="topic - three artists"),
     )
 
     @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)

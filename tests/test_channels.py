@@ -35,6 +35,10 @@ class TestList(ChannelTest):
         # The current API returns basically nothing for a Topic channel.
         pytest.param(("channel_id", "UCooTDYkIERWBwDC1JKyoElQ"), id="topic channel"),
         pytest.param(("channel_id", "UCCCCCCCCCCCCCCCCCCCCCCC"), id="invalid channel"),
+        pytest.param(
+            ("channel_id", "UCYoEbMFACdvkquYH5h31RNA"),
+            id="channel linked to movie",
+        ),
         pytest.param(("channel_handle", "@jawed"), id="handle"),
         pytest.param(("channel_username", "jawed"), id="username"),
     )

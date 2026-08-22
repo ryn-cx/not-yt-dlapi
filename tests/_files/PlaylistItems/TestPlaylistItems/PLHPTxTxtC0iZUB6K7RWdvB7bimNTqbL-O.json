@@ -1,0 +1,206 @@
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "zTw6oVwNEHaUKqsBujMvQpOR3pY",
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "-iY1EV0yLEtc19q1gwnvZ9k_2Ao",
+      "id": "UExIUFR4VHh0QzBpWlVCNks3UldkdkI3YmltTlRxYkwtTy5BNjBCMUFCN0Q5QzUyMjlG",
+      "snippet": {
+        "publishedAt": "2023-03-23T13:17:17Z",
+        "channelId": "UClgRkhTL3_hImCAmdLfDE4g",
+        "title": "Ein Sommer in Amalfi (Unplugged test movie by fake i18n partner)",
+        "description": "Die Verlegerin Claudia Wesskampe ist gezwungen, ihren geplanten Urlaub abzusagen und stattdessen nach Italien zu reisen, um ihren Verlag zu retten. Begeistert ist sie davon nicht, denn Italien ist ihr viel zu klischeehaft. Aber ihr bester Autor hat seinen Vorschuss für andere Dinge verprasst, jedoch kein fertiges Buch geliefert und sich dann auch noch das Bein gebrochen. In Amalfi lernt Claudia Land und Leute kennen und erlebt so einige Überraschungen.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/kGysoYI-x8E/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/kGysoYI-x8E/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/kGysoYI-x8E/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/kGysoYI-x8E/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "YouTube Movies",
+        "playlistId": "PLHPTxTxtC0iZUB6K7RWdvB7bimNTqbL-O",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "kGysoYI-x8E"
+        },
+        "videoOwnerChannelTitle": "Fake International Partner",
+        "videoOwnerChannelId": "UC-EM-AldjtXCZBcXHGTg62g"
+      },
+      "contentDetails": {
+        "videoId": "kGysoYI-x8E",
+        "videoPublishedAt": "2022-08-06T08:24:37Z"
+      },
+      "status": {
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "KmtkJe7ZGy2H8iViisJpma0qTKY",
+      "id": "UExIUFR4VHh0QzBpWlVCNks3UldkdkI3YmltTlRxYkwtTy4yMkNBN0M4QUJEQzYxMjA3",
+      "snippet": {
+        "publishedAt": "2023-03-23T13:17:17Z",
+        "channelId": "UClgRkhTL3_hImCAmdLfDE4g",
+        "title": "L'odyssée d'un trésor : L'or de Troie",
+        "description": "Le documentaire suit les traces de l'or de Priam. Un voyage d'un siècle et demi depuis les plaines de Troie jusqu'aux voûtes d'un musée à Moscou.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/YalmgvxlZhY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/YalmgvxlZhY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/YalmgvxlZhY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/YalmgvxlZhY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "YouTube Movies",
+        "playlistId": "PLHPTxTxtC0iZUB6K7RWdvB7bimNTqbL-O",
+        "position": 1,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "YalmgvxlZhY"
+        },
+        "videoOwnerChannelTitle": "Fake International Partner",
+        "videoOwnerChannelId": "UC-EM-AldjtXCZBcXHGTg62g"
+      },
+      "contentDetails": {
+        "videoId": "YalmgvxlZhY",
+        "videoPublishedAt": "2023-03-17T23:48:10Z"
+      },
+      "status": {
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "XG4tDUm37TEyqX1XvK6sMVQyCHM",
+      "id": "UExIUFR4VHh0QzBpWlVCNks3UldkdkI3YmltTlRxYkwtTy4xQ0EyNTVGREQ1Nzk5MkVB",
+      "snippet": {
+        "publishedAt": "2023-03-23T13:17:17Z",
+        "channelId": "UClgRkhTL3_hImCAmdLfDE4g",
+        "title": "L'odyssée d'un trésor : L'or de Troie",
+        "description": "Le documentaire suit les traces de l'or de Priam. Un voyage d'un siècle et demi depuis les plaines de Troie jusqu'aux voûtes d'un musée à Moscou.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/msjlIC_D0cA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/msjlIC_D0cA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/msjlIC_D0cA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/msjlIC_D0cA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "YouTube Movies",
+        "playlistId": "PLHPTxTxtC0iZUB6K7RWdvB7bimNTqbL-O",
+        "position": 2,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "msjlIC_D0cA"
+        },
+        "videoOwnerChannelTitle": "Fake International Partner",
+        "videoOwnerChannelId": "UC-EM-AldjtXCZBcXHGTg62g"
+      },
+      "contentDetails": {
+        "videoId": "msjlIC_D0cA",
+        "videoPublishedAt": "2023-03-18T00:02:52Z"
+      },
+      "status": {
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "WZBNmTtO__9MIiNcMHee-W8xRO4",
+      "id": "UExIUFR4VHh0QzBpWlVCNks3UldkdkI3YmltTlRxYkwtTy41MjA2QjlEREM3NTE0RkJG",
+      "snippet": {
+        "publishedAt": "2023-03-23T13:17:17Z",
+        "channelId": "UClgRkhTL3_hImCAmdLfDE4g",
+        "title": "Käfer und Prinzessin",
+        "description": "Polizeiruf 110: Eine Kommune steht unter Schock. Der Chef Harald \"Harry\" Wacker wird tot aufgefunden - in der Sickergrube. Ein Unfall wird schnell ausgeschlossen, Harry wurde erdrosselt und dann in die Sickergrube geworfen.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/uLODe6b63MI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/uLODe6b63MI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/uLODe6b63MI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/uLODe6b63MI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "YouTube Movies",
+        "playlistId": "PLHPTxTxtC0iZUB6K7RWdvB7bimNTqbL-O",
+        "position": 3,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "uLODe6b63MI"
+        },
+        "videoOwnerChannelTitle": "Fake International Partner",
+        "videoOwnerChannelId": "UC-EM-AldjtXCZBcXHGTg62g"
+      },
+      "contentDetails": {
+        "videoId": "uLODe6b63MI",
+        "videoPublishedAt": "2023-02-22T22:02:22Z"
+      },
+      "status": {
+        "privacyStatus": "public"
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 4,
+    "resultsPerPage": 50
+  }
+}

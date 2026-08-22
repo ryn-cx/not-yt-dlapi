@@ -12,6 +12,8 @@ from tests.utils import RecordedEndpoint
 if TYPE_CHECKING:
     from not_yt_dlapi import NotYTDLAPI
 
+
+# TODO: Validate
 class TestPlaylistItems(RecordedEndpoint):
     ENDPOINT = PlaylistItems
     MODEL = PlaylistItemListResponse
@@ -23,7 +25,16 @@ class TestPlaylistItems(RecordedEndpoint):
         pytest.param("OLAK5uy_mKcftf5tOvVhq-CsutohYLKrB1l8PqCG8", id="music playlist"),
         pytest.param("PLbpi6ZahtOH4kNyb9pjnMYg4PB7qiljiH", id="multipage playlist"),
         pytest.param("TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw", id="show"),
+        # The hub channels are YouTube's own and hold no videos, only
+        # playlists, so one playlist of each is asked for.
+        pytest.param("PLHPTxTxtC0iZUB6K7RWdvB7bimNTqbL-O", id="movies hub playlist"),
+        pytest.param("PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_", id="music hub playlist"),
+        pytest.param("PLydZ2Hrp_gPQmh4MSMoUK4H5QPr7AM4bT", id="learning hub playlist"),
     )
+
+    # Only the playlists that were already walked are walked, since the hub
+    # playlists are there to be read rather than to say the walk works.
+    WALKED_PLAYLIST_IDS = PLAYLIST_IDS[:5]
 
     @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
     def test_download(self, client: NotYTDLAPI, playlist_id: str) -> None:
@@ -36,14 +47,14 @@ class TestPlaylistItems(RecordedEndpoint):
     def test_parse(self, playlist_id: str) -> None:
         self.parse_test(playlist_id)
 
-    @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
+    @pytest.mark.parametrize("playlist_id", WALKED_PLAYLIST_IDS)
     def test_download_all(self, client: NotYTDLAPI, playlist_id: str) -> None:
         self.download_test(
             f"{playlist_id}_all",
             lambda: client.playlist_items.list_all(playlist_id),
         )
 
-    @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
+    @pytest.mark.parametrize("playlist_id", WALKED_PLAYLIST_IDS)
     def test_parse_all(self, playlist_id: str) -> None:
         self.parse_test(f"{playlist_id}_all")
 

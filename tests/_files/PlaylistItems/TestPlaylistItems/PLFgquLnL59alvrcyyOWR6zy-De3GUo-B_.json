@@ -1,0 +1,160 @@
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "F_vMH6Lvr4WVonnzPEtmEX5TQHY",
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "CCGQ88YebEieG_ImvzkzVX4Mg-c",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy5DNzE1RjZEMUZCMjA0RDBB",
+      "snippet": {
+        "publishedAt": "2023-04-23T07:00:10Z",
+        "channelId": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {},
+        "channelTitle": "Music",
+        "playlistId": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "1-3L7Uw5yEs"
+        }
+      },
+      "contentDetails": {
+        "videoId": "1-3L7Uw5yEs"
+      },
+      "status": {
+        "privacyStatus": "private"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "-qs4faVer-ho3qRdoNEz-mAmQ4U",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy43MTI1NDIwOTMwQjIxMzNG",
+      "snippet": {
+        "publishedAt": "2023-04-23T07:00:10Z",
+        "channelId": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {},
+        "channelTitle": "Music",
+        "playlistId": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 1,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "3HYVAL-52PM"
+        }
+      },
+      "contentDetails": {
+        "videoId": "3HYVAL-52PM"
+      },
+      "status": {
+        "privacyStatus": "private"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "QJxP7L20SHjwnuwfMCAG6R_kNZs",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy5DQ0MyQ0Y4Mzg0M0VGOEYw",
+      "snippet": {
+        "publishedAt": "2023-04-23T07:00:10Z",
+        "channelId": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {},
+        "channelTitle": "Music",
+        "playlistId": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 2,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "P8T81_n28L4"
+        }
+      },
+      "contentDetails": {
+        "videoId": "P8T81_n28L4"
+      },
+      "status": {
+        "privacyStatus": "private"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "0Nw06PK0SxG-q957k6ib5jphKPE",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy4yQUE2Q0JEMTk4NTM3RTZC",
+      "snippet": {
+        "publishedAt": "2023-04-23T07:00:10Z",
+        "channelId": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {},
+        "channelTitle": "Music",
+        "playlistId": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 3,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "wbZ9rP74cRE"
+        }
+      },
+      "contentDetails": {
+        "videoId": "wbZ9rP74cRE"
+      },
+      "status": {
+        "privacyStatus": "private"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "vgDQq8VuE47Uqbuei12Xyzks47c",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy5DMkU4NTY1QUFGQTYwMDE3",
+      "snippet": {
+        "publishedAt": "2023-04-23T07:00:10Z",
+        "channelId": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {},
+        "channelTitle": "Music",
+        "playlistId": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 4,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "M7tholO-Ob0"
+        }
+      },
+      "contentDetails": {
+        "videoId": "M7tholO-Ob0"
+      },
+      "status": {
+        "privacyStatus": "private"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "ty9ovFfKNzkD1-MiR09RKwWxJpo",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy44Mjc5REFBRUE2MTdFRDU0",
+      "snippet": {
+        "publishedAt": "2023-04-23T07:00:10Z",
+        "channelId": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {},
+        "channelTitle": "Music",
+        "playlistId": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 5,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "9hdFg3rnOXI"
+        }
+      },
+      "contentDetails": {
+        "videoId": "9hdFg3rnOXI"
+      },
+      "status": {
+        "privacyStatus": "private"
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 6,
+    "resultsPerPage": 50
+  }
+}

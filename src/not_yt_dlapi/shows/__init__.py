@@ -27,6 +27,18 @@ logger.addHandler(NullHandler())
 
 
 # TODO: Validate
+def show_browse_id(playlist_id: str) -> str:
+    """Return what browse calls a show opened by the given id.
+
+    A show has two ids. The `SC` one its page is at is already what browse
+    calls it, and the `TVSH` playlist id is turned into one by putting `VL` in
+    front of it. Sending either the wrong way answers with no episodes rather
+    than a refusal.
+    """
+    return playlist_id if playlist_id.startswith("SC") else f"VL{playlist_id}"
+
+
+# TODO: Validate
 class Shows(BaseEndpoint):
     """Shows, which are the playlists the site draws a season menu over."""
 
@@ -52,10 +64,10 @@ class Shows(BaseEndpoint):
     ) -> Show:
         """Download one stretch of a show and read it.
 
-        A show is opened by its id, a season of it is asked for by the entry the
-        menu of them carries, and a stretch is carried on by the token the one
-        before it ended with. Browse takes exactly one of the three, so this
-        does too.
+        A show is opened by either of its ids, a season of it is asked for by
+        the entry the menu of them carries, and a stretch is carried on by the
+        token the one before it ended with. Browse takes exactly one of the
+        three, so this does too.
 
         Raises:
             ValueError: If the request is not named by exactly one of the three
@@ -65,7 +77,9 @@ class Shows(BaseEndpoint):
         given: list[dict[str, Any]] = [
             asked
             for asked in (
-                None if playlist_id is None else {"browseId": f"VL{playlist_id}"},
+                None
+                if playlist_id is None
+                else {"browseId": show_browse_id(playlist_id)},
                 None
                 if season is None
                 else {"browseId": season.browse_id, "params": season.params},

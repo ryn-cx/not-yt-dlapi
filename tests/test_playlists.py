@@ -33,7 +33,18 @@ class TestPlaylists(RecordedEndpoint):
     )
 
     # A channel answers with every playlist it made rather than one asked for.
-    CHANNEL_IDS = (pytest.param("UC4QobU6STFB0P71PMvOGN5A", id="channel"),)
+    # The hub channels are YouTube's own and hold no videos, only playlists.
+    CHANNEL_IDS = (
+        pytest.param("UC4QobU6STFB0P71PMvOGN5A", id="channel"),
+        pytest.param("UCYoEbMFACdvkquYH5h31RNA", id="channel linked to movie"),
+        pytest.param("UClgRkhTL3_hImCAmdLfDE4g", id="movies and shows hub"),
+        pytest.param("UC-9-kyTW8ZkZNDHQJ6FgpwQ", id="music hub"),
+        pytest.param("UCtFRv9O2AHqOZjjynzrv-xg", id="learning hub"),
+    )
+
+    # Only the first channel is walked, since walking one is enough to say the
+    # walk works and every extra one is another run of requests.
+    WALKED_CHANNEL_IDS = CHANNEL_IDS[:1]
 
     # TODO: Validate
     @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
@@ -75,7 +86,7 @@ class TestPlaylists(RecordedEndpoint):
         self.parse_test(channel_id)
 
     # TODO: Validate
-    @pytest.mark.parametrize("channel_id", CHANNEL_IDS)
+    @pytest.mark.parametrize("channel_id", WALKED_CHANNEL_IDS)
     def test_download_channel_all(self, client: NotYTDLAPI, channel_id: str) -> None:
         # Every response the walk was served is recorded, so the walk happens
         # once rather than on every run.
@@ -85,7 +96,7 @@ class TestPlaylists(RecordedEndpoint):
         )
 
     # TODO: Validate
-    @pytest.mark.parametrize("channel_id", CHANNEL_IDS)
+    @pytest.mark.parametrize("channel_id", WALKED_CHANNEL_IDS)
     def test_parse_channel_all(self, channel_id: str) -> None:
         self.parse_test(f"{channel_id}_all")
 

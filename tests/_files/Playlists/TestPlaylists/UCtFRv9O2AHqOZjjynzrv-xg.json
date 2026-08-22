@@ -1,0 +1,2571 @@
+{
+  "kind": "youtube#playlistListResponse",
+  "etag": "63mpL8d6bUVw6JjnDRAo9C_S-m4",
+  "nextPageToken": "CDIQAA",
+  "pageInfo": {
+    "totalResults": 1792,
+    "resultsPerPage": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#playlist",
+      "etag": "QNRFvM_xxSGYZHK9v9NUY_EaJzo",
+      "id": "PLydZ2Hrp_gPTpF_ZLns1itMHHfHuqNN4h",
+      "snippet": {
+        "publishedAt": "2023-01-09T15:48:04.287129Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "FR Carousel 01.09.23",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/V-qAyd0QyR8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/V-qAyd0QyR8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/V-qAyd0QyR8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/V-qAyd0QyR8/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/V-qAyd0QyR8/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "FR Carousel 01.09.23",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPTpF_ZLns1itMHHfHuqNN4h\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "aEBYZ4Eu_Eh4SNePzWEbTjMe-ys",
+      "id": "PLydZ2Hrp_gPQmh4MSMoUK4H5QPr7AM4bT",
+      "snippet": {
+        "publishedAt": "2023-01-09T15:06:28.300919Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Religions of the world",
+        "description": "There are over 4,000 recognized religions worldwide, each with its own beliefs, structures, and congregants. Watch this playlist to learn about the twelve major religions.\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/m6dCxo7t_aE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/m6dCxo7t_aE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/m6dCxo7t_aE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/m6dCxo7t_aE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/m6dCxo7t_aE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Religions of the world",
+          "description": "There are over 4,000 recognized religions worldwide, each with its own beliefs, structures, and congregants. Watch this playlist to learn about the twelve major religions.\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 10
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQmh4MSMoUK4H5QPr7AM4bT\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "uTxooMmfrYdZNlcbs-WJmdls4x8",
+      "id": "PLydZ2Hrp_gPRwOzKzRwzDMdVaTtC-YFYl",
+      "snippet": {
+        "publishedAt": "2023-01-09T14:40:29.275742Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "US Carousel 01.09.23",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/m6dCxo7t_aE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/m6dCxo7t_aE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/m6dCxo7t_aE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/m6dCxo7t_aE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/m6dCxo7t_aE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "US Carousel 01.09.23",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPRwOzKzRwzDMdVaTtC-YFYl\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "306RtBxkVPfsj-MZgrx3d4oxK7E",
+      "id": "PLydZ2Hrp_gPTcfktwQGxSkP7eim7YTFwm",
+      "snippet": {
+        "publishedAt": "2023-01-06T04:47:48.086408Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Ciências da Terra",
+        "description": "Compreenda a complexidade de um sistema formado por água, ar e terra, e a interação entre a Terra e os demais corpos do Sistema Solar.\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/kU0o2DYHRqE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/kU0o2DYHRqE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/kU0o2DYHRqE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/kU0o2DYHRqE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/kU0o2DYHRqE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Ciências da Terra",
+          "description": "Compreenda a complexidade de um sistema formado por água, ar e terra, e a interação entre a Terra e os demais corpos do Sistema Solar.\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPTcfktwQGxSkP7eim7YTFwm\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "oyC0rmo1uM17OGPFmUN7bvT5zUw",
+      "id": "PLydZ2Hrp_gPRXH9Nns551ljMd74reDdVz",
+      "snippet": {
+        "publishedAt": "2023-01-06T04:46:39.905793Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "BR Carousel 01.06.23",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/mrD0Xmx6jSo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/mrD0Xmx6jSo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/mrD0Xmx6jSo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/mrD0Xmx6jSo/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/mrD0Xmx6jSo/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "BR Carousel 01.06.23",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPRXH9Nns551ljMd74reDdVz\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "tiybeMEvsNAGo6mgGJpyOTY6eCA",
+      "id": "PLydZ2Hrp_gPQiVaxxvgAUcy-hc2xgMYWG",
+      "snippet": {
+        "publishedAt": "2023-01-06T04:45:57.438451Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Receitas de culinária para as férias",
+        "description": "Junte-se a esses cooktubers e experimente essas receitas maravilhosas!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/QFMxJWh3mqE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/QFMxJWh3mqE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/QFMxJWh3mqE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/QFMxJWh3mqE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/QFMxJWh3mqE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Receitas de culinária para as férias",
+          "description": "Junte-se a esses cooktubers e experimente essas receitas maravilhosas!"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQiVaxxvgAUcy-hc2xgMYWG\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "JD8wS_2VAtUL8eVqMLgV0HVq118",
+      "id": "PLydZ2Hrp_gPQmB5MftzEbRlIdUWgBAr1n",
+      "snippet": {
+        "publishedAt": "2023-01-03T17:23:38.55888Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Herramientas para presentaciones online",
+        "description": "¡Con estas herraminetas vas a poder crear increíbles presentaciones online!\n\n\n\n\n\n\n\n\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/MgmZZ8FLOpk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/MgmZZ8FLOpk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/MgmZZ8FLOpk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/MgmZZ8FLOpk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Herramientas para presentaciones online",
+          "description": "¡Con estas herraminetas vas a poder crear increíbles presentaciones online!\n\n\n\n\n\n\n\n\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQmB5MftzEbRlIdUWgBAr1n\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "fGDAjVfni-DAS2WiuNbz4TEM-i4",
+      "id": "PLydZ2Hrp_gPRXU0Q6rCriNkznp-RCWv5R",
+      "snippet": {
+        "publishedAt": "2023-01-03T17:18:33.054815Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "LATAM Carousel 1.03.23",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/KZkYxXgcnt4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/KZkYxXgcnt4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/KZkYxXgcnt4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/KZkYxXgcnt4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/KZkYxXgcnt4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "LATAM Carousel 1.03.23",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPRXU0Q6rCriNkznp-RCWv5R\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "BxzSweI0E_SDfxRfns9KXCMltSs",
+      "id": "PLydZ2Hrp_gPTWOI1onzgLPszNIcLJVJfG",
+      "snippet": {
+        "publishedAt": "2023-01-02T18:18:28.668382Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "US Carousel 01.03.23",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2PcRudhw9QU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2PcRudhw9QU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2PcRudhw9QU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2PcRudhw9QU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2PcRudhw9QU/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "US Carousel 01.03.23",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPTWOI1onzgLPszNIcLJVJfG\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "69Y63UDQif0H3cPQw0Pf5iFDJ24",
+      "id": "PLydZ2Hrp_gPQd-swvAIIxXZy4zpcqM4vY",
+      "snippet": {
+        "publishedAt": "2022-12-30T13:58:38.776897Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Revolução cubana",
+        "description": "No início dos anos 1960, Cuba se tornou o primeiro país socialista das Américas. Durante a Guerra Fria, a Revolução Cubana seria encarada como uma ameaça aos interesses dos EUA no continente. Conheça aqui este importante acontecimento histórico.\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/t-L6UQoRkTg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/t-L6UQoRkTg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/t-L6UQoRkTg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/t-L6UQoRkTg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/t-L6UQoRkTg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Revolução cubana",
+          "description": "No início dos anos 1960, Cuba se tornou o primeiro país socialista das Américas. Durante a Guerra Fria, a Revolução Cubana seria encarada como uma ameaça aos interesses dos EUA no continente. Conheça aqui este importante acontecimento histórico.\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQd-swvAIIxXZy4zpcqM4vY\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "YncYiOIx3det5YrFH2rWumm_-uU",
+      "id": "PLydZ2Hrp_gPQZz9qYbG2L50XEC8SU4JAg",
+      "snippet": {
+        "publishedAt": "2022-12-30T13:54:53.524398Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Análise sintática e semântica",
+        "description": "Saiba o que é análise semântica e sintática e como analisá-los em oraçãoes.\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/d-913BM7-pk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/d-913BM7-pk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/d-913BM7-pk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/d-913BM7-pk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/d-913BM7-pk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Análise sintática e semântica",
+          "description": "Saiba o que é análise semântica e sintática e como analisá-los em oraçãoes.\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 8
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQZz9qYbG2L50XEC8SU4JAg\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "YBx4s5RqCGUL4AEVhvSu-7qiYa0",
+      "id": "PLydZ2Hrp_gPR6aSBEYfvViYdvTyV0Zmx_",
+      "snippet": {
+        "publishedAt": "2022-12-30T13:51:39.7968Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "BR Carousel 12.30.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/VatVefhnhD0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/VatVefhnhD0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/VatVefhnhD0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/VatVefhnhD0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/VatVefhnhD0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "BR Carousel 12.30.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPR6aSBEYfvViYdvTyV0Zmx_\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "twP66E83rWaU28JfLC6_4LsU3xk",
+      "id": "PLydZ2Hrp_gPTCJwU9Q0rYqB4Qq3TpBUdh",
+      "snippet": {
+        "publishedAt": "2022-12-26T12:35:25.769365Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "FR Carousel 12.26.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/hMzvXnhtzXk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/hMzvXnhtzXk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/hMzvXnhtzXk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/hMzvXnhtzXk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/hMzvXnhtzXk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "FR Carousel 12.26.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPTCJwU9Q0rYqB4Qq3TpBUdh\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "-LsR3mv8HVY9CI-C1jy292PjLbQ",
+      "id": "PLydZ2Hrp_gPTkLhoH1XUct-MjHj03a4_d",
+      "snippet": {
+        "publishedAt": "2022-12-26T12:33:23.628957Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "US Carousel 12.26.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/sXJEiZZnYlM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/sXJEiZZnYlM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/sXJEiZZnYlM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/sXJEiZZnYlM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "US Carousel 12.26.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPTkLhoH1XUct-MjHj03a4_d\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "r7jA0UBwqKardvdR_LUwTx-zWus",
+      "id": "PLydZ2Hrp_gPS7Pk6xjqqYO8ewvtAFNnNi",
+      "snippet": {
+        "publishedAt": "2022-12-23T13:11:05.391507Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Dicas para presentes do natal",
+        "description": "O Natal está chegando e você não sabe o que dar? Aqui estão algumas ideias para você!\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/RGqErQNECJ8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/RGqErQNECJ8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/RGqErQNECJ8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/RGqErQNECJ8/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/RGqErQNECJ8/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Dicas para presentes do natal",
+          "description": "O Natal está chegando e você não sabe o que dar? Aqui estão algumas ideias para você!\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 6
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPS7Pk6xjqqYO8ewvtAFNnNi\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "xNDLN4GhomHC2NZJ7YK_0pWK1EA",
+      "id": "PLydZ2Hrp_gPQJBmXgZnfcinwUP7y6b_Q9",
+      "snippet": {
+        "publishedAt": "2022-12-23T13:09:23.820805Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "¡Comienza un nuevo pasatiempo!",
+        "description": "Siempre es un gran momento para empezar algo nuevo. ¡Descubre tu nuevo pasatiempo aquí!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/sZXoHbZOE3k/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/sZXoHbZOE3k/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/sZXoHbZOE3k/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/sZXoHbZOE3k/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/sZXoHbZOE3k/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "¡Comienza un nuevo pasatiempo!",
+          "description": "Siempre es un gran momento para empezar algo nuevo. ¡Descubre tu nuevo pasatiempo aquí!"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 6
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQJBmXgZnfcinwUP7y6b_Q9\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "mQvD0AOZ9N9Oq6KAAqL4IGtvtM4",
+      "id": "PLydZ2Hrp_gPRiPza9QtICGI8XsO4dp3s-",
+      "snippet": {
+        "publishedAt": "2022-12-23T13:07:21.718317Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Receitas de culinária para o Natal 🎊✨ 🎄 ",
+        "description": "Junte-se aos cooktubers com estas deliciosas receitas de Natal!\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/N7b7fiCjRag/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/N7b7fiCjRag/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/N7b7fiCjRag/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/N7b7fiCjRag/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/N7b7fiCjRag/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Receitas de culinária para o Natal 🎊✨ 🎄 ",
+          "description": "Junte-se aos cooktubers com estas deliciosas receitas de Natal!\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 6
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPRiPza9QtICGI8XsO4dp3s-\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "Ln4frL6z_LEM6q73jc01YW_dVbc",
+      "id": "PLydZ2Hrp_gPRevK16_rfpg97nO7CM9gCm",
+      "snippet": {
+        "publishedAt": "2022-12-23T13:05:20.822542Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "BR Carousel 12.23.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/lA2pTO_G6NE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/lA2pTO_G6NE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/lA2pTO_G6NE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/lA2pTO_G6NE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/lA2pTO_G6NE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "BR Carousel 12.23.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPRevK16_rfpg97nO7CM9gCm\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "KGUKxbxlPQjaanGHulxKRab2wwk",
+      "id": "PLydZ2Hrp_gPQ_O1cHd9LP-m2ukf-T2Ohm",
+      "snippet": {
+        "publishedAt": "2022-12-20T12:17:07.671684Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Recetas de cocina para las fiestas  🎉 🎁 ",
+        "description": "¡Unete a los cooktubers con sus deliciosas recetas para las fiestas!\n\n\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/MMBJ9F31868/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/MMBJ9F31868/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/MMBJ9F31868/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/MMBJ9F31868/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/MMBJ9F31868/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Recetas de cocina para las fiestas  🎉 🎁 ",
+          "description": "¡Unete a los cooktubers con sus deliciosas recetas para las fiestas!\n\n\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQ_O1cHd9LP-m2ukf-T2Ohm\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "abIjYBM2hZLenwLEqAQdUKZeTW8",
+      "id": "PLydZ2Hrp_gPTV-SdBcOlGY-kUif7oCAXE",
+      "snippet": {
+        "publishedAt": "2022-12-20T12:16:04.459787Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "LATAM Carousel 12.20.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/nCoFwrmTyJQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/nCoFwrmTyJQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/nCoFwrmTyJQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/nCoFwrmTyJQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/nCoFwrmTyJQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "LATAM Carousel 12.20.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPTV-SdBcOlGY-kUif7oCAXE\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "7B21dhrTybXv5h0LnzUP43fbyAg",
+      "id": "PLydZ2Hrp_gPSSzrNpT0epjjP-GQdqeIt0",
+      "snippet": {
+        "publishedAt": "2022-12-19T12:54:16.11472Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "US Carousel 12.20.23",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/vog2G3HkJ6U/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/vog2G3HkJ6U/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/vog2G3HkJ6U/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/vog2G3HkJ6U/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/vog2G3HkJ6U/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "US Carousel 12.20.23",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPSSzrNpT0epjjP-GQdqeIt0\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "i9Jq0QrlIEkcgiFt36yMSXNRYh0",
+      "id": "PLydZ2Hrp_gPQX0cqqnKZ2vGlLRVEIk5Cv",
+      "snippet": {
+        "publishedAt": "2022-12-16T17:56:35.802713Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Plates of the future",
+        "description": "What will food look like in the future? Watch this playlist to learn about the transformations happening in science, agriculture, and farming that will fundamentally change where our food comes from and what we eat! ",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/U7qdDJt-I64/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/U7qdDJt-I64/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/U7qdDJt-I64/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/U7qdDJt-I64/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/U7qdDJt-I64/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Plates of the future",
+          "description": "What will food look like in the future? Watch this playlist to learn about the transformations happening in science, agriculture, and farming that will fundamentally change where our food comes from and what we eat! "
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 8
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQX0cqqnKZ2vGlLRVEIk5Cv\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "07VJC2xeJ6YcBOiIr8tKzIU43xU",
+      "id": "PLydZ2Hrp_gPSlCGZleFmA-_WMNMwBilR8",
+      "snippet": {
+        "publishedAt": "2022-12-16T17:51:45.562948Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Seeing Braille ",
+        "description": "The language of Braille revolutionized the living experience for the visually impaired. Watch this playlist to learn more about this fascinating system for reading and writing. ",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/R0cbckyD9Q0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/R0cbckyD9Q0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/R0cbckyD9Q0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/R0cbckyD9Q0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/R0cbckyD9Q0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Seeing Braille ",
+          "description": "The language of Braille revolutionized the living experience for the visually impaired. Watch this playlist to learn more about this fascinating system for reading and writing. "
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 8
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPSlCGZleFmA-_WMNMwBilR8\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "hRNPXkkS8dya22AgeVZ-kfSAQbI",
+      "id": "PLydZ2Hrp_gPQoBecDChsn-TlqEwWVvsSA",
+      "snippet": {
+        "publishedAt": "2022-12-16T17:43:28.306685Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Lessons from legends lost in 2022",
+        "description": "2022 was a year in which we all experienced loss, including the passing of legendary individuals. Here we pay tribute to a few of them, their exceptional legacies, and their lasting societal impact.  \n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/mJkK5-vxzWc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/mJkK5-vxzWc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/mJkK5-vxzWc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/mJkK5-vxzWc/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/mJkK5-vxzWc/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Lessons from legends lost in 2022",
+          "description": "2022 was a year in which we all experienced loss, including the passing of legendary individuals. Here we pay tribute to a few of them, their exceptional legacies, and their lasting societal impact.  \n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 17
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQoBecDChsn-TlqEwWVvsSA\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "OjIAZ2O1_Y7pH0F5GHGvfAOyqgA",
+      "id": "PLydZ2Hrp_gPSeDIF9r-zk98WNbLCvKD_z",
+      "snippet": {
+        "publishedAt": "2022-12-16T17:25:55.378844Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Aprenda sobre Blockchain",
+        "description": "Você conhece o Blockchain? Criptomoedas? E bitcoin? Aprenda sobre isso e muito mais aqui!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/j5VbNJVplFk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/j5VbNJVplFk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/j5VbNJVplFk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/j5VbNJVplFk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/j5VbNJVplFk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Aprenda sobre Blockchain",
+          "description": "Você conhece o Blockchain? Criptomoedas? E bitcoin? Aprenda sobre isso e muito mais aqui!"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 6
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPSeDIF9r-zk98WNbLCvKD_z\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "GCJFnRdtQBlvSFOmQS2dUOhnOJg",
+      "id": "PLydZ2Hrp_gPQSoBf6hj6bpFNvjKuJMrza",
+      "snippet": {
+        "publishedAt": "2022-12-16T17:25:24.797423Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "O qué e Antártida?",
+        "description": "Conheça as características naturais da Antártida, os aspectos mais marcantes do continente, e os mistérios mais cativantes.\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/EEBVTzaf1-0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/EEBVTzaf1-0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/EEBVTzaf1-0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/EEBVTzaf1-0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/EEBVTzaf1-0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "O qué e Antártida?",
+          "description": "Conheça as características naturais da Antártida, os aspectos mais marcantes do continente, e os mistérios mais cativantes.\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQSoBf6hj6bpFNvjKuJMrza\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "B9KJQLU65pJH4ATbEwSqEhC_Ios",
+      "id": "PLydZ2Hrp_gPTqXW7moy4a6ICgHzL8nd0r",
+      "snippet": {
+        "publishedAt": "2022-12-16T17:22:23.423608Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "BR Carousel 12.16.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/N9aFRkllt6g/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/N9aFRkllt6g/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/N9aFRkllt6g/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/N9aFRkllt6g/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/N9aFRkllt6g/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "BR Carousel 12.16.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPTqXW7moy4a6ICgHzL8nd0r\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "9obYkrwwK9G5NzR1ioURuG1JjEQ",
+      "id": "PLydZ2Hrp_gPT_dEIyC44i2OkILUtfN1JR",
+      "snippet": {
+        "publishedAt": "2022-12-16T14:37:12.305912Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Understanding genres: books vs movies",
+        "description": "Books and movies delight people of all ages. Yet, sometimes a movie adaptation can leave viewers unfulfilled. Watch this playlist to learn how the two formats play off each other. ",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/vog2G3HkJ6U/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/vog2G3HkJ6U/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/vog2G3HkJ6U/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/vog2G3HkJ6U/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/vog2G3HkJ6U/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Understanding genres: books vs movies",
+          "description": "Books and movies delight people of all ages. Yet, sometimes a movie adaptation can leave viewers unfulfilled. Watch this playlist to learn how the two formats play off each other. "
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 9
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPT_dEIyC44i2OkILUtfN1JR\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "_G8_GYDve2I-ajVp6eCY0VJpc9M",
+      "id": "PLydZ2Hrp_gPSmxLxuZvsvA-27sh4H0wTI",
+      "snippet": {
+        "publishedAt": "2022-12-16T14:24:54.118856Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Science of winter",
+        "description": "The season of snow, skiing, and sweaters is here. Watch this playlist to learn about the science behind the coldest season.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/vxKcqM5aSA4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/vxKcqM5aSA4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/vxKcqM5aSA4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/vxKcqM5aSA4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/vxKcqM5aSA4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Science of winter",
+          "description": "The season of snow, skiing, and sweaters is here. Watch this playlist to learn about the science behind the coldest season."
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 9
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPSmxLxuZvsvA-27sh4H0wTI\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "agO8WOzuaCtiANWxgxUiphu27FI",
+      "id": "PLydZ2Hrp_gPQQiBuqPs2E0Fu9nrCg13kp",
+      "snippet": {
+        "publishedAt": "2022-12-16T13:24:35.802522Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "FR Carousel 12.16.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2kqvfoUUhA4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2kqvfoUUhA4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2kqvfoUUhA4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2kqvfoUUhA4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2kqvfoUUhA4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "FR Carousel 12.16.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQQiBuqPs2E0Fu9nrCg13kp\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "31975BQ-oi4WYVyCxeMxBLnvUK8",
+      "id": "PLydZ2Hrp_gPQaFK-zPaw_FBwVqk0e7Ooq",
+      "snippet": {
+        "publishedAt": "2022-12-13T21:31:09.60207Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Computer science week (Dec 6th)",
+        "description": "Learn about the history of computer science and the developments that are transforming it. \n\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/O5nskjZ_GoI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/O5nskjZ_GoI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/O5nskjZ_GoI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/O5nskjZ_GoI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/O5nskjZ_GoI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Computer science week (Dec 6th)",
+          "description": "Learn about the history of computer science and the developments that are transforming it. \n\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQaFK-zPaw_FBwVqk0e7Ooq\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "YJ6XuIbkBFgA3H8BdeMictrybOw",
+      "id": "PLydZ2Hrp_gPSVrs66v_eU044YmP7JoNuS",
+      "snippet": {
+        "publishedAt": "2022-12-13T21:02:32.545156Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "IN Carousel 12.12.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/YgjXXmNwWuY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/YgjXXmNwWuY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/YgjXXmNwWuY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/YgjXXmNwWuY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/YgjXXmNwWuY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "IN Carousel 12.12.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPSVrs66v_eU044YmP7JoNuS\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "MF7jWuw4nyFRc4GewLtpNDFE8-w",
+      "id": "PLydZ2Hrp_gPT48-g7PVpa20PvlwMKQvSV",
+      "snippet": {
+        "publishedAt": "2022-12-12T18:01:04.148169Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "US Carousel 12.12.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/PgSRAsgrKmg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/PgSRAsgrKmg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/PgSRAsgrKmg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/PgSRAsgrKmg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/PgSRAsgrKmg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "US Carousel 12.12.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPT48-g7PVpa20PvlwMKQvSV\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "HInQMBKi1xz1wqwX52UC9Q6xZZw",
+      "id": "PLydZ2Hrp_gPSBwcFGBauR_63iKoou6Cp1",
+      "snippet": {
+        "publishedAt": "2022-12-09T17:57:11.987646Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Razão e Proporção",
+        "description": "Aprenda sobre o que é razão e proporção em matemática e como resolvê-los em exercícios.\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/HbfAnZQfXXY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/HbfAnZQfXXY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/HbfAnZQfXXY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/HbfAnZQfXXY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/HbfAnZQfXXY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Razão e Proporção",
+          "description": "Aprenda sobre o que é razão e proporção em matemática e como resolvê-los em exercícios.\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPSBwcFGBauR_63iKoou6Cp1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "dxzw15pY2WX2Rc2x5als6V-TItw",
+      "id": "PLydZ2Hrp_gPQC-GL7xvKieEsRwxiZWAta",
+      "snippet": {
+        "publishedAt": "2022-12-09T17:56:09.915757Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Descolonização afro-asiática",
+        "description": "Depois da 2ª Guerra, África e Ásia lutaram por independência dos países europeus. Mas a guerra fria interferiu nessas lutas nacionais e trouxe muita instabilidade para esses novos países.\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aqS6x2PaOnA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aqS6x2PaOnA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/aqS6x2PaOnA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/aqS6x2PaOnA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/aqS6x2PaOnA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Descolonização afro-asiática",
+          "description": "Depois da 2ª Guerra, África e Ásia lutaram por independência dos países europeus. Mas a guerra fria interferiu nessas lutas nacionais e trouxe muita instabilidade para esses novos países.\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 9
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQC-GL7xvKieEsRwxiZWAta\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "3ZlnEkUmT-eSp5XkCS9ljAomstI",
+      "id": "PLydZ2Hrp_gPTcEpCpSFGCqKJlHkWFi86Z",
+      "snippet": {
+        "publishedAt": "2022-12-09T17:55:25.427901Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Br Carousel 12.9.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ynZvcyjnSdw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ynZvcyjnSdw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ynZvcyjnSdw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ynZvcyjnSdw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ynZvcyjnSdw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Br Carousel 12.9.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPTcEpCpSFGCqKJlHkWFi86Z\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "GL4zPQgF1xcdlTtjJRMvGgRAft8",
+      "id": "PLydZ2Hrp_gPR9h6Le-XumuKgAAlfEnfvL",
+      "snippet": {
+        "publishedAt": "2022-12-06T17:32:16.421424Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "La genética y las leyes de Mendel",
+        "description": "¿Por qué nuestros hermanos son diferentes si tenemos los mismos padres? ¿Cómo heredamos las características de nuestros padres? ¡Gregorio Mendel y sus leyes de la genética nos ayudarán a responder a esas preguntas!\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/axSh_Gl5GVo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/axSh_Gl5GVo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/axSh_Gl5GVo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/axSh_Gl5GVo/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "La genética y las leyes de Mendel",
+          "description": "¿Por qué nuestros hermanos son diferentes si tenemos los mismos padres? ¿Cómo heredamos las características de nuestros padres? ¡Gregorio Mendel y sus leyes de la genética nos ayudarán a responder a esas preguntas!\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPR9h6Le-XumuKgAAlfEnfvL\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "r3uUi_-3Dlbp11FLVv1YgFIskVw",
+      "id": "PLydZ2Hrp_gPRVgmLAM50yaaRoogpZ_Woo",
+      "snippet": {
+        "publishedAt": "2022-12-06T17:32:15.8252Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "¿Cómo aprende nuestro cerebro?",
+        "description": "Descubre las partes del cerebro, cómo funciona y qué sucede en él durante los distintos procesos de aprendizaje.\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/zkVZN9d-8o0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/zkVZN9d-8o0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/zkVZN9d-8o0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/zkVZN9d-8o0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/zkVZN9d-8o0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "¿Cómo aprende nuestro cerebro?",
+          "description": "Descubre las partes del cerebro, cómo funciona y qué sucede en él durante los distintos procesos de aprendizaje.\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 6
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPRVgmLAM50yaaRoogpZ_Woo\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "jNhfG2N9mrmPv2ldXOt2QtDBWSg",
+      "id": "PLydZ2Hrp_gPSF1u_vzGymb5FKXx3Jvutk",
+      "snippet": {
+        "publishedAt": "2022-12-06T17:32:04.866975Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "LATAM Carousel 12.06.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WCcbVWBHYsM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WCcbVWBHYsM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WCcbVWBHYsM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/WCcbVWBHYsM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/WCcbVWBHYsM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "LATAM Carousel 12.06.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPSF1u_vzGymb5FKXx3Jvutk\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "QtsS-HvoB8dpNScEWRFeAwfbg1U",
+      "id": "PLydZ2Hrp_gPT-dnZVLW0j_DwB46y9ORfz",
+      "snippet": {
+        "publishedAt": "2022-12-05T18:24:06.104296Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Explore Computer Science with Code.org",
+        "description": "Computer science is fundamental to participating in our increasingly digital society, and everyone should have the chance to learn about it. Curated by Code.org — creators of the annual Hour of Code campaign — this playlist is here to inspire and help you get started during Computer Science Education Week.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/hNqOxymh-Oc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/hNqOxymh-Oc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/hNqOxymh-Oc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Explore Computer Science with Code.org",
+          "description": "Computer science is fundamental to participating in our increasingly digital society, and everyone should have the chance to learn about it. Curated by Code.org — creators of the annual Hour of Code campaign — this playlist is here to inspire and help you get started during Computer Science Education Week."
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 11
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPT-dnZVLW0j_DwB46y9ORfz\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "wzse0X5ehNcPI1oKlwkMqPuj4B0",
+      "id": "PLydZ2Hrp_gPQplKL72NRzN0LoAMU0fusX",
+      "snippet": {
+        "publishedAt": "2022-12-05T17:44:06.403233Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "US Carousel 12.5.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/QvyTEx1wyOY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/QvyTEx1wyOY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/QvyTEx1wyOY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/QvyTEx1wyOY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/QvyTEx1wyOY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "US Carousel 12.5.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPQplKL72NRzN0LoAMU0fusX\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "Ycf1qCLmyY5BncV-MErsKt6QdWk",
+      "id": "PLydZ2Hrp_gPRuRrQUg7--vZWNwMjS8dgk",
+      "snippet": {
+        "publishedAt": "2022-12-02T16:05:05.593088Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Power of crystals",
+        "description": "Crystals are powerful! Learn how a collection of minerals can be quite electrifying. ",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/6YXKt0bMBJA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/6YXKt0bMBJA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/6YXKt0bMBJA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/6YXKt0bMBJA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/6YXKt0bMBJA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Power of crystals",
+          "description": "Crystals are powerful! Learn how a collection of minerals can be quite electrifying. "
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPRuRrQUg7--vZWNwMjS8dgk\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "h3dOg61kKJ90wNglIYBozjrg_-k",
+      "id": "PLydZ2Hrp_gPTfpQnHt_YjYXEMl2gbMdYR",
+      "snippet": {
+        "publishedAt": "2022-12-02T14:55:40.472586Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Br Carousel 12.2.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9Jvxipb0oVU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9Jvxipb0oVU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9Jvxipb0oVU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/9Jvxipb0oVU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/9Jvxipb0oVU/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Br Carousel 12.2.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPTfpQnHt_YjYXEMl2gbMdYR\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "f-VWYdbrku6NERxeZZzzrLpQClA",
+      "id": "PLydZ2Hrp_gPTUh6TndkPxHuz0kzHMq6Um",
+      "snippet": {
+        "publishedAt": "2022-12-02T14:55:39.919819Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Dispositivos literários",
+        "description": "Aprenda a identificar e usar esses diferentes dispositivos literários.\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/N0F7JpCt-70/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/N0F7JpCt-70/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/N0F7JpCt-70/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Dispositivos literários",
+          "description": "Aprenda a identificar e usar esses diferentes dispositivos literários.\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPTUh6TndkPxHuz0kzHMq6Um\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "RZLxC_ubXVdLRaR11k0HbMtIxzE",
+      "id": "PLydZ2Hrp_gPT165_o-r9vORINhDhLmxz4",
+      "snippet": {
+        "publishedAt": "2022-12-02T14:55:38.608382Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "O qué e a isomeria?",
+        "description": "Conheça mais sobre o que é isomerismo e seus diferentes tipos.\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/w4xc02Rau4Q/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/w4xc02Rau4Q/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/w4xc02Rau4Q/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/w4xc02Rau4Q/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/w4xc02Rau4Q/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "O qué e a isomeria?",
+          "description": "Conheça mais sobre o que é isomerismo e seus diferentes tipos.\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPT165_o-r9vORINhDhLmxz4\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "B92jFGUdqsYx8E-BL2vc8qWRK04",
+      "id": "PLydZ2Hrp_gPR5q6sVXv0GgP7sFjyuN4MC",
+      "snippet": {
+        "publishedAt": "2022-12-01T17:10:06.282164Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "読書をしよう",
+        "description": "寒い日は自宅で読書を楽しんでみませんか？\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/QKOGOEtTBzg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/QKOGOEtTBzg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/QKOGOEtTBzg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/QKOGOEtTBzg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/QKOGOEtTBzg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "読書をしよう",
+          "description": "寒い日は自宅で読書を楽しんでみませんか？\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 7
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPR5q6sVXv0GgP7sFjyuN4MC\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "vwS12SI8devAlLm9MBmo9WFdazc",
+      "id": "PLydZ2Hrp_gPScTjCA1RuoshzrPtxS3AtZ",
+      "snippet": {
+        "publishedAt": "2022-12-01T17:08:11.391774Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "自然科学 ",
+        "description": "身の回りの不思議を解き明かそう。あなたを知への旅へといざないます。\n\n",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/3yfen-t49eI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/3yfen-t49eI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/3yfen-t49eI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/3yfen-t49eI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "自然科学 ",
+          "description": "身の回りの不思議を解き明かそう。あなたを知への旅へといざないます。\n\n"
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 6
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPScTjCA1RuoshzrPtxS3AtZ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "f4dD1VwmzOYWoSdCSe3uJUwW7wA",
+      "id": "PLydZ2Hrp_gPRiCUKZHI4cZz6ANHe7MoxX",
+      "snippet": {
+        "publishedAt": "2022-12-01T17:04:46.843505Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "JP Carousel 12.1.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/6XUNqeiJmrg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/6XUNqeiJmrg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/6XUNqeiJmrg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/6XUNqeiJmrg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/6XUNqeiJmrg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "JP Carousel 12.1.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPRiCUKZHI4cZz6ANHe7MoxX\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "DN42OqtSxbniITY0lt7SExvYScs",
+      "id": "PLydZ2Hrp_gPS5JDls1vG7bVhZ9Fso5Y9X",
+      "snippet": {
+        "publishedAt": "2022-11-28T14:05:47.506555Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "Historical Figures: The Vikings",
+        "description": "Vikings did more than pillage villages while wearing horned helmets. Watch this playlist to learn about the first Europeans to sail to North America: the Vikings. ",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/91ASm2KPTAw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/91ASm2KPTAw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/91ASm2KPTAw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/91ASm2KPTAw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/91ASm2KPTAw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "Historical Figures: The Vikings",
+          "description": "Vikings did more than pillage villages while wearing horned helmets. Watch this playlist to learn about the first Europeans to sail to North America: the Vikings. "
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 10
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPS5JDls1vG7bVhZ9Fso5Y9X\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "VOB8GrIA5NTB4AsBdfWLA7aXsic",
+      "id": "PLydZ2Hrp_gPSJhh_OwvoeK0uTcAMIgps4",
+      "snippet": {
+        "publishedAt": "2022-11-28T13:50:37.591229Z",
+        "channelId": "UCtFRv9O2AHqOZjjynzrv-xg",
+        "title": "US Carousel 11.28.22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/91ASm2KPTAw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/91ASm2KPTAw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/91ASm2KPTAw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/91ASm2KPTAw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/91ASm2KPTAw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Learning",
+        "localized": {
+          "title": "US Carousel 11.28.22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacyStatus": "public"
+      },
+      "contentDetails": {
+        "itemCount": 5
+      },
+      "player": {
+        "embedHtml": "\u003ciframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLydZ2Hrp_gPSJhh_OwvoeK0uTcAMIgps4\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003e\u003c/iframe\u003e"
+      }
+    }
+  ]
+}

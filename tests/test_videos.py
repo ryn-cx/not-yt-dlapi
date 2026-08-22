@@ -67,6 +67,10 @@ class TestList(VideoTest):
         pytest.param("6JTFYuloLFM", id="no view count"),
         # An id nothing is under is answered with what was found, which is nothing.
         pytest.param("00000000000", id="invalid video"),
+        # https://www.youtube.com/watch?v=zKQGAv8gtBA
+        pytest.param("zKQGAv8gtBA", id="free movie"),
+        # https://www.youtube.com/watch?v=g1eZjGhN8oo
+        pytest.param("g1eZjGhN8oo", id="paid movie"),
     )
 
     SEVERAL_VIDEO_IDS = ("jNQXAC9IVRw", "LY8Wi7XRXCA")

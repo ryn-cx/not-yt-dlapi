@@ -224,10 +224,13 @@ class RecordedEndpoint:
     @classmethod
     def load_models(cls, content: str) -> BaseResponseModel | list[BaseResponseModel]:
         """Parse the file into a model, or one model per response."""
-        documents: str | list[str] = (
-            json.loads(content) if cls.SUFFIX == ".json" else content
-        )
-        if isinstance(documents, list):
+        documents: Any = json.loads(content) if cls.SUFFIX == ".json" else content
+        # A walk is recorded as the list of documents it was served, each of
+        # them written out as it arrived, which is what tells it apart from a
+        # response that is itself a list.
+        if isinstance(documents, list) and all(
+            isinstance(document, str) for document in documents
+        ):
             return [cls.MODEL.from_response(document) for document in documents]
         return cls.MODEL.from_response(content)
 

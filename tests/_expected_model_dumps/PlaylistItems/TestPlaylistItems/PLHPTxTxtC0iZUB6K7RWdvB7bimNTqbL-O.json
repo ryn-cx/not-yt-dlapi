@@ -1,0 +1,224 @@
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "zTw6oVwNEHaUKqsBujMvQpOR3pY",
+  "next_page_token": null,
+  "prev_page_token": null,
+  "page_info": {
+    "total_results": 4,
+    "results_per_page": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "-iY1EV0yLEtc19q1gwnvZ9k_2Ao",
+      "id": "UExIUFR4VHh0QzBpWlVCNks3UldkdkI3YmltTlRxYkwtTy5BNjBCMUFCN0Q5QzUyMjlG",
+      "snippet": {
+        "published_at": "2023-03-23T13:17:17Z",
+        "channel_id": "UClgRkhTL3_hImCAmdLfDE4g",
+        "title": "Ein Sommer in Amalfi (Unplugged test movie by fake i18n partner)",
+        "description": "Die Verlegerin Claudia Wesskampe ist gezwungen, ihren geplanten Urlaub abzusagen und stattdessen nach Italien zu reisen, um ihren Verlag zu retten. Begeistert ist sie davon nicht, denn Italien ist ihr viel zu klischeehaft. Aber ihr bester Autor hat seinen Vorschuss f\u00fcr andere Dinge verprasst, jedoch kein fertiges Buch geliefert und sich dann auch noch das Bein gebrochen. In Amalfi lernt Claudia Land und Leute kennen und erlebt so einige \u00dcberraschungen.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/kGysoYI-x8E/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/kGysoYI-x8E/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/kGysoYI-x8E/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/kGysoYI-x8E/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": null
+        },
+        "channel_title": "YouTube Movies",
+        "video_owner_channel_title": "Fake International Partner",
+        "video_owner_channel_id": "UC-EM-AldjtXCZBcXHGTg62g",
+        "playlist_id": "PLHPTxTxtC0iZUB6K7RWdvB7bimNTqbL-O",
+        "position": 0,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "kGysoYI-x8E"
+        }
+      },
+      "content_details": {
+        "video_id": "kGysoYI-x8E",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": "2022-08-06T08:24:37Z"
+      },
+      "status": {
+        "privacy_status": "public"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "KmtkJe7ZGy2H8iViisJpma0qTKY",
+      "id": "UExIUFR4VHh0QzBpWlVCNks3UldkdkI3YmltTlRxYkwtTy4yMkNBN0M4QUJEQzYxMjA3",
+      "snippet": {
+        "published_at": "2023-03-23T13:17:17Z",
+        "channel_id": "UClgRkhTL3_hImCAmdLfDE4g",
+        "title": "L'odyss\u00e9e d'un tr\u00e9sor : L'or de Troie",
+        "description": "Le documentaire suit les traces de l'or de Priam. Un voyage d'un si\u00e8cle et demi depuis les plaines de Troie jusqu'aux vo\u00fbtes d'un mus\u00e9e \u00e0 Moscou.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/YalmgvxlZhY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/YalmgvxlZhY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/YalmgvxlZhY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/YalmgvxlZhY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": null
+        },
+        "channel_title": "YouTube Movies",
+        "video_owner_channel_title": "Fake International Partner",
+        "video_owner_channel_id": "UC-EM-AldjtXCZBcXHGTg62g",
+        "playlist_id": "PLHPTxTxtC0iZUB6K7RWdvB7bimNTqbL-O",
+        "position": 1,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "YalmgvxlZhY"
+        }
+      },
+      "content_details": {
+        "video_id": "YalmgvxlZhY",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": "2023-03-17T23:48:10Z"
+      },
+      "status": {
+        "privacy_status": "public"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "XG4tDUm37TEyqX1XvK6sMVQyCHM",
+      "id": "UExIUFR4VHh0QzBpWlVCNks3UldkdkI3YmltTlRxYkwtTy4xQ0EyNTVGREQ1Nzk5MkVB",
+      "snippet": {
+        "published_at": "2023-03-23T13:17:17Z",
+        "channel_id": "UClgRkhTL3_hImCAmdLfDE4g",
+        "title": "L'odyss\u00e9e d'un tr\u00e9sor : L'or de Troie",
+        "description": "Le documentaire suit les traces de l'or de Priam. Un voyage d'un si\u00e8cle et demi depuis les plaines de Troie jusqu'aux vo\u00fbtes d'un mus\u00e9e \u00e0 Moscou.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/msjlIC_D0cA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/msjlIC_D0cA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/msjlIC_D0cA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/msjlIC_D0cA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": null
+        },
+        "channel_title": "YouTube Movies",
+        "video_owner_channel_title": "Fake International Partner",
+        "video_owner_channel_id": "UC-EM-AldjtXCZBcXHGTg62g",
+        "playlist_id": "PLHPTxTxtC0iZUB6K7RWdvB7bimNTqbL-O",
+        "position": 2,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "msjlIC_D0cA"
+        }
+      },
+      "content_details": {
+        "video_id": "msjlIC_D0cA",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": "2023-03-18T00:02:52Z"
+      },
+      "status": {
+        "privacy_status": "public"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "WZBNmTtO__9MIiNcMHee-W8xRO4",
+      "id": "UExIUFR4VHh0QzBpWlVCNks3UldkdkI3YmltTlRxYkwtTy41MjA2QjlEREM3NTE0RkJG",
+      "snippet": {
+        "published_at": "2023-03-23T13:17:17Z",
+        "channel_id": "UClgRkhTL3_hImCAmdLfDE4g",
+        "title": "K\u00e4fer und Prinzessin",
+        "description": "Polizeiruf 110: Eine Kommune steht unter Schock. Der Chef Harald \"Harry\" Wacker wird tot aufgefunden - in der Sickergrube. Ein Unfall wird schnell ausgeschlossen, Harry wurde erdrosselt und dann in die Sickergrube geworfen.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/uLODe6b63MI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/uLODe6b63MI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/uLODe6b63MI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/uLODe6b63MI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": null
+        },
+        "channel_title": "YouTube Movies",
+        "video_owner_channel_title": "Fake International Partner",
+        "video_owner_channel_id": "UC-EM-AldjtXCZBcXHGTg62g",
+        "playlist_id": "PLHPTxTxtC0iZUB6K7RWdvB7bimNTqbL-O",
+        "position": 3,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "uLODe6b63MI"
+        }
+      },
+      "content_details": {
+        "video_id": "uLODe6b63MI",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": "2023-02-22T22:02:22Z"
+      },
+      "status": {
+        "privacy_status": "public"
+      }
+    }
+  ]
+}

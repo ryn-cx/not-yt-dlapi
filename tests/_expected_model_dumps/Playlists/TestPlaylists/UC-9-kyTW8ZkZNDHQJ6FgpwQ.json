@@ -1,0 +1,2662 @@
+{
+  "kind": "youtube#playlistListResponse",
+  "etag": "Z6Eg4Vwg89xIiCdzyKQLpO8ecGA",
+  "next_page_token": "CDIQAA",
+  "prev_page_token": null,
+  "page_info": {
+    "total_results": 581,
+    "results_per_page": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#playlist",
+      "etag": "gFBsCxblS4uL52Jb9HhHNsrNiBw",
+      "id": "PLFgquLnL59amueRPXcz7Fx00hqXqRViOe",
+      "snippet": {
+        "published_at": "2023-05-22T06:30:12.882197Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "(G)I-DLE Shorts: #QueencardChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "(G)I-DLE Shorts: #QueencardChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 49
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amueRPXcz7Fx00hqXqRViOe\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "vaIAD8Rgkc0hmsJT6T40N9oeJUg",
+      "id": "PLFgquLnL59akxq151wL3qLOteKsKOhFOw",
+      "snippet": {
+        "published_at": "2023-05-21T08:02:54.402687Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "(G)I-DLE Shorts: #QueencardChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "(G)I-DLE Shorts: #QueencardChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 49
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59akxq151wL3qLOteKsKOhFOw\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "GRfpjIyD83P-hKFP-Y4bFUmaJE8",
+      "id": "PLFgquLnL59anKdvSnd22j4Qujk4c3PwNf",
+      "snippet": {
+        "published_at": "2023-05-19T09:34:35.306356Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "(G)I-DLE Shorts: #QueencardChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/lYsIYKsXheE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "(G)I-DLE Shorts: #QueencardChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 49
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anKdvSnd22j4Qujk4c3PwNf\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "cDFRnXwsugzquLOkXPcTYHeNABs",
+      "id": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+      "snippet": {
+        "published_at": "2023-04-14T07:44:01.184125Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Coachella 2023 LIVE",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Coachella 2023 LIVE",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 6
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "KHsmSle6GORx7RMSdYlt7I45300",
+      "id": "PLFgquLnL59akShK4WzvemSzZJ_KFX2onK",
+      "snippet": {
+        "published_at": "2023-04-14T07:39:21.720263Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Coachella 2023 LIVE",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Coachella 2023 LIVE",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 6
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59akShK4WzvemSzZJ_KFX2onK\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "aQh9Gzib8KBYexRUJ1AyKykGnME",
+      "id": "PLFgquLnL59anfAV5b_cT9Byk_ttCezrXK",
+      "snippet": {
+        "published_at": "2023-02-09T18:10:04.684661Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Celebrate Black History",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/kbMqWXnpXcA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/kbMqWXnpXcA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/kbMqWXnpXcA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/kbMqWXnpXcA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/kbMqWXnpXcA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Celebrate Black History",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 12
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anfAV5b_cT9Byk_ttCezrXK\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "OVJVUrc8zYteFnEyOCLm6uA8hm8",
+      "id": "PLFgquLnL59amv3Sk2tmUuE1flny-Li2ZF",
+      "snippet": {
+        "published_at": "2023-02-01T21:05:25.791292Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Novos v\u00eddeos",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/tCjfI3jXEro/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/tCjfI3jXEro/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/tCjfI3jXEro/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/tCjfI3jXEro/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/tCjfI3jXEro/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Novos v\u00eddeos",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 19
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amv3Sk2tmUuE1flny-Li2ZF\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "76_VRb1DqcszxByrihznV4XbYlE",
+      "id": "PLFgquLnL59al9Ivc9m6t0cmhCePYXdgaG",
+      "snippet": {
+        "published_at": "2022-12-21T19:53:33.998397Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Nuevos Videos Musicales",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/xjkeSrj-u-A/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/xjkeSrj-u-A/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/xjkeSrj-u-A/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/xjkeSrj-u-A/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Nuevos Videos Musicales",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 19
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59al9Ivc9m6t0cmhCePYXdgaG\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "IOGw3TufYN8qDCqi7y0OR7PV8Nw",
+      "id": "PLFgquLnL59akzr7msm7kRSB3-jG6Cv7OF",
+      "snippet": {
+        "published_at": "2022-12-02T23:05:16.898412Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "New Holiday Music Videos",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/8RSrUNfvAEc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/8RSrUNfvAEc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/8RSrUNfvAEc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/8RSrUNfvAEc/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/8RSrUNfvAEc/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "New Holiday Music Videos",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 10
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59akzr7msm7kRSB3-jG6Cv7OF\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "iy2Ti9A_bl9pcGLDA2qkdkkros8",
+      "id": "PLFgquLnL59al_3HgP3_651UXyDxWejuDM",
+      "snippet": {
+        "published_at": "2022-11-30T05:00:07.635265Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Songs of 2022",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/bvWRMAU6V-c/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/bvWRMAU6V-c/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/bvWRMAU6V-c/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/bvWRMAU6V-c/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/bvWRMAU6V-c/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Songs of 2022",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 10
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59al_3HgP3_651UXyDxWejuDM\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "R2VcpK1uzcFXpSB6BINoqEdoN7M",
+      "id": "PLFgquLnL59amqLARCQ0WadlNMjSNem2qq",
+      "snippet": {
+        "published_at": "2022-11-30T05:00:06.639218Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Songs of 2022",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/bvWRMAU6V-c/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/bvWRMAU6V-c/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/bvWRMAU6V-c/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/bvWRMAU6V-c/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/bvWRMAU6V-c/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Songs of 2022",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 10
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amqLARCQ0WadlNMjSNem2qq\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "IRhv9UM4ZwCYulsuNSSOqfn1bzY",
+      "id": "PLFgquLnL59akHkYQ7iY_AMfL08Lrf2mTH",
+      "snippet": {
+        "published_at": "2022-11-25T01:19:07.758397Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "ARIA Awards 2022: Highlights",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/cNB_W1nrnnQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/cNB_W1nrnnQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/cNB_W1nrnnQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/cNB_W1nrnnQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/cNB_W1nrnnQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "ARIA Awards 2022: Highlights",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 5
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59akHkYQ7iY_AMfL08Lrf2mTH\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "Duh-IEOI4Ita8O_d_uiDN4FyhMM",
+      "id": "PLFgquLnL59akAdzG_qil2ZVe3neBq7ryL",
+      "snippet": {
+        "published_at": "2022-10-04T15:39:21.548286Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Do the #ManikeMove",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/UMM5F2py4Os/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/UMM5F2py4Os/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/UMM5F2py4Os/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/UMM5F2py4Os/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/UMM5F2py4Os/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Do the #ManikeMove",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 12
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59akAdzG_qil2ZVe3neBq7ryL\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "ONLCTuiFFpAHuWMnIPLllWZhTZM",
+      "id": "PLFgquLnL59amDJPC1Vhlyc9bcbbyCe4r1",
+      "snippet": {
+        "published_at": "2022-09-02T02:30:28.749879Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 56
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amDJPC1Vhlyc9bcbbyCe4r1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "F-uyQdXIQ-FHT7XmQkoyLu8mfSI",
+      "id": "PLFgquLnL59anXIr3gpzEWD64rapCn3Z1I",
+      "snippet": {
+        "published_at": "2022-09-02T02:27:42.195863Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 56
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anXIr3gpzEWD64rapCn3Z1I\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "FeOqj0SbN9LrDcywN5snHjUGtVY",
+      "id": "PLFgquLnL59amz2_tKkQOmWk1VnE1hpKE0",
+      "snippet": {
+        "published_at": "2022-08-26T09:09:38.229366Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 56
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amz2_tKkQOmWk1VnE1hpKE0\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "fr5beEJUY13Ksx9RXZ_EYd9Epa8",
+      "id": "PLFgquLnL59ako01Wf-DKWhVJvht_UnWbp",
+      "snippet": {
+        "published_at": "2022-08-26T09:06:29.764915Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 56
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59ako01Wf-DKWhVJvht_UnWbp\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "Upeus-AT0_Kl1hePdpWKCydrk98",
+      "id": "PLFgquLnL59amaaXVrzq6pRNwfEqVIlivB",
+      "snippet": {
+        "published_at": "2022-08-26T08:48:26.056085Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 56
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amaaXVrzq6pRNwfEqVIlivB\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "joGYAO8TnTDh3J72Z-JnB6RcGzU",
+      "id": "PLFgquLnL59akiUvzwGQp6G-RK26q9Yll4",
+      "snippet": {
+        "published_at": "2022-08-26T08:45:10.07704Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 56
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59akiUvzwGQp6G-RK26q9Yll4\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "IZWv35e2fXcwPGtUaEiO4pfhjow",
+      "id": "PLFgquLnL59amGCikNtdyvCqfCy_gpGm7h",
+      "snippet": {
+        "published_at": "2022-08-26T07:53:34.997855Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 56
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amGCikNtdyvCqfCy_gpGm7h\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "BAcMUSP3qcD5qr3F1y2Yd-uD-BI",
+      "id": "PLFgquLnL59anFdCGGLtPCptqHlOrCo9kq",
+      "snippet": {
+        "published_at": "2022-08-26T07:26:23.748912Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "BLACKPINK Shorts: #PinkVenomChallenge",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 56
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anFdCGGLtPCptqHlOrCo9kq\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "s_6WmpPUMjBtKAqkL6bX9PIApZo",
+      "id": "PLFgquLnL59amaqNy6Hw2VRAco3vfLH8Q6",
+      "snippet": {
+        "published_at": "2022-08-26T06:45:44.003767Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "BLACKPINK Shorts: #PinkVenomChallenge\t\t\t\t\t",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/2tkMgb0bPrE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "BLACKPINK Shorts: #PinkVenomChallenge\t\t\t\t\t",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 56
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amaqNy6Hw2VRAco3vfLH8Q6\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "sAxzzUwAqibb1M5cjP3IK5nrkNE",
+      "id": "PLFgquLnL59amro3YQ0Tjz9bzyby0DnX01",
+      "snippet": {
+        "published_at": "2022-07-29T07:00:03.24112Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Tomorrowland 2022",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/dvBO9ZZpdI4/default_live.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/dvBO9ZZpdI4/mqdefault_live.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/dvBO9ZZpdI4/hqdefault_live.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/dvBO9ZZpdI4/sddefault_live.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/dvBO9ZZpdI4/maxresdefault_live.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Tomorrowland 2022",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 3
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amro3YQ0Tjz9bzyby0DnX01\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "VWiHOvaFc2RGcGkPjG-ki_MWiyg",
+      "id": "PLFgquLnL59ani0WJ7hQoTM09IXnzuvcwj",
+      "snippet": {
+        "published_at": "2022-07-29T01:00:09.52862Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Fuji Rock Festival '22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Fuji Rock Festival '22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 3
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59ani0WJ7hQoTM09IXnzuvcwj\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "L4IvY7XFuvnVExlVxjvGUz5qvI4",
+      "id": "PLFgquLnL59anse_zegtG0oaPp5gsjj5x-",
+      "snippet": {
+        "published_at": "2022-07-29T01:00:06.675933Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Fuji Rock Festival '22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Fuji Rock Festival '22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 3
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anse_zegtG0oaPp5gsjj5x-\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "8WrZUVerwWeOjpzXPXS4bBDZdhE",
+      "id": "PLFgquLnL59akG5zcrJK9CUQYa-UBoiEC-",
+      "snippet": {
+        "published_at": "2022-07-22T03:49:14.423643Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Fuji Rock Festival '22",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Fuji Rock Festival '22",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 3
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59akG5zcrJK9CUQYa-UBoiEC-\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "awdNTH5Zv3zJHlXZbuXPWtSCyKQ",
+      "id": "PLFgquLnL59anZPc8o5rKnen-1PSiZL2kF",
+      "snippet": {
+        "published_at": "2022-05-20T23:00:05.961977Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "EDC Las Vegas 2022",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/vzdGTBP8zAo/default_live.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/vzdGTBP8zAo/mqdefault_live.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/vzdGTBP8zAo/hqdefault_live.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/vzdGTBP8zAo/sddefault_live.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/vzdGTBP8zAo/maxresdefault_live.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "EDC Las Vegas 2022",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 4
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anZPc8o5rKnen-1PSiZL2kF\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "7mUAghtym8pOKs-8JA2JzPk-geE",
+      "id": "PLFgquLnL59amytV0jaf5r30m_IBOqJ3HK",
+      "snippet": {
+        "published_at": "2022-04-15T06:00:05.096605Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Coachella LIVE on YouTube",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Coachella LIVE on YouTube",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 3
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amytV0jaf5r30m_IBOqJ3HK\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "T372yplGR4jK7xBW-V4GRcDTlU4",
+      "id": "PLFgquLnL59annrDn_hqLqmbaoMuiDe9i-",
+      "snippet": {
+        "published_at": "2022-04-15T05:00:09.309006Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Coachella 2022",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Coachella 2022",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 15
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59annrDn_hqLqmbaoMuiDe9i-\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "Rc_YswFeFrJDj7dxY8m1DmUkVAc",
+      "id": "PLFgquLnL59alfVURE3fq7strhhk5vGAQ3",
+      "snippet": {
+        "published_at": "2022-04-15T05:00:08.811453Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Coachella EN VIVO en YouTube",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Coachella EN VIVO en YouTube",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 3
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59alfVURE3fq7strhhk5vGAQ3\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "2fAhqj2zllDV6mtbDk7F4GypiBc",
+      "id": "PLFgquLnL59anX19QrufmqRNnpf6kkawNH",
+      "snippet": {
+        "published_at": "2022-04-15T05:00:08.252438Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Coachella EN VIVO en YouTube",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Coachella EN VIVO en YouTube",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 3
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anX19QrufmqRNnpf6kkawNH\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "W2YKYRO9tU4vSGICNwZODpOLg2A",
+      "id": "PLFgquLnL59anBWQuI3AYKfH9R0rJ3-sQY",
+      "snippet": {
+        "published_at": "2022-04-15T05:00:07.626487Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Coachella EN VIVO en YouTube",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Coachella EN VIVO en YouTube",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 3
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anBWQuI3AYKfH9R0rJ3-sQY\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "MnNJnHejxRSly2gwsQX5OPxoD5w",
+      "id": "PLFgquLnL59annjMIOfAmEy9q17_IvY5BG",
+      "snippet": {
+        "published_at": "2022-04-15T05:00:06.932659Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Coachella 2022",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Coachella 2022",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 3
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59annjMIOfAmEy9q17_IvY5BG\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "wFKAv74InhyPTAwHvaKvLjJ9s80",
+      "id": "PLFgquLnL59anNiXBScbwJI7aWAF-eddFt",
+      "snippet": {
+        "published_at": "2022-04-15T04:42:41.576588Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Coachella 2023 Highlights",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/o0QGw1LZpxM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/o0QGw1LZpxM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/o0QGw1LZpxM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/o0QGw1LZpxM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/o0QGw1LZpxM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Coachella 2023 Highlights",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 18
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anNiXBScbwJI7aWAF-eddFt\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "Rl8YTiUf3WM0YBzmRUe6cb8IMsE",
+      "id": "PLFgquLnL59anr1SfVZMpeDFEWSUcbdspr",
+      "snippet": {
+        "published_at": "2022-04-14T09:50:44.097755Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Coachella 2022 Live on YouTube",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Coachella 2022 Live on YouTube",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 3
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anr1SfVZMpeDFEWSUcbdspr\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "YCYfwd0gCqs9LGq7XxNuUC4RcF8",
+      "id": "PLFgquLnL59amRpJAuSjvE_O6J68hDqXLf",
+      "snippet": {
+        "published_at": "2022-04-03T10:57:05.178478Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "#GRM5Million",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/vWWiF_Iq0nE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/vWWiF_Iq0nE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/vWWiF_Iq0nE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/vWWiF_Iq0nE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/vWWiF_Iq0nE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "#GRM5Million",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 6
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amRpJAuSjvE_O6J68hDqXLf\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "CxbHX3jBXdFSzdTAbR2El-sZPvs",
+      "id": "PLFgquLnL59an1QNAt2NqDr-l93roF_85X",
+      "snippet": {
+        "published_at": "2022-01-31T14:27:20.3483Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "BRIT Awards 2023 - From the night",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/1fOLuN-OUj0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/1fOLuN-OUj0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/1fOLuN-OUj0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/1fOLuN-OUj0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/1fOLuN-OUj0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "BRIT Awards 2023 - From the night",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 21
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59an1QNAt2NqDr-l93roF_85X\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "9QP3PohsHKeZsCoIKkehHolF8iE",
+      "id": "PLFgquLnL59anNMgsikQFwDIpnkzhDoZ5e",
+      "snippet": {
+        "published_at": "2021-12-13T07:29:38.910062Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "\u4eca\u5e74\u3092\u5f69\u3063\u305f\u30df\u30e5\u30fc\u30b8\u30c3\u30af\u30d3\u30c7\u30aa",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "\u4eca\u5e74\u3092\u5f69\u3063\u305f\u30df\u30e5\u30fc\u30b8\u30c3\u30af\u30d3\u30c7\u30aa",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 7
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59anNMgsikQFwDIpnkzhDoZ5e\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "dnjmga5_5RlfBcWljn-Ql9kJQGU",
+      "id": "PLFgquLnL59akCxGZO0RMOV84R0If5WXJD",
+      "snippet": {
+        "published_at": "2021-12-10T17:14:25.456076Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "New Holiday Music Videos",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/PhKVSZsRxQM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/PhKVSZsRxQM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/PhKVSZsRxQM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/PhKVSZsRxQM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/PhKVSZsRxQM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "New Holiday Music Videos",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 19
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59akCxGZO0RMOV84R0If5WXJD\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "eF6w88ahNu94N3REIQZUxigjgaY",
+      "id": "PLFgquLnL59alrTa-QZvshoCm_OcJ6T3pr",
+      "snippet": {
+        "published_at": "2021-12-07T07:10:34.44623Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Music Videos 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Music Videos 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 8
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59alrTa-QZvshoCm_OcJ6T3pr\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "8fMcILnmy754iT4nR6j9u8xmC1g",
+      "id": "PLFgquLnL59al0VB1XzKmkdEu_rLzCRFCc",
+      "snippet": {
+        "published_at": "2021-12-07T07:00:02.388605Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Music Videos 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/NBRodvj0nL8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/NBRodvj0nL8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/NBRodvj0nL8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/NBRodvj0nL8/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/NBRodvj0nL8/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Music Videos 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 7
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59al0VB1XzKmkdEu_rLzCRFCc\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "KMxSem3RavDGp2cOX2bl-qgy0qA",
+      "id": "PLFgquLnL59am36oyI-vz9upUEhLUO4aN1",
+      "snippet": {
+        "published_at": "2021-12-07T06:51:49.787353Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Music Videos 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/WMweEpGlu_U/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Music Videos 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 5
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59am36oyI-vz9upUEhLUO4aN1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "thItEP7rMJpVonRKL9ylzVt_QjM",
+      "id": "PLFgquLnL59ak1sZejcfP2d2Gh7KQibqLu",
+      "snippet": {
+        "published_at": "2021-12-07T06:37:16.38679Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Music Videos 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/7FPL4DRizgk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/7FPL4DRizgk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/7FPL4DRizgk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/7FPL4DRizgk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/7FPL4DRizgk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Music Videos 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 9
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59ak1sZejcfP2d2Gh7KQibqLu\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "F4z8fTDdpD2dyzrRbkMSf7ebsHA",
+      "id": "PLFgquLnL59akShtRWYYxAzuzjTl_lCg-a",
+      "snippet": {
+        "published_at": "2021-12-07T06:34:01.65761Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Music Videos 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/PlCbgZxonJs/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/PlCbgZxonJs/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/PlCbgZxonJs/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/PlCbgZxonJs/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/PlCbgZxonJs/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Music Videos 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 8
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59akShtRWYYxAzuzjTl_lCg-a\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "EKDj4ruM4bikjaSQ8DsFVtvlkRo",
+      "id": "PLFgquLnL59an085t3cZhRUwIOEBxHw793",
+      "snippet": {
+        "published_at": "2021-12-07T06:16:18.906874Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "\uc62c\ud574\uc758 \ubba4\uc9c1\ube44\ub514\uc624 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/oQW9lY1ZAJA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/oQW9lY1ZAJA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/oQW9lY1ZAJA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/oQW9lY1ZAJA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/oQW9lY1ZAJA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "\uc62c\ud574\uc758 \ubba4\uc9c1\ube44\ub514\uc624 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 10
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59an085t3cZhRUwIOEBxHw793\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "dd8yW-_cJgz_oc2srYoDwG0z3zw",
+      "id": "PLFgquLnL59allBp9ILqsHroB9cdvQ_dEA",
+      "snippet": {
+        "published_at": "2021-12-07T01:04:20.132968Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Music Videos 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/adLGHcj_fmA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/adLGHcj_fmA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/adLGHcj_fmA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/adLGHcj_fmA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/adLGHcj_fmA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Music Videos 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 10
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59allBp9ILqsHroB9cdvQ_dEA\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "9Eun6n9pmXstZyMmng7RHhqfTP8",
+      "id": "PLFgquLnL59alDfFNKvEaRTDYv4ABZS2RG",
+      "snippet": {
+        "published_at": "2021-12-06T23:00:05.266928Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Music Videos of 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/XXYlFuWEuKI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/XXYlFuWEuKI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/XXYlFuWEuKI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/XXYlFuWEuKI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/XXYlFuWEuKI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Music Videos of 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 10
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59alDfFNKvEaRTDYv4ABZS2RG\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "zgr90l4vlV-OXbePCjHuWMjtapg",
+      "id": "PLFgquLnL59amYHR1QMML3KQL-JoRWVcHh",
+      "snippet": {
+        "published_at": "2021-12-06T15:16:44.693235Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Music Videos 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/CEdIygk3-Qc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/CEdIygk3-Qc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/CEdIygk3-Qc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/CEdIygk3-Qc/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/CEdIygk3-Qc/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Music Videos 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 10
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59amYHR1QMML3KQL-JoRWVcHh\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "1i_d59Lu_V7K22lw8pxDPlPfsoo",
+      "id": "PLFgquLnL59akXrbG-oyrmNhckD2bppECw",
+      "snippet": {
+        "published_at": "2021-12-06T15:14:48.827289Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Music Videos 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Hj3dHbpPhaE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Hj3dHbpPhaE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Hj3dHbpPhaE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Hj3dHbpPhaE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Hj3dHbpPhaE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Music Videos 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 10
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59akXrbG-oyrmNhckD2bppECw\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "jmSZlQH0mbbWhPOccH1SMNgjZmQ",
+      "id": "PLFgquLnL59alP5wDgTqsxVQA1fjU46Ghv",
+      "snippet": {
+        "published_at": "2021-12-06T15:14:00.261698Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Top Music Videos 2021",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Ckg3byPznbk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Ckg3byPznbk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Ckg3byPznbk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Ckg3byPznbk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Ckg3byPznbk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channel_title": "Music",
+        "default_language": null,
+        "localized": {
+          "title": "Top Music Videos 2021",
+          "description": ""
+        }
+      },
+      "status": {
+        "privacy_status": "public",
+        "podcast_status": null
+      },
+      "content_details": {
+        "item_count": 10
+      },
+      "player": {
+        "embed_html": "<iframe width=\"640\" height=\"360\" src=\"http://www.youtube.com/embed/videoseries?list=PLFgquLnL59alP5wDgTqsxVQA1fjU46Ghv\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      "localizations": null
+    }
+  ]
+}

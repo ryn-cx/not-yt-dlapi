@@ -65,7 +65,9 @@ class ShowEpisode(APIModel):
             is the number the site shows beside it. Every season counts from its
             own start, so this repeats between the seasons of one show.
         playlist_id: The playlist the episode was listed under, which is the
-            show's own id and the same for every episode of it.
+            show's own id and the same for every episode of it. An episode that
+            has to be bought is not watched from the listing and says no
+            playlist, so this is nothing for those.
         is_playable: Whether the episode can be watched. An episode that is
             listed but no longer watchable says so here.
         thumbnails: The images the episode is pictured by, smallest first.
@@ -76,7 +78,7 @@ class ShowEpisode(APIModel):
     length_seconds: int | None = None
     length_text: str | None = None
     index: int
-    playlist_id: str
+    playlist_id: str | None = None
     is_playable: bool
     thumbnails: list[ShowThumbnail] = Field(default_factory=list)
 
@@ -84,7 +86,10 @@ class ShowEpisode(APIModel):
     @classmethod
     def from_entry(cls, entry: dict[str, Any]) -> Self:
         """Read one entry as browse wrote it."""
-        watch = entry["navigationEndpoint"]["watchEndpoint"]
+        # An episode of a show that is bought rather than watched carries a
+        # modal telling the viewer to sign in and buy it, where every other
+        # episode carries the endpoint it is watched from.
+        watch = entry["navigationEndpoint"].get("watchEndpoint", {})
         length = entry.get("lengthSeconds")
         length_text = entry.get("lengthText")
         return cls(
@@ -93,7 +98,7 @@ class ShowEpisode(APIModel):
             length_seconds=None if length is None else int(length),
             length_text=None if length_text is None else read_text(length_text),
             index=int(read_text(entry["index"])),
-            playlist_id=watch["playlistId"],
+            playlist_id=watch.get("playlistId"),
             is_playable=entry.get("isPlayable", False),
             thumbnails=[
                 ShowThumbnail(

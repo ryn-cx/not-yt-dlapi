@@ -1,0 +1,234 @@
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "F_vMH6Lvr4WVonnzPEtmEX5TQHY",
+  "next_page_token": null,
+  "prev_page_token": null,
+  "page_info": {
+    "total_results": 6,
+    "results_per_page": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "CCGQ88YebEieG_ImvzkzVX4Mg-c",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy5DNzE1RjZEMUZCMjA0RDBB",
+      "snippet": {
+        "published_at": "2023-04-23T07:00:10Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {
+          "default": null,
+          "medium": null,
+          "high": null,
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "video_owner_channel_title": null,
+        "video_owner_channel_id": null,
+        "playlist_id": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 0,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "1-3L7Uw5yEs"
+        }
+      },
+      "content_details": {
+        "video_id": "1-3L7Uw5yEs",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": null
+      },
+      "status": {
+        "privacy_status": "private"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "-qs4faVer-ho3qRdoNEz-mAmQ4U",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy43MTI1NDIwOTMwQjIxMzNG",
+      "snippet": {
+        "published_at": "2023-04-23T07:00:10Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {
+          "default": null,
+          "medium": null,
+          "high": null,
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "video_owner_channel_title": null,
+        "video_owner_channel_id": null,
+        "playlist_id": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 1,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "3HYVAL-52PM"
+        }
+      },
+      "content_details": {
+        "video_id": "3HYVAL-52PM",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": null
+      },
+      "status": {
+        "privacy_status": "private"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "QJxP7L20SHjwnuwfMCAG6R_kNZs",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy5DQ0MyQ0Y4Mzg0M0VGOEYw",
+      "snippet": {
+        "published_at": "2023-04-23T07:00:10Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {
+          "default": null,
+          "medium": null,
+          "high": null,
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "video_owner_channel_title": null,
+        "video_owner_channel_id": null,
+        "playlist_id": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 2,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "P8T81_n28L4"
+        }
+      },
+      "content_details": {
+        "video_id": "P8T81_n28L4",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": null
+      },
+      "status": {
+        "privacy_status": "private"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "0Nw06PK0SxG-q957k6ib5jphKPE",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy4yQUE2Q0JEMTk4NTM3RTZC",
+      "snippet": {
+        "published_at": "2023-04-23T07:00:10Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {
+          "default": null,
+          "medium": null,
+          "high": null,
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "video_owner_channel_title": null,
+        "video_owner_channel_id": null,
+        "playlist_id": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 3,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "wbZ9rP74cRE"
+        }
+      },
+      "content_details": {
+        "video_id": "wbZ9rP74cRE",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": null
+      },
+      "status": {
+        "privacy_status": "private"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "vgDQq8VuE47Uqbuei12Xyzks47c",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy5DMkU4NTY1QUFGQTYwMDE3",
+      "snippet": {
+        "published_at": "2023-04-23T07:00:10Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {
+          "default": null,
+          "medium": null,
+          "high": null,
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "video_owner_channel_title": null,
+        "video_owner_channel_id": null,
+        "playlist_id": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 4,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "M7tholO-Ob0"
+        }
+      },
+      "content_details": {
+        "video_id": "M7tholO-Ob0",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": null
+      },
+      "status": {
+        "privacy_status": "private"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "ty9ovFfKNzkD1-MiR09RKwWxJpo",
+      "id": "UExGZ3F1TG5MNTlhbHZyY3l5T1dSNnp5LURlM0dVby1CXy44Mjc5REFBRUE2MTdFRDU0",
+      "snippet": {
+        "published_at": "2023-04-23T07:00:10Z",
+        "channel_id": "UC-9-kyTW8ZkZNDHQJ6FgpwQ",
+        "title": "Private video",
+        "description": "This video is private.",
+        "thumbnails": {
+          "default": null,
+          "medium": null,
+          "high": null,
+          "standard": null,
+          "maxres": null
+        },
+        "channel_title": "Music",
+        "video_owner_channel_title": null,
+        "video_owner_channel_id": null,
+        "playlist_id": "PLFgquLnL59alvrcyyOWR6zy-De3GUo-B_",
+        "position": 5,
+        "resource_id": {
+          "kind": "youtube#video",
+          "video_id": "9hdFg3rnOXI"
+        }
+      },
+      "content_details": {
+        "video_id": "9hdFg3rnOXI",
+        "start_at": null,
+        "end_at": null,
+        "note": null,
+        "video_published_at": null
+      },
+      "status": {
+        "privacy_status": "private"
+      }
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "kind": "youtube#channelListResponse",
+  "etag": "knnWDsRPfVZL5Y5sf3nP2J9PQr4",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "FgKWgn4CgN1KFfiEWC-s_xNa0XY",
+      "id": "UCYoEbMFACdvkquYH5h31RNA",
+      "snippet": {
+        "title": "YouTube Movies",
+        "description": "YouTube's movies destination featuring the latest new releases, blockbusters and more.",
+        "publishedAt": "2018-06-13T18:06:55Z",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-OZlmjhYmF4PiLs67fsknPupvLKi1qqqF_9S4UUgwa0-OIApbmAlLgxKjC1ATBgy9IFDLIA8mQ=s88-c-k-c0x00ffffff-no-rj",
+            "width": 88,
+            "height": 88
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-OZlmjhYmF4PiLs67fsknPupvLKi1qqqF_9S4UUgwa0-OIApbmAlLgxKjC1ATBgy9IFDLIA8mQ=s240-c-k-c0x00ffffff-no-rj",
+            "width": 240,
+            "height": 240
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-OZlmjhYmF4PiLs67fsknPupvLKi1qqqF_9S4UUgwa0-OIApbmAlLgxKjC1ATBgy9IFDLIA8mQ=s800-c-k-c0x00ffffff-no-rj",
+            "width": 800,
+            "height": 800
+          }
+        },
+        "localized": {
+          "title": "YouTube Movies",
+          "description": "YouTube's movies destination featuring the latest new releases, blockbusters and more."
+        }
+      },
+      "contentDetails": {
+        "relatedPlaylists": {
+          "likes": "",
+          "uploads": "UUYoEbMFACdvkquYH5h31RNA"
+        }
+      },
+      "statistics": {
+        "viewCount": "76675",
+        "subscriberCount": "3",
+        "hiddenSubscriberCount": false,
+        "videoCount": "16"
+      },
+      "status": {
+        "privacyStatus": "public",
+        "isLinked": true,
+        "longUploadsStatus": "longUploadsUnspecified"
+      },
+      "brandingSettings": {
+        "channel": {
+          "title": "YouTube Movies",
+          "description": "YouTube's movies destination featuring the latest new releases, blockbusters and more."
+        },
+        "image": {
+          "bannerExternalUrl": "https://yt3.googleusercontent.com/VZfYnUIkklAyr-CVDRFGL1vBsvflctDjDKIkLTktGRcG1czCPkblE-i2TBH2phYij8m0XLzY"
+        }
+      },
+      "contentOwnerDetails": {},
+      "localizations": {
+        "uz": {
+          "title": "YouTube Filmlar",
+          "description": "YouTube xizmatidagi eng yangi filmlar, blokbaster va boshqa videolar makoni."
+        },
+        "pa": {
+          "title": "YouTube ਫ਼ਿਲਮਾਂ",
+          "description": "YouTube ਦੀ ਮੂਵੀ ਮੰਜ਼ਲ ਨਵੀਨਤਮ ਨਵੀਆਂ ਰੀਲੀਜ਼, ਬਲੌਕਬਸਟਰ ਅਤੇ ਹੋਰ ਕਈ ਚੀਜ਼ਾਂ ਪੇਸ਼ ਕਰਦੀ ਹੈ।"
+        },
+        "vi": {
+          "title": "Phim trên YouTube",
+          "description": "Điểm đến phim của YouTube có phim phát hành mới nhất, phim bom tấn và hơn thế nữa."
+        },
+        "es-US": {
+          "title": "Películas de YouTube",
+          "description": "El destino en YouTube para los amantes del cine, que presenta los nuevos lanzamientos, los éxitos de taquilla y mucho más."
+        },
+        "id": {
+          "title": "Film YouTube",
+          "description": "Pusat film YouTube yang menampilkan film rilis terbaru, populer, dan lainnya."
+        },
+        "gl": {
+          "title": "Películas de YouTube",
+          "description": "Destino de películas de YouTube cos últimos lanzamentos, éxitos e moito máis."
+        },
+        "bn": {
+          "title": "YouTube মুভিজ",
+          "description": "সাম্প্রতিক নতুন প্রকাশ, ব্লকবাস্টারগুলি এবং আরও বৈশিষ্ট্যযুক্ত YouTube এর সিনেমাগুলির গন্তব্য।"
+        },
+        "lt": {
+          "title": "YouTube Movies",
+          "description": "„YouTube“ filmų kanalas, kuriame rasite naujausių filmų, populiariausių filmų ir ne tik."
+        },
+        "fr-CA": {
+          "title": "Films YouTube",
+          "description": "Destination cinéma de YouTube présentant les plus récents titres, les grands succès et plus."
+        },
+        "en-IN": {
+          "title": "YouTube Movies",
+          "description": "YouTube's movies destination featuring the latest new releases, blockbusters and more."
+        },
+        "fil": {
+          "title": "Mga Pelikula sa YouTube",
+          "description": "Mga mapupuntahang pelikula sa YouTube na nagtatampok ng mga pinakabagong labas, blockbuster at marami pang iba pa."
+        },
+        "ms": {
+          "title": "Filem YouTube",
+          "description": "Saluran filem YouTube yang menampilkan keluaran baharu, blokbuster terkini dan banyak lagi."
+        },
+        "km": {
+          "title": "YouTube Movies",
+          "description": "ទិសដៅ\u200bភាព\u200bយន្ដ\u200bរបស់ YouTube កំណត់លក្ខណៈ\u200bចេញ\u200bផ្សាយ\u200bថ្មី\u200bបំផុត, ផ្សាយ\u200bពាណិជ្ជកម្ម និង\u200bច្រើន\u200bទៀត។"
+        },
+        "fi": {
+          "title": "YouTube-elokuvat",
+          "description": "YouTuben virallinen elokuvakanava, josta löydät uusimmat ensi-illat ja vanhat suosikit."
+        },
+        "zh-CN": {
+          "title": "YouTube 电影",
+          "description": "YouTube 上的电影专区，提供最新上映的电影、卖座大片等。"
+        },
+        "ru": {
+          "title": "Фильмы",
+          "description": "На этом канале собраны как классические фильмы, так и последние новинки киноиндустрии."
+        },
+        "hy": {
+          "title": "YouTube-ի ֆիլմեր",
+          "description": "YouTube-ի ֆիլմերի ալիքը առաջարկում է նորագույն թողարկումներ, բլոկբաստերներ և այլն:"
+        },
+        "hu": {
+          "title": "YouTube Filmek",
+          "description": "A YouTube mozicsatornái, amelyeken megtalálod a legújabb filmeket, kasszasikereket és sok minden mást."
+        },
+        "ne": {
+          "title": "YouTube मा उपलब्ध चलचित्रहरू",
+          "description": "पछिल्ला नयाँ प्रकाशन, ब्लकबस्टर र थप विशेषताहरू भएको YouTube को चलचित्र प्रेमीहरूका लागि गन्तव्य स्थान।"
+        },
+        "zu": {
+          "title": "Ama-movie e-YouTube",
+          "description": "Indawo yama-movie e-YouTube enokukhishiwe okusha, ama-blockbuster nokuningi."
+        },
+        "bg": {
+          "title": "Филми в YouTube",
+          "description": "Филмовата дестинация на YouTube с най-новите заглавия, блокбъстъри и много други."
+        },
+        "iw": {
+          "title": "הסרטים של YouTube",
+          "description": "המקום ב-YouTube שבו ניתן לצפות בסרטים חדשים, שוברי קופות ועוד."
+        },
+        "sr": {
+          "title": "YouTube филмови",
+          "description": "Одредиште за YouTube-ове филмове са најновијим издањима, филмским хитовима и више."
+        },
+        "as": {
+          "title": "YouTube চলচিত্ৰ",
+          "description": "YouTubeৰ চলচ্চিত্ৰৰ সংগ্ৰহ, য’ত আছে শেহতীয়াকৈ মুক্তিপ্ৰাপ্ত, ব্লকবাষ্টাৰ আৰু অধিক চলচ্চিত্ৰ।"
+        },
+        "mr": {
+          "title": "YouTube चित्रपट",
+          "description": "YouTube चे चित्रपट स्थान नवीनतम रिलीज, ब्लॉकबस्टर आणि आणखी बरंच काही दाखवत आहे."
+        },
+        "or": {
+          "title": "YouTube ସିନେମା",
+          "description": "YouTube ର ସିନେମା ପାଇଁ ଉଦ୍ଦିଷ୍ଟ ସ୍ଥାନ ଯେଉଁଠି ନବୀନତମ ନୂଆ ଉନ୍ମୋଚନ, ବ୍ଲକବାଷ୍ଟର୍\u200d ଏବଂ ଆହୁରି ଅନେକ କିଛି ରହିଛି।"
+        },
+        "ja": {
+          "title": "YouTube ムービー",
+          "description": "新作や大ヒット映画などを含む、YouTube の映画チャンネルです。"
+        },
+        "nl": {
+          "title": "YouTube Movies",
+          "description": "Het filmkanaal van YouTube, met de nieuwste releases, blockbusters en meer."
+        },
+        "si": {
+          "title": "YouTube චිත්\u200dරපට",
+          "description": "නවතම නව මුදා හැරීම්, බ්ලොක්බස්ටර්ස් හා තවත් දෑ විශේෂාංග කළ YouTube හි චිත්\u200dරපට ගමනාන්තය."
+        },
+        "lv": {
+          "title": "YouTube filmas",
+          "description": "YouTube filmu kanāls, kur var atrast jaunākās filmas, grāvējus un citu saturu."
+        },
+        "az": {
+          "title": "YouTube Film",
+          "description": "YouTube'un film təyinatı ən son buraxılışları, blokbasterləri və sair şeyləri təqdim edir."
+        },
+        "pt-PT": {
+          "title": "Filmes do YouTube",
+          "description": "Destino de filmes do YouTube com os lançamentos mais recentes, os campeões de bilheteira e muito mais."
+        },
+        "da": {
+          "title": "YouTube Film",
+          "description": "På YouTubes dedikerede kanal til film kan du se de sidste nye udgivelser, blockbustere og mange andre."
+        },
+        "hi": {
+          "title": "YouTube मूवी",
+          "description": "YouTube का फ़िल्मी खज़ाना, जहां पाएं नई रिलीज़, ब्लॉकबस्टर फ़िल्में और और भी बहुत कुछ."
+        },
+        "es-419": {
+          "title": "Películas de YouTube",
+          "description": "El destino en YouTube para los amantes del cine, que presenta los nuevos lanzamientos, los éxitos de taquilla y mucho más."
+        },
+        "sl": {
+          "title": "Filmi v YouTubu",
+          "description": "YouTubovo mesto za filmske navdušence z najnovejšimi filmi, uspešnicami in drugim."
+        },
+        "pl": {
+          "title": "Filmy YouTube",
+          "description": "Miejsce dla fanów kina, gdzie znajdziesz nowości, hity i wiele innych filmów."
+        },
+        "th": {
+          "title": "YouTube Movies",
+          "description": "ปลายทางของภาพยนตร์ YouTube จะมีภาพยนตร์มาใหม่ล่าสุด ภาพยนตร์ทำเงิน และอีกมากมาย"
+        },
+        "mn": {
+          "title": "YouTube Movies",
+          "description": "Хамгийн сүүлийн үеийн шинэ гайхалтай үзвэр бүхий YouTube-н кино цэг."
+        },
+        "tr": {
+          "title": "YouTube Filmleri",
+          "description": "YouTube'un en son çıkanları, satış rekorları kıranları ve daha fazlasını öne çıkaran filmler bölümü."
+        },
+        "zh-HK": {
+          "title": "YouTube 電影",
+          "description": "YouTube 的電影專區，為您提供多套新片、精彩猛片等等。"
+        },
+        "af": {
+          "title": "YouTube Flieks",
+          "description": "YouTube se flieksbestemming wat spog met die jongste nuwe vrystellings, lokettreffers en nog meer."
+        },
+        "de": {
+          "title": "YouTube-Filme",
+          "description": "Das Filmangebot von YouTube bietet Neuerscheinungen, Blockbuster und vieles mehr."
+        },
+        "gu": {
+          "title": "YouTube મૂવી",
+          "description": "નવી રિલીઝ, બ્લોકબસ્ટર્સ અને વધુ દર્શાવતા YouTube ના મૂવીઝ ગંતવ્યો."
+        },
+        "bs": {
+          "title": "YouTube filmovi",
+          "description": "Odredište YouTube filmova s najnovijim izdanjima, kino hitovima i više."
+        },
+        "et": {
+          "title": "YouTube'i filmid",
+          "description": "YouTube'i filmikeskus, kust leiate uusimaid filme, menukeid ja palju muud."
+        },
+        "my": {
+          "title": "YouTube ရုပ်ရှင်များ",
+          "description": "နောက်ဆုံးအသစ်ထွက်ရှိသည်များ၊ blockbusters ရုပ်ရှင်များနှင့် အခြားအရာများကို အသားပေးထားသော YouTube ရုပ်ရှင်များ ဖော်ပြရာနေရာ။"
+        },
+        "kn": {
+          "title": "YouTube ಚಲನಚಿತ್ರಗಳು",
+          "description": "ಇತ್ತೀಚಿನ ಹೊಸ ಬಿಡುಗಡೆಗಳು, ಬ್ಲಾಕ್\u200cಬಸ್ಟರ್ ಮತ್ತು ಇನ್ನೂ ಹೆಚ್ಚಿನ ಚಲನಚಿತ್ರಗಳನ್ನು ಪ್ರದರ್ಶಿಸುವ YouTube ಚಲನಚಿತ್ರಗಳ ಗಮ್ಯಸ್ಥಾನ."
+        },
+        "sw": {
+          "title": "Filamu za YouTube",
+          "description": "Sehemu ya filamu za YouTube inayoangazia matoleo mapya, filamu maarufu na zaidi."
+        },
+        "te": {
+          "title": "YouTube సినిమాలు",
+          "description": "YouTube యొక్క సినిమాల గమ్యస్థానంలో తాజాగా కొత్త విడుదలలు, బ్లాక్\u200cబస్టర్\u200cలు మరియు మరిన్ని లక్షణం చేయబడ్డాయి."
+        },
+        "ca": {
+          "title": "Pel·lícules de YouTube",
+          "description": "Els millors vídeos sobre pel·lícules de YouTube, amb les estrenes, els èxits de taquilla més recents i molt més."
+        },
+        "pt-BR": {
+          "title": "YouTube Movies",
+          "description": "Canal de filmes do YouTube com os lançamentos mais recentes, líderes de bilheteria e mais."
+        },
+        "hr": {
+          "title": "YouTube filmovi",
+          "description": "YouTubeovo odredište za filmove s najnovijim izdanjima, filmskim hitovima i drugim sadržajima."
+        },
+        "ro": {
+          "title": "Filme YouTube",
+          "description": "Canalul Filme de la YouTube îți prezintă cele mai noi lansări, filme de succes și multe altele."
+        },
+        "zh-TW": {
+          "title": "YouTube 電影",
+          "description": "YouTube 上的電影集散地，提供最新發行的電影和強檔鉅片等等。"
+        },
+        "pt": {
+          "title": "YouTube Movies",
+          "description": "Canal de filmes do YouTube com os lançamentos mais recentes, líderes de bilheteria e mais."
+        },
+        "en-GB": {
+          "title": "YouTube Movies",
+          "description": "YouTube's movies destination featuring the latest new releases, blockbusters and more."
+        },
+        "sr-Latn": {
+          "title": "YouTube filmovi",
+          "description": "Odredište za YouTube-ove filmove sa najnovijim izdanjima, filmskim hitovima i više."
+        },
+        "it": {
+          "title": "Film su YouTube",
+          "description": "Pagina di YouTube dedicata ai film con le ultime uscite, i film più venduti e molto altro."
+        },
+        "es": {
+          "title": "YouTube Movies",
+          "description": "El lugar de YouTube en el que podrás encontrar estrenos, taquillazos y mucho más."
+        },
+        "ka": {
+          "title": "YouTube ფილმები",
+          "description": "ადგილები, სადაც ხელმისაწვდომია YouTube ფილმების უახლესი გამოშვებები, ბლოკბასტერები და სხვ."
+        },
+        "fr": {
+          "title": "Films YouTube",
+          "description": "Chaîne de films YouTube présentant les dernières sorties, les blockbusters et bien plus encore."
+        },
+        "ml": {
+          "title": "YouTube സിനിമകൾ",
+          "description": "YouTube സിനിമകളുടെ സംഗമ സ്ഥാനത്ത് പുതിയ റിലീസുകളും ബ്ലോക്ക്ബസ്റ്ററുകളും മറ്റും പ്രദർശിപ്പിക്കുന്നു."
+        },
+        "lo": {
+          "title": "YouTube Movies",
+          "description": "ຈຸດໝາຍຮູບເງົາຂອງ YouTube ມີຮູບເງົາອອກໃໝ່, ຮູບເງົາດັງ ແລະ ອື່ນໆອີກ."
+        },
+        "sk": {
+          "title": "Filmy YouTube",
+          "description": "Filmová destinácia služby YouTube, kde nájdete posledné novinky, trháky a kopec ďalších filmov."
+        },
+        "ky": {
+          "title": "Кинотасмалар",
+          "description": "YouTube'дун эң акыркы жаңы чыгармаларды, блокбастерлерди жана башкаларды көрсөткөн тасмалар бөлүмү."
+        },
+        "sq": {
+          "title": "Filma në YouTube",
+          "description": "Seksioni i filmave të YouTube së bashku me qarkullimet më të fundit, filmat e bujshëm të momentit etj."
+        },
+        "fa": {
+          "title": "فیلم\u200cهای YouTube",
+          "description": "کانال مقصد فیلم\u200cهای YouTube آخرین فیلم\u200cهای مطرح، تازه\u200cها و بسیاری موارد دیگر را نشان می\u200cدهد."
+        },
+        "is": {
+          "title": "YouTube kvikmyndir",
+          "description": "Áfangastaður kvikmynda á YouTube þar sem sjá má nýjustu kvikmyndirnar, stórmyndir og fleira."
+        },
+        "en": {
+          "title": "YouTube Movies",
+          "description": "YouTube's movies destination featuring the latest new releases, blockbusters and more."
+        },
+        "ta": {
+          "title": "YouTube திரைப்படங்கள்",
+          "description": "திரைப்படங்களுக்கான இந்தப் பிரத்யேகமான YouTube சேனலில், சமீபத்தில் வெளிவந்த திரைப்படங்கள், வெற்றிப் படங்கள் மற்றும் பல திரைப்படங்கள் உள்ளன."
+        },
+        "ko": {
+          "title": "YouTube 영화",
+          "description": "최신 출시작, 블록버스터 등을 제공하는 YouTube 영화 채널입니다."
+        },
+        "no": {
+          "title": "YouTube Filmer",
+          "description": "Filmer på YouTube – de nyeste utgivelsene, storfilmene med mer."
+        },
+        "sv": {
+          "title": "Filmer på YouTube",
+          "description": "YouTubes filmpalats med de senaste filmerna, kassasuccéer och mycket annat."
+        },
+        "uk": {
+          "title": "YouTube Movies",
+          "description": "Канал YouTube із новими фільмами, блокбастерами тощо."
+        },
+        "eu": {
+          "title": "YouTube-ko filmak",
+          "description": "Film berrienak, film arrakastatsuak eta beste dituen YouTube-ren filmen gunea."
+        },
+        "am": {
+          "title": "YouTube ፊልሞች",
+          "description": "አዲስ የተለቀቁትን፣ ብሎክበስተሮችን እና ሌሎችንም ያካተቱ የYouTube የመድረሻ ፊልሞች።"
+        },
+        "cs": {
+          "title": "Filmy YouTube",
+          "description": "Místo na YouTube s nejnovějšími filmy, kasovními trháky a dalším obsahem."
+        },
+        "mk": {
+          "title": "Филмови на YouTube",
+          "description": "Дестинацијата за филмови на YouTube што ги содржи најновите изданија, блокбастери и многу повеќе."
+        },
+        "be": {
+          "title": "Фільмы YouTube",
+          "description": "Месца для фільмаў на YouTube, дзе паказваюцца найноўшыя фільмы, блокбастары і шмат што іншае."
+        },
+        "el": {
+          "title": "Ταινίες YouTube",
+          "description": "Ο απόλυτος προορισμός για ταινίες YouTube με όλες τις τελευταίες νέες κυκλοφορίες, blockbuster και άλλα."
+        },
+        "ur": {
+          "title": "\u202bYouTube موویز",
+          "description": "تازہ ترین نئی ریلیزز، بلاک بسٹرز وغیرہ کو نمایاں کرنے والی YouTube کی موویز کی منزل۔"
+        },
+        "kk": {
+          "title": "YouTube фильмдері",
+          "description": "Жаңа бейнелер, блокбастерлер және басқалары қамтылған YouTube фильмдер жинағы."
+        },
+        "ar": {
+          "title": "أفلام YouTube",
+          "description": "المقصد الرئيسي لمحبي الأفلام على YouTube وهي تعرض أحدث الإصدارات الجديدة والأفلام الضخمة وغيرها."
+        }
+      }
+    }
+  ]
+}
