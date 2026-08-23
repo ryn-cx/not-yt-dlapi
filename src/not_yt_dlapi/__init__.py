@@ -1,11 +1,5 @@
 # TODO: Validate
-"""YouTube Data API.
-
-The client holds one attribute per endpoint and the single download that all of
-them go through. An endpoint is reached the way the API reaches it, so
-`client.videos.list("jNQXAC9IVRw")` is `videos.list` and is the whole of it: no
-download is asked for and then parsed, because the method does both.
-"""
+"""Contains the NotYTDLAPI class."""
 
 from __future__ import annotations
 
@@ -18,10 +12,12 @@ from typing import TYPE_CHECKING, Any, overload
 from get_around import GetAround
 from google.auth.transport.requests import Request
 
+from not_yt_dlapi.channel_feed import ChannelFeed
 from not_yt_dlapi.channel_sections import ChannelSections
 from not_yt_dlapi.channels import Channels
-from not_yt_dlapi.exceptions import HTTP_NOT_FOUND, APIError, HTTPError, NotFoundError
+from not_yt_dlapi.exceptions import APIError, HTTPError, ResourceNotFoundError
 from not_yt_dlapi.music import Music
+from not_yt_dlapi.playlist_feed import PlaylistFeed
 from not_yt_dlapi.playlist_items import PlaylistItems
 from not_yt_dlapi.playlists import Playlists
 from not_yt_dlapi.shows import Shows
@@ -34,10 +30,17 @@ if TYPE_CHECKING:
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
 
+API_URL = "https://www.googleapis.com/youtube/v3"
+FEED_URL = "https://www.youtube.com/feeds/videos.xml"
+BROWSE_URL = "https://www.youtube.com/youtubei/v1/browse"
+
+BROWSE_CLIENT = {"clientName": "WEB", "clientVersion": "2.20240401.00.00"}
+"""Which YouTube client browse is asked as, which it wants with every request."""
+
 
 # TODO: Validate
 class NotYTDLAPI:
-    """YouTube Data API."""
+    """YouTube Data API wrapper."""
 
     # TODO: Validate
     @overload
@@ -70,14 +73,15 @@ class NotYTDLAPI:
         sleep_time: float = 1,
         get_around_client: GetAround | None = None,
     ) -> None:
-        """Initialize the client with an API key or OAuth credentials.
+        """Initializes the NotYTDLAPI client with an API key or OAuth credentials.
 
-        `sleep_time` is how long to wait after asking browse for something, and
-        has nothing to say about the API: the API is spent by the unit rather
-        than by the second, so waiting between requests costs the same quota
-        more slowly. Browse counts requests instead, and answers a run of them
-        made quickly with a refusal saying the network looks automated, so the
-        default is a second rather than nothing.
+        The client holds one attribute per endpoint, so `client.videos(ids)`
+        looks videos up and `client.videos.download(ids)` and
+        `client.videos.load(data)` are the halves of it.
+
+        `sleep_time` is how long to wait after asking browse for something.
+        Browse answers a run of requests made quickly with a refusal saying the
+        network looks automated, so the default is a second rather than nothing.
 
         Raises:
             ValueError: If neither an API key nor credentials are given, since
@@ -94,22 +98,19 @@ class NotYTDLAPI:
 
         self.videos = Videos(self)
         self.channels = Channels(self)
+        self.channel_feed = ChannelFeed(self)
         self.channel_sections = ChannelSections(self)
         self.playlists = Playlists(self)
+        self.playlist_feed = PlaylistFeed(self)
         self.playlist_items = PlaylistItems(self)
         self.shows = Shows(self)
         self.music = Music(self)
         self.topic = Topic(self)
 
-        super().__init__()
-
     # TODO: Validate
-    def _headers(self) -> dict[str, str]:
-        """Return the headers a request goes out with.
-
-        OAuth credentials are refreshed here rather than by the caller, because
-        this is the only place that knows a request is about to be made.
-        """
+    @property
+    def _authorization(self) -> dict[str, str]:
+        """Return the authorization header, refreshing the credentials first."""
         if self.credentials is None:
             return {}
         if not self.credentials.valid:
@@ -119,98 +120,92 @@ class NotYTDLAPI:
     # TODO: Validate
     def download(
         self,
-        path: str,
+        endpoint: str,
         params: dict[str, Any],
+        headers: dict[str, str],
         log_id: str,
     ) -> str:
-        """Make a request to the YouTube Data API.
-
-        What comes back is the body as it was served rather than the reading of
-        it. The body is read here to see whether the API is answering with an
-        error, since that is the only thing this has to know, and reading it
-        into a model is the model's own to do.
+        """Downloads from the API and returns the body as it was served.
 
         Raises:
             HTTPError: If the body is not JSON, which is something other than
                 the API answering.
-            NotFoundError: If the API refuses the request because what was
-                asked about does not exist.
+            ResourceNotFoundError: If the API refuses the request because what
+                was asked about does not exist.
             APIError: If the API answers with any other error.
         """
-        start = monotonic()
-
-        headers = self._headers()
+        authorization = self._authorization
         query = dict(params)
-        if not headers:
+        if not authorization:
             query["key"] = self.api_key
 
+        logger.debug("Downloading: %s", log_id)
+        start = monotonic()
         response = self.get_around_client.get(
-            f"https://www.googleapis.com/youtube/v3/{path}",
+            f"{API_URL}/{endpoint}",
             params=query,
-            headers=headers,
+            headers={**headers, **authorization},
         )
-        duration = monotonic() - start
-
-        logger.debug("Downloaded: %s - Completed in %.4f seconds", log_id, duration)
+        logger.debug("Downloaded %s (%.4f s)", log_id, monotonic() - start)
 
         try:
-            output: dict[str, Any] = response.json()
-        except JSONDecodeError as error:
-            raise HTTPError(response) from error
+            body: dict[str, Any] = response.json()
+        except JSONDecodeError as err:
+            raise HTTPError(response.status_code, response.text) from err
 
-        if error_object := output.get("error"):
-            if error_object["code"] == HTTP_NOT_FOUND:
-                raise NotFoundError(error_object, output)
-            raise APIError(error_object, output)
+        if error := body.get("error"):
+            if error["code"] == HTTPStatus.NOT_FOUND:
+                raise ResourceNotFoundError(error, response.status_code, body)
+            raise APIError(error, response.status_code, body)
 
         if response.status_code != HTTPStatus.OK:
-            raise HTTPError(response)
+            raise HTTPError(response.status_code, response.text)
 
         return response.text
 
     # TODO: Validate
-    def download_feed(self, params: dict[str, Any], log_id: str) -> str:
+    def download_feed(
+        self,
+        params: dict[str, Any],
+        headers: dict[str, str],
+        log_id: str,
+    ) -> str:
+        """Downloads a feed and returns the XML document as it was served.
+
+        Raises:
+            HTTPError: If the feed is refused.
+        """
+        logger.debug("Downloading: %s", log_id)
         start = monotonic()
-
-        response = self.get_around_client.get(
-            "https://www.youtube.com/feeds/videos.xml",
-            params=params,
-        )
-        duration = monotonic() - start
-
-        logger.debug("Downloaded: %s - Completed in %.4f seconds", log_id, duration)
+        response = self.get_around_client.get(FEED_URL, params=params, headers=headers)
+        logger.debug("Downloaded %s (%.4f s)", log_id, monotonic() - start)
 
         if response.status_code != HTTPStatus.OK:
-            raise HTTPError(response)
+            raise HTTPError(response.status_code, response.text)
 
         return response.text
 
     # TODO: Validate
     def browse(self, asked: dict[str, Any], log_id: str) -> str:
-        start = monotonic()
+        """Asks browse for a page and returns the body as it was served.
 
+        Raises:
+            HTTPError: If browse refuses the request.
+        """
+        logger.debug("Browsing: %s", log_id)
+        start = monotonic()
         response = self.get_around_client.post(
-            "https://www.youtube.com/youtubei/v1/browse",
-            json={
-                **asked,
-                "context": {
-                    "client": {
-                        "clientName": "WEB",
-                        "clientVersion": "2.20240401.00.00",
-                    },
-                },
-            },
+            BROWSE_URL,
+            json={**asked, "context": {"client": BROWSE_CLIENT}},
             headers={"Content-Type": "application/json"},
         )
-        duration = monotonic() - start
+        logger.debug("Browsed %s (%.4f s)", log_id, monotonic() - start)
 
-        logger.debug("Downloaded: %s - Completed in %.4f seconds", log_id, duration)
-
-        # The wait comes before the refusal is raised: a refusal is the answer
-        # that most means the next request should not follow immediately.
+        # The wait comes before the refusal is raised, because a refusal is the
+        # answer that most means the next request should not follow at once.
         sleep(self.sleep_time)
 
         if response.status_code != HTTPStatus.OK:
-            raise HTTPError(response)
+            raise HTTPError(response.status_code, response.text)
 
         return response.text

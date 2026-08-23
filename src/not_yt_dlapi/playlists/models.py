@@ -1,184 +1,330 @@
-# TODO: Validate
-"""Playlists models.
+"""PlaylistsModel, strict to a type checker, all-optional at runtime.
 
-Shaped after the playlist resource as the API documents it: one class per
-documented object, one field per documented property, and the API's own wording
-for what each property is.
-
-Every part is always asked for, so a property is optional here only when the
-resource itself decides whether to carry it, never because the request might not
-have asked.
+A type checker reads the strict model, so every field carries the type and
+the requiredness the schema recorded. At runtime the all-optional copy is imported
+instead, so a response that has drifted still parses and a field the data is
+missing is None despite what its type hint says.
 """
 
-from __future__ import annotations
+from typing import TYPE_CHECKING
 
-import json
-from typing import Self, override
+from good_ass_pydantic_integrator import load
 
-from pydantic import Field
+from .optional_models import PlaylistsModel as OptionalModel
+from .strict_models import PlaylistsModel as StrictModel
 
-from not_yt_dlapi.base_response_model import BaseResponseModel
-from not_yt_dlapi.common_models import (
-    APIModel,
-    Localization,
-    Localizations,
-    PageInfo,
-    Thumbnails,
-)
-from not_yt_dlapi.feed_models import FeedResponse
+if TYPE_CHECKING:
+    from .strict_models import (
+        Af,
+        Am,
+        Ar,
+        ArXb,
+        As,
+        Az,
+        Be,
+        Bg,
+        Bn,
+        Bs,
+        Ca,
+        ContentDetails,
+        Cs,
+        Da,
+        De,
+        Default,
+        El,
+        En,
+        EnGb,
+        EnIn,
+        EnXa,
+        Es,
+        Es419,
+        EsUs,
+        Et,
+        Eu,
+        Fa,
+        Fi,
+        Fil,
+        Fr,
+        FrCa,
+        Gl,
+        Gu,
+        Hi,
+        High,
+        Hr,
+        Hu,
+        Hy,
+        Id,
+        Is,
+        It,
+        Item,
+        Iw,
+        Ja,
+        Ka,
+        Kk,
+        Km,
+        Kn,
+        Ko,
+        Ky,
+        Lo,
+        Localizations,
+        Localized,
+        Lt,
+        Lv,
+        Maxres,
+        Medium,
+        Mk,
+        Ml,
+        Mn,
+        Mr,
+        Ms,
+        My,
+        Ne,
+        Nl,
+        No,
+        Or,
+        Pa,
+        PageInfo,
+        Pl,
+        Player,
+        PlaylistsModel,
+        Pt,
+        PtPt,
+        Ro,
+        Ru,
+        Si,
+        Sk,
+        Sl,
+        Snippet,
+        Sq,
+        Sr,
+        SrLatn,
+        Standard,
+        Status,
+        Sv,
+        Sw,
+        Ta,
+        Te,
+        Th,
+        Thumbnails,
+        Tr,
+        Uk,
+        Ur,
+        Uz,
+        Vi,
+        ZhCn,
+        ZhHk,
+        ZhTw,
+        Zu,
+    )
+else:
+    from .optional_models import (
+        Af,
+        Am,
+        Ar,
+        ArXb,
+        As,
+        Az,
+        Be,
+        Bg,
+        Bn,
+        Bs,
+        Ca,
+        ContentDetails,
+        Cs,
+        Da,
+        De,
+        Default,
+        El,
+        En,
+        EnGb,
+        EnIn,
+        EnXa,
+        Es,
+        Es419,
+        EsUs,
+        Et,
+        Eu,
+        Fa,
+        Fi,
+        Fil,
+        Fr,
+        FrCa,
+        Gl,
+        Gu,
+        Hi,
+        High,
+        Hr,
+        Hu,
+        Hy,
+        Id,
+        Is,
+        It,
+        Item,
+        Iw,
+        Ja,
+        Ka,
+        Kk,
+        Km,
+        Kn,
+        Ko,
+        Ky,
+        Lo,
+        Localizations,
+        Localized,
+        Lt,
+        Lv,
+        Maxres,
+        Medium,
+        Mk,
+        Ml,
+        Mn,
+        Mr,
+        Ms,
+        My,
+        Ne,
+        Nl,
+        No,
+        Or,
+        Pa,
+        PageInfo,
+        Pl,
+        Player,
+        PlaylistsModel,
+        Pt,
+        PtPt,
+        Ro,
+        Ru,
+        Si,
+        Sk,
+        Sl,
+        Snippet,
+        Sq,
+        Sr,
+        SrLatn,
+        Standard,
+        Status,
+        Sv,
+        Sw,
+        Ta,
+        Te,
+        Th,
+        Thumbnails,
+        Tr,
+        Uk,
+        Ur,
+        Uz,
+        Vi,
+        ZhCn,
+        ZhHk,
+        ZhTw,
+        Zu,
+    )
+
+__all__ = [
+    "Af",
+    "Am",
+    "Ar",
+    "ArXb",
+    "As",
+    "Az",
+    "Be",
+    "Bg",
+    "Bn",
+    "Bs",
+    "Ca",
+    "ContentDetails",
+    "Cs",
+    "Da",
+    "De",
+    "Default",
+    "El",
+    "En",
+    "EnGb",
+    "EnIn",
+    "EnXa",
+    "Es",
+    "Es419",
+    "EsUs",
+    "Et",
+    "Eu",
+    "Fa",
+    "Fi",
+    "Fil",
+    "Fr",
+    "FrCa",
+    "Gl",
+    "Gu",
+    "Hi",
+    "High",
+    "Hr",
+    "Hu",
+    "Hy",
+    "Id",
+    "Is",
+    "It",
+    "Item",
+    "Iw",
+    "Ja",
+    "Ka",
+    "Kk",
+    "Km",
+    "Kn",
+    "Ko",
+    "Ky",
+    "Lo",
+    "Localizations",
+    "Localized",
+    "Lt",
+    "Lv",
+    "Maxres",
+    "Medium",
+    "Mk",
+    "Ml",
+    "Mn",
+    "Mr",
+    "Ms",
+    "My",
+    "Ne",
+    "Nl",
+    "No",
+    "Or",
+    "Pa",
+    "PageInfo",
+    "Pl",
+    "Player",
+    "PlaylistsModel",
+    "Pt",
+    "PtPt",
+    "Ro",
+    "Ru",
+    "Si",
+    "Sk",
+    "Sl",
+    "Snippet",
+    "Sq",
+    "Sr",
+    "SrLatn",
+    "Standard",
+    "Status",
+    "Sv",
+    "Sw",
+    "Ta",
+    "Te",
+    "Th",
+    "Thumbnails",
+    "Tr",
+    "Uk",
+    "Ur",
+    "Uz",
+    "Vi",
+    "ZhCn",
+    "ZhHk",
+    "ZhTw",
+    "Zu",
+    "model_validate_json",
+]
 
 
-# TODO: Validate
-class PlaylistSnippet(APIModel):
-    """The `snippet` object contains basic details about the playlist, such as its title and description.
-
-    Attributes:
-        published_at: The date and time that the playlist was created. The value
-            is specified in ISO 8601 format.
-        channel_id: The ID that YouTube uses to uniquely identify the channel
-            that published the playlist.
-        title: The playlist's title.
-        description: The playlist's description.
-        thumbnails: The thumbnail images associated with the playlist.
-        channel_title: The channel title of the channel that the video belongs
-            to.
-        default_language: The language of the text in the `playlist` resource's
-            `snippet.title` and `snippet.description` properties.
-        localized: The `snippet.localized` object contains either a localized
-            title and description for the playlist or the title in the default
-            language for the playlist's metadata.
-    """  # noqa: E501
-
-    published_at: str
-    channel_id: str
-    title: str
-    description: str
-    thumbnails: Thumbnails
-    channel_title: str
-    # Only a playlist whose owner said what language they wrote it in has one.
-    default_language: str | None = None
-    localized: Localization
-
-
-# TODO: Validate
-class PlaylistStatus(APIModel):
-    """The `status` object contains status information for the playlist.
-
-    Attributes:
-        privacy_status: The playlist's privacy status.
-        podcast_status: The playlist's podcast status. If value is `enabled`,
-            the playlist is marked as a podcast show. To set a playlist's
-            podcast status to `enabled`, the playlist must have a playlist
-            image.
-    """
-
-    privacy_status: str
-    podcast_status: str | None = None
-
-
-# TODO: Validate
-class PlaylistContentDetails(APIModel):
-    """The `contentDetails` object contains information about the playlist content.
-
-    Attributes:
-        item_count: The number of videos in the playlist.
-    """
-
-    item_count: int
-
-
-# TODO: Validate
-class PlaylistPlayer(APIModel):
-    """The `player` object contains information for embedded playlist playback.
-
-    Attributes:
-        embed_html: An `<iframe>` tag that embeds a player that will play the
-            playlist.
-    """
-
-    embed_html: str
-
-
-# TODO: Validate
-class Playlist(APIModel):
-    """One playlist.
-
-    Attributes:
-        kind: Identifies the API resource's type. The value will be
-            `youtube#playlist`.
-        etag: The Etag of this resource.
-        id: The ID that YouTube uses to uniquely identify the playlist.
-        snippet: The `snippet` object contains basic details about the playlist,
-            such as its title and description.
-        status: The `status` object contains status information for the
-            playlist.
-        content_details: The `contentDetails` object contains information about
-            the playlist content.
-        player: The `player` object contains information for embedded playlist
-            playback.
-        localizations: The `localizations` object encapsulates translations of
-            the playlist's metadata.
-    """
-
-    kind: str
-    etag: str
-    id: str
-    snippet: PlaylistSnippet
-    status: PlaylistStatus
-    content_details: PlaylistContentDetails
-    player: PlaylistPlayer
-    # Only a playlist that has been translated carries translations.
-    localizations: Localizations | None = None
-
-
-# TODO: Validate
-class PlaylistListResponse(BaseResponseModel, APIModel):
-    """One page of playlists.
-
-    Attributes:
-        kind: Identifies the API resource's type. The value will be
-            `youtube#playlistListResponse`.
-        etag: The Etag of this resource.
-        next_page_token: The token that can be used as the value of the
-            `pageToken` parameter to retrieve the next page in the result set.
-        prev_page_token: The token that can be used as the value of the
-            `pageToken` parameter to retrieve the previous page in the result
-            set.
-        page_info: The `pageInfo` object encapsulates paging information for the
-            result set.
-        items: A list of playlists that match the request criteria.
-        raw: The response as it was served, which is the document
-            itself rather than the reading of it.
-    """
-
-    kind: str
-    etag: str
-    next_page_token: str | None = None
-    prev_page_token: str | None = None
-    page_info: PageInfo
-    # A page that found nothing has no `items` at all.
-    items: list[Playlist] = Field(default_factory=list)
-    raw: str = Field(repr=False, exclude=True)
-
-    # TODO: Validate
-    @classmethod
-    @override
-    def from_response(cls, data: str) -> Self:
-        return cls.model_validate({**json.loads(data), "raw": data})
-
-
-# TODO: Validate
-class PlaylistFeedResponse(FeedResponse):
-    """The fifteen most recent videos a playlist holds.
-
-    Everything a feed carries is the same whatever the feed is of, so all of it
-    is described on `FeedResponse`. What a playlist feed adds is saying which
-    playlist it is of.
-
-    Attributes:
-        playlist_id: Which playlist the feed is of, written in full. A channel
-            feed writes its channel id with the leading `UC` taken off, where a
-            playlist feed keeps every character of the id it was asked for.
-    """
-
-    playlist_id: str
+def model_validate_json(data: str | bytes | object, log_id: str) -> PlaylistsModel:
+    """Read a downloaded file into PlaylistsModel."""
+    return load.model_validate_json(StrictModel, OptionalModel, data, log_id)

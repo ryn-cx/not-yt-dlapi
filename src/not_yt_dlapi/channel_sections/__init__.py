@@ -1,18 +1,16 @@
 # TODO: Validate
-"""A `channelSection` resource contains information about a set of videos that
-a channel has chosen to feature. For example, a section could feature a
-channel's latest uploads, most popular uploads, or videos from one or more
-playlists. A channel can create a maximum of 10 shelves.
-
-https://developers.google.com/youtube/v3/docs/channelSections
-"""
+"""Contains the ChannelSections class."""
 
 from __future__ import annotations
 
 from logging import NullHandler, getLogger
 
-from not_yt_dlapi.base_endpoint import BaseEndpoint
-from not_yt_dlapi.channel_sections.models import ChannelSectionListResponse
+from not_yt_dlapi.base_api_endpoint import BaseEndpoint
+from not_yt_dlapi.channel_sections.models import (
+    ChannelSectionsModel,
+    model_validate_json,
+)
+from not_yt_dlapi.exceptions import ChannelNotFoundError, ResourceNotFoundError
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
@@ -23,28 +21,45 @@ PART = "contentDetails,id,snippet"
 
 # TODO: Validate
 class ChannelSections(BaseEndpoint):
-    """A `channelSection` resource contains information about a set of videos that
-    a channel has chosen to feature. For example, a section could feature a
-    channel's latest uploads, most popular uploads, or videos from one or more
-    playlists. A channel can create a maximum of 10 shelves.
+    """The sets of videos a channel has chosen to feature, up to ten of them.
 
-    https://developers.google.com/youtube/v3/docs/channelSections
+    Source: https://developers.google.com/youtube/v3/docs/channelSections
+
+    Example request:
+        - GET /youtube/v3/channelSections?
+            - part={part}&
+            - channelId={channel_id}&
+            - key=__REDACTED__
+            - HTTP/2
+        - Host: www.googleapis.com
     """
 
     # TODO: Validate
-    def list(
-        self,
-        channel_id: str,
-    ) -> ChannelSectionListResponse:
-        """Download a channel's sections and read them.
+    def __call__(self, channel_id: str) -> ChannelSectionsModel:
+        """Look the channel's sections up and return the model they read into."""
+        log_id = self.get_log_id(self.__call__, locals())
+        return self.load(self.download(channel_id), log_id)
 
-        Raises:
-            NotFoundError: If there is no channel with that id.
-        """
-        log_id = self.get_log_id(self.list, locals())
-        data = self._client.download(
-            "channelSections",
-            {"part": PART, "channelId": channel_id},
-            log_id,
-        )
-        return ChannelSectionListResponse.from_response(data)
+    # TODO: Validate
+    def download(self, channel_id: str) -> str:
+        """Download the channel sections file."""
+        log_id = self.get_log_id(self.download, locals())
+        try:
+            return self._client.download(
+                endpoint="channelSections",
+                params={"part": PART, "channelId": channel_id},
+                headers={},
+                log_id=log_id,
+            )
+        except ResourceNotFoundError as err:
+            raise ChannelNotFoundError(
+                channel_id,
+                err.error,
+                err.status_code,
+                err.response,
+            ) from err
+
+    # TODO: Validate
+    def load(self, data: str, log_id: str = "") -> ChannelSectionsModel:
+        """Read a downloaded channel sections file into its model."""
+        return model_validate_json(data, log_id or type(self).__name__)

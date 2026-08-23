@@ -1,16 +1,13 @@
 # TODO: Validate
-"""A `channel` resource contains information about a YouTube channel.
-
-https://developers.google.com/youtube/v3/docs/channels
-"""
+"""Contains the Channels class."""
 
 from __future__ import annotations
 
 from logging import NullHandler, getLogger
 from typing import overload
 
-from not_yt_dlapi.base_endpoint import BaseEndpoint
-from not_yt_dlapi.channels.models import ChannelFeedResponse, ChannelListResponse
+from not_yt_dlapi.base_api_endpoint import BaseEndpoint
+from not_yt_dlapi.channels.models import ChannelsModel, model_validate_json
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
@@ -38,51 +35,66 @@ an error.
 class Channels(BaseEndpoint):
     """A `channel` resource contains information about a YouTube channel.
 
-    https://developers.google.com/youtube/v3/docs/channels
+    Source: https://developers.google.com/youtube/v3/docs/channels
+
+    Example request:
+        - GET /youtube/v3/channels?
+            - part={part}&
+            - id={channel_id}&
+            - key=__REDACTED__
+            - HTTP/2
+        - Host: www.googleapis.com
     """
 
     # TODO: Validate
     @overload
-    def list(
-        self,
-        *,
-        channel_id: str,
-    ) -> ChannelListResponse: ...
+    def __call__(self, *, channel_id: str) -> ChannelsModel: ...
 
     # TODO: Validate
     @overload
-    def list(
-        self,
-        *,
-        channel_handle: str,
-    ) -> ChannelListResponse: ...
+    def __call__(self, *, channel_handle: str) -> ChannelsModel: ...
 
     # TODO: Validate
     @overload
-    def list(
-        self,
-        *,
-        channel_username: str,
-    ) -> ChannelListResponse: ...
+    def __call__(self, *, channel_username: str) -> ChannelsModel: ...
 
     # TODO: Validate
-    def list(
+    def __call__(
         self,
         *,
         channel_id: str | None = None,
         channel_handle: str | None = None,
         channel_username: str | None = None,
-    ) -> ChannelListResponse:
-        """Download a channel and read it.
+    ) -> ChannelsModel:
+        """Look the channel up and return the model it is read into."""
+        log_id = self.get_log_id(self.__call__, locals())
+        return self.load(
+            self.download(
+                channel_id=channel_id,
+                channel_handle=channel_handle,
+                channel_username=channel_username,
+            ),
+            log_id,
+        )
+
+    # TODO: Validate
+    def download(
+        self,
+        *,
+        channel_id: str | None = None,
+        channel_handle: str | None = None,
+        channel_username: str | None = None,
+    ) -> str:
+        """Download the channel file.
 
         A channel nothing is under is not an error to the API: it answers with
-        no items rather than refusing, so an unknown channel comes back empty.
+        no items rather than refusing.
 
         Raises:
             ValueError: If the channel is not named by exactly one of the three
                 things it can be named by, which is all the API accepts.
         """
-        log_id = self.get_log_id(self.list, locals())
+        log_id = self.get_log_id(self.download, locals())
         given = {
             name: value
             for name, value in (
@@ -96,33 +108,14 @@ class Channels(BaseEndpoint):
             msg = "Invalid number of arguments."
             raise ValueError(msg)
 
-        data = self._client.download(
-            "channels",
-            {**given, "part": PART},
-            log_id,
+        return self._client.download(
+            endpoint="channels",
+            params={**given, "part": PART},
+            headers={},
+            log_id=log_id,
         )
-        return ChannelListResponse.from_response(data)
 
     # TODO: Validate
-    def feed(self, *, channel_id: str) -> ChannelFeedResponse:
-        """Download the channel's feed and read it.
-
-        The feed is the fifteen most recent videos and nothing else: there is no
-        paging and no way to ask for more, so a channel's whole upload history
-        is still only `playlist_items.list` on the uploads playlist.
-
-        Only an id names a channel here. The handle and the legacy username that
-        `list` takes are the API's doing rather than the feed's, and the feed
-        refuses both.
-
-        Raises:
-            HTTPError: If there is no channel with that id, which the feed
-                refuses rather than answering empty, and equally if the feed
-                simply will not answer. The feeds go down for a while at a time
-                and a channel that answered an hour ago is refused the same way
-                one that does not exist is, so a caller that means to tell the
-                two apart cannot do it from the refusal alone.
-        """
-        log_id = self.get_log_id(self.feed, locals())
-        data = self._client.download_feed({"channel_id": channel_id}, log_id)
-        return ChannelFeedResponse.from_response(data)
+    def load(self, data: str, log_id: str = "") -> ChannelsModel:
+        """Read a downloaded channel file into its model."""
+        return model_validate_json(data, log_id or type(self).__name__)

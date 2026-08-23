@@ -1,8 +1,5 @@
 # TODO: Validate
-"""A `video` resource represents a YouTube video.
-
-https://developers.google.com/youtube/v3/docs/videos
-"""
+"""Contains the Videos class."""
 
 from __future__ import annotations
 
@@ -10,12 +7,13 @@ from itertools import batched
 from logging import NullHandler, getLogger
 from typing import TYPE_CHECKING
 
-from not_yt_dlapi.base_endpoint import BaseEndpoint
-from not_yt_dlapi.videos.models import VideoListResponse
+from not_yt_dlapi.base_api_endpoint import BaseEndpoint
+from not_yt_dlapi.videos.models import VideosModel, model_validate_json
 
 if TYPE_CHECKING:
-    import builtins
     from collections.abc import Sequence
+
+    from not_yt_dlapi.videos.models import Item
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
@@ -33,32 +31,77 @@ PART = (
     "status,"
     "topicDetails"
 )
+"""Every part a key can ask for, which is what is always asked for."""
+
+MAX_IDS = 50
+"""The most ids one request takes. Past this the API refuses rather than cuts."""
 
 
 # TODO: Validate
 class Videos(BaseEndpoint):
     """A `video` resource represents a YouTube video.
 
-    https://developers.google.com/youtube/v3/docs/videos
+    Source: https://developers.google.com/youtube/v3/docs/videos
+
+    Example request:
+        - GET /youtube/v3/videos?
+            - part={part}&
+            - id={video_ids}&
+            - key=__REDACTED__
+            - HTTP/2
+        - Host: www.googleapis.com
     """
 
     # TODO: Validate
-    def list(self, video_ids: str | Sequence[str]) -> VideoListResponse:
-        """Videos: list.
-
-        Returns a list of videos that match the API request parameters.
-        """
-        log_id = self.get_log_id(self.list, locals())
-        ids = [video_ids] if isinstance(video_ids, str) else list(video_ids)
-        data = self._client.download(
-            "videos",
-            {"part": PART, "id": ",".join(ids)},
-            log_id,
-        )
-        return VideoListResponse.from_response(data)
+    def __call__(self, video_ids: str | Sequence[str]) -> VideosModel:
+        """Look the videos up and return the model they are read into."""
+        log_id = self.get_log_id(self.__call__, locals())
+        return self.load(self.download(video_ids), log_id)
 
     # TODO: Validate
-    def list_all(self, video_ids: Sequence[str]) -> builtins.list[VideoListResponse]:
-        """list() alternative that automatically batches the VideoListResponse."""
-        pages = (self.list(batch).raw for batch in batched(video_ids, 50, strict=False))
-        return self.split(VideoListResponse.from_response, pages)
+    def download(self, video_ids: str | Sequence[str]) -> str:
+        """Download the videos file.
+
+        An id nothing is under is not an error to the API: it answers with the
+        videos it did find and says nothing about the rest.
+        """
+        log_id = self.get_log_id(self.download, locals())
+        ids = [video_ids] if isinstance(video_ids, str) else list(video_ids)
+        return self._client.download(
+            endpoint="videos",
+            params={"part": PART, "id": ",".join(ids)},
+            headers={},
+            log_id=log_id,
+        )
+
+    # TODO: Validate
+    def download_all(self, video_ids: Sequence[str]) -> list[str]:
+        """Download every video asked for, fifty ids to a request.
+
+        One request takes fifty ids and refuses more, so the ids are asked
+        about fifty at a time and every answer is returned.
+        """
+        return [
+            self.download(batch) for batch in batched(video_ids, MAX_IDS, strict=False)
+        ]
+
+    # TODO: Validate
+    def load(self, data: str, log_id: str = "") -> VideosModel:
+        """Read a downloaded videos file into its model."""
+        return model_validate_json(data, log_id or type(self).__name__)
+
+    # TODO: Validate
+    def load_pages(self, datas: list[str]) -> list[VideosModel]:
+        """Read the files `download_all` returns into their models."""
+        return [self.load(data) for data in datas]
+
+    # TODO: Validate
+    def extract_items(self, datas: Sequence[VideosModel | str]) -> list[Item]:
+        """Extract the items from one or more files."""
+        return [
+            item
+            for entry in datas
+            for item in (
+                entry if isinstance(entry, VideosModel) else self.load(entry)
+            ).items
+        ]

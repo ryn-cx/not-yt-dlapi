@@ -2,18 +2,21 @@
 """Helpers shared by every endpoint's tests.
 
 Nothing here knows about a particular endpoint. What an endpoint's own test file
-brings is the ids it downloads, the class it parses into and what it expects to
+brings is the ids it downloads, the model it parses into and what it expects to
 find; recording a response and reading it back is the same either way.
+
+A recording is filed under the name of the model that reads it, which is what
+lets `generate_models.py` build each model from everything recorded for it.
 """
 
 from __future__ import annotations
 
 import json
 import operator
-from collections.abc import Sequence
+import re
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, ClassVar
+from typing import TYPE_CHECKING, Any, ClassVar, Literal
 
 import pytest
 from pydantic import BaseModel
@@ -21,17 +24,53 @@ from pydantic import BaseModel
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from not_yt_dlapi.base_response_model import BaseResponseModel
+    from not_yt_dlapi.exceptions import NotYTDLAPIError
 
-type Dump = dict[str, Any]
+type Dump = dict[str, Any] | list[Any]
+type Category = Literal["Multipage", "Error"] | None
+
+FILES_PATH = Path(__file__).parent / "_files"
+"""Where the recorded responses live."""
+
+_INVALID_FILE_NAME_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
+"""Characters Windows does not allow in a file name."""
+
+_RESERVED_FILE_NAMES = frozenset(
+    {"CON", "PRN", "AUX", "NUL"}
+    | {f"COM{i}" for i in range(1, 10)}
+    | {f"LPT{i}" for i in range(1, 10)},
+)
+"""Device names Windows reserves and cannot be used as a file name."""
+
+
+# TODO: Validate
+def sanitized_file_name(name: str | int) -> str:
+    """Turn a name into a file name that is valid on Windows.
+
+    Invalid characters are replaced with an underscore, trailing dots and spaces
+    are stripped because Windows silently drops them, and reserved device names
+    are suffixed so they stay usable.
+    """
+    sanitized = _INVALID_FILE_NAME_CHARS.sub("_", str(name)).rstrip(". ")
+    if not sanitized:
+        return "_"
+    if sanitized.partition(".")[0].upper() in _RESERVED_FILE_NAMES:
+        return f"{sanitized}_"
+    return sanitized
 
 
 # TODO: Validate
 class RecordedEndpoint:
-    ENDPOINT: ClassVar[type]
+    """What an endpoint's tests share: recording a response and reading it back."""
+
+    MODEL: ClassVar[type[BaseModel]]
+    """The model the recorded responses are read with."""
+
     SUFFIX: ClassVar[str] = ".json"
-    MODEL: ClassVar[type[BaseResponseModel]]
+    """The extension a recording is written with. A feed is XML rather than JSON."""
+
     UPDATE_FREQUENCY: ClassVar[timedelta] = timedelta(days=7)
+    """How long a recording stands before it is downloaded again."""
 
     IGNORED: ClassVar[tuple[str, ...]] = ()
     SAME_TYPE: ClassVar[tuple[str, ...]] = ()
@@ -41,100 +80,174 @@ class RecordedEndpoint:
     GREATER_THAN: ClassVar[tuple[str, ...]] = ()
     GREATER_THAN_OR_EQUAL: ClassVar[tuple[str, ...]] = ()
 
+    # TODO: Validate
     @classmethod
-    def _build_file_path(cls, folder: str, name: str | int, suffix: str) -> Path:
-        root = Path(__file__).parent / folder / cls.ENDPOINT.__name__
-        return root.joinpath(*cls.__qualname__.split(".")) / f"{name}{suffix}"
+    def load_document(cls, document: str) -> BaseModel:
+        """Read one recorded document with the model that reads it."""
+        return cls.MODEL.model_validate_json(document)
 
+    # TODO: Validate
     @classmethod
-    def dumped_file_path(cls, name: str | int) -> Path:
-        return cls._build_file_path("_files", name, cls.SUFFIX)
+    def recorded_path(cls, name: str | int, category: Category = None) -> Path:
+        """Return where a response for `name` is recorded."""
+        file_name = f"{sanitized_file_name(name)}{cls.SUFFIX}"
+        model_name = cls.MODEL.__name__
+        if category:
+            return FILES_PATH / f"{category}s" / model_name / file_name
+        return FILES_PATH / model_name / file_name
 
+    # TODO: Validate
     @classmethod
-    def dumped_file_content(cls, name: str | int) -> str:
-        return cls.dumped_file_path(name).read_text(encoding="utf-8")
+    def recorded_content(cls, name: str | int, category: Category = None) -> str:
+        """Return the recorded response for `name` as it was served."""
+        return cls.recorded_path(name, category).read_text(encoding="utf-8")
 
+    # TODO: Validate
     @classmethod
     def write_file(cls, path: Path, content: str) -> None:
+        """Write `content`, making the folders it goes in if they are missing."""
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
 
     # TODO: Validate
     @classmethod
-    def dumped_file_age(cls, name: str | int) -> timedelta:
-        modified = cls.dumped_file_path(name).stat().st_mtime
+    def recorded_age(cls, name: str | int, category: Category = None) -> timedelta:
+        """Return how long ago the recording for `name` was last written."""
+        modified = cls.recorded_path(name, category).stat().st_mtime
         return datetime.now(UTC) - datetime.fromtimestamp(modified, UTC)
 
     # TODO: Validate
     @classmethod
-    def dump_model(
+    def recorded_documents(
         cls,
-        model: BaseResponseModel | Sequence[BaseResponseModel],
-    ) -> str:
-        if isinstance(model, Sequence):
-            return json.dumps([entry.raw for entry in model], indent=2)
-        return model.raw
+        name: str | int,
+        category: Category = None,
+    ) -> list[str]:
+        """Return the recording as the documents the endpoint was served."""
+        content = cls.recorded_content(name, category)
+        if category == "Multipage":
+            # A walk is recorded as the list of pages it was served, so each is
+            # written back out on its own.
+            return [json.dumps(page) for page in json.loads(content)]
+        return [content]
+
+    # TODO: Validate
+    @classmethod
+    def load_models(
+        cls,
+        name: str | int,
+        category: Category = None,
+    ) -> list[BaseModel]:
+        """Read the recording for `name` into one model per document."""
+        return [
+            cls.load_document(document)
+            for document in cls.recorded_documents(name, category)
+        ]
+
+    # TODO: Validate
+    @classmethod
+    def dump_documents(cls, documents: list[str], category: Category = None) -> str:
+        """Return the text a set of downloaded documents is recorded as."""
+        if category == "Multipage":
+            return json.dumps([json.loads(page) for page in documents], indent=2)
+        return documents[0]
 
     # TODO: Validate
     @classmethod
     def download_test(
         cls,
         name: str | int,
-        download: Callable[[], BaseResponseModel | Sequence[BaseResponseModel]],
+        download: Callable[[], str | list[str]],
+        category: Category = None,
     ) -> None:
-        """Test that the response from the API's structure does not change."""
-        dumped_file_path = cls.dumped_file_path(name)
+        """Test that the structure of what the API answers does not change."""
+        recorded_path = cls.recorded_path(name, category)
 
-        # If the file does not exist the file just needs to be downloaded with no
-        # verification.
-        if not dumped_file_path.exists():
-            cls.write_file(dumped_file_path, cls.dump_model(download()))
+        def downloaded_documents() -> list[str]:
+            downloaded = download()
+            return [downloaded] if isinstance(downloaded, str) else downloaded
+
+        # Nothing recorded yet, so there is nothing to hold the download against.
+        if not recorded_path.exists():
+            cls.write_file(
+                recorded_path,
+                cls.dump_documents(downloaded_documents(), category),
+            )
             return
 
-        if cls.dumped_file_age(name) < cls.UPDATE_FREQUENCY:
-            pytest.skip("The dumped files are up to date.")
+        if cls.recorded_age(name, category) < cls.UPDATE_FREQUENCY:
+            pytest.skip("The recorded files are up to date.")
 
-        existing_model = cls.load_models(cls.dumped_file_content(name))
-        new_model = download()
-        if differences := cls.differences(existing_model, new_model):
-            new_file_path = dumped_file_path.with_name(f"{name}.new{cls.SUFFIX}")
-            cls.write_file(new_file_path, cls.dump_model(new_model))
+        recorded_models = cls.load_models(name, category)
+        new_documents = downloaded_documents()
+        new_models = [cls.load_document(page) for page in new_documents]
+
+        if differences := cls.differences(recorded_models, new_models):
+            new_path = recorded_path.with_name(f"{name}.new{cls.SUFFIX}")
+            cls.write_file(new_path, cls.dump_documents(new_documents, category))
             reported = "\n".join(differences)
             pytest.fail(
-                f"The downloaded file for {name} does not match the recorded one. "
-                f"The old file was kept and the new one saved as "
-                f"{new_file_path.name}.\n{reported}",
+                f"The downloaded file for {name} does not match the recorded "
+                f"one. The old file was kept and the new one saved as "
+                f"{new_path.name}.\n{reported}",
             )
 
-        dumped_file_path.touch()
+        recorded_path.touch()
 
     # TODO: Validate
     @classmethod
-    def recorded_model_path(cls, name: str | int) -> Path:
-        return cls._build_file_path("_expected_model_dumps", name, ".json")
+    def parse_test(cls, name: str | int, category: Category = None) -> None:
+        """Test that the recording still reads into the model it did before."""
+        current = [
+            model.model_dump(mode="json") for model in cls.load_models(name, category)
+        ]
+        expected = cls.expected_dump(name, current, category)
+        assert current == expected
 
     # TODO: Validate
     @classmethod
-    def recorded_model_dump(cls, name: str | int) -> Dump | list[Dump]:
-        dump: Dump | list[Dump] = json.loads(
-            cls.recorded_model_path(name).read_text(encoding="utf-8"),
-        )
-        return dump
+    def expected_model_path(cls, name: str | int, category: Category = None) -> Path:
+        """Return where the dump a recording is expected to read into is kept."""
+        file_name = f"{sanitized_file_name(name)}.json"
+        model_name = cls.MODEL.__name__
+        root = Path(__file__).parent / "_expected_model_dumps"
+        if category:
+            return root / f"{category}s" / model_name / file_name
+        return root / model_name / file_name
 
     # TODO: Validate
     @classmethod
-    def recorded_model_content(
+    def expected_dump(
         cls,
         name: str | int,
-        current_dump: Dump | list[Dump],
-    ) -> Dump | list[Dump]:
-        model_path = cls.recorded_model_path(name)
-        if not model_path.exists():
-            # Nothing has been recorded to compare against, so what was just
-            # parsed is written down and stands as the expected dump.
-            cls.write_file(model_path, json.dumps(current_dump, indent=2))
-            return current_dump
-        return cls.recorded_model_dump(name)
+        current: list[Dump],
+        category: Category = None,
+    ) -> list[Dump]:
+        """Return the dump `name` is expected to read into, recording a first one."""
+        expected_path = cls.expected_model_path(name, category)
+        if not expected_path.exists():
+            # Nothing recorded to compare against, so what was just parsed is
+            # written down and stands as what is expected from now on.
+            cls.write_file(expected_path, json.dumps(current, indent=2))
+            return current
+        return json.loads(expected_path.read_text(encoding="utf-8"))
+
+    # TODO: Validate
+    @classmethod
+    def error_test(
+        cls,
+        name: str | int,
+        download: Callable[[], object],
+        error: type[NotYTDLAPIError],
+    ) -> None:
+        """Test that a request nothing is under is refused, and record the refusal."""
+        if cls.recorded_path(name, "Error").exists():
+            pytest.skip(f"Already recorded for {cls.MODEL.__name__}/{name}")
+        with pytest.raises(error) as excinfo:
+            download()
+        response = excinfo.value.response
+        content = response if isinstance(response, str) else json.dumps(response or "")
+        cls.write_file(cls.recorded_path(name, "Error"), content)
 
     # TODO: Validate
     @classmethod
@@ -160,8 +273,6 @@ class RecordedEndpoint:
             return [
                 difference
                 for name in type(old_value).model_fields
-                # raw holds the whole document, so it is never compared.
-                if name != "raw"
                 for difference in cls.differences(
                     getattr(old_value, name),
                     getattr(new_value, name),
@@ -219,34 +330,3 @@ class RecordedEndpoint:
 
         moved = f"{field_path}: was {old_value!r}, now {new_value!r}, {reason}"
         return [] if allowed else [moved]
-
-    # TODO: Validate
-    @classmethod
-    def load_models(cls, content: str) -> BaseResponseModel | list[BaseResponseModel]:
-        """Parse the file into a model, or one model per response."""
-        documents: Any = json.loads(content) if cls.SUFFIX == ".json" else content
-        # A walk is recorded as the list of documents it was served, each of
-        # them written out as it arrived, which is what tells it apart from a
-        # response that is itself a list.
-        if isinstance(documents, list) and all(
-            isinstance(document, str) for document in documents
-        ):
-            return [cls.MODEL.from_response(document) for document in documents]
-        return cls.MODEL.from_response(content)
-
-    # TODO: Validate
-    @classmethod
-    def load_content(cls, content: str) -> Dump | list[Dump]:
-        """Parse the file and dump the model, or one model per response."""
-        models = cls.load_models(content)
-        if isinstance(models, list):
-            return [model.model_dump(mode="json") for model in models]
-        return models.model_dump(mode="json")
-
-    # TODO: Validate
-    @classmethod
-    def parse_test(cls, name: str | int) -> None:
-        current_dump = cls.load_content(cls.dumped_file_content(name))
-        expected_dump = cls.recorded_model_content(name, current_dump)
-
-        assert current_dump == expected_dump

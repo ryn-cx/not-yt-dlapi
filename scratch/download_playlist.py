@@ -67,7 +67,7 @@ def main() -> None:
 
     download_browse(client)
 
-    playlist = client.playlists.list(playlist_ids=PLAYLIST_ID)
+    playlist = client.playlists(playlist_ids=PLAYLIST_ID)
     path = save("playlist", playlist.raw)
     print(f"Playlist: saved {len(playlist.items)} item(s) to {path}")
 

@@ -6,12 +6,15 @@ from typing import TYPE_CHECKING
 import pytest
 
 from not_yt_dlapi.exceptions import APIError
-from not_yt_dlapi.videos import Videos
-from not_yt_dlapi.videos.models import VideoListResponse
+from not_yt_dlapi.videos import MAX_IDS
+from not_yt_dlapi.videos.models import VideosModel
 from tests.utils import RecordedEndpoint
 
 if TYPE_CHECKING:
     from not_yt_dlapi import NotYTDLAPI
+
+BAD_REQUEST = 400
+"""What the API answers a request carrying more ids than it takes with."""
 
 LONG_PLAYLIST_ID = "PLbpi6ZahtOH4kNyb9pjnMYg4PB7qiljiH"
 """A playlist of 76 videos, which is more than one request can ask about.
@@ -22,26 +25,32 @@ even though it lists more than fifty items, and so would not show the limit.
 """
 
 LONG_PLAYLIST_COUNT = 76
-"""How many videos that playlist holds, which takes two pages to gather."""
+"""How many videos that playlist holds, which takes two requests to gather."""
 
-MAX_IDS = 50
-"""The most ids one request takes. Past this the API refuses rather than cuts."""
+SEVERAL_VIDEO_IDS = ("jNQXAC9IVRw", "LY8Wi7XRXCA")
+"""Asking about several videos at once is one request answering with a list."""
+
+VIDEO_IDS = [
+    # https://www.youtube.com/watch?v=jNQXAC9IVRw
+    pytest.param("jNQXAC9IVRw", id="video"),
+    # It's my fault for choosing this show as a joke...
+    # https://www.youtube.com/watch?v=6JTFYuloLFM
+    pytest.param("6JTFYuloLFM", id="no view count"),
+    # An id nothing is under is answered with what was found, which is nothing.
+    pytest.param("00000000000", id="invalid video"),
+    # https://www.youtube.com/watch?v=zKQGAv8gtBA
+    pytest.param("zKQGAv8gtBA", id="free movie"),
+    # https://www.youtube.com/watch?v=g1eZjGhN8oo
+    pytest.param("g1eZjGhN8oo", id="paid movie"),
+    pytest.param("+".join(SEVERAL_VIDEO_IDS), id="several videos at once"),
+]
 
 
 # TODO: Validate
-def playlist_video_ids(client: NotYTDLAPI, playlist_id: str) -> list[str]:
-    """Return the id of every video in a playlist, however many pages it takes."""
-    return [
-        response.items[0].content_details.video_id
-        for response in client.playlist_items.list_all(playlist_id)
-    ]
-
-
-# TODO: Validate
-class VideoTest(RecordedEndpoint):
-    ENDPOINT = Videos
+class VideosTest(RecordedEndpoint):
+    MODEL = VideosModel
     # etag changes whenever anything in the response does.
-    IGNORED = ("VideoListResponse.etag", "Video.etag")
+    IGNORED = ("VideosModel.etag", "Video.etag")
     SORTED = (
         "VideoTopicDetails.topic_ids",
         "VideoTopicDetails.relevant_topic_ids",
@@ -58,89 +67,75 @@ class VideoTest(RecordedEndpoint):
 
 
 # TODO: Validate
-class TestList(VideoTest):
-    MODEL = VideoListResponse
-    VIDEO_IDS = (
-        pytest.param("jNQXAC9IVRw", id="video"),
-        # It's my fault for choosing this show as a joke...
-        # https://www.youtube.com/watch?v=6JTFYuloLFM
-        pytest.param("6JTFYuloLFM", id="no view count"),
-        # An id nothing is under is answered with what was found, which is nothing.
-        pytest.param("00000000000", id="invalid video"),
-        # https://www.youtube.com/watch?v=zKQGAv8gtBA
-        pytest.param("zKQGAv8gtBA", id="free movie"),
-        # https://www.youtube.com/watch?v=g1eZjGhN8oo
-        pytest.param("g1eZjGhN8oo", id="paid movie"),
-    )
-
-    SEVERAL_VIDEO_IDS = ("jNQXAC9IVRw", "LY8Wi7XRXCA")
-    SEVERAL_VIDEOS = "+".join(SEVERAL_VIDEO_IDS)
-    """Asking about several videos at once is one request answering with a list."""
-
-    MAX_IDS_NAME = f"{LONG_PLAYLIST_ID}-{MAX_IDS}"
-    """Fifty ids, which the API answers rather than cutting short."""
-
-    # TODO: Validate
-    @pytest.mark.parametrize("video_id", VIDEO_IDS)
-    def test_download(self, client: NotYTDLAPI, video_id: str) -> None:
-        self.download_test(video_id, lambda: client.videos.list(video_id))
-
-    # TODO: Validate
-    @pytest.mark.parametrize("video_id", VIDEO_IDS)
-    def test_parse(self, video_id: str) -> None:
-        self.parse_test(video_id)
-
-    # TODO: Validate
-    def test_download_several_videos(self, client: NotYTDLAPI) -> None:
-        self.download_test(
-            self.SEVERAL_VIDEOS,
-            lambda: client.videos.list(self.SEVERAL_VIDEO_IDS),
-        )
-
-    # TODO: Validate
-    def test_parse_several_videos(self) -> None:
-        self.parse_test(self.SEVERAL_VIDEOS)
-
-    # TODO: Validate
-    def test_download_max_ids(self, client: NotYTDLAPI) -> None:
-        video_ids = playlist_video_ids(client, LONG_PLAYLIST_ID)[:MAX_IDS]
-        self.download_test(self.MAX_IDS_NAME, lambda: client.videos.list(video_ids))
-
-    # TODO: Validate
-    def test_parse_max_ids(self) -> None:
-        self.parse_test(self.MAX_IDS_NAME)
-
-    # TODO: Validate
-    def test_too_many_ids(self, client: NotYTDLAPI) -> None:
-        # More ids than one request takes is refused rather than cut short, so
-        # anything wanting the whole playlist has to ask in batches.
-        video_ids = playlist_video_ids(client, LONG_PLAYLIST_ID)
-        assert len(video_ids) == LONG_PLAYLIST_COUNT
-
-        with pytest.raises(APIError) as error:
-            client.videos.list(video_ids)
-
-        assert error.value.code == 400  # noqa: PLR2004 - The status code is the point.
-        assert error.value.error["errors"][0]["reason"] == "invalidFilters"
+def playlist_video_ids(client: NotYTDLAPI, playlist_id: str) -> list[str]:
+    """Return the id of every video in a playlist, however many pages it takes."""
+    pages = client.playlist_items.download_all(playlist_id)
+    return [
+        item.content_details.video_id
+        for item in client.playlist_items.extract_items(pages)
+    ]
 
 
 # TODO: Validate
-class TestListAll(VideoTest):
-    MODEL = VideoListResponse
-    NAME = f"{LONG_PLAYLIST_ID}-all"
+@pytest.mark.parametrize("video_ids", VIDEO_IDS)
+def test_download(client: NotYTDLAPI, video_ids: str) -> None:
+    VideosTest.download_test(
+        video_ids,
+        lambda: client.videos.download(video_ids.split("+")),
+    )
 
-    # TODO: Validate
-    def test_download(self, client: NotYTDLAPI) -> None:
-        # What one request refuses, `list_all` asks for fifty at a time. Every
-        # video comes back in a response of its own, and a playlist can list a
-        # video that has since been deleted, so fewer come back than went in.
-        def batched() -> list[VideoListResponse]:
-            video_ids = playlist_video_ids(client, LONG_PLAYLIST_ID)
-            assert len(video_ids) == LONG_PLAYLIST_COUNT
-            return client.videos.list_all(video_ids)
 
-        self.download_test(self.NAME, batched)
+# TODO: Validate
+@pytest.mark.parametrize("video_ids", VIDEO_IDS)
+def test_parse(client: NotYTDLAPI, video_ids: str) -> None:
+    videos = client.videos.load(VideosTest.recorded_content(video_ids))
+    assert videos.kind == "youtube#videoListResponse"
+    VideosTest.parse_test(video_ids)
 
-    # TODO: Validate
-    def test_parse(self) -> None:
-        self.parse_test(self.NAME)
+
+# TODO: Validate
+def test_download_max_ids(client: NotYTDLAPI) -> None:
+    # Fifty ids, which the API answers rather than cutting short.
+    video_ids = playlist_video_ids(client, LONG_PLAYLIST_ID)[:MAX_IDS]
+    VideosTest.download_test(
+        f"{LONG_PLAYLIST_ID}-{MAX_IDS}",
+        lambda: client.videos.download(video_ids),
+    )
+
+
+# TODO: Validate
+def test_parse_max_ids() -> None:
+    VideosTest.parse_test(f"{LONG_PLAYLIST_ID}-{MAX_IDS}")
+
+
+# TODO: Validate
+def test_download_all(client: NotYTDLAPI) -> None:
+    # What one request refuses, `download_all` asks for fifty at a time.
+    def batched() -> list[str]:
+        video_ids = playlist_video_ids(client, LONG_PLAYLIST_ID)
+        assert len(video_ids) == LONG_PLAYLIST_COUNT
+        return client.videos.download_all(video_ids)
+
+    VideosTest.download_test(f"{LONG_PLAYLIST_ID}-all", batched, "Multipage")
+
+
+# TODO: Validate
+def test_parse_all(client: NotYTDLAPI) -> None:
+    pages = VideosTest.recorded_documents(f"{LONG_PLAYLIST_ID}-all", "Multipage")
+    videos = client.videos.extract_items(pages)
+    assert len(videos) > MAX_IDS
+    VideosTest.parse_test(f"{LONG_PLAYLIST_ID}-all", "Multipage")
+
+
+# TODO: Validate
+def test_download_too_many_ids(client: NotYTDLAPI) -> None:
+    # More ids than one request takes is refused rather than cut short, so
+    # anything wanting the whole playlist has to ask in batches.
+    video_ids = playlist_video_ids(client, LONG_PLAYLIST_ID)
+    assert len(video_ids) == LONG_PLAYLIST_COUNT
+
+    with pytest.raises(APIError) as error:
+        client.videos.download(video_ids)
+
+    assert error.value.code == BAD_REQUEST
+    assert error.value.error["errors"][0]["reason"] == "invalidFilters"

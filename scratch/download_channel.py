@@ -44,18 +44,18 @@ def main() -> None:
         get_around_client=build_client_automatically(),
     )
 
-    channel = client.channels.list(channel_id=CHANNEL_ID)
+    channel = client.channels(channel_id=CHANNEL_ID)
     path = save("channel", channel.raw)
     print(f"Channel: saved {len(channel.items)} item(s) to {path}")
 
-    playlists = client.playlists.list(channel_id=CHANNEL_ID)
+    playlists = client.playlists(channel_id=CHANNEL_ID)
     path = save("playlists", playlists.raw)
     print(f"Playlists: saved {len(playlists.items)} item(s) to {path}")
     if playlists.next_page_token:
         print(f"More pages: next_page_token={playlists.next_page_token}")
 
     uploads_id = channel.items[0].content_details.related_playlists.uploads
-    uploads = client.playlist_items.list(uploads_id)
+    uploads = client.playlist_items(uploads_id)
     path = save("uploads", uploads.raw)
     print(f"Uploads: saved {len(uploads.items)} item(s) to {path}")
     if uploads.next_page_token:
