@@ -7,8 +7,14 @@ from logging import NullHandler, getLogger
 from typing import Any, overload
 
 from not_yt_dlapi.base_api_endpoint import BaseEndpoint
-from not_yt_dlapi.topic.models import TopicModel, model_validate_json
-from not_yt_dlapi.utils import find, read_continuation
+from not_yt_dlapi.topic.models import (
+    GridPlaylistRenderer,
+    Item,
+    Item1,
+    ShelfRenderer,
+    TopicModel,
+    model_validate_json,
+)
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
@@ -119,41 +125,92 @@ class Topic(BaseEndpoint):
 
         Only the answer to opening the channel says it; a panel page does not.
         """
-        metadata = data.raw_input.get("metadata", {})
-        return next(find(metadata, "externalId"), None)
+        if data.metadata is None:
+            return None
+        return data.metadata.channel_metadata_renderer.external_id
 
     # TODO: Validate
-    @staticmethod
-    def extract_release_ids(data: TopicModel) -> list[str]:
+    @classmethod
+    def extract_release_ids(cls, data: TopicModel) -> list[str]:
         """Extract the playlist id of every release the stretch listed.
 
         The shelf writes a release as a lockup and the panel behind it writes
         one as a grid entry, so both are read.
         """
         grid = [
-            entry["gridPlaylistRenderer"]["playlistId"]
-            for entries in find(data.raw_input, "items")
-            for entry in entries
-            if "gridPlaylistRenderer" in entry
+            entry.playlist_id for entry in cls._grid_releases(data) if entry is not None
         ]
         if grid:
             return grid
-        shelf = next(find(data.raw_input, "shelfRenderer"), {})
-        return [
-            lockup["contentId"]
-            for lockup in find(shelf, "lockupViewModel")
-            if "contentId" in lockup
-        ]
+        return [item.lockup_view_model.content_id for item in cls._shelf_items(data)]
 
     # TODO: Validate
-    @staticmethod
-    def extract_continuation(data: TopicModel) -> str | None:
+    @classmethod
+    def extract_continuation(cls, data: TopicModel) -> str | None:
         """Extract what the stretch after this one is asked for by.
 
         The shelf's own token is what opens the panel holding every release, and
         a panel page ends with the token for the next.
         """
-        shelf = next(find(data.raw_input, "shelfRenderer"), None)
-        if shelf is not None:
-            return next(find(shelf["endpoint"], "token"), None)
-        return read_continuation(data.raw_input)
+        for shelf in cls._shelves(data):
+            panel = shelf.endpoint.show_engagement_panel_endpoint.engagement_panel
+            return next(
+                (
+                    content.continuation_item_renderer.continuation_endpoint.continuation_command.token
+                    for section in (
+                        panel.engagement_panel_section_list_renderer.content.section_list_renderer.contents
+                    )
+                    for content in section.item_section_renderer.contents
+                ),
+                None,
+            )
+
+        return next(
+            (
+                grid_item.continuation_item_renderer.continuation_endpoint.continuation_command.token
+                for grid_item in cls._grid_items(data)
+                if grid_item.continuation_item_renderer is not None
+            ),
+            None,
+        )
+
+    # TODO: Validate
+    @staticmethod
+    def _shelves(data: TopicModel) -> list[ShelfRenderer]:
+        if data.contents is None:
+            return []
+        return [
+            item.shelf_renderer
+            for tab in data.contents.two_column_browse_results_renderer.tabs
+            for section in tab.tab_renderer.content.section_list_renderer.contents
+            for item in section.item_section_renderer.contents
+        ]
+
+    # TODO: Validate
+    @classmethod
+    def _shelf_items(cls, data: TopicModel) -> list[Item]:
+        return [
+            shelf_item
+            for shelf in cls._shelves(data)
+            for shelf_item in shelf.content.horizontal_list_renderer.items
+        ]
+
+    # TODO: Validate
+    @staticmethod
+    def _grid_items(data: TopicModel) -> list[Item1]:
+        if data.on_response_received_endpoints is None:
+            return []
+        return [
+            grid_item
+            for endpoint in data.on_response_received_endpoints
+            for continuation_item in (
+                endpoint.append_continuation_items_action.continuation_items
+            )
+            if continuation_item.grid_renderer is not None
+            for grid_item in continuation_item.grid_renderer.items
+        ]
+
+    # TODO: Validate
+    @classmethod
+    def _grid_releases(cls, data: TopicModel) -> list[GridPlaylistRenderer | None]:
+        return [grid_item.grid_playlist_renderer for grid_item in cls._grid_items(data)]

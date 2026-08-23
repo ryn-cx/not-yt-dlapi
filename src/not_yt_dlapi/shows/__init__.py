@@ -5,10 +5,11 @@ from __future__ import annotations
 
 from logging import NullHandler, getLogger
 from typing import Any, overload
+from urllib.parse import parse_qs, urlsplit
 
 from not_yt_dlapi.base_api_endpoint import BaseEndpoint
-from not_yt_dlapi.shows.models import ShowsModel, model_validate_json
-from not_yt_dlapi.utils import find, read_continuation, read_seasons
+from not_yt_dlapi.shows.models import ShowsModel, SubMenuItem, model_validate_json
+from not_yt_dlapi.utils import find, read_continuation
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
@@ -143,31 +144,83 @@ class Shows(BaseEndpoint):
         return [self.load(data) for data in datas]
 
     # TODO: Validate
-    @staticmethod
-    def extract_season(data: ShowsModel) -> int | None:
+    @classmethod
+    def extract_season(cls, data: ShowsModel) -> int | None:
         """Extract which season the stretch is of, if its menu says."""
-        return read_seasons(data.raw_input)[1]
+        return next(
+            (
+                number
+                for menu_item in cls._season_menu_items(data)
+                if menu_item.selected
+                for number in [cls._season_number(menu_item)]
+                if number is not None
+            ),
+            None,
+        )
 
     # TODO: Validate
-    @staticmethod
-    def extract_season_endpoints(data: ShowsModel) -> list[dict[str, Any]]:
+    @classmethod
+    def extract_season_endpoints(cls, data: ShowsModel) -> list[dict[str, Any]]:
         """Extract what each season but the open one is asked for by.
 
         A show of more than one season is one playlist with a menu over it, and
         opening it answers with whichever season the menu starts on, so the rest
         are each their own thing to ask browse for.
         """
-        menu, open_season = read_seasons(data.raw_input)
+        seasons = {
+            number: menu_item
+            for menu_item in cls._season_menu_items(data)
+            for number in [cls._season_number(menu_item)]
+            if number is not None
+        }
+        open_season = cls.extract_season(data)
         return [
-            endpoint
-            for number, endpoint in sorted(menu.items())
+            {"browseId": endpoint.browse_id}
+            if endpoint.params is None
+            else {"browseId": endpoint.browse_id, "params": endpoint.params}
+            for number, menu_item in sorted(seasons.items())
             if number != open_season
+            for endpoint in [menu_item.navigation_endpoint.browse_endpoint]
+        ]
+
+    # A season is chosen from the same menu a playlist is sorted from, so what
+    # tells the two apart is that a season says which season it is, and it says so
+    # in the address a person would read it at rather than in the endpoint browse
+    # is asked by.
+    # TODO: Validate
+    @staticmethod
+    def _season_number(menu_item: SubMenuItem) -> int | None:
+        address = menu_item.navigation_endpoint.command_metadata.web_command_metadata
+        numbers = parse_qs(urlsplit(address.url).query).get("season", ())
+        if not numbers or not numbers[0].isdigit():
+            return None
+        return int(numbers[0])
+
+    # TODO: Validate
+    @staticmethod
+    def _season_menu_items(data: ShowsModel) -> list[SubMenuItem]:
+        if data.contents is None:
+            return []
+        return [
+            menu_item
+            for tab in data.contents.two_column_browse_results_renderer.tabs
+            for section in tab.tab_renderer.content.section_list_renderer.contents
+            for item in section.item_section_renderer.contents
+            if item.playlist_show_metadata_renderer is not None
+            for menu_item in (
+                item.playlist_show_metadata_renderer.collection.sort_filter_sub_menu_renderer.sub_menu_items
+            )
         ]
 
     # TODO: Validate
     @staticmethod
     def extract_episode_ids(data: ShowsModel) -> list[str]:
-        """Extract the id of every episode the stretch listed, in its order."""
+        """Extract the id of every episode the stretch listed, in its order.
+
+        A stretch that carries a season on is answered in a shape no recorded
+        response holds, so the episodes are read out of the answer itself rather
+        than off the model until one is recorded.
+        """
         return [
             entry["videoId"]
             for entry in find(data.raw_input, "playlistVideoRenderer")
@@ -177,5 +230,9 @@ class Shows(BaseEndpoint):
     # TODO: Validate
     @staticmethod
     def extract_continuation(data: ShowsModel) -> str | None:
-        """Extract what the stretch after this one is asked for by."""
+        """Extract what the stretch after this one is asked for by.
+
+        No recorded response holds a token, so it is read out of the answer
+        itself rather than off the model until one is recorded.
+        """
         return read_continuation(data.raw_input)

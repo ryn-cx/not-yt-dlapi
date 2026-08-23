@@ -86,6 +86,16 @@ class Videos(BaseEndpoint):
         ]
 
     # TODO: Validate
+    def download_merged(self, video_ids: Sequence[str]) -> str:
+        """Download every video asked for as a single file.
+
+        The requests the ids were split across are put together into one file
+        holding every video, which is what was asked for written the way one
+        answer is, rather than the answers themselves.
+        """
+        return self.merge_pages(self.download_all(video_ids))
+
+    # TODO: Validate
     def load(self, data: str, log_id: str = "") -> VideosModel:
         """Read a downloaded videos file into its model."""
         return model_validate_json(data, log_id or type(self).__name__)

@@ -7,8 +7,13 @@ from logging import NullHandler, getLogger
 from typing import Any, overload
 
 from not_yt_dlapi.base_api_endpoint import BaseEndpoint
-from not_yt_dlapi.music.models import MusicModel, model_validate_json
-from not_yt_dlapi.utils import find, read_continuation, read_text
+from not_yt_dlapi.music.models import (
+    LockupViewModel,
+    MusicModel,
+    PlaylistHeaderRenderer,
+    model_validate_json,
+)
+from not_yt_dlapi.utils import read_continuation
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
@@ -114,26 +119,26 @@ class Music(BaseEndpoint):
 
     # TODO: Validate
     @staticmethod
-    def _header(data: MusicModel) -> dict[str, Any]:
+    def _header(data: MusicModel) -> PlaylistHeaderRenderer | None:
         """Return what the release says about itself.
 
         Only the first stretch of a listing carries it.
         """
-        return next(find(data.raw_input, "playlistHeaderRenderer"), {})
+        return None if data.header is None else data.header.playlist_header_renderer
 
     # TODO: Validate
     @classmethod
     def extract_playlist_id(cls, data: MusicModel) -> str | None:
         """Extract the id of the release the stretch is of."""
-        playlist_id: str | None = cls._header(data).get("playlistId")
-        return playlist_id
+        header = cls._header(data)
+        return None if header is None else header.playlist_id
 
     # TODO: Validate
     @classmethod
     def extract_title(cls, data: MusicModel) -> str | None:
         """Extract the release's name."""
-        title = cls._header(data).get("title")
-        return None if title is None else read_text(title)
+        header = cls._header(data)
+        return None if header is None else header.title.simple_text
 
     # TODO: Validate
     @classmethod
@@ -162,25 +167,42 @@ class Music(BaseEndpoint):
     @classmethod
     def _subtitle(cls, data: MusicModel) -> str:
         """Return the line crediting the release, as the text it spells."""
-        subtitle = cls._header(data).get("subtitle")
-        return "" if subtitle is None else read_text(subtitle)
+        header = cls._header(data)
+        return "" if header is None else header.subtitle.simple_text
 
     # TODO: Validate
-    @staticmethod
-    def extract_track_ids(data: MusicModel) -> list[str]:
+    @classmethod
+    def extract_track_ids(cls, data: MusicModel) -> list[str]:
         """Extract the id of every track the stretch listed, in the album's order.
 
         A music playlist has been seen listing nothing but videos, so a lockup
         written for anything else is not a track and is left out.
         """
         return [
-            lockup["contentId"]
-            for lockup in find(data.raw_input, "lockupViewModel")
-            if lockup.get("contentType") == VIDEO_LOCKUP and "contentId" in lockup
+            lockup.content_id
+            for lockup in cls._lockups(data)
+            if lockup.content_type == VIDEO_LOCKUP
+        ]
+
+    # TODO: Validate
+    @staticmethod
+    def _lockups(data: MusicModel) -> list[LockupViewModel]:
+        if data.contents is None:
+            return []
+        return [
+            item.lockup_view_model
+            for tab in data.contents.two_column_browse_results_renderer.tabs
+            for section in tab.tab_renderer.content.section_list_renderer.contents
+            for item in section.item_section_renderer.contents
         ]
 
     # TODO: Validate
     @staticmethod
     def extract_continuation(data: MusicModel) -> str | None:
-        """Extract what the stretch after this one is asked for by."""
+        """Extract what the stretch after this one is asked for by.
+
+        A stretch that carries a listing on is answered in a shape no recorded
+        response holds, so the token is read out of the answer itself rather
+        than off the model until one is recorded.
+        """
         return read_continuation(data.raw_input)

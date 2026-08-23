@@ -178,6 +178,39 @@ class Playlists(BaseEndpoint):
         raise ValueError(msg)
 
     # TODO: Validate
+    @overload
+    def download_merged(self, *, playlist_ids: Sequence[str]) -> str: ...
+
+    # TODO: Validate
+    @overload
+    def download_merged(self, *, channel_id: str) -> str: ...
+
+    # TODO: Validate
+    def download_merged(
+        self,
+        *,
+        playlist_ids: Sequence[str] | None = None,
+        channel_id: str | None = None,
+    ) -> str:
+        """Download every playlist asked for as a single file.
+
+        What every request answered with is put together into one file holding
+        every playlist, which is what was asked for written the way one answer
+        is, rather than the answers themselves.
+
+        Raises:
+            ValueError: If the playlists are not named by exactly one of the
+                two things they can be named by, which is all the API accepts.
+            ChannelNotFoundError: If there is no channel with that id.
+        """
+        if playlist_ids is not None and channel_id is None:
+            return self.merge_pages(self.download_all(playlist_ids=playlist_ids))
+        if channel_id is not None and playlist_ids is None:
+            return self.merge_pages(self.download_all(channel_id=channel_id))
+        msg = "Invalid number of arguments."
+        raise ValueError(msg)
+
+    # TODO: Validate
     def _channel_pages(self, channel_id: str) -> list[str]:
         """Download every page of the playlists a channel made, first to last."""
         pages: list[str] = []

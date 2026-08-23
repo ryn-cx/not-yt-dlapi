@@ -124,6 +124,19 @@ class PlaylistItems(BaseEndpoint):
                 return pages
 
     # TODO: Validate
+    def download_merged(self, playlist_id: str) -> str:
+        """Download every page of a playlist's items as a single file.
+
+        The pages are put together into one file holding every item, which is
+        the whole playlist written the way one page of it is, rather than the
+        pages themselves.
+
+        Raises:
+            PlaylistNotFoundError: If there is no playlist with that id.
+        """
+        return self.merge_pages(self.download_all(playlist_id))
+
+    # TODO: Validate
     def load(self, data: str, log_id: str = "") -> PlaylistItemsModel:
         """Read a downloaded playlist items file into its model."""
         return model_validate_json(data, log_id or type(self).__name__)
