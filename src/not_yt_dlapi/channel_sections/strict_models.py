@@ -1,17 +1,21 @@
 from typing import Any, Self
 from pydantic import ModelWrapValidatorHandler, PrivateAttr, model_validator
+from pydantic import ConfigDict
 from pydantic import BaseModel, Field
 
 class Snippet(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     type: str
     channel_id: str = Field(..., alias='channelId')
     position: int
     title: str | None = None
 
 class ContentDetails(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     channels: list[str]
 
 class Item(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     kind: str
     etag: str
     id: str
@@ -19,6 +23,7 @@ class Item(BaseModel):
     content_details: ContentDetails | None = Field(None, alias='contentDetails')
 
 class ChannelSectionsModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     kind: str
     etag: str
     items: list[Item]

@@ -3,18 +3,18 @@ from pydantic import ModelWrapValidatorHandler, PrivateAttr, model_validator
 from pydantic import BaseModel, ConfigDict, Field
 
 class Snippet(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     type: str | None = None
     channel_id: str | None = Field(None, alias='channelId')
     position: int | None = None
     title: str | None = None
 
 class ContentDetails(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     channels: list[str] | None = None
 
 class Item(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     kind: str | None = None
     etag: str | None = None
     id: str | None = None
@@ -22,7 +22,7 @@ class Item(BaseModel):
     content_details: ContentDetails | None = Field(None, alias='contentDetails')
 
 class ChannelSectionsModel(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     kind: str | None = None
     etag: str | None = None
     items: list[Item] | None = None

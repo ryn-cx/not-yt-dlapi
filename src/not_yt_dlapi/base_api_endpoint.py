@@ -17,6 +17,14 @@ if TYPE_CHECKING:
 class BaseEndpoint:
     """Base class for API endpoints."""
 
+    WEBSITE = "YouTube"
+
+    # TODO: Validate
+    @property
+    def default_log_id(self) -> str:
+        """Get the log id of the endpoint itself, without any arguments."""
+        return f"{self.WEBSITE} - {self.__class__.__name__}"
+
     def __init__(self, client: NotYTDLAPI) -> None:
         """Initialize the endpoint with the NotYTDLAPI client."""
         self._client = client
@@ -63,10 +71,11 @@ class BaseEndpoint:
             and values[name] != param.default
         }
 
+    # TODO: Validate
     def get_log_id(self, func: Callable[..., Any], values: dict[str, Any]) -> str:
         """Get the log id.
 
-        Example: ClassName (arg1='value1' arg2='value2')
+        Example: YouTube - ClassName (arg1='value1' arg2='value2')
         """
         required = {
             name: values[name]
@@ -77,7 +86,6 @@ class BaseEndpoint:
         parts = [
             *(f"{name}={value!r}" for name, value in set_args.items()),
         ]
-        name = self.__class__.__name__
         if not parts:
-            return name
-        return f"{name} ({' '.join(parts)})"
+            return self.default_log_id
+        return f"{self.default_log_id} ({' '.join(parts)})"

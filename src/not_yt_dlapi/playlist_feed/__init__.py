@@ -59,4 +59,4 @@ class PlaylistFeed(BaseEndpoint):
     # TODO: Validate
     def load(self, data: str, log_id: str = "") -> PlaylistFeedModel:
         """Read a downloaded playlist feed file into its model."""
-        return model_validate_json(read_feed(data), log_id or type(self).__name__)
+        return model_validate_json(read_feed(data), log_id or self.default_log_id)
