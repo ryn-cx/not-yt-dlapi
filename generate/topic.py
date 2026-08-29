@@ -4,22 +4,42 @@
 from __future__ import annotations
 
 import logging
+from typing import TYPE_CHECKING
 
 from get_around import build_client_automatically, get_credential
-from good_ass_pydantic_integrator import generate_model
 
 from generate.constants import FILES_PATH, NOT_YT_DLAPI_PATH
-from generate.utils import download_if_missing
+from generate.utils import download_if_missing, load_ids, rebuild_model
 from not_yt_dlapi import NotYTDLAPI
 
-CHANNEL_IDS = ["UCooTDYkIERWBwDC1JKyoElQ"]
+if TYPE_CHECKING:
+    from not_yt_dlapi import NotYTDLAPI as Client
 
-WALKED_CHANNEL_PAGES = {"UCooTDYkIERWBwDC1JKyoElQ": 3}
-"""How many stretches the recorded walk of each channel's releases was served.
+CHANNEL_IDS = load_ids("TopicModel")
 
-A stretch past the first is asked for by the token the one before it ended with,
-so a missing one is taken out of the walk it sits in.
-"""
+
+# TODO: Validate
+def download_second_stretch(client: Client, channel_id: str) -> None:
+    """Record the stretch after the one opening the channel answers with.
+
+    A token is minted per response, so it is read off the recorded first stretch
+    rather than written down in the ids file.
+
+    Raises:
+        ValueError: If the channel lists everything in one stretch.
+    """
+    opened_path = FILES_PATH / "TopicModel" / f"{channel_id}.json"
+
+    def download() -> str:
+        continuation = client.topic.extract_continuation(
+            client.topic.load(opened_path.read_text(encoding="utf-8")),
+        )
+        if continuation is None:
+            msg = f"{channel_id} lists every release in one stretch."
+            raise ValueError(msg)
+        return client.topic.download(continuation=continuation)
+
+    download_if_missing(FILES_PATH, "TopicModel", f"{channel_id}-page-2", download)
 
 
 # TODO: Validate
@@ -32,17 +52,8 @@ def generate_topic(client: NotYTDLAPI) -> None:
             channel_id,
             lambda channel_id=channel_id: client.topic.download(channel_id),
         )
-    for channel_id, page_count in WALKED_CHANNEL_PAGES.items():
-        for page in range(page_count):
-            download_if_missing(
-                FILES_PATH,
-                "TopicModel",
-                f"{channel_id}-page-{page}",
-                lambda channel_id=channel_id, page=page: client.topic.download_all(
-                    channel_id,
-                )[page],
-            )
-    generate_model(FILES_PATH, NOT_YT_DLAPI_PATH, "TopicModel")
+    download_second_stretch(client, CHANNEL_IDS[0])
+    rebuild_model(FILES_PATH, NOT_YT_DLAPI_PATH, "TopicModel")
 
 
 if __name__ == "__main__":

@@ -1,28 +1,35 @@
 from typing import Any, Self
 from pydantic import ModelWrapValidatorHandler, PrivateAttr, model_validator
+from pydantic import ConfigDict
 from pydantic import BaseModel, Field
 from uuid import UUID
 
 class Param(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     key: str
     value: str
 
 class ServiceTrackingParam(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     service: str
     params: list[Param]
 
 class MainAppWebResponseContext(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     logged_out: bool = Field(..., alias='loggedOut')
     tracking_param: str = Field(..., alias='trackingParam')
 
 class WebResponseContextPreloadData(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     preload_message_names: list[str] = Field(..., alias='preloadMessageNames')
 
 class WebResponseContextExtensionData(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     web_response_context_preload_data: WebResponseContextPreloadData = Field(..., alias='webResponseContextPreloadData')
     has_decorated: bool = Field(..., alias='hasDecorated')
 
 class ResponseContext(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     visitor_data: str = Field(..., alias='visitorData')
     service_tracking_params: list[ServiceTrackingParam] = Field(..., alias='serviceTrackingParams')
     max_age_seconds: int = Field(..., alias='maxAgeSeconds')
@@ -30,49 +37,411 @@ class ResponseContext(BaseModel):
     response_id: str = Field(..., alias='responseId')
     web_response_context_extension_data: WebResponseContextExtensionData = Field(..., alias='webResponseContextExtensionData')
 
+class Thumbnail1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    width: int
+    height: int
+
+class SampledThumbnailColor(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    red: int
+    green: int
+    blue: int
+
+class DarkColorPalette(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    section2_color: int = Field(..., alias='section2Color')
+    icon_inactive_color: int = Field(..., alias='iconInactiveColor')
+    icon_disabled_color: int = Field(..., alias='iconDisabledColor')
+
+class VibrantColorPalette(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    icon_inactive_color: int = Field(..., alias='iconInactiveColor')
+
+class Thumbnail(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    thumbnails: list[Thumbnail1]
+    sampled_thumbnail_color: SampledThumbnailColor = Field(..., alias='sampledThumbnailColor')
+    dark_color_palette: DarkColorPalette = Field(..., alias='darkColorPalette')
+    vibrant_color_palette: VibrantColorPalette = Field(..., alias='vibrantColorPalette')
+
 class WebCommandMetadata(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    web_page_type: str = Field(..., alias='webPageType')
+    root_ve: int = Field(..., alias='rootVe')
+
+class CommandMetadata(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata = Field(..., alias='webCommandMetadata')
+
+class VssLoggingContext(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    serialized_context_data: str = Field(..., alias='serializedContextData')
+
+class LoggingContext(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    vss_logging_context: VssLoggingContext = Field(..., alias='vssLoggingContext')
+
+class CommonConfig(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+
+class Html5PlaybackOnesieConfig(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    common_config: CommonConfig = Field(..., alias='commonConfig')
+
+class WatchEndpointSupportedOnesieConfig(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    html5_playback_onesie_config: Html5PlaybackOnesieConfig = Field(..., alias='html5PlaybackOnesieConfig')
+
+class WatchEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    video_id: str = Field(..., alias='videoId')
+    playlist_id: str = Field(..., alias='playlistId')
+    params: str
+    logging_context: LoggingContext = Field(..., alias='loggingContext')
+    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig = Field(..., alias='watchEndpointSupportedOnesieConfig')
+    player_params: str | None = Field(None, alias='playerParams')
+
+class NavigationEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    click_tracking_params: str = Field(..., alias='clickTrackingParams')
+    command_metadata: CommandMetadata = Field(..., alias='commandMetadata')
+    watch_endpoint: WatchEndpoint = Field(..., alias='watchEndpoint')
+
+class Run(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    text: str
+    navigation_endpoint: NavigationEndpoint = Field(..., alias='navigationEndpoint')
+
+class Title(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run]
+
+class WebCommandMetadata1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     web_page_type: str = Field(..., alias='webPageType')
     root_ve: int = Field(..., alias='rootVe')
     api_url: str = Field(..., alias='apiUrl')
 
-class CommandMetadata(BaseModel):
-    web_command_metadata: WebCommandMetadata = Field(..., alias='webCommandMetadata')
+class CommandMetadata1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata1 = Field(..., alias='webCommandMetadata')
 
 class BrowseEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    browse_id: str = Field(..., alias='browseId')
+    canonical_base_url: str = Field(..., alias='canonicalBaseUrl')
+
+class NavigationEndpoint1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    click_tracking_params: str = Field(..., alias='clickTrackingParams')
+    command_metadata: CommandMetadata1 = Field(..., alias='commandMetadata')
+    browse_endpoint: BrowseEndpoint = Field(..., alias='browseEndpoint')
+
+class Run1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    text: str
+    navigation_endpoint: NavigationEndpoint1 | None = Field(None, alias='navigationEndpoint')
+
+class ShortBylineText(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run1]
+
+class Run2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    text: str
+
+class VideoCountText(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run2]
+
+class WebCommandMetadata2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    web_page_type: str = Field(..., alias='webPageType')
+    root_ve: int = Field(..., alias='rootVe')
+
+class CommandMetadata2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata2 = Field(..., alias='webCommandMetadata')
+
+class LoggingContext1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    vss_logging_context: VssLoggingContext = Field(..., alias='vssLoggingContext')
+
+class Html5PlaybackOnesieConfig1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    common_config: CommonConfig = Field(..., alias='commonConfig')
+
+class WatchEndpointSupportedOnesieConfig1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    html5_playback_onesie_config: Html5PlaybackOnesieConfig1 = Field(..., alias='html5PlaybackOnesieConfig')
+
+class WatchEndpoint1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    video_id: str = Field(..., alias='videoId')
+    playlist_id: str = Field(..., alias='playlistId')
+    params: str
+    logging_context: LoggingContext1 = Field(..., alias='loggingContext')
+    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig1 = Field(..., alias='watchEndpointSupportedOnesieConfig')
+    player_params: str | None = Field(None, alias='playerParams')
+
+class NavigationEndpoint2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    click_tracking_params: str = Field(..., alias='clickTrackingParams')
+    command_metadata: CommandMetadata2 = Field(..., alias='commandMetadata')
+    watch_endpoint: WatchEndpoint1 = Field(..., alias='watchEndpoint')
+
+class VideoCountShortText(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    simple_text: str = Field(..., alias='simpleText')
+
+class Thumbnail2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    width: int
+    height: int
+
+class SidebarThumbnail(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    thumbnails: list[Thumbnail2]
+
+class Run3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    text: str
+    bold: bool | None = None
+
+class ThumbnailText(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run3]
+
+class Thumbnail3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    thumbnails: list[Thumbnail2]
+    sampled_thumbnail_color: SampledThumbnailColor = Field(..., alias='sampledThumbnailColor')
+    dark_color_palette: DarkColorPalette = Field(..., alias='darkColorPalette')
+    vibrant_color_palette: VibrantColorPalette = Field(..., alias='vibrantColorPalette')
+
+class PlaylistCustomThumbnailRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    thumbnail: Thumbnail3
+
+class ThumbnailRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    playlist_custom_thumbnail_renderer: PlaylistCustomThumbnailRenderer = Field(..., alias='playlistCustomThumbnailRenderer')
+
+class WebCommandMetadata3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    web_page_type: str = Field(..., alias='webPageType')
+    root_ve: int = Field(..., alias='rootVe')
+    api_url: str = Field(..., alias='apiUrl')
+
+class CommandMetadata3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata3 = Field(..., alias='webCommandMetadata')
+
+class NavigationEndpoint3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    click_tracking_params: str = Field(..., alias='clickTrackingParams')
+    command_metadata: CommandMetadata3 = Field(..., alias='commandMetadata')
+    browse_endpoint: BrowseEndpoint = Field(..., alias='browseEndpoint')
+
+class Run4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    text: str
+    navigation_endpoint: NavigationEndpoint3 | None = Field(None, alias='navigationEndpoint')
+
+class LongBylineText(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run4]
+
+class Text(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    simple_text: str = Field(..., alias='simpleText')
+
+class Icon(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    icon_type: str = Field(..., alias='iconType')
+
+class ThumbnailOverlayBottomPanelRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    text: Text
+    icon: Icon
+
+class Run5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    text: str
+
+class Text1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run5]
+
+class ThumbnailOverlayHoverTextRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    text: Text1
+    icon: Icon
+
+class Text2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run5]
+
+class ThumbnailOverlayNowPlayingRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    text: Text2
+
+class ThumbnailOverlay(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    thumbnail_overlay_bottom_panel_renderer: ThumbnailOverlayBottomPanelRenderer | None = Field(None, alias='thumbnailOverlayBottomPanelRenderer')
+    thumbnail_overlay_hover_text_renderer: ThumbnailOverlayHoverTextRenderer | None = Field(None, alias='thumbnailOverlayHoverTextRenderer')
+    thumbnail_overlay_now_playing_renderer: ThumbnailOverlayNowPlayingRenderer | None = Field(None, alias='thumbnailOverlayNowPlayingRenderer')
+
+class CommandMetadata4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata3 = Field(..., alias='webCommandMetadata')
+
+class BrowseEndpoint2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    browse_id: str = Field(..., alias='browseId')
+
+class NavigationEndpoint4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    click_tracking_params: str = Field(..., alias='clickTrackingParams')
+    command_metadata: CommandMetadata4 = Field(..., alias='commandMetadata')
+    browse_endpoint: BrowseEndpoint2 = Field(..., alias='browseEndpoint')
+
+class Run7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    text: str
+    navigation_endpoint: NavigationEndpoint4 = Field(..., alias='navigationEndpoint')
+
+class ViewPlaylistText(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run7]
+
+class GridPlaylistRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    playlist_id: str = Field(..., alias='playlistId')
+    thumbnail: Thumbnail
+    title: Title
+    short_byline_text: ShortBylineText = Field(..., alias='shortBylineText')
+    video_count_text: VideoCountText = Field(..., alias='videoCountText')
+    navigation_endpoint: NavigationEndpoint2 = Field(..., alias='navigationEndpoint')
+    video_count_short_text: VideoCountShortText = Field(..., alias='videoCountShortText')
+    tracking_params: str = Field(..., alias='trackingParams')
+    sidebar_thumbnails: list[SidebarThumbnail] | None = Field(None, alias='sidebarThumbnails')
+    thumbnail_text: ThumbnailText = Field(..., alias='thumbnailText')
+    thumbnail_renderer: ThumbnailRenderer = Field(..., alias='thumbnailRenderer')
+    long_byline_text: LongBylineText = Field(..., alias='longBylineText')
+    thumbnail_overlays: list[ThumbnailOverlay] = Field(..., alias='thumbnailOverlays')
+    view_playlist_text: ViewPlaylistText = Field(..., alias='viewPlaylistText')
+
+class WebCommandMetadata5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    send_post: bool = Field(..., alias='sendPost')
+    api_url: str = Field(..., alias='apiUrl')
+
+class CommandMetadata5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata5 = Field(..., alias='webCommandMetadata')
+
+class ContinuationCommand(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    token: str
+    request: str
+
+class ContinuationEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    click_tracking_params: str = Field(..., alias='clickTrackingParams')
+    command_metadata: CommandMetadata5 = Field(..., alias='commandMetadata')
+    continuation_command: ContinuationCommand = Field(..., alias='continuationCommand')
+
+class ContinuationItemRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    trigger: str
+    continuation_endpoint: ContinuationEndpoint = Field(..., alias='continuationEndpoint')
+
+class Item(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    grid_playlist_renderer: GridPlaylistRenderer | None = Field(None, alias='gridPlaylistRenderer')
+    continuation_item_renderer: ContinuationItemRenderer | None = Field(None, alias='continuationItemRenderer')
+
+class GridRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    items: list[Item]
+    is_collapsible: bool = Field(..., alias='isCollapsible')
+    tracking_params: str = Field(..., alias='trackingParams')
+    target_id: UUID = Field(..., alias='targetId')
+
+class ContinuationItem(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    grid_renderer: GridRenderer = Field(..., alias='gridRenderer')
+
+class AppendContinuationItemsAction(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    continuation_items: list[ContinuationItem] = Field(..., alias='continuationItems')
+    target_id: UUID = Field(..., alias='targetId')
+
+class OnResponseReceivedEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    click_tracking_params: str = Field(..., alias='clickTrackingParams')
+    append_continuation_items_action: AppendContinuationItemsAction = Field(..., alias='appendContinuationItemsAction')
+
+class WebCommandMetadata6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    web_page_type: str = Field(..., alias='webPageType')
+    root_ve: int = Field(..., alias='rootVe')
+    api_url: str = Field(..., alias='apiUrl')
+
+class CommandMetadata6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata6 = Field(..., alias='webCommandMetadata')
+
+class BrowseEndpoint3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     browse_id: str = Field(..., alias='browseId')
     params: str
     canonical_base_url: str = Field(..., alias='canonicalBaseUrl')
 
 class Endpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata = Field(..., alias='commandMetadata')
-    browse_endpoint: BrowseEndpoint = Field(..., alias='browseEndpoint')
+    command_metadata: CommandMetadata6 = Field(..., alias='commandMetadata')
+    browse_endpoint: BrowseEndpoint3 = Field(..., alias='browseEndpoint')
 
-class Title1(BaseModel):
+class Title2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     simple_text: str = Field(..., alias='simpleText')
 
-class Icon(BaseModel):
-    icon_type: str = Field(..., alias='iconType')
-
 class Accessibility(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: str
 
 class AccessibilityData1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: str
 
 class AccessibilityData(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     accessibility_data: AccessibilityData1 = Field(..., alias='accessibilityData')
 
 class ChangeEngagementPanelVisibilityAction(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     target_id: UUID = Field(..., alias='targetId')
     visibility: str
 
 class Command(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     change_engagement_panel_visibility_action: ChangeEngagementPanelVisibilityAction = Field(..., alias='changeEngagementPanelVisibilityAction')
 
 class ButtonRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
@@ -83,64 +452,75 @@ class ButtonRenderer(BaseModel):
     command: Command
 
 class VisibilityButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer = Field(..., alias='buttonRenderer')
 
 class EngagementPanelTitleHeaderRenderer(BaseModel):
-    title: Title1
+    model_config = ConfigDict(defer_build=True)
+    title: Title2
     visibility_button: VisibilityButton = Field(..., alias='visibilityButton')
     tracking_params: str = Field(..., alias='trackingParams')
 
 class Header(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_title_header_renderer: EngagementPanelTitleHeaderRenderer = Field(..., alias='engagementPanelTitleHeaderRenderer')
 
-class WebCommandMetadata1(BaseModel):
+class WebCommandMetadata7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     send_post: bool = Field(..., alias='sendPost')
     api_url: str = Field(..., alias='apiUrl')
 
-class CommandMetadata1(BaseModel):
-    web_command_metadata: WebCommandMetadata1 = Field(..., alias='webCommandMetadata')
+class CommandMetadata7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata7 = Field(..., alias='webCommandMetadata')
 
-class ContinuationCommand(BaseModel):
-    token: str
-    request: str
-
-class ContinuationEndpoint(BaseModel):
+class ContinuationEndpoint1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata1 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata7 = Field(..., alias='commandMetadata')
     continuation_command: ContinuationCommand = Field(..., alias='continuationCommand')
 
-class ContinuationItemRenderer(BaseModel):
+class ContinuationItemRenderer1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     trigger: str
-    continuation_endpoint: ContinuationEndpoint = Field(..., alias='continuationEndpoint')
+    continuation_endpoint: ContinuationEndpoint1 = Field(..., alias='continuationEndpoint')
 
 class Content5(BaseModel):
-    continuation_item_renderer: ContinuationItemRenderer = Field(..., alias='continuationItemRenderer')
+    model_config = ConfigDict(defer_build=True)
+    continuation_item_renderer: ContinuationItemRenderer1 = Field(..., alias='continuationItemRenderer')
 
 class ItemSectionRenderer1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     contents: list[Content5]
     tracking_params: str = Field(..., alias='trackingParams')
     section_identifier: UUID = Field(..., alias='sectionIdentifier')
     target_id: UUID = Field(..., alias='targetId')
 
 class Content4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     item_section_renderer: ItemSectionRenderer1 = Field(..., alias='itemSectionRenderer')
 
 class ScrollPaneStyle(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     scrollable: bool
 
 class SectionListRenderer1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     contents: list[Content4]
     tracking_params: str = Field(..., alias='trackingParams')
     scroll_pane_style: ScrollPaneStyle = Field(..., alias='scrollPaneStyle')
 
 class Content3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     section_list_renderer: SectionListRenderer1 = Field(..., alias='sectionListRenderer')
 
 class Identifier(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     surface: str
     tag: UUID
 
 class EngagementPanelSectionListRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     header: Header
     content: Content3
     target_id: UUID = Field(..., alias='targetId')
@@ -148,44 +528,56 @@ class EngagementPanelSectionListRenderer(BaseModel):
     size: str
 
 class EngagementPanel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_section_list_renderer: EngagementPanelSectionListRenderer = Field(..., alias='engagementPanelSectionListRenderer')
 
 class EngagementPanelPopupPresentationConfig(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     popup_type: str = Field(..., alias='popupType')
 
 class EngagementPanelPresentationConfigs(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_popup_presentation_config: EngagementPanelPopupPresentationConfig = Field(..., alias='engagementPanelPopupPresentationConfig')
 
 class ShowEngagementPanelEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel: EngagementPanel = Field(..., alias='engagementPanel')
     identifier: Identifier
     engagement_panel_presentation_configs: EngagementPanelPresentationConfigs = Field(..., alias='engagementPanelPresentationConfigs')
 
-class NavigationEndpoint(BaseModel):
+class NavigationEndpoint5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     show_engagement_panel_endpoint: ShowEngagementPanelEndpoint = Field(..., alias='showEngagementPanelEndpoint')
 
-class Run(BaseModel):
+class Run8(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     text: str
-    navigation_endpoint: NavigationEndpoint = Field(..., alias='navigationEndpoint')
+    navigation_endpoint: NavigationEndpoint5 = Field(..., alias='navigationEndpoint')
 
-class Title(BaseModel):
-    runs: list[Run]
+class Title1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run8]
 
-class Title2(BaseModel):
+class Title3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     simple_text: str = Field(..., alias='simpleText')
 
 class AccessibilityData3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: str
 
 class AccessibilityData2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     accessibility_data: AccessibilityData3 = Field(..., alias='accessibilityData')
 
 class Command1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     change_engagement_panel_visibility_action: ChangeEngagementPanelVisibilityAction = Field(..., alias='changeEngagementPanelVisibilityAction')
 
 class ButtonRenderer1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
@@ -196,49 +588,61 @@ class ButtonRenderer1(BaseModel):
     command: Command1
 
 class VisibilityButton1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer1 = Field(..., alias='buttonRenderer')
 
 class EngagementPanelTitleHeaderRenderer1(BaseModel):
-    title: Title2
+    model_config = ConfigDict(defer_build=True)
+    title: Title3
     visibility_button: VisibilityButton1 = Field(..., alias='visibilityButton')
     tracking_params: str = Field(..., alias='trackingParams')
 
 class Header1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_title_header_renderer: EngagementPanelTitleHeaderRenderer1 = Field(..., alias='engagementPanelTitleHeaderRenderer')
 
-class CommandMetadata2(BaseModel):
-    web_command_metadata: WebCommandMetadata1 = Field(..., alias='webCommandMetadata')
+class CommandMetadata8(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata7 = Field(..., alias='webCommandMetadata')
 
-class ContinuationEndpoint1(BaseModel):
+class ContinuationEndpoint2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata2 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata8 = Field(..., alias='commandMetadata')
     continuation_command: ContinuationCommand = Field(..., alias='continuationCommand')
 
-class ContinuationItemRenderer1(BaseModel):
+class ContinuationItemRenderer2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     trigger: str
-    continuation_endpoint: ContinuationEndpoint1 = Field(..., alias='continuationEndpoint')
+    continuation_endpoint: ContinuationEndpoint2 = Field(..., alias='continuationEndpoint')
 
 class Content8(BaseModel):
-    continuation_item_renderer: ContinuationItemRenderer1 = Field(..., alias='continuationItemRenderer')
+    model_config = ConfigDict(defer_build=True)
+    continuation_item_renderer: ContinuationItemRenderer2 = Field(..., alias='continuationItemRenderer')
 
 class ItemSectionRenderer2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     contents: list[Content8]
     tracking_params: str = Field(..., alias='trackingParams')
     section_identifier: UUID = Field(..., alias='sectionIdentifier')
     target_id: UUID = Field(..., alias='targetId')
 
 class Content7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     item_section_renderer: ItemSectionRenderer2 = Field(..., alias='itemSectionRenderer')
 
 class SectionListRenderer2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     contents: list[Content7]
     tracking_params: str = Field(..., alias='trackingParams')
     scroll_pane_style: ScrollPaneStyle = Field(..., alias='scrollPaneStyle')
 
 class Content6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     section_list_renderer: SectionListRenderer2 = Field(..., alias='sectionListRenderer')
 
 class EngagementPanelSectionListRenderer1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     header: Header1
     content: Content6
     target_id: UUID = Field(..., alias='targetId')
@@ -246,274 +650,337 @@ class EngagementPanelSectionListRenderer1(BaseModel):
     size: str
 
 class EngagementPanel1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_section_list_renderer: EngagementPanelSectionListRenderer1 = Field(..., alias='engagementPanelSectionListRenderer')
 
 class EngagementPanelPresentationConfigs1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_popup_presentation_config: EngagementPanelPopupPresentationConfig = Field(..., alias='engagementPanelPopupPresentationConfig')
 
 class ShowEngagementPanelEndpoint1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel: EngagementPanel1 = Field(..., alias='engagementPanel')
     identifier: Identifier
     engagement_panel_presentation_configs: EngagementPanelPresentationConfigs1 = Field(..., alias='engagementPanelPresentationConfigs')
 
 class Endpoint1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     show_engagement_panel_endpoint: ShowEngagementPanelEndpoint1 = Field(..., alias='showEngagementPanelEndpoint')
 
 class Source(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     width: int
     height: int
 
 class Image(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     sources: list[Source]
 
 class ClientResource(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     image_name: str = Field(..., alias='imageName')
 
 class Source1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     client_resource: ClientResource = Field(..., alias='clientResource')
 
-class Icon2(BaseModel):
+class Icon4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     sources: list[Source1]
 
 class BackgroundColor(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     light_theme: int = Field(..., alias='lightTheme')
     dark_theme: int = Field(..., alias='darkTheme')
 
 class ThumbnailBadgeViewModel(BaseModel):
-    icon: Icon2
+    model_config = ConfigDict(defer_build=True)
+    icon: Icon4
     text: str
     badge_style: str = Field(..., alias='badgeStyle')
     background_color: BackgroundColor = Field(..., alias='backgroundColor')
 
 class ThumbnailBadge(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     thumbnail_badge_view_model: ThumbnailBadgeViewModel = Field(..., alias='thumbnailBadgeViewModel')
 
 class ThumbnailOverlayBadgeViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     thumbnail_badges: list[ThumbnailBadge] = Field(..., alias='thumbnailBadges')
     position: str
 
 class Source2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     client_resource: ClientResource = Field(..., alias='clientResource')
 
-class Icon3(BaseModel):
+class Icon5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     sources: list[Source2]
 
 class StyleRun(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     start_index: int = Field(..., alias='startIndex')
     length: int
 
-class Text(BaseModel):
+class Text3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content: str
     style_runs: list[StyleRun] = Field(..., alias='styleRuns')
 
 class ThumbnailHoverOverlayViewModel(BaseModel):
-    icon: Icon3
-    text: Text
+    model_config = ConfigDict(defer_build=True)
+    icon: Icon5
+    text: Text3
     style: str
 
 class Overlay(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     thumbnail_overlay_badge_view_model: ThumbnailOverlayBadgeViewModel | None = Field(None, alias='thumbnailOverlayBadgeViewModel')
     thumbnail_hover_overlay_view_model: ThumbnailHoverOverlayViewModel | None = Field(None, alias='thumbnailHoverOverlayViewModel')
 
 class ThumbnailViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     image: Image
     overlays: list[Overlay]
     background_color: BackgroundColor = Field(..., alias='backgroundColor')
 
 class PrimaryThumbnail(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     thumbnail_view_model: ThumbnailViewModel = Field(..., alias='thumbnailViewModel')
 
 class StackColor(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     light_theme: int = Field(..., alias='lightTheme')
     dark_theme: int = Field(..., alias='darkTheme')
 
 class CollectionThumbnailViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     primary_thumbnail: PrimaryThumbnail = Field(..., alias='primaryThumbnail')
     stack_color: StackColor = Field(..., alias='stackColor')
 
 class ContentImage(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     collection_thumbnail_view_model: CollectionThumbnailViewModel = Field(..., alias='collectionThumbnailViewModel')
 
-class Title3(BaseModel):
+class Title4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content: str
 
-class WebCommandMetadata3(BaseModel):
+class WebCommandMetadata9(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     web_page_type: str = Field(..., alias='webPageType')
     root_ve: int = Field(..., alias='rootVe')
     api_url: str = Field(..., alias='apiUrl')
 
-class CommandMetadata3(BaseModel):
-    web_command_metadata: WebCommandMetadata3 = Field(..., alias='webCommandMetadata')
+class CommandMetadata9(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata9 = Field(..., alias='webCommandMetadata')
 
-class BrowseEndpoint1(BaseModel):
+class BrowseEndpoint4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     browse_id: str = Field(..., alias='browseId')
     canonical_base_url: str | None = Field(None, alias='canonicalBaseUrl')
 
 class InnertubeCommand(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata3 = Field(..., alias='commandMetadata')
-    browse_endpoint: BrowseEndpoint1 = Field(..., alias='browseEndpoint')
+    command_metadata: CommandMetadata9 = Field(..., alias='commandMetadata')
+    browse_endpoint: BrowseEndpoint4 = Field(..., alias='browseEndpoint')
 
 class OnTap(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     innertube_command: InnertubeCommand = Field(..., alias='innertubeCommand')
 
 class CommandRun(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     start_index: int = Field(..., alias='startIndex')
     length: int
     on_tap: OnTap = Field(..., alias='onTap')
 
 class StyleRun1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     start_index: int = Field(..., alias='startIndex')
     length: int
     weight_label: str = Field(..., alias='weightLabel')
 
-class Text1(BaseModel):
+class Text4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content: str
     command_runs: list[CommandRun] | None = Field(None, alias='commandRuns')
     style_runs: list[StyleRun1] | None = Field(None, alias='styleRuns')
 
 class MetadataPart(BaseModel):
-    text: Text1
+    model_config = ConfigDict(defer_build=True)
+    text: Text4
 
 class MetadataRow(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     metadata_parts: list[MetadataPart] = Field(..., alias='metadataParts')
 
 class ContentMetadataViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     metadata_rows: list[MetadataRow] = Field(..., alias='metadataRows')
     delimiter: str
 
 class Metadata1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content_metadata_view_model: ContentMetadataViewModel = Field(..., alias='contentMetadataViewModel')
 
 class LockupMetadataViewModel(BaseModel):
-    title: Title3
+    model_config = ConfigDict(defer_build=True)
+    title: Title4
     metadata: Metadata1
 
 class Metadata(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     lockup_metadata_view_model: LockupMetadataViewModel = Field(..., alias='lockupMetadataViewModel')
 
-class WebCommandMetadata4(BaseModel):
+class WebCommandMetadata10(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     web_page_type: str = Field(..., alias='webPageType')
     root_ve: int = Field(..., alias='rootVe')
 
-class CommandMetadata4(BaseModel):
-    web_command_metadata: WebCommandMetadata4 = Field(..., alias='webCommandMetadata')
+class CommandMetadata10(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata10 = Field(..., alias='webCommandMetadata')
 
-class VssLoggingContext(BaseModel):
-    serialized_context_data: str = Field(..., alias='serializedContextData')
-
-class LoggingContext(BaseModel):
+class LoggingContext2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     vss_logging_context: VssLoggingContext = Field(..., alias='vssLoggingContext')
 
-class CommonConfig(BaseModel):
-    url: str
-
-class Html5PlaybackOnesieConfig(BaseModel):
+class Html5PlaybackOnesieConfig2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     common_config: CommonConfig = Field(..., alias='commonConfig')
 
-class WatchEndpointSupportedOnesieConfig(BaseModel):
-    html5_playback_onesie_config: Html5PlaybackOnesieConfig = Field(..., alias='html5PlaybackOnesieConfig')
+class WatchEndpointSupportedOnesieConfig2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    html5_playback_onesie_config: Html5PlaybackOnesieConfig2 = Field(..., alias='html5PlaybackOnesieConfig')
 
-class WatchEndpoint(BaseModel):
+class WatchEndpoint2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     video_id: str = Field(..., alias='videoId')
     playlist_id: str = Field(..., alias='playlistId')
     params: str
-    logging_context: LoggingContext = Field(..., alias='loggingContext')
-    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig = Field(..., alias='watchEndpointSupportedOnesieConfig')
+    logging_context: LoggingContext2 = Field(..., alias='loggingContext')
+    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig2 = Field(..., alias='watchEndpointSupportedOnesieConfig')
     player_params: str | None = Field(None, alias='playerParams')
 
 class InnertubeCommand1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata4 = Field(..., alias='commandMetadata')
-    watch_endpoint: WatchEndpoint = Field(..., alias='watchEndpoint')
+    command_metadata: CommandMetadata10 = Field(..., alias='commandMetadata')
+    watch_endpoint: WatchEndpoint2 = Field(..., alias='watchEndpoint')
 
 class OnSelect(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     innertube_command: InnertubeCommand1 = Field(..., alias='innertubeCommand')
 
-class CommandMetadata5(BaseModel):
-    web_command_metadata: WebCommandMetadata4 = Field(..., alias='webCommandMetadata')
+class CommandMetadata11(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata10 = Field(..., alias='webCommandMetadata')
 
-class LoggingContext1(BaseModel):
+class LoggingContext3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     vss_logging_context: VssLoggingContext = Field(..., alias='vssLoggingContext')
 
-class Html5PlaybackOnesieConfig1(BaseModel):
+class Html5PlaybackOnesieConfig3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     common_config: CommonConfig = Field(..., alias='commonConfig')
 
-class WatchEndpointSupportedOnesieConfig1(BaseModel):
-    html5_playback_onesie_config: Html5PlaybackOnesieConfig1 = Field(..., alias='html5PlaybackOnesieConfig')
+class WatchEndpointSupportedOnesieConfig3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    html5_playback_onesie_config: Html5PlaybackOnesieConfig3 = Field(..., alias='html5PlaybackOnesieConfig')
 
-class WatchEndpoint1(BaseModel):
+class WatchEndpoint3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     video_id: str = Field(..., alias='videoId')
     playlist_id: str = Field(..., alias='playlistId')
     player_params: str = Field(..., alias='playerParams')
-    logging_context: LoggingContext1 = Field(..., alias='loggingContext')
-    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig1 = Field(..., alias='watchEndpointSupportedOnesieConfig')
+    logging_context: LoggingContext3 = Field(..., alias='loggingContext')
+    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig3 = Field(..., alias='watchEndpointSupportedOnesieConfig')
 
 class InnertubeCommand2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata5 = Field(..., alias='commandMetadata')
-    watch_endpoint: WatchEndpoint1 = Field(..., alias='watchEndpoint')
+    command_metadata: CommandMetadata11 = Field(..., alias='commandMetadata')
+    watch_endpoint: WatchEndpoint3 = Field(..., alias='watchEndpoint')
 
 class OnVisible(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     innertube_command: InnertubeCommand2 = Field(..., alias='innertubeCommand')
 
 class InlinePlayerData(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     on_select: OnSelect = Field(..., alias='onSelect')
     on_visible: OnVisible = Field(..., alias='onVisible')
 
 class ItemPlayback(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     inline_player_data: InlinePlayerData = Field(..., alias='inlinePlayerData')
 
 class Visibility(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     types: str
 
 class LoggingDirectives(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     visibility: Visibility
 
-class LoggingContext2(BaseModel):
+class LoggingContext4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     logging_directives: LoggingDirectives = Field(..., alias='loggingDirectives')
 
-class CommandMetadata6(BaseModel):
-    web_command_metadata: WebCommandMetadata4 = Field(..., alias='webCommandMetadata')
+class CommandMetadata12(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata10 = Field(..., alias='webCommandMetadata')
 
-class LoggingContext3(BaseModel):
+class LoggingContext5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     vss_logging_context: VssLoggingContext = Field(..., alias='vssLoggingContext')
 
-class Html5PlaybackOnesieConfig2(BaseModel):
+class Html5PlaybackOnesieConfig4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     common_config: CommonConfig = Field(..., alias='commonConfig')
 
-class WatchEndpointSupportedOnesieConfig2(BaseModel):
-    html5_playback_onesie_config: Html5PlaybackOnesieConfig2 = Field(..., alias='html5PlaybackOnesieConfig')
+class WatchEndpointSupportedOnesieConfig4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    html5_playback_onesie_config: Html5PlaybackOnesieConfig4 = Field(..., alias='html5PlaybackOnesieConfig')
 
-class WatchEndpoint2(BaseModel):
+class WatchEndpoint4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     video_id: str = Field(..., alias='videoId')
     playlist_id: str = Field(..., alias='playlistId')
     params: str
-    logging_context: LoggingContext3 = Field(..., alias='loggingContext')
-    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig2 = Field(..., alias='watchEndpointSupportedOnesieConfig')
+    logging_context: LoggingContext5 = Field(..., alias='loggingContext')
+    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig4 = Field(..., alias='watchEndpointSupportedOnesieConfig')
     player_params: str | None = Field(None, alias='playerParams')
 
 class InnertubeCommand3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata6 = Field(..., alias='commandMetadata')
-    watch_endpoint: WatchEndpoint2 = Field(..., alias='watchEndpoint')
+    command_metadata: CommandMetadata12 = Field(..., alias='commandMetadata')
+    watch_endpoint: WatchEndpoint4 = Field(..., alias='watchEndpoint')
 
 class OnTap1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     innertube_command: InnertubeCommand3 = Field(..., alias='innertubeCommand')
 
 class CommandContext(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     on_tap: OnTap1 = Field(..., alias='onTap')
 
 class RendererContext(BaseModel):
-    logging_context: LoggingContext2 = Field(..., alias='loggingContext')
+    model_config = ConfigDict(defer_build=True)
+    logging_context: LoggingContext4 = Field(..., alias='loggingContext')
     command_context: CommandContext = Field(..., alias='commandContext')
 
 class LockupViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content_image: ContentImage = Field(..., alias='contentImage')
     metadata: Metadata
     content_id: str = Field(..., alias='contentId')
@@ -521,36 +988,43 @@ class LockupViewModel(BaseModel):
     item_playback: ItemPlayback = Field(..., alias='itemPlayback')
     renderer_context: RendererContext = Field(..., alias='rendererContext')
 
-class Item(BaseModel):
+class Item1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     lockup_view_model: LockupViewModel = Field(..., alias='lockupViewModel')
 
-class Icon4(BaseModel):
+class Icon6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     icon_type: str = Field(..., alias='iconType')
 
 class ButtonRenderer2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
-    icon: Icon4
+    icon: Icon6
     accessibility: Accessibility
     tracking_params: str = Field(..., alias='trackingParams')
 
 class NextButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer2 = Field(..., alias='buttonRenderer')
 
 class ButtonRenderer3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
-    icon: Icon4
+    icon: Icon6
     accessibility: Accessibility
     tracking_params: str = Field(..., alias='trackingParams')
 
 class PreviousButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer3 = Field(..., alias='buttonRenderer')
 
 class HorizontalListRenderer(BaseModel):
-    items: list[Item]
+    model_config = ConfigDict(defer_build=True)
+    items: list[Item1]
     tracking_params: str = Field(..., alias='trackingParams')
     visible_item_count: int = Field(..., alias='visibleItemCount')
     next_button: NextButton = Field(..., alias='nextButton')
@@ -558,82 +1032,102 @@ class HorizontalListRenderer(BaseModel):
     force16_by9_thumbnail_aspect_ratio: bool = Field(..., alias='force16By9ThumbnailAspectRatio')
 
 class Content9(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     horizontal_list_renderer: HorizontalListRenderer = Field(..., alias='horizontalListRenderer')
 
-class Text2(BaseModel):
+class Text5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     simple_text: str = Field(..., alias='simpleText')
 
-class Title4(BaseModel):
+class Title5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     simple_text: str = Field(..., alias='simpleText')
 
 class AccessibilityData5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: str
 
 class AccessibilityData4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     accessibility_data: AccessibilityData5 = Field(..., alias='accessibilityData')
 
 class Command2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     change_engagement_panel_visibility_action: ChangeEngagementPanelVisibilityAction = Field(..., alias='changeEngagementPanelVisibilityAction')
 
 class ButtonRenderer5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
-    icon: Icon4
+    icon: Icon6
     accessibility: Accessibility
     tracking_params: str = Field(..., alias='trackingParams')
     accessibility_data: AccessibilityData4 = Field(..., alias='accessibilityData')
     command: Command2
 
 class VisibilityButton2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer5 = Field(..., alias='buttonRenderer')
 
 class EngagementPanelTitleHeaderRenderer2(BaseModel):
-    title: Title4
+    model_config = ConfigDict(defer_build=True)
+    title: Title5
     visibility_button: VisibilityButton2 = Field(..., alias='visibilityButton')
     tracking_params: str = Field(..., alias='trackingParams')
 
 class Header2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_title_header_renderer: EngagementPanelTitleHeaderRenderer2 = Field(..., alias='engagementPanelTitleHeaderRenderer')
 
-class WebCommandMetadata7(BaseModel):
+class WebCommandMetadata13(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     send_post: bool = Field(..., alias='sendPost')
     api_url: str = Field(..., alias='apiUrl')
 
-class CommandMetadata7(BaseModel):
-    web_command_metadata: WebCommandMetadata7 = Field(..., alias='webCommandMetadata')
+class CommandMetadata13(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata13 = Field(..., alias='webCommandMetadata')
 
-class ContinuationEndpoint2(BaseModel):
+class ContinuationEndpoint3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata7 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata13 = Field(..., alias='commandMetadata')
     continuation_command: ContinuationCommand = Field(..., alias='continuationCommand')
 
-class ContinuationItemRenderer2(BaseModel):
+class ContinuationItemRenderer3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     trigger: str
-    continuation_endpoint: ContinuationEndpoint2 = Field(..., alias='continuationEndpoint')
+    continuation_endpoint: ContinuationEndpoint3 = Field(..., alias='continuationEndpoint')
 
 class Content12(BaseModel):
-    continuation_item_renderer: ContinuationItemRenderer2 = Field(..., alias='continuationItemRenderer')
+    model_config = ConfigDict(defer_build=True)
+    continuation_item_renderer: ContinuationItemRenderer3 = Field(..., alias='continuationItemRenderer')
 
 class ItemSectionRenderer3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     contents: list[Content12]
     tracking_params: str = Field(..., alias='trackingParams')
     section_identifier: UUID = Field(..., alias='sectionIdentifier')
     target_id: UUID = Field(..., alias='targetId')
 
 class Content11(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     item_section_renderer: ItemSectionRenderer3 = Field(..., alias='itemSectionRenderer')
 
 class SectionListRenderer3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     contents: list[Content11]
     tracking_params: str = Field(..., alias='trackingParams')
     scroll_pane_style: ScrollPaneStyle = Field(..., alias='scrollPaneStyle')
 
 class Content10(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     section_list_renderer: SectionListRenderer3 = Field(..., alias='sectionListRenderer')
 
 class EngagementPanelSectionListRenderer2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     header: Header2
     content: Content10
     target_id: UUID = Field(..., alias='targetId')
@@ -641,72 +1135,89 @@ class EngagementPanelSectionListRenderer2(BaseModel):
     size: str
 
 class EngagementPanel2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_section_list_renderer: EngagementPanelSectionListRenderer2 = Field(..., alias='engagementPanelSectionListRenderer')
 
 class EngagementPanelPresentationConfigs2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_popup_presentation_config: EngagementPanelPopupPresentationConfig = Field(..., alias='engagementPanelPopupPresentationConfig')
 
 class ShowEngagementPanelEndpoint2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel: EngagementPanel2 = Field(..., alias='engagementPanel')
     identifier: Identifier
     engagement_panel_presentation_configs: EngagementPanelPresentationConfigs2 = Field(..., alias='engagementPanelPresentationConfigs')
 
-class NavigationEndpoint1(BaseModel):
+class NavigationEndpoint6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     show_engagement_panel_endpoint: ShowEngagementPanelEndpoint2 = Field(..., alias='showEngagementPanelEndpoint')
 
 class AccessibilityData7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: str
 
 class AccessibilityData6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     accessibility_data: AccessibilityData7 = Field(..., alias='accessibilityData')
 
 class ButtonRenderer4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
-    text: Text2
-    navigation_endpoint: NavigationEndpoint1 = Field(..., alias='navigationEndpoint')
+    text: Text5
+    navigation_endpoint: NavigationEndpoint6 = Field(..., alias='navigationEndpoint')
     tracking_params: str = Field(..., alias='trackingParams')
     accessibility_data: AccessibilityData6 = Field(..., alias='accessibilityData')
 
 class TopLevelButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer4 = Field(..., alias='buttonRenderer')
 
 class MenuRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     top_level_buttons: list[TopLevelButton] = Field(..., alias='topLevelButtons')
 
 class Menu(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     menu_renderer: MenuRenderer = Field(..., alias='menuRenderer')
 
 class ShelfRenderer(BaseModel):
-    title: Title
+    model_config = ConfigDict(defer_build=True)
+    title: Title1
     endpoint: Endpoint1
     content: Content9
     tracking_params: str = Field(..., alias='trackingParams')
     menu: Menu
 
 class Content2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     shelf_renderer: ShelfRenderer = Field(..., alias='shelfRenderer')
 
 class ItemSectionRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     contents: list[Content2]
     tracking_params: str = Field(..., alias='trackingParams')
 
 class Content1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     item_section_renderer: ItemSectionRenderer = Field(..., alias='itemSectionRenderer')
 
 class SectionListRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     contents: list[Content1]
     tracking_params: str = Field(..., alias='trackingParams')
     target_id: str = Field(..., alias='targetId')
     disable_pull_to_refresh: bool = Field(..., alias='disablePullToRefresh')
 
 class Content(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     section_list_renderer: SectionListRenderer = Field(..., alias='sectionListRenderer')
 
 class TabRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     endpoint: Endpoint
     title: str
     selected: bool
@@ -714,221 +1225,279 @@ class TabRenderer(BaseModel):
     tracking_params: str = Field(..., alias='trackingParams')
 
 class Tab(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tab_renderer: TabRenderer = Field(..., alias='tabRenderer')
 
 class TwoColumnBrowseResultsRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tabs: list[Tab]
 
 class Contents(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     two_column_browse_results_renderer: TwoColumnBrowseResultsRenderer = Field(..., alias='twoColumnBrowseResultsRenderer')
 
-class Text3(BaseModel):
+class Text6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content: str
 
 class LoggingDirectives1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     visibility: Visibility
 
-class LoggingContext4(BaseModel):
+class LoggingContext6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     logging_directives: LoggingDirectives1 = Field(..., alias='loggingDirectives')
 
 class RendererContext1(BaseModel):
-    logging_context: LoggingContext4 = Field(..., alias='loggingContext')
+    model_config = ConfigDict(defer_build=True)
+    logging_context: LoggingContext6 = Field(..., alias='loggingContext')
 
 class DynamicTextViewModel(BaseModel):
-    text: Text3
+    model_config = ConfigDict(defer_build=True)
+    text: Text6
     max_lines: int = Field(..., alias='maxLines')
     renderer_context: RendererContext1 = Field(..., alias='rendererContext')
 
-class Title5(BaseModel):
+class Title6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     dynamic_text_view_model: DynamicTextViewModel = Field(..., alias='dynamicTextViewModel')
 
 class Source3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     width: int
     height: int
 
 class BorderImageProcessor(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     circular: bool
 
 class Processor(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     border_image_processor: BorderImageProcessor = Field(..., alias='borderImageProcessor')
 
 class Image2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     sources: list[Source3]
     processor: Processor
 
 class LoggingDirectives2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     visibility: Visibility
 
 class AvatarViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     image: Image2
     avatar_image_size: str = Field(..., alias='avatarImageSize')
     logging_directives: LoggingDirectives2 = Field(..., alias='loggingDirectives')
 
 class Avatar(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     avatar_view_model: AvatarViewModel = Field(..., alias='avatarViewModel')
 
 class DecoratedAvatarViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     avatar: Avatar
 
 class Image1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     decorated_avatar_view_model: DecoratedAvatarViewModel = Field(..., alias='decoratedAvatarViewModel')
 
 class StyleRun2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     start_index: int = Field(..., alias='startIndex')
     length: int
 
-class Text4(BaseModel):
+class Text7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content: str
     style_runs: list[StyleRun2] = Field(..., alias='styleRuns')
 
 class MetadataPart1(BaseModel):
-    text: Text4
+    model_config = ConfigDict(defer_build=True)
+    text: Text7
 
 class MetadataRow1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     metadata_parts: list[MetadataPart1] = Field(..., alias='metadataParts')
 
 class LoggingDirectives3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     visibility: Visibility
 
-class LoggingContext5(BaseModel):
+class LoggingContext7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     logging_directives: LoggingDirectives3 = Field(..., alias='loggingDirectives')
 
 class RendererContext2(BaseModel):
-    logging_context: LoggingContext5 = Field(..., alias='loggingContext')
+    model_config = ConfigDict(defer_build=True)
+    logging_context: LoggingContext7 = Field(..., alias='loggingContext')
 
 class ContentMetadataViewModel1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     metadata_rows: list[MetadataRow1] = Field(..., alias='metadataRows')
     delimiter: str
     renderer_context: RendererContext2 = Field(..., alias='rendererContext')
 
 class Metadata2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content_metadata_view_model: ContentMetadataViewModel1 = Field(..., alias='contentMetadataViewModel')
 
 class Description1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content: str
 
 class StyleRun3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     start_index: int = Field(..., alias='startIndex')
     length: int
     weight: int
 
 class TruncationText(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content: str
     style_runs: list[StyleRun3] = Field(..., alias='styleRuns')
 
 class LoggingDirectives4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     visibility: Visibility
 
-class LoggingContext6(BaseModel):
+class LoggingContext8(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     logging_directives: LoggingDirectives4 = Field(..., alias='loggingDirectives')
 
 class AccessibilityContext(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: str
 
-class Title6(BaseModel):
+class Title7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     simple_text: str = Field(..., alias='simpleText')
 
 class AccessibilityData9(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: str
 
 class AccessibilityData8(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     accessibility_data: AccessibilityData9 = Field(..., alias='accessibilityData')
 
 class Command3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     change_engagement_panel_visibility_action: ChangeEngagementPanelVisibilityAction = Field(..., alias='changeEngagementPanelVisibilityAction')
 
 class ButtonRenderer6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
-    icon: Icon4
+    icon: Icon6
     accessibility: Accessibility
     tracking_params: str = Field(..., alias='trackingParams')
     accessibility_data: AccessibilityData8 = Field(..., alias='accessibilityData')
     command: Command3
 
 class VisibilityButton3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer6 = Field(..., alias='buttonRenderer')
 
 class EngagementPanelTitleHeaderRenderer3(BaseModel):
-    title: Title6
+    model_config = ConfigDict(defer_build=True)
+    title: Title7
     visibility_button: VisibilityButton3 = Field(..., alias='visibilityButton')
     tracking_params: str = Field(..., alias='trackingParams')
 
 class Header4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_title_header_renderer: EngagementPanelTitleHeaderRenderer3 = Field(..., alias='engagementPanelTitleHeaderRenderer')
 
-class CommandMetadata8(BaseModel):
-    web_command_metadata: WebCommandMetadata7 = Field(..., alias='webCommandMetadata')
+class CommandMetadata14(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata13 = Field(..., alias='webCommandMetadata')
 
-class ContinuationEndpoint3(BaseModel):
+class ContinuationEndpoint4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata8 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata14 = Field(..., alias='commandMetadata')
     continuation_command: ContinuationCommand = Field(..., alias='continuationCommand')
 
-class ContinuationItemRenderer3(BaseModel):
+class ContinuationItemRenderer4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     trigger: str
-    continuation_endpoint: ContinuationEndpoint3 = Field(..., alias='continuationEndpoint')
+    continuation_endpoint: ContinuationEndpoint4 = Field(..., alias='continuationEndpoint')
 
 class Content16(BaseModel):
-    continuation_item_renderer: ContinuationItemRenderer3 = Field(..., alias='continuationItemRenderer')
+    model_config = ConfigDict(defer_build=True)
+    continuation_item_renderer: ContinuationItemRenderer4 = Field(..., alias='continuationItemRenderer')
 
 class ItemSectionRenderer4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     contents: list[Content16]
     tracking_params: str = Field(..., alias='trackingParams')
     section_identifier: UUID = Field(..., alias='sectionIdentifier')
     target_id: UUID = Field(..., alias='targetId')
 
 class Content15(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     item_section_renderer: ItemSectionRenderer4 = Field(..., alias='itemSectionRenderer')
 
 class SectionListRenderer4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     contents: list[Content15]
     tracking_params: str = Field(..., alias='trackingParams')
     scroll_pane_style: ScrollPaneStyle = Field(..., alias='scrollPaneStyle')
 
 class Content14(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     section_list_renderer: SectionListRenderer4 = Field(..., alias='sectionListRenderer')
 
 class EngagementPanelSectionListRenderer3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     header: Header4
     content: Content14
     target_id: UUID = Field(..., alias='targetId')
     identifier: Identifier
 
 class EngagementPanel3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_section_list_renderer: EngagementPanelSectionListRenderer3 = Field(..., alias='engagementPanelSectionListRenderer')
 
 class EngagementPanelPresentationConfigs3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel_popup_presentation_config: EngagementPanelPopupPresentationConfig = Field(..., alias='engagementPanelPopupPresentationConfig')
 
 class ShowEngagementPanelEndpoint3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     engagement_panel: EngagementPanel3 = Field(..., alias='engagementPanel')
     identifier: Identifier
     engagement_panel_presentation_configs: EngagementPanelPresentationConfigs3 = Field(..., alias='engagementPanelPresentationConfigs')
 
 class InnertubeCommand4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     show_engagement_panel_endpoint: ShowEngagementPanelEndpoint3 = Field(..., alias='showEngagementPanelEndpoint')
 
 class OnTap2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     innertube_command: InnertubeCommand4 = Field(..., alias='innertubeCommand')
 
 class CommandContext1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     on_tap: OnTap2 = Field(..., alias='onTap')
 
 class RendererContext3(BaseModel):
-    logging_context: LoggingContext6 = Field(..., alias='loggingContext')
+    model_config = ConfigDict(defer_build=True)
+    logging_context: LoggingContext8 = Field(..., alias='loggingContext')
     accessibility_context: AccessibilityContext = Field(..., alias='accessibilityContext')
     command_context: CommandContext1 = Field(..., alias='commandContext')
 
 class DescriptionPreviewViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     description: Description1
     max_lines: int = Field(..., alias='maxLines')
     truncation_text: TruncationText = Field(..., alias='truncationText')
@@ -936,159 +1505,201 @@ class DescriptionPreviewViewModel(BaseModel):
     renderer_context: RendererContext3 = Field(..., alias='rendererContext')
 
 class Description(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     description_preview_view_model: DescriptionPreviewViewModel = Field(..., alias='descriptionPreviewViewModel')
 
-class WebCommandMetadata9(BaseModel):
+class WebCommandMetadata15(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     web_page_type: str = Field(..., alias='webPageType')
     root_ve: int = Field(..., alias='rootVe')
 
-class CommandMetadata9(BaseModel):
-    web_command_metadata: WebCommandMetadata9 = Field(..., alias='webCommandMetadata')
+class CommandMetadata15(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata15 = Field(..., alias='webCommandMetadata')
 
 class UrlEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     target: str
 
 class InnertubeCommand5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata9 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata15 = Field(..., alias='commandMetadata')
     url_endpoint: UrlEndpoint = Field(..., alias='urlEndpoint')
 
 class OnTap3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     innertube_command: InnertubeCommand5 = Field(..., alias='innertubeCommand')
 
 class LoggingDirectives5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     visibility: Visibility
 
 class CommandRun1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     start_index: int = Field(..., alias='startIndex')
     length: int
     on_tap: OnTap3 = Field(..., alias='onTap')
     logging_directives: LoggingDirectives5 = Field(..., alias='loggingDirectives')
 
 class ColorMapItem(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     key: str
     value: int
 
 class StyleRunColorMapExtension(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     color_map: list[ColorMapItem] = Field(..., alias='colorMap')
 
 class StyleRunExtensions(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style_run_color_map_extension: StyleRunColorMapExtension = Field(..., alias='styleRunColorMapExtension')
 
 class StyleRun4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     weight_label: str = Field(..., alias='weightLabel')
     style_run_extensions: StyleRunExtensions = Field(..., alias='styleRunExtensions')
 
 class ClientResource2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     icon: str
 
 class YoutubeIconSource(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     client_resource: ClientResource2 = Field(..., alias='clientResource')
 
 class CustomImageSource(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     youtube_icon_source: YoutubeIconSource = Field(..., alias='youtubeIconSource')
 
 class Source4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     custom_image_source: CustomImageSource = Field(..., alias='customImageSource')
 
 class Image3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     sources: list[Source4]
 
 class ImageType(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     image: Image3
 
 class Type(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     image_type: ImageType = Field(..., alias='imageType')
 
 class Height(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     value: int
     unit: str
 
 class Width(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     value: int
     unit: str
 
 class LayoutProperties(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     height: Height
     width: Width
 
 class Properties(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     layout_properties: LayoutProperties = Field(..., alias='layoutProperties')
 
 class Element(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     type: Type
     properties: Properties
 
 class AttachmentRun(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     start_index: int = Field(..., alias='startIndex')
     length: int
     element: Element
     alignment: str
 
-class Text5(BaseModel):
+class Text8(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content: str
     command_runs: list[CommandRun1] = Field(..., alias='commandRuns')
     style_runs: list[StyleRun4] = Field(..., alias='styleRuns')
     attachment_runs: list[AttachmentRun] = Field(..., alias='attachmentRuns')
 
 class LoggingDirectives6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     visibility: Visibility
 
-class LoggingContext7(BaseModel):
+class LoggingContext9(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     logging_directives: LoggingDirectives6 = Field(..., alias='loggingDirectives')
 
 class RendererContext4(BaseModel):
-    logging_context: LoggingContext7 = Field(..., alias='loggingContext')
+    model_config = ConfigDict(defer_build=True)
+    logging_context: LoggingContext9 = Field(..., alias='loggingContext')
 
 class AttributionViewModel(BaseModel):
-    text: Text5
+    model_config = ConfigDict(defer_build=True)
+    text: Text8
     renderer_context: RendererContext4 = Field(..., alias='rendererContext')
 
 class Attribution(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     attribution_view_model: AttributionViewModel = Field(..., alias='attributionViewModel')
 
 class Source5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     width: int
     height: int
 
 class Image4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     sources: list[Source5]
 
 class LoggingDirectives7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     visibility: Visibility
 
-class LoggingContext8(BaseModel):
+class LoggingContext10(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     logging_directives: LoggingDirectives7 = Field(..., alias='loggingDirectives')
 
 class RendererContext5(BaseModel):
-    logging_context: LoggingContext8 = Field(..., alias='loggingContext')
+    model_config = ConfigDict(defer_build=True)
+    logging_context: LoggingContext10 = Field(..., alias='loggingContext')
 
 class ImageBannerViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     image: Image4
     style: str
     renderer_context: RendererContext5 = Field(..., alias='rendererContext')
 
 class Banner(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     image_banner_view_model: ImageBannerViewModel = Field(..., alias='imageBannerViewModel')
 
 class LoggingDirectives8(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     visibility: Visibility
 
-class LoggingContext9(BaseModel):
+class LoggingContext11(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     logging_directives: LoggingDirectives8 = Field(..., alias='loggingDirectives')
 
 class RendererContext6(BaseModel):
-    logging_context: LoggingContext9 = Field(..., alias='loggingContext')
+    model_config = ConfigDict(defer_build=True)
+    logging_context: LoggingContext11 = Field(..., alias='loggingContext')
 
 class PageHeaderViewModel(BaseModel):
-    title: Title5
+    model_config = ConfigDict(defer_build=True)
+    title: Title6
     image: Image1
     metadata: Metadata2
     description: Description
@@ -1097,24 +1708,30 @@ class PageHeaderViewModel(BaseModel):
     renderer_context: RendererContext6 = Field(..., alias='rendererContext')
 
 class Content13(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     page_header_view_model: PageHeaderViewModel = Field(..., alias='pageHeaderViewModel')
 
 class PageHeaderRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     page_title: str = Field(..., alias='pageTitle')
     content: Content13
 
 class Header3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     page_header_renderer: PageHeaderRenderer = Field(..., alias='pageHeaderRenderer')
 
-class Thumbnail(BaseModel):
+class Thumbnail5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     width: int
     height: int
 
 class Avatar1(BaseModel):
-    thumbnails: list[Thumbnail]
+    model_config = ConfigDict(defer_build=True)
+    thumbnails: list[Thumbnail5]
 
 class ChannelMetadataRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     title: str
     description: str
     rss_url: str = Field(..., alias='rssUrl')
@@ -1132,35 +1749,44 @@ class ChannelMetadataRenderer(BaseModel):
     vanity_channel_url: str = Field(..., alias='vanityChannelUrl')
 
 class Metadata3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     channel_metadata_renderer: ChannelMetadataRenderer = Field(..., alias='channelMetadataRenderer')
 
 class IconImage(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     icon_type: str = Field(..., alias='iconType')
 
-class Run1(BaseModel):
+class Run9(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     text: str
 
 class TooltipText(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
-class WebCommandMetadata10(BaseModel):
+class WebCommandMetadata16(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     web_page_type: str = Field(..., alias='webPageType')
     root_ve: int = Field(..., alias='rootVe')
     api_url: str = Field(..., alias='apiUrl')
 
-class CommandMetadata10(BaseModel):
-    web_command_metadata: WebCommandMetadata10 = Field(..., alias='webCommandMetadata')
+class CommandMetadata16(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata16 = Field(..., alias='webCommandMetadata')
 
-class BrowseEndpoint2(BaseModel):
+class BrowseEndpoint5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     browse_id: str = Field(..., alias='browseId')
 
 class Endpoint2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata10 = Field(..., alias='commandMetadata')
-    browse_endpoint: BrowseEndpoint2 = Field(..., alias='browseEndpoint')
+    command_metadata: CommandMetadata16 = Field(..., alias='commandMetadata')
+    browse_endpoint: BrowseEndpoint5 = Field(..., alias='browseEndpoint')
 
 class TopbarLogoRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     icon_image: IconImage = Field(..., alias='iconImage')
     tooltip_text: TooltipText = Field(..., alias='tooltipText')
     endpoint: Endpoint2
@@ -1168,63 +1794,79 @@ class TopbarLogoRenderer(BaseModel):
     override_entity_key: str = Field(..., alias='overrideEntityKey')
 
 class Logo(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     topbar_logo_renderer: TopbarLogoRenderer = Field(..., alias='topbarLogoRenderer')
 
 class PlaceholderText(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class WebSearchboxConfig(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     request_language: str = Field(..., alias='requestLanguage')
     request_domain: str = Field(..., alias='requestDomain')
     has_onscreen_keyboard: bool = Field(..., alias='hasOnscreenKeyboard')
     focus_searchbox: bool = Field(..., alias='focusSearchbox')
 
 class Config(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     web_searchbox_config: WebSearchboxConfig = Field(..., alias='webSearchboxConfig')
 
-class WebCommandMetadata11(BaseModel):
+class WebCommandMetadata17(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     web_page_type: str = Field(..., alias='webPageType')
     root_ve: int = Field(..., alias='rootVe')
 
-class CommandMetadata11(BaseModel):
-    web_command_metadata: WebCommandMetadata11 = Field(..., alias='webCommandMetadata')
+class CommandMetadata17(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata17 = Field(..., alias='webCommandMetadata')
 
 class SearchEndpoint1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     query: str
 
 class SearchEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata11 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata17 = Field(..., alias='commandMetadata')
     search_endpoint: SearchEndpoint1 = Field(..., alias='searchEndpoint')
 
 class AccessibilityData11(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: str
 
 class AccessibilityData10(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     accessibility_data: AccessibilityData11 = Field(..., alias='accessibilityData')
 
 class ButtonRenderer7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
-    icon: Icon4
+    icon: Icon6
     tracking_params: str = Field(..., alias='trackingParams')
     accessibility_data: AccessibilityData10 = Field(..., alias='accessibilityData')
 
 class ClearButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer7 = Field(..., alias='buttonRenderer')
 
 class Headline(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content: str
 
 class DialogHeaderViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     headline: Headline
 
 class Header5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     dialog_header_view_model: DialogHeaderViewModel = Field(..., alias='dialogHeaderViewModel')
 
 class ButtonViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     title: str
     style: str
     tracking_params: str = Field(..., alias='trackingParams')
@@ -1232,51 +1874,65 @@ class ButtonViewModel(BaseModel):
     type: str
 
 class PrimaryButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_view_model: ButtonViewModel = Field(..., alias='buttonViewModel')
 
 class SecondaryButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_view_model: ButtonViewModel = Field(..., alias='buttonViewModel')
 
 class PanelFooterViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     primary_button: PrimaryButton = Field(..., alias='primaryButton')
     secondary_button: SecondaryButton = Field(..., alias='secondaryButton')
     should_hide_divider: bool = Field(..., alias='shouldHideDivider')
 
 class Footer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     panel_footer_view_model: PanelFooterViewModel = Field(..., alias='panelFooterViewModel')
 
-class Text6(BaseModel):
+class Text9(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     content: str
 
 class Paragraph(BaseModel):
-    text: Text6
+    model_config = ConfigDict(defer_build=True)
+    text: Text9
 
 class BasicContentViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     paragraphs: list[Paragraph]
 
 class Content17(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     basic_content_view_model: BasicContentViewModel = Field(..., alias='basicContentViewModel')
 
 class DialogViewModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     header: Header5
     footer: Footer
     content: Content17
 
 class InlineContent(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     dialog_view_model: DialogViewModel = Field(..., alias='dialogViewModel')
 
 class PanelLoadingStrategy(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     inline_content: InlineContent = Field(..., alias='inlineContent')
 
 class ShowDialogCommand(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     panel_loading_strategy: PanelLoadingStrategy = Field(..., alias='panelLoadingStrategy')
 
 class ShowImageSourceDialog(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     show_dialog_command: ShowDialogCommand = Field(..., alias='showDialogCommand')
 
 class FusionSearchboxRenderer(BaseModel):
-    icon: Icon4
+    model_config = ConfigDict(defer_build=True)
+    icon: Icon6
     placeholder_text: PlaceholderText = Field(..., alias='placeholderText')
     config: Config
     tracking_params: str = Field(..., alias='trackingParams')
@@ -1286,278 +1942,350 @@ class FusionSearchboxRenderer(BaseModel):
     disable_ai_appearance: bool = Field(..., alias='disableAiAppearance')
 
 class Searchbox(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     fusion_searchbox_renderer: FusionSearchboxRenderer = Field(..., alias='fusionSearchboxRenderer')
 
-class WebCommandMetadata12(BaseModel):
+class WebCommandMetadata18(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     send_post: bool = Field(..., alias='sendPost')
     api_url: str = Field(..., alias='apiUrl')
 
-class CommandMetadata12(BaseModel):
-    web_command_metadata: WebCommandMetadata12 = Field(..., alias='webCommandMetadata')
+class CommandMetadata18(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata18 = Field(..., alias='webCommandMetadata')
 
 class MultiPageMenuRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     style: str
     show_loading_spinner: bool = Field(..., alias='showLoadingSpinner')
 
 class Popup(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     multi_page_menu_renderer: MultiPageMenuRenderer = Field(..., alias='multiPageMenuRenderer')
 
 class OpenPopupAction(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     popup: Popup
     popup_type: str = Field(..., alias='popupType')
     be_reused: bool = Field(..., alias='beReused')
 
 class Action(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     open_popup_action: OpenPopupAction = Field(..., alias='openPopupAction')
 
 class SignalServiceEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     signal: str
     actions: list[Action]
 
 class MenuRequest(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata12 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata18 = Field(..., alias='commandMetadata')
     signal_service_endpoint: SignalServiceEndpoint = Field(..., alias='signalServiceEndpoint')
 
 class AccessibilityData12(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: str
 
 class Accessibility6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     accessibility_data: AccessibilityData12 = Field(..., alias='accessibilityData')
 
 class TopbarMenuButtonRenderer(BaseModel):
-    icon: Icon4
+    model_config = ConfigDict(defer_build=True)
+    icon: Icon6
     menu_request: MenuRequest = Field(..., alias='menuRequest')
     tracking_params: str = Field(..., alias='trackingParams')
     accessibility: Accessibility6
     tooltip: str
     style: str
 
-class Text7(BaseModel):
-    runs: list[Run1]
+class Text10(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
-class WebCommandMetadata13(BaseModel):
+class WebCommandMetadata19(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     web_page_type: str = Field(..., alias='webPageType')
     root_ve: int = Field(..., alias='rootVe')
 
-class CommandMetadata13(BaseModel):
-    web_command_metadata: WebCommandMetadata13 = Field(..., alias='webCommandMetadata')
+class CommandMetadata19(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata19 = Field(..., alias='webCommandMetadata')
 
 class SignInEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     idam_tag: str = Field(..., alias='idamTag')
 
-class NavigationEndpoint2(BaseModel):
+class NavigationEndpoint7(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata13 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata19 = Field(..., alias='commandMetadata')
     sign_in_endpoint: SignInEndpoint = Field(..., alias='signInEndpoint')
 
 class ButtonRenderer8(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
-    text: Text7
-    icon: Icon4
-    navigation_endpoint: NavigationEndpoint2 = Field(..., alias='navigationEndpoint')
+    text: Text10
+    icon: Icon6
+    navigation_endpoint: NavigationEndpoint7 = Field(..., alias='navigationEndpoint')
     tracking_params: str = Field(..., alias='trackingParams')
     target_id: str = Field(..., alias='targetId')
 
 class TopbarButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     topbar_menu_button_renderer: TopbarMenuButtonRenderer | None = Field(None, alias='topbarMenuButtonRenderer')
     button_renderer: ButtonRenderer8 | None = Field(None, alias='buttonRenderer')
 
-class Title7(BaseModel):
-    runs: list[Run1]
-
 class Title8(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
+
+class Title9(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class Label(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class HotkeyAccessibilityLabel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     accessibility_data: AccessibilityData12 = Field(..., alias='accessibilityData')
 
 class HotkeyDialogSectionOptionRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: Label
     hotkey: str
     hotkey_accessibility_label: HotkeyAccessibilityLabel | None = Field(None, alias='hotkeyAccessibilityLabel')
 
 class Option(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     hotkey_dialog_section_option_renderer: HotkeyDialogSectionOptionRenderer = Field(..., alias='hotkeyDialogSectionOptionRenderer')
 
 class HotkeyDialogSectionRenderer(BaseModel):
-    title: Title8
+    model_config = ConfigDict(defer_build=True)
+    title: Title9
     options: list[Option]
 
 class Section(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     hotkey_dialog_section_renderer: HotkeyDialogSectionRenderer = Field(..., alias='hotkeyDialogSectionRenderer')
 
-class Text8(BaseModel):
-    runs: list[Run1]
+class Text11(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class ButtonRenderer9(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
-    text: Text8
+    text: Text11
     tracking_params: str = Field(..., alias='trackingParams')
 
 class DismissButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer9 = Field(..., alias='buttonRenderer')
 
 class HotkeyDialogRenderer(BaseModel):
-    title: Title7
+    model_config = ConfigDict(defer_build=True)
+    title: Title8
     sections: list[Section]
     dismiss_button: DismissButton = Field(..., alias='dismissButton')
     tracking_params: str = Field(..., alias='trackingParams')
 
 class HotkeyDialog(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     hotkey_dialog_renderer: HotkeyDialogRenderer = Field(..., alias='hotkeyDialogRenderer')
 
-class WebCommandMetadata14(BaseModel):
+class WebCommandMetadata20(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     send_post: bool = Field(..., alias='sendPost')
 
-class CommandMetadata14(BaseModel):
-    web_command_metadata: WebCommandMetadata14 = Field(..., alias='webCommandMetadata')
+class CommandMetadata20(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata20 = Field(..., alias='webCommandMetadata')
 
 class SignalAction(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     signal: str
 
 class Action1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     signal_action: SignalAction = Field(..., alias='signalAction')
 
 class SignalServiceEndpoint1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     signal: str
     actions: list[Action1]
 
 class Command4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata14 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata20 = Field(..., alias='commandMetadata')
     signal_service_endpoint: SignalServiceEndpoint1 = Field(..., alias='signalServiceEndpoint')
 
 class ButtonRenderer10(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     command: Command4
 
 class BackButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer10 = Field(..., alias='buttonRenderer')
 
-class CommandMetadata15(BaseModel):
-    web_command_metadata: WebCommandMetadata14 = Field(..., alias='webCommandMetadata')
+class CommandMetadata21(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata20 = Field(..., alias='webCommandMetadata')
 
 class Action2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     signal_action: SignalAction = Field(..., alias='signalAction')
 
 class SignalServiceEndpoint2(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     signal: str
     actions: list[Action2]
 
 class Command5(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata15 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata21 = Field(..., alias='commandMetadata')
     signal_service_endpoint: SignalServiceEndpoint2 = Field(..., alias='signalServiceEndpoint')
 
 class ButtonRenderer11(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     tracking_params: str = Field(..., alias='trackingParams')
     command: Command5
 
 class ForwardButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer11 = Field(..., alias='buttonRenderer')
 
-class Text9(BaseModel):
-    runs: list[Run1]
+class Text12(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
-class CommandMetadata16(BaseModel):
-    web_command_metadata: WebCommandMetadata14 = Field(..., alias='webCommandMetadata')
+class CommandMetadata22(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata20 = Field(..., alias='webCommandMetadata')
 
 class Action3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     signal_action: SignalAction = Field(..., alias='signalAction')
 
 class SignalServiceEndpoint3(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     signal: str
     actions: list[Action3]
 
 class Command6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata16 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata22 = Field(..., alias='commandMetadata')
     signal_service_endpoint: SignalServiceEndpoint3 = Field(..., alias='signalServiceEndpoint')
 
 class ButtonRenderer12(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
-    text: Text9
+    text: Text12
     tracking_params: str = Field(..., alias='trackingParams')
     command: Command6
 
 class A11ySkipNavigationButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer12 = Field(..., alias='buttonRenderer')
 
-class CommandMetadata17(BaseModel):
-    web_command_metadata: WebCommandMetadata14 = Field(..., alias='webCommandMetadata')
+class CommandMetadata23(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    web_command_metadata: WebCommandMetadata20 = Field(..., alias='webCommandMetadata')
 
 class PlaceholderHeader(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class PromptHeader(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class ExampleQuery1(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class ExampleQuery2(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class PromptMicrophoneLabel(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class LoadingHeader(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class ConnectionErrorHeader(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class ConnectionErrorMicrophoneLabel(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class PermissionsHeader(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class PermissionsSubtext(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class DisabledHeader(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class DisabledSubtext(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class MicrophoneButtonAriaLabel(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class AccessibilityData14(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     accessibility_data: AccessibilityData12 = Field(..., alias='accessibilityData')
 
 class ButtonRenderer14(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
-    icon: Icon4
+    icon: Icon6
     tracking_params: str = Field(..., alias='trackingParams')
     accessibility_data: AccessibilityData14 = Field(..., alias='accessibilityData')
 
 class ExitButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer14 = Field(..., alias='buttonRenderer')
 
 class MicrophoneOffPromptHeader(BaseModel):
-    runs: list[Run1]
+    model_config = ConfigDict(defer_build=True)
+    runs: list[Run9]
 
 class VoiceSearchDialogRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     placeholder_header: PlaceholderHeader = Field(..., alias='placeholderHeader')
     prompt_header: PromptHeader = Field(..., alias='promptHeader')
     example_query1: ExampleQuery1 = Field(..., alias='exampleQuery1')
@@ -1576,45 +2304,55 @@ class VoiceSearchDialogRenderer(BaseModel):
     microphone_off_prompt_header: MicrophoneOffPromptHeader = Field(..., alias='microphoneOffPromptHeader')
 
 class Popup1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     voice_search_dialog_renderer: VoiceSearchDialogRenderer = Field(..., alias='voiceSearchDialogRenderer')
 
 class OpenPopupAction1(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     popup: Popup1
     popup_type: str = Field(..., alias='popupType')
 
 class Action4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
     open_popup_action: OpenPopupAction1 = Field(..., alias='openPopupAction')
 
 class SignalServiceEndpoint4(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     signal: str
     actions: list[Action4]
 
 class ServiceEndpoint(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata17 = Field(..., alias='commandMetadata')
+    command_metadata: CommandMetadata23 = Field(..., alias='commandMetadata')
     signal_service_endpoint: SignalServiceEndpoint4 = Field(..., alias='signalServiceEndpoint')
 
 class AccessibilityData17(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     label: str
 
 class AccessibilityData16(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     accessibility_data: AccessibilityData17 = Field(..., alias='accessibilityData')
 
 class ButtonRenderer13(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     style: str
     size: str
     is_disabled: bool = Field(..., alias='isDisabled')
     service_endpoint: ServiceEndpoint = Field(..., alias='serviceEndpoint')
-    icon: Icon4
+    icon: Icon6
     tooltip: str
     tracking_params: str = Field(..., alias='trackingParams')
     accessibility_data: AccessibilityData16 = Field(..., alias='accessibilityData')
 
 class VoiceSearchButton(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     button_renderer: ButtonRenderer13 = Field(..., alias='buttonRenderer')
 
 class DesktopTopbarRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     logo: Logo
     searchbox: Searchbox
     tracking_params: str = Field(..., alias='trackingParams')
@@ -1626,19 +2364,23 @@ class DesktopTopbarRenderer(BaseModel):
     voice_search_button: VoiceSearchButton = Field(..., alias='voiceSearchButton')
 
 class Topbar(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     desktop_topbar_renderer: DesktopTopbarRenderer = Field(..., alias='desktopTopbarRenderer')
 
-class Thumbnail1(BaseModel):
-    thumbnails: list[Thumbnail]
+class Thumbnail6(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    thumbnails: list[Thumbnail5]
 
 class LinkAlternate(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     href_url: str = Field(..., alias='hrefUrl')
 
 class MicroformatDataRenderer(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url_canonical: str = Field(..., alias='urlCanonical')
     title: str
     description: str
-    thumbnail: Thumbnail1
+    thumbnail: Thumbnail6
     site_name: str = Field(..., alias='siteName')
     app_name: str = Field(..., alias='appName')
     android_package: str = Field(..., alias='androidPackage')
@@ -1660,514 +2402,19 @@ class MicroformatDataRenderer(BaseModel):
     link_alternates: list[LinkAlternate] = Field(..., alias='linkAlternates')
 
 class Microformat(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     microformat_data_renderer: MicroformatDataRenderer = Field(..., alias='microformatDataRenderer')
 
-class Thumbnail4(BaseModel):
-    url: str
-    width: int
-    height: int
-
-class SampledThumbnailColor(BaseModel):
-    red: int
-    green: int
-    blue: int
-
-class DarkColorPalette(BaseModel):
-    section2_color: int = Field(..., alias='section2Color')
-    icon_inactive_color: int = Field(..., alias='iconInactiveColor')
-    icon_disabled_color: int = Field(..., alias='iconDisabledColor')
-
-class VibrantColorPalette(BaseModel):
-    icon_inactive_color: int = Field(..., alias='iconInactiveColor')
-
-class Thumbnail3(BaseModel):
-    thumbnails: list[Thumbnail4]
-    sampled_thumbnail_color: SampledThumbnailColor = Field(..., alias='sampledThumbnailColor')
-    dark_color_palette: DarkColorPalette = Field(..., alias='darkColorPalette')
-    vibrant_color_palette: VibrantColorPalette = Field(..., alias='vibrantColorPalette')
-
-class WebCommandMetadata18(BaseModel):
-    url: str
-    web_page_type: str = Field(..., alias='webPageType')
-    root_ve: int = Field(..., alias='rootVe')
-
-class CommandMetadata18(BaseModel):
-    web_command_metadata: WebCommandMetadata18 = Field(..., alias='webCommandMetadata')
-
-class LoggingContext10(BaseModel):
-    vss_logging_context: VssLoggingContext = Field(..., alias='vssLoggingContext')
-
-class Html5PlaybackOnesieConfig3(BaseModel):
-    common_config: CommonConfig = Field(..., alias='commonConfig')
-
-class WatchEndpointSupportedOnesieConfig3(BaseModel):
-    html5_playback_onesie_config: Html5PlaybackOnesieConfig3 = Field(..., alias='html5PlaybackOnesieConfig')
-
-class WatchEndpoint3(BaseModel):
-    video_id: str = Field(..., alias='videoId')
-    playlist_id: str = Field(..., alias='playlistId')
-    params: str
-    logging_context: LoggingContext10 = Field(..., alias='loggingContext')
-    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig3 = Field(..., alias='watchEndpointSupportedOnesieConfig')
-    player_params: str | None = Field(None, alias='playerParams')
-
-class NavigationEndpoint3(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata18 = Field(..., alias='commandMetadata')
-    watch_endpoint: WatchEndpoint3 = Field(..., alias='watchEndpoint')
-
-class Run23(BaseModel):
-    text: str
-    navigation_endpoint: NavigationEndpoint3 = Field(..., alias='navigationEndpoint')
-
-class Title9(BaseModel):
-    runs: list[Run23]
-
-class WebCommandMetadata19(BaseModel):
-    url: str
-    web_page_type: str = Field(..., alias='webPageType')
-    root_ve: int = Field(..., alias='rootVe')
-    api_url: str = Field(..., alias='apiUrl')
-
-class CommandMetadata19(BaseModel):
-    web_command_metadata: WebCommandMetadata19 = Field(..., alias='webCommandMetadata')
-
-class BrowseEndpoint3(BaseModel):
-    browse_id: str = Field(..., alias='browseId')
-    canonical_base_url: str = Field(..., alias='canonicalBaseUrl')
-
-class NavigationEndpoint4(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata19 = Field(..., alias='commandMetadata')
-    browse_endpoint: BrowseEndpoint3 = Field(..., alias='browseEndpoint')
-
-class Run24(BaseModel):
-    text: str
-    navigation_endpoint: NavigationEndpoint4 | None = Field(None, alias='navigationEndpoint')
-
-class ShortBylineText(BaseModel):
-    runs: list[Run24]
-
-class Run25(BaseModel):
-    text: str
-
-class VideoCountText(BaseModel):
-    runs: list[Run25]
-
-class WebCommandMetadata20(BaseModel):
-    url: str
-    web_page_type: str = Field(..., alias='webPageType')
-    root_ve: int = Field(..., alias='rootVe')
-
-class CommandMetadata20(BaseModel):
-    web_command_metadata: WebCommandMetadata20 = Field(..., alias='webCommandMetadata')
-
-class LoggingContext11(BaseModel):
-    vss_logging_context: VssLoggingContext = Field(..., alias='vssLoggingContext')
-
-class Html5PlaybackOnesieConfig4(BaseModel):
-    common_config: CommonConfig = Field(..., alias='commonConfig')
-
-class WatchEndpointSupportedOnesieConfig4(BaseModel):
-    html5_playback_onesie_config: Html5PlaybackOnesieConfig4 = Field(..., alias='html5PlaybackOnesieConfig')
-
-class WatchEndpoint4(BaseModel):
-    video_id: str = Field(..., alias='videoId')
-    playlist_id: str = Field(..., alias='playlistId')
-    params: str
-    logging_context: LoggingContext11 = Field(..., alias='loggingContext')
-    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig4 = Field(..., alias='watchEndpointSupportedOnesieConfig')
-    player_params: str | None = Field(None, alias='playerParams')
-
-class NavigationEndpoint5(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata20 = Field(..., alias='commandMetadata')
-    watch_endpoint: WatchEndpoint4 = Field(..., alias='watchEndpoint')
-
-class VideoCountShortText(BaseModel):
-    simple_text: str = Field(..., alias='simpleText')
-
-class Thumbnail5(BaseModel):
-    url: str
-    width: int
-    height: int
-
-class SidebarThumbnail(BaseModel):
-    thumbnails: list[Thumbnail5]
-
-class Run26(BaseModel):
-    text: str
-    bold: bool | None = None
-
-class ThumbnailText(BaseModel):
-    runs: list[Run26]
-
-class Thumbnail6(BaseModel):
-    thumbnails: list[Thumbnail5]
-    sampled_thumbnail_color: SampledThumbnailColor = Field(..., alias='sampledThumbnailColor')
-    dark_color_palette: DarkColorPalette = Field(..., alias='darkColorPalette')
-    vibrant_color_palette: VibrantColorPalette = Field(..., alias='vibrantColorPalette')
-
-class PlaylistCustomThumbnailRenderer(BaseModel):
-    thumbnail: Thumbnail6
-
-class ThumbnailRenderer(BaseModel):
-    playlist_custom_thumbnail_renderer: PlaylistCustomThumbnailRenderer = Field(..., alias='playlistCustomThumbnailRenderer')
-
-class WebCommandMetadata21(BaseModel):
-    url: str
-    web_page_type: str = Field(..., alias='webPageType')
-    root_ve: int = Field(..., alias='rootVe')
-    api_url: str = Field(..., alias='apiUrl')
-
-class CommandMetadata21(BaseModel):
-    web_command_metadata: WebCommandMetadata21 = Field(..., alias='webCommandMetadata')
-
-class NavigationEndpoint6(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata21 = Field(..., alias='commandMetadata')
-    browse_endpoint: BrowseEndpoint3 = Field(..., alias='browseEndpoint')
-
-class Run27(BaseModel):
-    text: str
-    navigation_endpoint: NavigationEndpoint6 | None = Field(None, alias='navigationEndpoint')
-
-class LongBylineText(BaseModel):
-    runs: list[Run27]
-
-class Text10(BaseModel):
-    simple_text: str = Field(..., alias='simpleText')
-
-class ThumbnailOverlayBottomPanelRenderer(BaseModel):
-    text: Text10
-    icon: Icon4
-
-class Run28(BaseModel):
-    text: str
-
-class Text11(BaseModel):
-    runs: list[Run28]
-
-class ThumbnailOverlayHoverTextRenderer(BaseModel):
-    text: Text11
-    icon: Icon4
-
-class Text12(BaseModel):
-    runs: list[Run28]
-
-class ThumbnailOverlayNowPlayingRenderer(BaseModel):
-    text: Text12
-
-class ThumbnailOverlay(BaseModel):
-    thumbnail_overlay_bottom_panel_renderer: ThumbnailOverlayBottomPanelRenderer | None = Field(None, alias='thumbnailOverlayBottomPanelRenderer')
-    thumbnail_overlay_hover_text_renderer: ThumbnailOverlayHoverTextRenderer | None = Field(None, alias='thumbnailOverlayHoverTextRenderer')
-    thumbnail_overlay_now_playing_renderer: ThumbnailOverlayNowPlayingRenderer | None = Field(None, alias='thumbnailOverlayNowPlayingRenderer')
-
-class CommandMetadata22(BaseModel):
-    web_command_metadata: WebCommandMetadata21 = Field(..., alias='webCommandMetadata')
-
-class BrowseEndpoint5(BaseModel):
-    browse_id: str = Field(..., alias='browseId')
-
-class NavigationEndpoint7(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata22 = Field(..., alias='commandMetadata')
-    browse_endpoint: BrowseEndpoint5 = Field(..., alias='browseEndpoint')
-
-class Run30(BaseModel):
-    text: str
-    navigation_endpoint: NavigationEndpoint7 = Field(..., alias='navigationEndpoint')
-
-class ViewPlaylistText(BaseModel):
-    runs: list[Run30]
-
-class PublishedTimeText(BaseModel):
-    simple_text: str = Field(..., alias='simpleText')
-
-class GridPlaylistRenderer(BaseModel):
-    playlist_id: str = Field(..., alias='playlistId')
-    thumbnail: Thumbnail3
-    title: Title9
-    short_byline_text: ShortBylineText = Field(..., alias='shortBylineText')
-    video_count_text: VideoCountText = Field(..., alias='videoCountText')
-    navigation_endpoint: NavigationEndpoint5 = Field(..., alias='navigationEndpoint')
-    video_count_short_text: VideoCountShortText = Field(..., alias='videoCountShortText')
-    tracking_params: str = Field(..., alias='trackingParams')
-    sidebar_thumbnails: list[SidebarThumbnail] | None = Field(None, alias='sidebarThumbnails')
-    thumbnail_text: ThumbnailText = Field(..., alias='thumbnailText')
-    thumbnail_renderer: ThumbnailRenderer = Field(..., alias='thumbnailRenderer')
-    long_byline_text: LongBylineText = Field(..., alias='longBylineText')
-    thumbnail_overlays: list[ThumbnailOverlay] = Field(..., alias='thumbnailOverlays')
-    view_playlist_text: ViewPlaylistText = Field(..., alias='viewPlaylistText')
-    published_time_text: PublishedTimeText | None = Field(None, alias='publishedTimeText')
-
-class WebCommandMetadata23(BaseModel):
-    send_post: bool = Field(..., alias='sendPost')
-    api_url: str = Field(..., alias='apiUrl')
-
-class CommandMetadata23(BaseModel):
-    web_command_metadata: WebCommandMetadata23 = Field(..., alias='webCommandMetadata')
-
-class ContinuationEndpoint4(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata23 = Field(..., alias='commandMetadata')
-    continuation_command: ContinuationCommand = Field(..., alias='continuationCommand')
-
-class ContinuationItemRenderer4(BaseModel):
-    trigger: str
-    continuation_endpoint: ContinuationEndpoint4 = Field(..., alias='continuationEndpoint')
-
-class Item1(BaseModel):
-    grid_playlist_renderer: GridPlaylistRenderer | None = Field(None, alias='gridPlaylistRenderer')
-    continuation_item_renderer: ContinuationItemRenderer4 | None = Field(None, alias='continuationItemRenderer')
-
-class GridRenderer(BaseModel):
-    items: list[Item1]
-    is_collapsible: bool = Field(..., alias='isCollapsible')
-    tracking_params: str = Field(..., alias='trackingParams')
-    target_id: UUID = Field(..., alias='targetId')
-
-class Thumbnail9(BaseModel):
-    url: str
-    width: int
-    height: int
-
-class Thumbnail8(BaseModel):
-    thumbnails: list[Thumbnail9]
-    sampled_thumbnail_color: SampledThumbnailColor = Field(..., alias='sampledThumbnailColor')
-    dark_color_palette: DarkColorPalette = Field(..., alias='darkColorPalette')
-    vibrant_color_palette: VibrantColorPalette = Field(..., alias='vibrantColorPalette')
-
-class WebCommandMetadata24(BaseModel):
-    url: str
-    web_page_type: str = Field(..., alias='webPageType')
-    root_ve: int = Field(..., alias='rootVe')
-
-class CommandMetadata24(BaseModel):
-    web_command_metadata: WebCommandMetadata24 = Field(..., alias='webCommandMetadata')
-
-class LoggingContext12(BaseModel):
-    vss_logging_context: VssLoggingContext = Field(..., alias='vssLoggingContext')
-
-class Html5PlaybackOnesieConfig5(BaseModel):
-    common_config: CommonConfig = Field(..., alias='commonConfig')
-
-class WatchEndpointSupportedOnesieConfig5(BaseModel):
-    html5_playback_onesie_config: Html5PlaybackOnesieConfig5 = Field(..., alias='html5PlaybackOnesieConfig')
-
-class WatchEndpoint5(BaseModel):
-    video_id: str = Field(..., alias='videoId')
-    playlist_id: str = Field(..., alias='playlistId')
-    params: str
-    player_params: str | None = Field(None, alias='playerParams')
-    logging_context: LoggingContext12 = Field(..., alias='loggingContext')
-    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig5 = Field(..., alias='watchEndpointSupportedOnesieConfig')
-
-class NavigationEndpoint8(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata24 = Field(..., alias='commandMetadata')
-    watch_endpoint: WatchEndpoint5 = Field(..., alias='watchEndpoint')
-
-class Run31(BaseModel):
-    text: str
-    navigation_endpoint: NavigationEndpoint8 = Field(..., alias='navigationEndpoint')
-
-class Title10(BaseModel):
-    runs: list[Run31]
-
-class WebCommandMetadata25(BaseModel):
-    url: str
-    web_page_type: str = Field(..., alias='webPageType')
-    root_ve: int = Field(..., alias='rootVe')
-    api_url: str = Field(..., alias='apiUrl')
-
-class CommandMetadata25(BaseModel):
-    web_command_metadata: WebCommandMetadata25 = Field(..., alias='webCommandMetadata')
-
-class BrowseEndpoint6(BaseModel):
-    browse_id: str = Field(..., alias='browseId')
-    canonical_base_url: str = Field(..., alias='canonicalBaseUrl')
-
-class NavigationEndpoint9(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata25 = Field(..., alias='commandMetadata')
-    browse_endpoint: BrowseEndpoint6 = Field(..., alias='browseEndpoint')
-
-class Run32(BaseModel):
-    text: str
-    navigation_endpoint: NavigationEndpoint9 | None = Field(None, alias='navigationEndpoint')
-
-class ShortBylineText1(BaseModel):
-    runs: list[Run32]
-
-class Run33(BaseModel):
-    text: str
-
-class VideoCountText1(BaseModel):
-    runs: list[Run33]
-
-class WebCommandMetadata26(BaseModel):
-    url: str
-    web_page_type: str = Field(..., alias='webPageType')
-    root_ve: int = Field(..., alias='rootVe')
-
-class CommandMetadata26(BaseModel):
-    web_command_metadata: WebCommandMetadata26 = Field(..., alias='webCommandMetadata')
-
-class LoggingContext13(BaseModel):
-    vss_logging_context: VssLoggingContext = Field(..., alias='vssLoggingContext')
-
-class Html5PlaybackOnesieConfig6(BaseModel):
-    common_config: CommonConfig = Field(..., alias='commonConfig')
-
-class WatchEndpointSupportedOnesieConfig6(BaseModel):
-    html5_playback_onesie_config: Html5PlaybackOnesieConfig6 = Field(..., alias='html5PlaybackOnesieConfig')
-
-class WatchEndpoint6(BaseModel):
-    video_id: str = Field(..., alias='videoId')
-    playlist_id: str = Field(..., alias='playlistId')
-    params: str
-    player_params: str | None = Field(None, alias='playerParams')
-    logging_context: LoggingContext13 = Field(..., alias='loggingContext')
-    watch_endpoint_supported_onesie_config: WatchEndpointSupportedOnesieConfig6 = Field(..., alias='watchEndpointSupportedOnesieConfig')
-
-class NavigationEndpoint10(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata26 = Field(..., alias='commandMetadata')
-    watch_endpoint: WatchEndpoint6 = Field(..., alias='watchEndpoint')
-
-class Thumbnail10(BaseModel):
-    url: str
-    width: int
-    height: int
-
-class SidebarThumbnail1(BaseModel):
-    thumbnails: list[Thumbnail10]
-
-class Run34(BaseModel):
-    text: str
-    bold: bool | None = None
-
-class ThumbnailText1(BaseModel):
-    runs: list[Run34]
-
-class Thumbnail11(BaseModel):
-    thumbnails: list[Thumbnail10]
-    sampled_thumbnail_color: SampledThumbnailColor = Field(..., alias='sampledThumbnailColor')
-    dark_color_palette: DarkColorPalette = Field(..., alias='darkColorPalette')
-    vibrant_color_palette: VibrantColorPalette = Field(..., alias='vibrantColorPalette')
-
-class PlaylistCustomThumbnailRenderer1(BaseModel):
-    thumbnail: Thumbnail11
-
-class ThumbnailRenderer1(BaseModel):
-    playlist_custom_thumbnail_renderer: PlaylistCustomThumbnailRenderer1 = Field(..., alias='playlistCustomThumbnailRenderer')
-
-class WebCommandMetadata27(BaseModel):
-    url: str
-    web_page_type: str = Field(..., alias='webPageType')
-    root_ve: int = Field(..., alias='rootVe')
-    api_url: str = Field(..., alias='apiUrl')
-
-class CommandMetadata27(BaseModel):
-    web_command_metadata: WebCommandMetadata27 = Field(..., alias='webCommandMetadata')
-
-class NavigationEndpoint11(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata27 = Field(..., alias='commandMetadata')
-    browse_endpoint: BrowseEndpoint6 = Field(..., alias='browseEndpoint')
-
-class Run35(BaseModel):
-    text: str
-    navigation_endpoint: NavigationEndpoint11 | None = Field(None, alias='navigationEndpoint')
-
-class LongBylineText1(BaseModel):
-    runs: list[Run35]
-
-class Text13(BaseModel):
-    simple_text: str = Field(..., alias='simpleText')
-
-class ThumbnailOverlayBottomPanelRenderer1(BaseModel):
-    text: Text13
-    icon: Icon4
-
-class Run36(BaseModel):
-    text: str
-
-class Text14(BaseModel):
-    runs: list[Run36]
-
-class ThumbnailOverlayHoverTextRenderer1(BaseModel):
-    text: Text14
-    icon: Icon4
-
-class Text15(BaseModel):
-    runs: list[Run36]
-
-class ThumbnailOverlayNowPlayingRenderer1(BaseModel):
-    text: Text15
-
-class ThumbnailOverlay1(BaseModel):
-    thumbnail_overlay_bottom_panel_renderer: ThumbnailOverlayBottomPanelRenderer1 | None = Field(None, alias='thumbnailOverlayBottomPanelRenderer')
-    thumbnail_overlay_hover_text_renderer: ThumbnailOverlayHoverTextRenderer1 | None = Field(None, alias='thumbnailOverlayHoverTextRenderer')
-    thumbnail_overlay_now_playing_renderer: ThumbnailOverlayNowPlayingRenderer1 | None = Field(None, alias='thumbnailOverlayNowPlayingRenderer')
-
-class CommandMetadata28(BaseModel):
-    web_command_metadata: WebCommandMetadata27 = Field(..., alias='webCommandMetadata')
-
-class BrowseEndpoint8(BaseModel):
-    browse_id: str = Field(..., alias='browseId')
-
-class NavigationEndpoint12(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    command_metadata: CommandMetadata28 = Field(..., alias='commandMetadata')
-    browse_endpoint: BrowseEndpoint8 = Field(..., alias='browseEndpoint')
-
-class Run38(BaseModel):
-    text: str
-    navigation_endpoint: NavigationEndpoint12 = Field(..., alias='navigationEndpoint')
-
-class ViewPlaylistText1(BaseModel):
-    runs: list[Run38]
-
-class GridPlaylistRenderer1(BaseModel):
-    playlist_id: str = Field(..., alias='playlistId')
-    thumbnail: Thumbnail8
-    title: Title10
-    short_byline_text: ShortBylineText1 = Field(..., alias='shortBylineText')
-    video_count_text: VideoCountText1 = Field(..., alias='videoCountText')
-    navigation_endpoint: NavigationEndpoint10 = Field(..., alias='navigationEndpoint')
-    video_count_short_text: VideoCountShortText = Field(..., alias='videoCountShortText')
-    tracking_params: str = Field(..., alias='trackingParams')
-    sidebar_thumbnails: list[SidebarThumbnail1] | None = Field(None, alias='sidebarThumbnails')
-    thumbnail_text: ThumbnailText1 = Field(..., alias='thumbnailText')
-    thumbnail_renderer: ThumbnailRenderer1 = Field(..., alias='thumbnailRenderer')
-    long_byline_text: LongBylineText1 = Field(..., alias='longBylineText')
-    thumbnail_overlays: list[ThumbnailOverlay1] = Field(..., alias='thumbnailOverlays')
-    view_playlist_text: ViewPlaylistText1 = Field(..., alias='viewPlaylistText')
-    published_time_text: PublishedTimeText | None = Field(None, alias='publishedTimeText')
-
-class ContinuationItem(BaseModel):
-    grid_renderer: GridRenderer | None = Field(None, alias='gridRenderer')
-    grid_playlist_renderer: GridPlaylistRenderer1 | None = Field(None, alias='gridPlaylistRenderer')
-
-class AppendContinuationItemsAction(BaseModel):
-    continuation_items: list[ContinuationItem] = Field(..., alias='continuationItems')
-    target_id: UUID = Field(..., alias='targetId')
-
-class OnResponseReceivedEndpoint(BaseModel):
-    click_tracking_params: str = Field(..., alias='clickTrackingParams')
-    append_continuation_items_action: AppendContinuationItemsAction = Field(..., alias='appendContinuationItemsAction')
-
 class TopicModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     response_context: ResponseContext = Field(..., alias='responseContext')
+    tracking_params: str = Field(..., alias='trackingParams')
+    on_response_received_endpoints: list[OnResponseReceivedEndpoint] | None = Field(None, alias='onResponseReceivedEndpoints')
     contents: Contents | None = None
     header: Header3 | None = None
     metadata: Metadata3 | None = None
-    tracking_params: str = Field(..., alias='trackingParams')
     topbar: Topbar | None = None
     microformat: Microformat | None = None
-    on_response_received_endpoints: list[OnResponseReceivedEndpoint] | None = Field(None, alias='onResponseReceivedEndpoints')
     _raw_input: Any = PrivateAttr(default=None)
 
     @model_validator(mode='wrap')

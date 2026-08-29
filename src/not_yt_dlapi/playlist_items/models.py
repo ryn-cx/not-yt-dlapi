@@ -28,6 +28,7 @@ if TYPE_CHECKING:
         Standard,
         Status,
         Thumbnails,
+        Uhd,
     )
 else:
     from .optional_models import (
@@ -44,6 +45,7 @@ else:
         Standard,
         Status,
         Thumbnails,
+        Uhd,
     )
 
 __all__ = [
@@ -60,6 +62,7 @@ __all__ = [
     "Standard",
     "Status",
     "Thumbnails",
+    "Uhd",
     "model_validate_json",
 ]
 

@@ -1,40 +1,49 @@
 from typing import Any, Self
 from pydantic import ModelWrapValidatorHandler, PrivateAttr, model_validator
+from pydantic import ConfigDict
 from pydantic import AwareDatetime, BaseModel, Field
 
 class LinkItem(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     rel: str
     href: str
 
 class Author(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     name: str
     uri: str
 
 class Content(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     type: str
     width: str
     height: str
 
 class Thumbnail(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     url: str
     width: str
     height: str
 
 class StarRating(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     count: str
     average: str
     min: str
     max: str
 
 class Statistics(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     views: str
 
 class Community(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     star_rating: StarRating = Field(..., alias='starRating')
     statistics: Statistics
 
 class Group(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     title: str
     content: Content
     thumbnail: Thumbnail
@@ -42,6 +51,7 @@ class Group(BaseModel):
     community: Community
 
 class EntryItem(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     id: str
     video_id: str = Field(..., alias='videoId')
     channel_id: str = Field(..., alias='channelId')
@@ -53,6 +63,7 @@ class EntryItem(BaseModel):
     group: Group
 
 class PlaylistFeedModel(BaseModel):
+    model_config = ConfigDict(defer_build=True)
     link: list[LinkItem]
     id: str
     playlist_id: str = Field(..., alias='playlistId')

@@ -3,50 +3,57 @@ from pydantic import ModelWrapValidatorHandler, PrivateAttr, model_validator
 from pydantic import AwareDatetime, BaseModel, ConfigDict, Field
 
 class Default(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     url: str | None = None
     width: int | None = None
     height: int | None = None
 
 class Medium(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     url: str | None = None
     width: int | None = None
     height: int | None = None
 
 class High(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     url: str | None = None
     width: int | None = None
     height: int | None = None
 
 class Standard(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     url: str | None = None
     width: int | None = None
     height: int | None = None
 
 class Maxres(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
+    url: str | None = None
+    width: int | None = None
+    height: int | None = None
+
+class Uhd(BaseModel):
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     url: str | None = None
     width: int | None = None
     height: int | None = None
 
 class Thumbnails(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     default: Default | None = None
     medium: Medium | None = None
     high: High | None = None
     standard: Standard | None = None
     maxres: Maxres | None = None
+    uhd: Uhd | None = None
 
 class ResourceId(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     kind: str | None = None
     video_id: str | None = Field(None, alias='videoId')
 
 class Snippet(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     published_at: AwareDatetime | None = Field(None, alias='publishedAt')
     channel_id: str | None = Field(None, alias='channelId')
     title: str | None = None
@@ -60,16 +67,16 @@ class Snippet(BaseModel):
     video_owner_channel_id: str | None = Field(None, alias='videoOwnerChannelId')
 
 class ContentDetails(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     video_id: str | None = Field(None, alias='videoId')
     video_published_at: AwareDatetime | None = Field(None, alias='videoPublishedAt')
 
 class Status(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     privacy_status: str | None = Field(None, alias='privacyStatus')
 
 class Item(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     kind: str | None = None
     etag: str | None = None
     id: str | None = None
@@ -78,18 +85,18 @@ class Item(BaseModel):
     status: Status | None = None
 
 class PageInfo(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     total_results: int | None = Field(None, alias='totalResults')
     results_per_page: int | None = Field(None, alias='resultsPerPage')
 
 class PlaylistItemsModel(BaseModel):
-    model_config = ConfigDict(extra='ignore')
+    model_config = ConfigDict(extra='ignore', defer_build=True)
     kind: str | None = None
     etag: str | None = None
     items: list[Item] | None = None
     page_info: PageInfo | None = Field(None, alias='pageInfo')
-    next_page_token: str | None = Field(None, alias='nextPageToken')
     prev_page_token: str | None = Field(None, alias='prevPageToken')
+    next_page_token: str | None = Field(None, alias='nextPageToken')
     _raw_input: Any = PrivateAttr(default=None)
 
     @model_validator(mode='wrap')
