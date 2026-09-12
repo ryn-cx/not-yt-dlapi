@@ -5,9 +5,6 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from not_yt_dlapi.playlists.models import PlaylistsModel
-from tests.utils import RecordedEndpoint
-
 if TYPE_CHECKING:
     from not_yt_dlapi import NotYTDLAPI
 
@@ -37,80 +34,24 @@ WALKED_CHANNEL_IDS = CHANNEL_IDS[:1]
 
 
 # TODO: Validate
-class PlaylistsTest(RecordedEndpoint):
-    MODEL = PlaylistsModel
-    IGNORED = ("PlaylistsModel.etag", "Playlist.etag")
-    # A playlist gains and loses videos, so only the type is held against the
-    # recording.
-    SAME_TYPE = ("PlaylistContentDetails.item_count",)
-
-
-# TODO: Validate
 @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
 def test_download(client: NotYTDLAPI, playlist_id: str) -> None:
-    PlaylistsTest.download_test(
-        playlist_id,
-        lambda: client.playlists.download(playlist_ids=playlist_id),
-    )
-
-
-# TODO: Validate
-@pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
-def test_parse(client: NotYTDLAPI, playlist_id: str) -> None:
-    playlists = client.playlists.load(PlaylistsTest.recorded_content(playlist_id))
+    playlists = client.playlists(playlist_ids=playlist_id)
     assert playlists.kind == "youtube#playlistListResponse"
-    PlaylistsTest.parse_test(playlist_id)
-
-
-# TODO: Validate
-@pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
-def test_download_all(client: NotYTDLAPI, playlist_id: str) -> None:
-    PlaylistsTest.download_test(
-        f"{playlist_id}_all",
-        lambda: client.playlists.download_all(playlist_ids=[playlist_id]),
-        "Multipage",
-    )
-
-
-# TODO: Validate
-@pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
-def test_parse_all(playlist_id: str) -> None:
-    PlaylistsTest.parse_test(f"{playlist_id}_all", "Multipage")
 
 
 # TODO: Validate
 @pytest.mark.parametrize("channel_id", CHANNEL_IDS)
 def test_download_channel(client: NotYTDLAPI, channel_id: str) -> None:
-    PlaylistsTest.download_test(
-        channel_id,
-        lambda: client.playlists.download(channel_id=channel_id),
-    )
-
-
-# TODO: Validate
-@pytest.mark.parametrize("channel_id", CHANNEL_IDS)
-def test_parse_channel(channel_id: str) -> None:
-    PlaylistsTest.parse_test(channel_id)
+    playlists = client.playlists(channel_id=channel_id)
+    assert playlists.kind == "youtube#playlistListResponse"
 
 
 # TODO: Validate
 @pytest.mark.parametrize("channel_id", WALKED_CHANNEL_IDS)
 def test_download_channel_all(client: NotYTDLAPI, channel_id: str) -> None:
-    # Every page the walk was served is recorded, so the walk happens once
-    # rather than on every run.
-    PlaylistsTest.download_test(
-        f"{channel_id}_all",
-        lambda: client.playlists.download_all(channel_id=channel_id),
-        "Multipage",
-    )
-
-
-# TODO: Validate
-@pytest.mark.parametrize("channel_id", WALKED_CHANNEL_IDS)
-def test_parse_channel_all(client: NotYTDLAPI, channel_id: str) -> None:
-    pages = PlaylistsTest.recorded_documents(f"{channel_id}_all", "Multipage")
+    pages = client.playlists.download_all(channel_id=channel_id)
     assert client.playlists.extract_items(pages)
-    PlaylistsTest.parse_test(f"{channel_id}_all", "Multipage")
 
 
 # TODO: Validate

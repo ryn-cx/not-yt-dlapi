@@ -8,7 +8,7 @@ from logging import NullHandler, getLogger
 from not_yt_dlapi.base_api_endpoint import BaseEndpoint
 from not_yt_dlapi.channel_feed.models import ChannelFeedModel, model_validate_json
 from not_yt_dlapi.exceptions import ChannelFeedNotFoundError, HTTPError
-from not_yt_dlapi.feed import read_feed
+from not_yt_dlapi.feed import extract_feed
 
 logger = getLogger(__name__)
 logger.addHandler(NullHandler())
@@ -34,7 +34,7 @@ class ChannelFeed(BaseEndpoint):
 
     # TODO: Validate
     def __call__(self, channel_id: str) -> ChannelFeedModel:
-        """Look the channel's feed up and return the model it is read into."""
+        """Download and parse the channel's feed file."""
         log_id = self.get_log_id(self.__call__, locals())
         return self.load(self.download(channel_id), log_id)
 
@@ -57,5 +57,5 @@ class ChannelFeed(BaseEndpoint):
 
     # TODO: Validate
     def load(self, data: str, log_id: str = "") -> ChannelFeedModel:
-        """Read a downloaded channel feed file into its model."""
-        return model_validate_json(read_feed(data), log_id or self.default_log_id)
+        """Load a channel feed file into its model."""
+        return model_validate_json(extract_feed(data), log_id or self.default_log_id)

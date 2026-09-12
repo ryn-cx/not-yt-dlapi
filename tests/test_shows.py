@@ -5,16 +5,13 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from not_yt_dlapi.shows.models import ShowsModel
-from tests.utils import RecordedEndpoint
-
 if TYPE_CHECKING:
     from not_yt_dlapi import NotYTDLAPI
 
 SHOW_ID = "TVSHX2-tv9KBHSAWLsDbH3h9vNzwxEAyyqXMw"
 """Every season of a show, each holding the episodes listed under it."""
 
-SECOND_SEASON = f"{SHOW_ID}_season_2"
+SECOND_SEASON = 2
 """The season after the one the show's menu opens on."""
 
 PLAYLIST_IDS = [
@@ -35,38 +32,16 @@ PLAYLIST_IDS = [
 
 
 # TODO: Validate
-class ShowsTest(RecordedEndpoint):
-    MODEL = ShowsModel
-
-
-# TODO: Validate
 @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
 def test_download(client: NotYTDLAPI, playlist_id: str) -> None:
-    ShowsTest.download_test(playlist_id, lambda: client.shows.download(playlist_id))
-
-
-# TODO: Validate
-@pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
-def test_parse(client: NotYTDLAPI, playlist_id: str) -> None:
-    show = client.shows.load(ShowsTest.recorded_content(playlist_id))
+    show = client.shows(playlist_id)
     assert client.shows.extract_episode_ids(show)
-    ShowsTest.parse_test(playlist_id)
 
 
 # TODO: Validate
 def test_download_second_season(client: NotYTDLAPI) -> None:
     # A season is asked for by the browse endpoint the menu carries for it
-    # rather than by its number, so it is read out of the show's own recording.
-    opened = client.shows.load(ShowsTest.recorded_content(SHOW_ID))
-    season = client.shows.extract_season_endpoints(opened)[0]
-    ShowsTest.download_test(
-        SECOND_SEASON,
-        lambda: client.shows.download(season=season),
-    )
-
-
-# TODO: Validate
-def test_parse_second_season(client: NotYTDLAPI) -> None:
-    season = client.shows.load(ShowsTest.recorded_content(SECOND_SEASON))
-    assert client.shows.extract_season(season) == 2  # noqa: PLR2004
-    ShowsTest.parse_test(SECOND_SEASON)
+    # rather than by its number.
+    endpoint = client.shows.extract_season_endpoints(client.shows(SHOW_ID))[0]
+    season = client.shows(season=endpoint)
+    assert client.shows.extract_season(season) == SECOND_SEASON

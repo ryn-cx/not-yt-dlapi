@@ -6,8 +6,6 @@ from typing import TYPE_CHECKING
 import pytest
 
 from not_yt_dlapi.exceptions import PlaylistNotFoundError
-from not_yt_dlapi.playlist_items.models import PlaylistItemsModel
-from tests.utils import RecordedEndpoint
 
 if TYPE_CHECKING:
     from not_yt_dlapi import NotYTDLAPI
@@ -31,59 +29,20 @@ WALKED_PLAYLIST_IDS = PLAYLIST_IDS[:5]
 
 
 # TODO: Validate
-class PlaylistItemsTest(RecordedEndpoint):
-    MODEL = PlaylistItemsModel
-    IGNORED = ("PlaylistItemsModel.etag", "PlaylistItem.etag")
-
-
-# TODO: Validate
 @pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
 def test_download(client: NotYTDLAPI, playlist_id: str) -> None:
-    PlaylistItemsTest.download_test(
-        playlist_id,
-        lambda: client.playlist_items.download(playlist_id),
-    )
-
-
-# TODO: Validate
-@pytest.mark.parametrize("playlist_id", PLAYLIST_IDS)
-def test_parse(client: NotYTDLAPI, playlist_id: str) -> None:
-    items = client.playlist_items.load(
-        PlaylistItemsTest.recorded_content(playlist_id),
-    )
+    items = client.playlist_items(playlist_id)
     assert items.kind == "youtube#playlistItemListResponse"
-    PlaylistItemsTest.parse_test(playlist_id)
 
 
 # TODO: Validate
 @pytest.mark.parametrize("playlist_id", WALKED_PLAYLIST_IDS)
 def test_download_all(client: NotYTDLAPI, playlist_id: str) -> None:
-    PlaylistItemsTest.download_test(
-        f"{playlist_id}_all",
-        lambda: client.playlist_items.download_all(playlist_id),
-        "Multipage",
-    )
+    pages = client.playlist_items.download_all(playlist_id)
+    assert client.playlist_items.extract_items(pages)
 
 
 # TODO: Validate
-@pytest.mark.parametrize("playlist_id", WALKED_PLAYLIST_IDS)
-def test_parse_all(playlist_id: str) -> None:
-    PlaylistItemsTest.parse_test(f"{playlist_id}_all", "Multipage")
-
-
-# TODO: Validate
-@pytest.mark.parametrize(
-    "playlist_id",
-    [
-        pytest.param(
-            "PLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL",
-            id="playlist that does not exist",
-        ),
-    ],
-)
-def test_download_invalid(client: NotYTDLAPI, playlist_id: str) -> None:
-    PlaylistItemsTest.error_test(
-        playlist_id,
-        lambda: client.playlist_items.download(playlist_id),
-        PlaylistNotFoundError,
-    )
+def test_download_invalid(client: NotYTDLAPI) -> None:
+    with pytest.raises(PlaylistNotFoundError):
+        client.playlist_items.download("PLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL")

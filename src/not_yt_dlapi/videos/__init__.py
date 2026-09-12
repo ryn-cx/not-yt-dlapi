@@ -54,7 +54,7 @@ class Videos(BaseEndpoint):
 
     # TODO: Validate
     def __call__(self, video_ids: str | Sequence[str]) -> VideosModel:
-        """Look the videos up and return the model they are read into."""
+        """Download and parse the videos file."""
         log_id = self.get_log_id(self.__call__, locals())
         return self.load(self.download(video_ids), log_id)
 
@@ -97,7 +97,7 @@ class Videos(BaseEndpoint):
 
     # TODO: Validate
     def load(self, data: str, log_id: str = "") -> VideosModel:
-        """Read a downloaded videos file into its model."""
+        """Load a videos file into its model."""
         return model_validate_json(data, log_id or self.default_log_id)
 
     # TODO: Validate

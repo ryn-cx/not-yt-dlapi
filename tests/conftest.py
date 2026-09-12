@@ -6,14 +6,12 @@ from get_around import build_client_automatically, get_credential
 
 from not_yt_dlapi import NotYTDLAPI
 
-pytest.register_assert_rewrite("tests.utils")
-
 
 # TODO: Validate
 @pytest.fixture(scope="session")
 def client() -> NotYTDLAPI:
-    # Recording needs a key and a way out; a run that only reads what is
-    # already recorded needs neither, so a missing one skips rather than fails.
+    # Every test downloads, so a run without a key and a way out skips rather
+    # than fails.
     try:
         api_key = get_credential("YOUTUBE_API_KEY")
         get_around_client = build_client_automatically()

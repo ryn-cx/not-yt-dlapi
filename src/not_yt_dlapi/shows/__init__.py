@@ -135,7 +135,7 @@ class Shows(BaseEndpoint):
 
     # TODO: Validate
     def load(self, data: str, log_id: str = "") -> ShowsModel:
-        """Read a downloaded show file into its model."""
+        """Load a show file into its model."""
         return model_validate_json(data, log_id or self.default_log_id)
 
     # TODO: Validate

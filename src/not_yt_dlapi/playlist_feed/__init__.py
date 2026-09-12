@@ -7,7 +7,7 @@ from logging import NullHandler, getLogger
 
 from not_yt_dlapi.base_api_endpoint import BaseEndpoint
 from not_yt_dlapi.exceptions import HTTPError, PlaylistFeedNotFoundError
-from not_yt_dlapi.feed import read_feed
+from not_yt_dlapi.feed import extract_feed
 from not_yt_dlapi.playlist_feed.models import (
     PlaylistFeedModel,
     model_validate_json,
@@ -35,7 +35,7 @@ class PlaylistFeed(BaseEndpoint):
 
     # TODO: Validate
     def __call__(self, playlist_id: str) -> PlaylistFeedModel:
-        """Look the playlist's feed up and return the model it is read into."""
+        """Download and parse the playlist's feed file."""
         log_id = self.get_log_id(self.__call__, locals())
         return self.load(self.download(playlist_id), log_id)
 
@@ -58,5 +58,5 @@ class PlaylistFeed(BaseEndpoint):
 
     # TODO: Validate
     def load(self, data: str, log_id: str = "") -> PlaylistFeedModel:
-        """Read a downloaded playlist feed file into its model."""
-        return model_validate_json(read_feed(data), log_id or self.default_log_id)
+        """Load a playlist feed file into its model."""
+        return model_validate_json(extract_feed(data), log_id or self.default_log_id)

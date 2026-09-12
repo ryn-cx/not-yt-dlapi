@@ -66,7 +66,7 @@ class Channels(BaseEndpoint):
         channel_handle: str | None = None,
         channel_username: str | None = None,
     ) -> ChannelsModel:
-        """Look the channel up and return the model it is read into."""
+        """Download and parse the channel file."""
         log_id = self.get_log_id(self.__call__, locals())
         return self.load(
             self.download(
@@ -117,5 +117,5 @@ class Channels(BaseEndpoint):
 
     # TODO: Validate
     def load(self, data: str, log_id: str = "") -> ChannelsModel:
-        """Read a downloaded channel file into its model."""
+        """Load a channel file into its model."""
         return model_validate_json(data, log_id or self.default_log_id)

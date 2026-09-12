@@ -3,9 +3,7 @@
 
 The feed is not the Data API. It is an Atom document served from
 `youtube.com/feeds/videos.xml`, it takes no key, and it hands out the most
-recent fifteen videos and nothing else. `read_feed` is what turns it into the
-dict the feed's model is validated from, and the model generator reads the
-recorded feeds with the same function so the two can never disagree.
+recent fifteen videos and nothing else.
 """
 
 from __future__ import annotations
@@ -73,7 +71,7 @@ def _read(element: Element) -> Any:  # noqa: ANN401 - An element is read as what
 
 
 # TODO: Validate
-def read_feed(xml: str) -> dict[str, Any]:
+def extract_feed(xml: str) -> dict[str, Any]:
     """Return the feed document as the JSON it is equivalent to.
 
     Nothing is left behind and nothing is renamed beyond dropping namespaces, so

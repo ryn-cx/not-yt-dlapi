@@ -52,7 +52,7 @@ class PlaylistItems(BaseEndpoint):
         max_results: int = DEFAULT_MAX_RESULTS,
         page_token: str | None = None,
     ) -> PlaylistItemsModel:
-        """Look the playlist items up and return the model they are read into."""
+        """Download and parse the playlist items file."""
         log_id = self.get_log_id(self.__call__, locals())
         return self.load(
             self.download(
@@ -138,7 +138,7 @@ class PlaylistItems(BaseEndpoint):
 
     # TODO: Validate
     def load(self, data: str, log_id: str = "") -> PlaylistItemsModel:
-        """Read a downloaded playlist items file into its model."""
+        """Load a playlist items file into its model."""
         return model_validate_json(data, log_id or self.default_log_id)
 
     # TODO: Validate
