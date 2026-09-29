@@ -4,99 +4,99 @@ from pydantic import AwareDatetime, BaseModel, ConfigDict, Field
 
 class Default(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    width: int | None = None
-    height: int | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
 
 class Medium(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    width: int | None = None
-    height: int | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
 
 class High(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    width: int | None = None
-    height: int | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
 
 class Standard(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    width: int | None = None
-    height: int | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
 
 class Maxres(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    width: int | None = None
-    height: int | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
 
 class Uhd(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    width: int | None = None
-    height: int | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
 
 class Thumbnails(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    default: Default | None = None
-    medium: Medium | None = None
-    high: High | None = None
-    standard: Standard | None = None
-    maxres: Maxres | None = None
-    uhd: Uhd | None = None
+    default: Default | Any = Field(default=None, union_mode='left_to_right')
+    medium: Medium | Any = Field(default=None, union_mode='left_to_right')
+    high: High | Any = Field(default=None, union_mode='left_to_right')
+    standard: Standard | Any = Field(default=None, union_mode='left_to_right')
+    maxres: Maxres | Any = Field(default=None, union_mode='left_to_right')
+    uhd: Uhd | Any = Field(default=None, union_mode='left_to_right')
 
 class ResourceId(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    kind: str | None = None
-    video_id: str | None = Field(None, alias='videoId')
+    kind: str | Any = Field(default=None, union_mode='left_to_right')
+    video_id: str | Any = Field(None, alias='videoId', union_mode='left_to_right')
 
 class Snippet(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    published_at: AwareDatetime | None = Field(None, alias='publishedAt')
-    channel_id: str | None = Field(None, alias='channelId')
-    title: str | None = None
-    description: str | None = None
-    thumbnails: Thumbnails | None = None
-    channel_title: str | None = Field(None, alias='channelTitle')
-    playlist_id: str | None = Field(None, alias='playlistId')
-    position: int | None = None
-    resource_id: ResourceId | None = Field(None, alias='resourceId')
-    video_owner_channel_title: str | None = Field(None, alias='videoOwnerChannelTitle')
-    video_owner_channel_id: str | None = Field(None, alias='videoOwnerChannelId')
+    published_at: AwareDatetime | Any = Field(None, alias='publishedAt', union_mode='left_to_right')
+    channel_id: str | Any = Field(None, alias='channelId', union_mode='left_to_right')
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
+    thumbnails: Thumbnails | Any = Field(default=None, union_mode='left_to_right')
+    channel_title: str | Any = Field(None, alias='channelTitle', union_mode='left_to_right')
+    playlist_id: str | Any = Field(None, alias='playlistId', union_mode='left_to_right')
+    position: int | Any = Field(default=None, union_mode='left_to_right')
+    resource_id: ResourceId | Any = Field(None, alias='resourceId', union_mode='left_to_right')
+    video_owner_channel_title: str | Any = Field(None, alias='videoOwnerChannelTitle', union_mode='left_to_right')
+    video_owner_channel_id: str | Any = Field(None, alias='videoOwnerChannelId', union_mode='left_to_right')
 
 class ContentDetails(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    video_id: str | None = Field(None, alias='videoId')
-    video_published_at: AwareDatetime | None = Field(None, alias='videoPublishedAt')
+    video_id: str | Any = Field(None, alias='videoId', union_mode='left_to_right')
+    video_published_at: AwareDatetime | Any = Field(None, alias='videoPublishedAt', union_mode='left_to_right')
 
 class Status(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    privacy_status: str | None = Field(None, alias='privacyStatus')
+    privacy_status: str | Any = Field(None, alias='privacyStatus', union_mode='left_to_right')
 
 class Item(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    kind: str | None = None
-    etag: str | None = None
-    id: str | None = None
-    snippet: Snippet | None = None
-    content_details: ContentDetails | None = Field(None, alias='contentDetails')
-    status: Status | None = None
+    kind: str | Any = Field(default=None, union_mode='left_to_right')
+    etag: str | Any = Field(default=None, union_mode='left_to_right')
+    id: str | Any = Field(default=None, union_mode='left_to_right')
+    snippet: Snippet | Any = Field(default=None, union_mode='left_to_right')
+    content_details: ContentDetails | Any = Field(None, alias='contentDetails', union_mode='left_to_right')
+    status: Status | Any = Field(default=None, union_mode='left_to_right')
 
 class PageInfo(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    total_results: int | None = Field(None, alias='totalResults')
-    results_per_page: int | None = Field(None, alias='resultsPerPage')
+    total_results: int | Any = Field(None, alias='totalResults', union_mode='left_to_right')
+    results_per_page: int | Any = Field(None, alias='resultsPerPage', union_mode='left_to_right')
 
 class PlaylistItemsModel(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    kind: str | None = None
-    etag: str | None = None
-    items: list[Item] | None = None
-    page_info: PageInfo | None = Field(None, alias='pageInfo')
-    prev_page_token: str | None = Field(None, alias='prevPageToken')
-    next_page_token: str | None = Field(None, alias='nextPageToken')
+    kind: str | Any = Field(default=None, union_mode='left_to_right')
+    etag: str | Any = Field(default=None, union_mode='left_to_right')
+    items: list[Item] | Any = Field(default=None, union_mode='left_to_right')
+    page_info: PageInfo | Any = Field(None, alias='pageInfo', union_mode='left_to_right')
+    prev_page_token: str | Any = Field(None, alias='prevPageToken', union_mode='left_to_right')
+    next_page_token: str | Any = Field(None, alias='nextPageToken', union_mode='left_to_right')
     _raw_input: Any = PrivateAttr(default=None)
 
     @model_validator(mode='wrap')

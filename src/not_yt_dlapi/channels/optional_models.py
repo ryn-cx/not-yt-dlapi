@@ -5,625 +5,625 @@ from typing import Any
 
 class PageInfo(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    total_results: int | None = Field(None, alias='totalResults')
-    results_per_page: int | None = Field(None, alias='resultsPerPage')
+    total_results: int | Any = Field(None, alias='totalResults', union_mode='left_to_right')
+    results_per_page: int | Any = Field(None, alias='resultsPerPage', union_mode='left_to_right')
 
 class Default(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    width: int | None = None
-    height: int | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
 
 class Medium(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    width: int | None = None
-    height: int | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
 
 class High(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    width: int | None = None
-    height: int | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
 
 class Thumbnails(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    default: Default | None = None
-    medium: Medium | None = None
-    high: High | None = None
+    default: Default | Any = Field(default=None, union_mode='left_to_right')
+    medium: Medium | Any = Field(default=None, union_mode='left_to_right')
+    high: High | Any = Field(default=None, union_mode='left_to_right')
 
 class Localized(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Snippet(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
-    custom_url: str | None = Field(None, alias='customUrl')
-    published_at: AwareDatetime | None = Field(None, alias='publishedAt')
-    thumbnails: Thumbnails | None = None
-    localized: Localized | None = None
-    country: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
+    custom_url: str | Any = Field(None, alias='customUrl', union_mode='left_to_right')
+    published_at: AwareDatetime | Any = Field(None, alias='publishedAt', union_mode='left_to_right')
+    thumbnails: Thumbnails | Any = Field(default=None, union_mode='left_to_right')
+    localized: Localized | Any = Field(default=None, union_mode='left_to_right')
+    country: str | Any = Field(default=None, union_mode='left_to_right')
 
 class RelatedPlaylists(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    likes: str | None = None
-    uploads: str | None = None
+    likes: str | Any = Field(default=None, union_mode='left_to_right')
+    uploads: str | Any = Field(default=None, union_mode='left_to_right')
 
 class ContentDetails(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    related_playlists: RelatedPlaylists | None = Field(None, alias='relatedPlaylists')
+    related_playlists: RelatedPlaylists | Any = Field(None, alias='relatedPlaylists', union_mode='left_to_right')
 
 class Statistics(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    view_count: str | None = Field(None, alias='viewCount')
-    subscriber_count: str | None = Field(None, alias='subscriberCount')
-    hidden_subscriber_count: bool | None = Field(None, alias='hiddenSubscriberCount')
-    video_count: str | None = Field(None, alias='videoCount')
+    view_count: str | Any = Field(None, alias='viewCount', union_mode='left_to_right')
+    subscriber_count: str | Any = Field(None, alias='subscriberCount', union_mode='left_to_right')
+    hidden_subscriber_count: bool | Any = Field(None, alias='hiddenSubscriberCount', union_mode='left_to_right')
+    video_count: str | Any = Field(None, alias='videoCount', union_mode='left_to_right')
 
 class Status(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    privacy_status: str | None = Field(None, alias='privacyStatus')
-    is_linked: bool | None = Field(None, alias='isLinked')
-    long_uploads_status: str | None = Field(None, alias='longUploadsStatus')
-    made_for_kids: bool | None = Field(None, alias='madeForKids')
+    privacy_status: str | Any = Field(None, alias='privacyStatus', union_mode='left_to_right')
+    is_linked: bool | Any = Field(None, alias='isLinked', union_mode='left_to_right')
+    long_uploads_status: str | Any = Field(None, alias='longUploadsStatus', union_mode='left_to_right')
+    made_for_kids: bool | Any = Field(None, alias='madeForKids', union_mode='left_to_right')
 
 class Channel(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    keywords: str | None = None
-    unsubscribed_trailer: str | None = Field(None, alias='unsubscribedTrailer')
-    country: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    keywords: str | Any = Field(default=None, union_mode='left_to_right')
+    unsubscribed_trailer: str | Any = Field(None, alias='unsubscribedTrailer', union_mode='left_to_right')
+    country: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Image(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    banner_external_url: str | None = Field(None, alias='bannerExternalUrl')
+    banner_external_url: str | Any = Field(None, alias='bannerExternalUrl', union_mode='left_to_right')
 
 class BrandingSettings(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    channel: Channel | None = None
-    image: Image | None = None
+    channel: Channel | Any = Field(default=None, union_mode='left_to_right')
+    image: Image | Any = Field(default=None, union_mode='left_to_right')
 
 class TopicDetails(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    topic_ids: list[str] | None = Field(None, alias='topicIds')
-    topic_categories: list[str] | None = Field(None, alias='topicCategories')
+    topic_ids: list[str] | Any = Field(None, alias='topicIds', union_mode='left_to_right')
+    topic_categories: list[str] | Any = Field(None, alias='topicCategories', union_mode='left_to_right')
 
 class Ne(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Bn(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Hy(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ru(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class EsUs(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Hr(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Hi(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Pa(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class EnIn(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Eu(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class PtPt(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Hu(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Sk(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ta(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Lo(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Sq(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ja(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Km(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Af(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Es(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ur(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Et(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Iw(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Sr(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Fi(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Da(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class ZhTw(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class De(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Cs(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Bs(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class As(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class My(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Sl(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class It(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Id(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Be(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Pl(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class EnGb(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class ZhHk(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Th(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Is(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Fr(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ro(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Am(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class No(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class En(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Fil(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Nl(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Fa(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Bg(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class SrLatn(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Mn(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Az(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Kn(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Pt(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Sw(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Tr(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Sv(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ca(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ko(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Or(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ml(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class ZhCn(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Mr(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ky(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Zu(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class FrCa(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Es419(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Si(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ka(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Gu(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ar(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Gl(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Vi(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Uk(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Lv(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Mk(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Kk(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Ms(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Lt(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Te(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class El(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Uz(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Zh(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    description: str | None = None
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class PtBr(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    description: str | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Localizations(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    ne: Ne | None = None
-    bn: Bn | None = None
-    hy: Hy | None = None
-    ru: Ru | None = None
-    es_us: EsUs | None = Field(None, alias='es-US')
-    hr: Hr | None = None
-    hi: Hi | None = None
-    pa: Pa | None = None
-    en_in: EnIn | None = Field(None, alias='en-IN')
-    eu: Eu | None = None
-    pt_pt: PtPt | None = Field(None, alias='pt-PT')
-    hu: Hu | None = None
-    sk: Sk | None = None
-    ta: Ta | None = None
-    lo: Lo | None = None
-    sq: Sq | None = None
-    ja: Ja | None = None
-    km: Km | None = None
-    af: Af | None = None
-    es: Es | None = None
-    ur: Ur | None = None
-    et: Et | None = None
-    iw: Iw | None = None
-    sr: Sr | None = None
-    fi: Fi | None = None
-    da: Da | None = None
-    zh_tw: ZhTw | None = Field(None, alias='zh-TW')
-    de: De | None = None
-    cs: Cs | None = None
-    bs: Bs | None = None
-    as_: As | None = Field(None, alias='as')
-    my: My | None = None
-    sl: Sl | None = None
-    it: It | None = None
-    id: Id | None = None
-    be: Be | None = None
-    pl: Pl | None = None
-    en_gb: EnGb | None = Field(None, alias='en-GB')
-    zh_hk: ZhHk | None = Field(None, alias='zh-HK')
-    th: Th | None = None
-    is_: Is | None = Field(None, alias='is')
-    fr: Fr | None = None
-    ro: Ro | None = None
-    am: Am | None = None
-    no: No | None = None
-    en: En | None = None
-    fil: Fil | None = None
-    nl: Nl | None = None
-    fa: Fa | None = None
-    bg: Bg | None = None
-    sr_latn: SrLatn | None = Field(None, alias='sr-Latn')
-    mn: Mn | None = None
-    az: Az | None = None
-    kn: Kn | None = None
-    pt: Pt | None = None
-    sw: Sw | None = None
-    tr: Tr | None = None
-    sv: Sv | None = None
-    ca: Ca | None = None
-    ko: Ko | None = None
-    or_: Or | None = Field(None, alias='or')
-    ml: Ml | None = None
-    zh_cn: ZhCn | None = Field(None, alias='zh-CN')
-    mr: Mr | None = None
-    ky: Ky | None = None
-    zu: Zu | None = None
-    fr_ca: FrCa | None = Field(None, alias='fr-CA')
-    es_419: Es419 | None = Field(None, alias='es-419')
-    si: Si | None = None
-    ka: Ka | None = None
-    gu: Gu | None = None
-    ar: Ar | None = None
-    gl: Gl | None = None
-    vi: Vi | None = None
-    uk: Uk | None = None
-    lv: Lv | None = None
-    mk: Mk | None = None
-    kk: Kk | None = None
-    ms: Ms | None = None
-    lt: Lt | None = None
-    te: Te | None = None
-    el: El | None = None
-    uz: Uz | None = None
-    zh: Zh | None = None
-    pt_br: PtBr | None = Field(None, alias='pt-BR')
+    ne: Ne | Any = Field(default=None, union_mode='left_to_right')
+    bn: Bn | Any = Field(default=None, union_mode='left_to_right')
+    hy: Hy | Any = Field(default=None, union_mode='left_to_right')
+    ru: Ru | Any = Field(default=None, union_mode='left_to_right')
+    es_us: EsUs | Any = Field(None, alias='es-US', union_mode='left_to_right')
+    hr: Hr | Any = Field(default=None, union_mode='left_to_right')
+    hi: Hi | Any = Field(default=None, union_mode='left_to_right')
+    pa: Pa | Any = Field(default=None, union_mode='left_to_right')
+    en_in: EnIn | Any = Field(None, alias='en-IN', union_mode='left_to_right')
+    eu: Eu | Any = Field(default=None, union_mode='left_to_right')
+    pt_pt: PtPt | Any = Field(None, alias='pt-PT', union_mode='left_to_right')
+    hu: Hu | Any = Field(default=None, union_mode='left_to_right')
+    sk: Sk | Any = Field(default=None, union_mode='left_to_right')
+    ta: Ta | Any = Field(default=None, union_mode='left_to_right')
+    lo: Lo | Any = Field(default=None, union_mode='left_to_right')
+    sq: Sq | Any = Field(default=None, union_mode='left_to_right')
+    ja: Ja | Any = Field(default=None, union_mode='left_to_right')
+    km: Km | Any = Field(default=None, union_mode='left_to_right')
+    af: Af | Any = Field(default=None, union_mode='left_to_right')
+    es: Es | Any = Field(default=None, union_mode='left_to_right')
+    ur: Ur | Any = Field(default=None, union_mode='left_to_right')
+    et: Et | Any = Field(default=None, union_mode='left_to_right')
+    iw: Iw | Any = Field(default=None, union_mode='left_to_right')
+    sr: Sr | Any = Field(default=None, union_mode='left_to_right')
+    fi: Fi | Any = Field(default=None, union_mode='left_to_right')
+    da: Da | Any = Field(default=None, union_mode='left_to_right')
+    zh_tw: ZhTw | Any = Field(None, alias='zh-TW', union_mode='left_to_right')
+    de: De | Any = Field(default=None, union_mode='left_to_right')
+    cs: Cs | Any = Field(default=None, union_mode='left_to_right')
+    bs: Bs | Any = Field(default=None, union_mode='left_to_right')
+    as_: As | Any = Field(None, alias='as', union_mode='left_to_right')
+    my: My | Any = Field(default=None, union_mode='left_to_right')
+    sl: Sl | Any = Field(default=None, union_mode='left_to_right')
+    it: It | Any = Field(default=None, union_mode='left_to_right')
+    id: Id | Any = Field(default=None, union_mode='left_to_right')
+    be: Be | Any = Field(default=None, union_mode='left_to_right')
+    pl: Pl | Any = Field(default=None, union_mode='left_to_right')
+    en_gb: EnGb | Any = Field(None, alias='en-GB', union_mode='left_to_right')
+    zh_hk: ZhHk | Any = Field(None, alias='zh-HK', union_mode='left_to_right')
+    th: Th | Any = Field(default=None, union_mode='left_to_right')
+    is_: Is | Any = Field(None, alias='is', union_mode='left_to_right')
+    fr: Fr | Any = Field(default=None, union_mode='left_to_right')
+    ro: Ro | Any = Field(default=None, union_mode='left_to_right')
+    am: Am | Any = Field(default=None, union_mode='left_to_right')
+    no: No | Any = Field(default=None, union_mode='left_to_right')
+    en: En | Any = Field(default=None, union_mode='left_to_right')
+    fil: Fil | Any = Field(default=None, union_mode='left_to_right')
+    nl: Nl | Any = Field(default=None, union_mode='left_to_right')
+    fa: Fa | Any = Field(default=None, union_mode='left_to_right')
+    bg: Bg | Any = Field(default=None, union_mode='left_to_right')
+    sr_latn: SrLatn | Any = Field(None, alias='sr-Latn', union_mode='left_to_right')
+    mn: Mn | Any = Field(default=None, union_mode='left_to_right')
+    az: Az | Any = Field(default=None, union_mode='left_to_right')
+    kn: Kn | Any = Field(default=None, union_mode='left_to_right')
+    pt: Pt | Any = Field(default=None, union_mode='left_to_right')
+    sw: Sw | Any = Field(default=None, union_mode='left_to_right')
+    tr: Tr | Any = Field(default=None, union_mode='left_to_right')
+    sv: Sv | Any = Field(default=None, union_mode='left_to_right')
+    ca: Ca | Any = Field(default=None, union_mode='left_to_right')
+    ko: Ko | Any = Field(default=None, union_mode='left_to_right')
+    or_: Or | Any = Field(None, alias='or', union_mode='left_to_right')
+    ml: Ml | Any = Field(default=None, union_mode='left_to_right')
+    zh_cn: ZhCn | Any = Field(None, alias='zh-CN', union_mode='left_to_right')
+    mr: Mr | Any = Field(default=None, union_mode='left_to_right')
+    ky: Ky | Any = Field(default=None, union_mode='left_to_right')
+    zu: Zu | Any = Field(default=None, union_mode='left_to_right')
+    fr_ca: FrCa | Any = Field(None, alias='fr-CA', union_mode='left_to_right')
+    es_419: Es419 | Any = Field(None, alias='es-419', union_mode='left_to_right')
+    si: Si | Any = Field(default=None, union_mode='left_to_right')
+    ka: Ka | Any = Field(default=None, union_mode='left_to_right')
+    gu: Gu | Any = Field(default=None, union_mode='left_to_right')
+    ar: Ar | Any = Field(default=None, union_mode='left_to_right')
+    gl: Gl | Any = Field(default=None, union_mode='left_to_right')
+    vi: Vi | Any = Field(default=None, union_mode='left_to_right')
+    uk: Uk | Any = Field(default=None, union_mode='left_to_right')
+    lv: Lv | Any = Field(default=None, union_mode='left_to_right')
+    mk: Mk | Any = Field(default=None, union_mode='left_to_right')
+    kk: Kk | Any = Field(default=None, union_mode='left_to_right')
+    ms: Ms | Any = Field(default=None, union_mode='left_to_right')
+    lt: Lt | Any = Field(default=None, union_mode='left_to_right')
+    te: Te | Any = Field(default=None, union_mode='left_to_right')
+    el: El | Any = Field(default=None, union_mode='left_to_right')
+    uz: Uz | Any = Field(default=None, union_mode='left_to_right')
+    zh: Zh | Any = Field(default=None, union_mode='left_to_right')
+    pt_br: PtBr | Any = Field(None, alias='pt-BR', union_mode='left_to_right')
 
 class Item(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    kind: str | None = None
-    etag: str | None = None
-    id: str | None = None
-    snippet: Snippet | None = None
-    content_details: ContentDetails | None = Field(None, alias='contentDetails')
-    statistics: Statistics | None = None
-    status: Status | None = None
-    branding_settings: BrandingSettings | None = Field(None, alias='brandingSettings')
-    content_owner_details: dict[str, Any] | None = Field(None, alias='contentOwnerDetails')
-    topic_details: TopicDetails | None = Field(None, alias='topicDetails')
-    localizations: Localizations | None = None
+    kind: str | Any = Field(default=None, union_mode='left_to_right')
+    etag: str | Any = Field(default=None, union_mode='left_to_right')
+    id: str | Any = Field(default=None, union_mode='left_to_right')
+    snippet: Snippet | Any = Field(default=None, union_mode='left_to_right')
+    content_details: ContentDetails | Any = Field(None, alias='contentDetails', union_mode='left_to_right')
+    statistics: Statistics | Any = Field(default=None, union_mode='left_to_right')
+    status: Status | Any = Field(default=None, union_mode='left_to_right')
+    branding_settings: BrandingSettings | Any = Field(None, alias='brandingSettings', union_mode='left_to_right')
+    content_owner_details: dict[str, Any] | Any = Field(None, alias='contentOwnerDetails', union_mode='left_to_right')
+    topic_details: TopicDetails | Any = Field(None, alias='topicDetails', union_mode='left_to_right')
+    localizations: Localizations | Any = Field(default=None, union_mode='left_to_right')
 
 class ChannelsModel(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    kind: str | None = None
-    etag: str | None = None
-    page_info: PageInfo | None = Field(None, alias='pageInfo')
-    items: list[Item] | None = None
+    kind: str | Any = Field(default=None, union_mode='left_to_right')
+    etag: str | Any = Field(default=None, union_mode='left_to_right')
+    page_info: PageInfo | Any = Field(None, alias='pageInfo', union_mode='left_to_right')
+    items: list[Item] | Any = Field(default=None, union_mode='left_to_right')
     _raw_input: Any = PrivateAttr(default=None)
 
     @model_validator(mode='wrap')

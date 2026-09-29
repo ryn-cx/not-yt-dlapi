@@ -4,72 +4,72 @@ from pydantic import AwareDatetime, BaseModel, ConfigDict, Field
 
 class LinkItem(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    rel: str | None = None
-    href: str | None = None
+    rel: str | Any = Field(default=None, union_mode='left_to_right')
+    href: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Author(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    name: str | None = None
-    uri: str | None = None
+    name: str | Any = Field(default=None, union_mode='left_to_right')
+    uri: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Content(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    type: str | None = None
-    width: str | None = None
-    height: str | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    type: str | Any = Field(default=None, union_mode='left_to_right')
+    width: str | Any = Field(default=None, union_mode='left_to_right')
+    height: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Thumbnail(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    url: str | None = None
-    width: str | None = None
-    height: str | None = None
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: str | Any = Field(default=None, union_mode='left_to_right')
+    height: str | Any = Field(default=None, union_mode='left_to_right')
 
 class StarRating(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    count: str | None = None
-    average: str | None = None
-    min: str | None = None
-    max: str | None = None
+    count: str | Any = Field(default=None, union_mode='left_to_right')
+    average: str | Any = Field(default=None, union_mode='left_to_right')
+    min: str | Any = Field(default=None, union_mode='left_to_right')
+    max: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Statistics(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    views: str | None = None
+    views: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Community(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    star_rating: StarRating | None = Field(None, alias='starRating')
-    statistics: Statistics | None = None
+    star_rating: StarRating | Any = Field(None, alias='starRating', union_mode='left_to_right')
+    statistics: Statistics | Any = Field(default=None, union_mode='left_to_right')
 
 class Group(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | None = None
-    content: Content | None = None
-    thumbnail: Thumbnail | None = None
-    description: str | None = None
-    community: Community | None = None
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    content: Content | Any = Field(default=None, union_mode='left_to_right')
+    thumbnail: Thumbnail | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
+    community: Community | Any = Field(default=None, union_mode='left_to_right')
 
 class EntryItem(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    id: str | None = None
-    video_id: str | None = Field(None, alias='videoId')
-    channel_id: str | None = Field(None, alias='channelId')
-    title: str | None = None
-    link: list[LinkItem] | None = None
-    author: Author | None = None
-    published: AwareDatetime | None = None
-    updated: AwareDatetime | None = None
-    group: Group | None = None
+    id: str | Any = Field(default=None, union_mode='left_to_right')
+    video_id: str | Any = Field(None, alias='videoId', union_mode='left_to_right')
+    channel_id: str | Any = Field(None, alias='channelId', union_mode='left_to_right')
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    link: list[LinkItem] | Any = Field(default=None, union_mode='left_to_right')
+    author: Author | Any = Field(default=None, union_mode='left_to_right')
+    published: AwareDatetime | Any = Field(default=None, union_mode='left_to_right')
+    updated: AwareDatetime | Any = Field(default=None, union_mode='left_to_right')
+    group: Group | Any = Field(default=None, union_mode='left_to_right')
 
 class ChannelFeedModel(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    link: list[LinkItem] | None = None
-    id: str | None = None
-    channel_id: str | None = Field(None, alias='channelId')
-    title: str | None = None
-    author: Author | None = None
-    published: AwareDatetime | None = None
-    entry: list[EntryItem] | None = None
+    link: list[LinkItem] | Any = Field(default=None, union_mode='left_to_right')
+    id: str | Any = Field(default=None, union_mode='left_to_right')
+    channel_id: str | Any = Field(None, alias='channelId', union_mode='left_to_right')
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    author: Author | Any = Field(default=None, union_mode='left_to_right')
+    published: AwareDatetime | Any = Field(default=None, union_mode='left_to_right')
+    entry: list[EntryItem] | Any = Field(default=None, union_mode='left_to_right')
     _raw_input: Any = PrivateAttr(default=None)
 
     @model_validator(mode='wrap')

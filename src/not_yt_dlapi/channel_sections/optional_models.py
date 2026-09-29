@@ -4,28 +4,28 @@ from pydantic import BaseModel, ConfigDict, Field
 
 class Snippet(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    type: str | None = None
-    channel_id: str | None = Field(None, alias='channelId')
-    position: int | None = None
-    title: str | None = None
+    type: str | Any = Field(default=None, union_mode='left_to_right')
+    channel_id: str | Any = Field(None, alias='channelId', union_mode='left_to_right')
+    position: int | Any = Field(default=None, union_mode='left_to_right')
+    title: str | Any = Field(default=None, union_mode='left_to_right')
 
 class ContentDetails(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    channels: list[str] | None = None
+    channels: list[str] | Any = Field(default=None, union_mode='left_to_right')
 
 class Item(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    kind: str | None = None
-    etag: str | None = None
-    id: str | None = None
-    snippet: Snippet | None = None
-    content_details: ContentDetails | None = Field(None, alias='contentDetails')
+    kind: str | Any = Field(default=None, union_mode='left_to_right')
+    etag: str | Any = Field(default=None, union_mode='left_to_right')
+    id: str | Any = Field(default=None, union_mode='left_to_right')
+    snippet: Snippet | Any = Field(default=None, union_mode='left_to_right')
+    content_details: ContentDetails | Any = Field(None, alias='contentDetails', union_mode='left_to_right')
 
 class ChannelSectionsModel(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
-    kind: str | None = None
-    etag: str | None = None
-    items: list[Item] | None = None
+    kind: str | Any = Field(default=None, union_mode='left_to_right')
+    etag: str | Any = Field(default=None, union_mode='left_to_right')
+    items: list[Item] | Any = Field(default=None, union_mode='left_to_right')
     _raw_input: Any = PrivateAttr(default=None)
 
     @model_validator(mode='wrap')
