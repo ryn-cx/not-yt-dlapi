@@ -1,14 +1,14 @@
-{
-  "dXJtYVEFFjk": {
+[
+  {
     "video_ids": "dXJtYVEFFjk"
   },
-  "g1eZjGhN8oo": {
+  {
     "video_ids": "g1eZjGhN8oo"
   },
-  "jNQXAC9IVRw": {
+  {
     "video_ids": "jNQXAC9IVRw"
   },
-  "50 videos": {
+  {
     "video_ids": [
       "JpjzRMW41-o",
       "WLFGUfw1OH4",
@@ -62,4 +62,4 @@
       "b2BVYLyua88"
     ]
   }
-}
+]

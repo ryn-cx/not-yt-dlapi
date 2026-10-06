@@ -6,8 +6,8 @@ from typing import override
 from get_around import build_client_automatically, get_credential
 from good_ass_pydantic_integrator.recordings import (
     RecordingId,
-    download_named_missing,
-    load_named_ids,
+    download_missing,
+    load_ids,
     rebuild_model,
 )
 
@@ -33,12 +33,12 @@ class ShowsId(RecordingId[NotYTDLAPI]):
         return client.shows.download(season=seasons[self.season_index])
 
 
-SHOW_REQUESTS = load_named_ids(GENERATOR_PATHS, MODEL_NAME, ShowsId)
+SHOW_REQUESTS = load_ids(GENERATOR_PATHS, MODEL_NAME, ShowsId)
 
 
 # TODO: Validate
 def generate_shows(client: NotYTDLAPI) -> None:
-    download_named_missing(GENERATOR_PATHS, MODEL_NAME, SHOW_REQUESTS, client)
+    download_missing(GENERATOR_PATHS, MODEL_NAME, SHOW_REQUESTS, client)
     rebuild_model(GENERATOR_PATHS, MODEL_NAME, ShowsId)
 
 

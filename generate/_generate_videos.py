@@ -6,8 +6,8 @@ from typing import override
 from get_around import build_client_automatically, get_credential
 from good_ass_pydantic_integrator.recordings import (
     RecordingId,
-    download_named_missing,
-    load_named_ids,
+    download_missing,
+    load_ids,
     rebuild_model,
 )
 
@@ -25,16 +25,24 @@ class VideosId(RecordingId[NotYTDLAPI]):
 
     # TODO: Validate
     @override
+    def recording_name(self) -> str:
+        """Name a batch of videos after its first video and the count."""
+        if isinstance(self.video_ids, str):
+            return self.video_ids
+        return f"{self.video_ids[0]} +{len(self.video_ids) - 1}"
+
+    # TODO: Validate
+    @override
     def download(self, client: NotYTDLAPI) -> str:
         return client.videos.download(**self.model_dump(exclude_unset=True))
 
 
-VIDEO_REQUESTS = load_named_ids(GENERATOR_PATHS, MODEL_NAME, VideosId)
+VIDEO_REQUESTS = load_ids(GENERATOR_PATHS, MODEL_NAME, VideosId)
 
 
 # TODO: Validate
 def generate_videos(client: NotYTDLAPI) -> None:
-    download_named_missing(GENERATOR_PATHS, MODEL_NAME, VIDEO_REQUESTS, client)
+    download_missing(GENERATOR_PATHS, MODEL_NAME, VIDEO_REQUESTS, client)
     rebuild_model(GENERATOR_PATHS, MODEL_NAME, VideosId)
 
 
