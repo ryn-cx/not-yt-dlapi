@@ -46,6 +46,7 @@ class Snippet(BaseModel):
     thumbnails: Thumbnails | Any = Field(default=None, union_mode='left_to_right')
     localized: Localized | Any = Field(default=None, union_mode='left_to_right')
     country: str | Any = Field(default=None, union_mode='left_to_right')
+    default_language: str | Any = Field(None, alias='defaultLanguage', union_mode='left_to_right')
 
 class RelatedPlaylists(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
@@ -77,6 +78,7 @@ class Channel(BaseModel):
     unsubscribed_trailer: str | Any = Field(None, alias='unsubscribedTrailer', union_mode='left_to_right')
     country: str | Any = Field(default=None, union_mode='left_to_right')
     description: str | Any = Field(default=None, union_mode='left_to_right')
+    default_language: str | Any = Field(None, alias='defaultLanguage', union_mode='left_to_right')
 
 class Image(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
@@ -516,6 +518,11 @@ class PtBr(BaseModel):
     title: str | Any = Field(default=None, union_mode='left_to_right')
     description: str | Any = Field(default=None, union_mode='left_to_right')
 
+class EnUs(BaseModel):
+    model_config = ConfigDict(extra='ignore', defer_build=True)
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
+
 class Localizations(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
     ne: Ne | Any = Field(default=None, union_mode='left_to_right')
@@ -603,6 +610,7 @@ class Localizations(BaseModel):
     uz: Uz | Any = Field(default=None, union_mode='left_to_right')
     zh: Zh | Any = Field(default=None, union_mode='left_to_right')
     pt_br: PtBr | Any = Field(None, alias='pt-BR', union_mode='left_to_right')
+    en_us: EnUs | Any = Field(None, alias='en_US', union_mode='left_to_right')
 
 class Item(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)

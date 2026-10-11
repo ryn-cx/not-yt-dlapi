@@ -37,6 +37,24 @@ class High(BaseModel):
     width: int | Any = Field(default=None, union_mode='left_to_right')
     height: int | Any = Field(default=None, union_mode='left_to_right')
 
+class Fhd(BaseModel):
+    model_config = ConfigDict(extra='ignore', defer_build=True)
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
+
+class Uhd(BaseModel):
+    model_config = ConfigDict(extra='ignore', defer_build=True)
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
+
+class Qhd(BaseModel):
+    model_config = ConfigDict(extra='ignore', defer_build=True)
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
+
 class Thumbnails(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
     medium: Medium | Any = Field(default=None, union_mode='left_to_right')
@@ -44,6 +62,9 @@ class Thumbnails(BaseModel):
     maxres: Maxres | Any = Field(default=None, union_mode='left_to_right')
     default: Default | Any = Field(default=None, union_mode='left_to_right')
     high: High | Any = Field(default=None, union_mode='left_to_right')
+    fhd: Fhd | Any = Field(default=None, union_mode='left_to_right')
+    uhd: Uhd | Any = Field(default=None, union_mode='left_to_right')
+    qhd: Qhd | Any = Field(default=None, union_mode='left_to_right')
 
 class Localized(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
@@ -73,9 +94,15 @@ class Player(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
     embed_html: str | Any = Field(None, alias='embedHtml', union_mode='left_to_right')
 
+class En(BaseModel):
+    model_config = ConfigDict(extra='ignore', defer_build=True)
+    title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
+
 class Ja(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
     title: str | Any = Field(default=None, union_mode='left_to_right')
+    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class ZhTw(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
@@ -140,11 +167,6 @@ class De(BaseModel):
 class Hu(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
     title: str | Any = Field(default=None, union_mode='left_to_right')
-
-class En(BaseModel):
-    model_config = ConfigDict(extra='ignore', defer_build=True)
-    title: str | Any = Field(default=None, union_mode='left_to_right')
-    description: str | Any = Field(default=None, union_mode='left_to_right')
 
 class Mr(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
@@ -416,6 +438,7 @@ class EnXa(BaseModel):
 
 class Localizations(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
+    en: En | Any = Field(default=None, union_mode='left_to_right')
     ja: Ja | Any = Field(default=None, union_mode='left_to_right')
     zh_tw: ZhTw | Any = Field(None, alias='zh-TW', union_mode='left_to_right')
     sw: Sw | Any = Field(default=None, union_mode='left_to_right')
@@ -433,7 +456,6 @@ class Localizations(BaseModel):
     az: Az | Any = Field(default=None, union_mode='left_to_right')
     de: De | Any = Field(default=None, union_mode='left_to_right')
     hu: Hu | Any = Field(default=None, union_mode='left_to_right')
-    en: En | Any = Field(default=None, union_mode='left_to_right')
     mr: Mr | Any = Field(default=None, union_mode='left_to_right')
     uk: Uk | Any = Field(default=None, union_mode='left_to_right')
     cs: Cs | Any = Field(default=None, union_mode='left_to_right')

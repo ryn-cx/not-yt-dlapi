@@ -39,6 +39,18 @@ class Uhd(BaseModel):
     width: int
     height: int
 
+class Qhd(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    width: int
+    height: int
+
+class Fhd(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    width: int
+    height: int
+
 class Thumbnails(BaseModel):
     model_config = ConfigDict(defer_build=True)
     default: Default | None = None
@@ -47,6 +59,8 @@ class Thumbnails(BaseModel):
     standard: Standard | None = None
     maxres: Maxres | None = None
     uhd: Uhd | None = None
+    qhd: Qhd | None = None
+    fhd: Fhd | None = None
 
 class ResourceId(BaseModel):
     model_config = ConfigDict(defer_build=True)

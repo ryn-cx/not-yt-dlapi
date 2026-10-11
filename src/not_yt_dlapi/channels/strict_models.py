@@ -47,6 +47,7 @@ class Snippet(BaseModel):
     thumbnails: Thumbnails
     localized: Localized
     country: str | None = None
+    default_language: str | None = Field(None, alias='defaultLanguage')
 
 class RelatedPlaylists(BaseModel):
     model_config = ConfigDict(defer_build=True)
@@ -78,6 +79,7 @@ class Channel(BaseModel):
     unsubscribed_trailer: str | None = Field(None, alias='unsubscribedTrailer')
     country: str | None = None
     description: str | None = None
+    default_language: str | None = Field(None, alias='defaultLanguage')
 
 class Image(BaseModel):
     model_config = ConfigDict(defer_build=True)
@@ -86,7 +88,7 @@ class Image(BaseModel):
 class BrandingSettings(BaseModel):
     model_config = ConfigDict(defer_build=True)
     channel: Channel
-    image: Image
+    image: Image | None = None
 
 class TopicDetails(BaseModel):
     model_config = ConfigDict(defer_build=True)
@@ -321,7 +323,7 @@ class No(BaseModel):
 class En(BaseModel):
     model_config = ConfigDict(defer_build=True)
     title: str
-    description: str
+    description: str | None = None
 
 class Fil(BaseModel):
     model_config = ConfigDict(defer_build=True)
@@ -517,93 +519,99 @@ class PtBr(BaseModel):
     title: str
     description: str | None = None
 
+class EnUs(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
 class Localizations(BaseModel):
     model_config = ConfigDict(defer_build=True)
-    ne: Ne
-    bn: Bn
-    hy: Hy
-    ru: Ru
-    es_us: EsUs = Field(..., alias='es-US')
-    hr: Hr
-    hi: Hi
-    pa: Pa
-    en_in: EnIn = Field(..., alias='en-IN')
-    eu: Eu
-    pt_pt: PtPt = Field(..., alias='pt-PT')
-    hu: Hu
-    sk: Sk
-    ta: Ta
-    lo: Lo
-    sq: Sq
-    ja: Ja
-    km: Km
-    af: Af
-    es: Es
-    ur: Ur
-    et: Et
-    iw: Iw
-    sr: Sr
-    fi: Fi
-    da: Da
-    zh_tw: ZhTw = Field(..., alias='zh-TW')
-    de: De
-    cs: Cs
-    bs: Bs
-    as_: As = Field(..., alias='as')
-    my: My
-    sl: Sl
-    it: It
-    id: Id
-    be: Be
-    pl: Pl
-    en_gb: EnGb = Field(..., alias='en-GB')
-    zh_hk: ZhHk = Field(..., alias='zh-HK')
-    th: Th
-    is_: Is = Field(..., alias='is')
-    fr: Fr
-    ro: Ro
-    am: Am
-    no: No
-    en: En
-    fil: Fil
-    nl: Nl
-    fa: Fa
-    bg: Bg
-    sr_latn: SrLatn = Field(..., alias='sr-Latn')
-    mn: Mn
-    az: Az
-    kn: Kn
-    pt: Pt
-    sw: Sw
-    tr: Tr
-    sv: Sv
-    ca: Ca
-    ko: Ko
-    or_: Or = Field(..., alias='or')
-    ml: Ml
-    zh_cn: ZhCn = Field(..., alias='zh-CN')
-    mr: Mr
-    ky: Ky
-    zu: Zu
-    fr_ca: FrCa = Field(..., alias='fr-CA')
-    es_419: Es419 = Field(..., alias='es-419')
-    si: Si
-    ka: Ka
-    gu: Gu
-    ar: Ar
-    gl: Gl
-    vi: Vi
-    uk: Uk
-    lv: Lv
-    mk: Mk
-    kk: Kk
-    ms: Ms
-    lt: Lt
-    te: Te
-    el: El
-    uz: Uz
+    ne: Ne | None = None
+    bn: Bn | None = None
+    hy: Hy | None = None
+    ru: Ru | None = None
+    es_us: EsUs | None = Field(None, alias='es-US')
+    hr: Hr | None = None
+    hi: Hi | None = None
+    pa: Pa | None = None
+    en_in: EnIn | None = Field(None, alias='en-IN')
+    eu: Eu | None = None
+    pt_pt: PtPt | None = Field(None, alias='pt-PT')
+    hu: Hu | None = None
+    sk: Sk | None = None
+    ta: Ta | None = None
+    lo: Lo | None = None
+    sq: Sq | None = None
+    ja: Ja | None = None
+    km: Km | None = None
+    af: Af | None = None
+    es: Es | None = None
+    ur: Ur | None = None
+    et: Et | None = None
+    iw: Iw | None = None
+    sr: Sr | None = None
+    fi: Fi | None = None
+    da: Da | None = None
+    zh_tw: ZhTw | None = Field(None, alias='zh-TW')
+    de: De | None = None
+    cs: Cs | None = None
+    bs: Bs | None = None
+    as_: As | None = Field(None, alias='as')
+    my: My | None = None
+    sl: Sl | None = None
+    it: It | None = None
+    id: Id | None = None
+    be: Be | None = None
+    pl: Pl | None = None
+    en_gb: EnGb | None = Field(None, alias='en-GB')
+    zh_hk: ZhHk | None = Field(None, alias='zh-HK')
+    th: Th | None = None
+    is_: Is | None = Field(None, alias='is')
+    fr: Fr | None = None
+    ro: Ro | None = None
+    am: Am | None = None
+    no: No | None = None
+    en: En | None = None
+    fil: Fil | None = None
+    nl: Nl | None = None
+    fa: Fa | None = None
+    bg: Bg | None = None
+    sr_latn: SrLatn | None = Field(None, alias='sr-Latn')
+    mn: Mn | None = None
+    az: Az | None = None
+    kn: Kn | None = None
+    pt: Pt | None = None
+    sw: Sw | None = None
+    tr: Tr | None = None
+    sv: Sv | None = None
+    ca: Ca | None = None
+    ko: Ko | None = None
+    or_: Or | None = Field(None, alias='or')
+    ml: Ml | None = None
+    zh_cn: ZhCn | None = Field(None, alias='zh-CN')
+    mr: Mr | None = None
+    ky: Ky | None = None
+    zu: Zu | None = None
+    fr_ca: FrCa | None = Field(None, alias='fr-CA')
+    es_419: Es419 | None = Field(None, alias='es-419')
+    si: Si | None = None
+    ka: Ka | None = None
+    gu: Gu | None = None
+    ar: Ar | None = None
+    gl: Gl | None = None
+    vi: Vi | None = None
+    uk: Uk | None = None
+    lv: Lv | None = None
+    mk: Mk | None = None
+    kk: Kk | None = None
+    ms: Ms | None = None
+    lt: Lt | None = None
+    te: Te | None = None
+    el: El | None = None
+    uz: Uz | None = None
     zh: Zh | None = None
-    pt_br: PtBr = Field(..., alias='pt-BR')
+    pt_br: PtBr | None = Field(None, alias='pt-BR')
+    en_us: EnUs | None = Field(None, alias='en_US')
 
 class Item(BaseModel):
     model_config = ConfigDict(defer_build=True)

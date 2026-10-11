@@ -71,7 +71,7 @@ class PlaylistFeedModel(BaseModel):
     title: str
     author: Author
     published: AwareDatetime
-    entry: list[EntryItem]
+    entry: list[EntryItem] | None = None
     _raw_input: Any = PrivateAttr(default=None)
 
     @model_validator(mode='wrap')

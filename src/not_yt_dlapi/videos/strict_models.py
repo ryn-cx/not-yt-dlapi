@@ -35,6 +35,24 @@ class Maxres(BaseModel):
     width: int
     height: int
 
+class Fhd(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    width: int
+    height: int
+
+class Qhd(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    width: int
+    height: int
+
+class Uhd(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    url: str
+    width: int
+    height: int
+
 class Thumbnails(BaseModel):
     model_config = ConfigDict(defer_build=True)
     default: Default
@@ -42,6 +60,9 @@ class Thumbnails(BaseModel):
     high: High
     standard: Standard | None = None
     maxres: Maxres | None = None
+    fhd: Fhd | None = None
+    qhd: Qhd | None = None
+    uhd: Uhd | None = None
 
 class Localized(BaseModel):
     model_config = ConfigDict(defer_build=True)
@@ -56,27 +77,27 @@ class Snippet(BaseModel):
     description: str
     thumbnails: Thumbnails
     channel_title: str = Field(..., alias='channelTitle')
-    tags: list[str] | None = None
     category_id: str = Field(..., alias='categoryId')
     live_broadcast_content: str = Field(..., alias='liveBroadcastContent')
     default_language: str = Field(..., alias='defaultLanguage')
     localized: Localized
     default_audio_language: str | None = Field(None, alias='defaultAudioLanguage')
+    tags: list[str] | None = None
 
 class RegionRestriction(BaseModel):
     model_config = ConfigDict(defer_build=True)
-    blocked: list[str] | None = None
     allowed: list[str] | None = None
+    blocked: list[str] | None = None
 
 class ContentDetails(BaseModel):
     model_config = ConfigDict(defer_build=True)
-    duration: timedelta
     dimension: timedelta
     definition: str
     caption: str
     licensed_content: bool = Field(..., alias='licensedContent')
     content_rating: dict[str, Any] = Field(..., alias='contentRating')
     projection: str
+    duration: timedelta | None = None
     region_restriction: RegionRestriction | None = Field(None, alias='regionRestriction')
 
 class Status(BaseModel):
@@ -91,9 +112,9 @@ class Status(BaseModel):
 class Statistics(BaseModel):
     model_config = ConfigDict(defer_build=True)
     view_count: str | None = Field(None, alias='viewCount')
-    like_count: str = Field(..., alias='likeCount')
+    like_count: str | None = Field(None, alias='likeCount')
     favorite_count: str = Field(..., alias='favoriteCount')
-    comment_count: str = Field(..., alias='commentCount')
+    comment_count: str | None = Field(None, alias='commentCount')
 
 class Player(BaseModel):
     model_config = ConfigDict(defer_build=True)
@@ -115,37 +136,14 @@ class RecordingDetails(BaseModel):
     location: Location | None = None
     recording_date: AwareDatetime | None = Field(None, alias='recordingDate')
 
-class Id(BaseModel):
+class LiveStreamingDetails(BaseModel):
     model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
+    scheduled_start_time: AwareDatetime | None = Field(None, alias='scheduledStartTime')
+    active_live_chat_id: str | None = Field(None, alias='activeLiveChatId')
+    actual_start_time: AwareDatetime | None = Field(None, alias='actualStartTime')
+    actual_end_time: AwareDatetime | None = Field(None, alias='actualEndTime')
 
-class Ml(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class Ru(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str | None = None
-    description: str
-
-class Ja(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class Bn(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class Hi(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class Te(BaseModel):
+class EnUs(BaseModel):
     model_config = ConfigDict(defer_build=True)
     title: str
     description: str
@@ -155,17 +153,12 @@ class En(BaseModel):
     title: str
     description: str
 
-class NlNl(BaseModel):
+class Und(BaseModel):
     model_config = ConfigDict(defer_build=True)
     title: str
     description: str
 
-class Iw(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class It(BaseModel):
+class Hi(BaseModel):
     model_config = ConfigDict(defer_build=True)
     title: str
     description: str
@@ -175,37 +168,12 @@ class Ko(BaseModel):
     title: str
     description: str
 
-class EsUs(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
 class Ta(BaseModel):
     model_config = ConfigDict(defer_build=True)
     title: str
     description: str
 
-class DeDe(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class FrFr(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class PtBr(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class Pl(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class Uk(BaseModel):
+class Id(BaseModel):
     model_config = ConfigDict(defer_build=True)
     title: str
     description: str
@@ -215,17 +183,77 @@ class Pa(BaseModel):
     title: str
     description: str
 
+class EsUs(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
+class NlNl(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str | None = None
+    description: str
+
+class Pl(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
+class Te(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    description: str
+    title: str | None = None
+
+class Uk(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
+class It(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
+class Iw(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
+class Ml(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
+class FrFr(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
+class DeDe(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
+class Ru(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str | None = None
+    description: str
+
+class Bn(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
+class PtBr(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
+class Ja(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
 class Ar(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class EnGb(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    title: str
-    description: str
-
-class Und(BaseModel):
     model_config = ConfigDict(defer_build=True)
     title: str
     description: str
@@ -235,43 +263,42 @@ class De(BaseModel):
     title: str
     description: str
 
+class EnGb(BaseModel):
+    model_config = ConfigDict(defer_build=True)
+    title: str
+    description: str
+
 class Localizations(BaseModel):
     model_config = ConfigDict(defer_build=True)
-    id: Id | None = None
-    ml: Ml | None = None
-    ru: Ru | None = None
-    ja: Ja | None = None
-    bn: Bn | None = None
-    hi: Hi | None = None
-    te: Te | None = None
+    en_us: EnUs | None = Field(None, alias='en-US')
     en: En | None = None
-    nl_nl: NlNl | None = Field(None, alias='nl-NL')
-    iw: Iw | None = None
-    it: It | None = None
-    ko: Ko | None = None
-    es_us: EsUs | None = Field(None, alias='es-US')
-    ta: Ta | None = None
-    de_de: DeDe | None = Field(None, alias='de-DE')
-    fr_fr: FrFr | None = Field(None, alias='fr-FR')
-    pt_br: PtBr | None = Field(None, alias='pt-BR')
-    pl: Pl | None = None
-    uk: Uk | None = None
-    pa: Pa | None = None
-    ar: Ar | None = None
-    en_gb: EnGb | None = Field(None, alias='en-GB')
     und: Und | None = None
+    hi: Hi | None = None
+    ko: Ko | None = None
+    ta: Ta | None = None
+    id: Id | None = None
+    pa: Pa | None = None
+    es_us: EsUs | None = Field(None, alias='es-US')
+    nl_nl: NlNl | None = Field(None, alias='nl-NL')
+    pl: Pl | None = None
+    te: Te | None = None
+    uk: Uk | None = None
+    it: It | None = None
+    iw: Iw | None = None
+    ml: Ml | None = None
+    fr_fr: FrFr | None = Field(None, alias='fr-FR')
+    de_de: DeDe | None = Field(None, alias='de-DE')
+    ru: Ru | None = None
+    bn: Bn | None = None
+    pt_br: PtBr | None = Field(None, alias='pt-BR')
+    ja: Ja | None = None
+    ar: Ar | None = None
     de: De | None = None
+    en_gb: EnGb | None = Field(None, alias='en-GB')
 
 class PaidProductPlacementDetails(BaseModel):
     model_config = ConfigDict(defer_build=True)
     has_paid_product_placement: bool = Field(..., alias='hasPaidProductPlacement')
-
-class LiveStreamingDetails(BaseModel):
-    model_config = ConfigDict(defer_build=True)
-    actual_start_time: AwareDatetime | None = Field(None, alias='actualStartTime')
-    actual_end_time: AwareDatetime | None = Field(None, alias='actualEndTime')
-    scheduled_start_time: AwareDatetime | None = Field(None, alias='scheduledStartTime')
-    active_live_chat_id: str | None = Field(None, alias='activeLiveChatId')
 
 class Item(BaseModel):
     model_config = ConfigDict(defer_build=True)
@@ -285,9 +312,9 @@ class Item(BaseModel):
     player: Player
     topic_details: TopicDetails | None = Field(None, alias='topicDetails')
     recording_details: RecordingDetails = Field(..., alias='recordingDetails')
+    live_streaming_details: LiveStreamingDetails | None = Field(None, alias='liveStreamingDetails')
     localizations: Localizations
     paid_product_placement_details: PaidProductPlacementDetails = Field(..., alias='paidProductPlacementDetails')
-    live_streaming_details: LiveStreamingDetails | None = Field(None, alias='liveStreamingDetails')
 
 class PageInfo(BaseModel):
     model_config = ConfigDict(defer_build=True)

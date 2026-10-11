@@ -38,6 +38,18 @@ class Uhd(BaseModel):
     width: int | Any = Field(default=None, union_mode='left_to_right')
     height: int | Any = Field(default=None, union_mode='left_to_right')
 
+class Qhd(BaseModel):
+    model_config = ConfigDict(extra='ignore', defer_build=True)
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
+
+class Fhd(BaseModel):
+    model_config = ConfigDict(extra='ignore', defer_build=True)
+    url: str | Any = Field(default=None, union_mode='left_to_right')
+    width: int | Any = Field(default=None, union_mode='left_to_right')
+    height: int | Any = Field(default=None, union_mode='left_to_right')
+
 class Thumbnails(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
     default: Default | Any = Field(default=None, union_mode='left_to_right')
@@ -46,6 +58,8 @@ class Thumbnails(BaseModel):
     standard: Standard | Any = Field(default=None, union_mode='left_to_right')
     maxres: Maxres | Any = Field(default=None, union_mode='left_to_right')
     uhd: Uhd | Any = Field(default=None, union_mode='left_to_right')
+    qhd: Qhd | Any = Field(default=None, union_mode='left_to_right')
+    fhd: Fhd | Any = Field(default=None, union_mode='left_to_right')
 
 class ResourceId(BaseModel):
     model_config = ConfigDict(extra='ignore', defer_build=True)
